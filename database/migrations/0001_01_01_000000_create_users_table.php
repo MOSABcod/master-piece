@@ -11,15 +11,22 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('users', function (Blueprint $table) {
-            $table->id();
-            $table->string('name');
-            $table->string('email')->unique();
-            $table->timestamp('email_verified_at')->nullable();
-            $table->string('password');
-            $table->rememberToken();
-            $table->timestamps();
-        });
+   
+            Schema::create('users', function (Blueprint $table) {
+                $table->id(); // Primary key
+                $table->string('first_name', 50);
+                $table->string('last_name', 50);
+                $table->string('username', 50)->unique();
+                $table->string('password', 255);
+                $table->string('email', 100)->unique();
+                $table->integer('role'); // Possible values: 0 Student, 1 Teacher
+                $table->integer('age')->nullable(); // Applicable to students
+                $table->unsignedBigInteger('class_id')->nullable(); // Applicable to students and linked to classes for teachers
+                $table->timestamps(); // created_at and updated_at
+    
+                $table->foreign('class_id')->references('id')->on('classes')->onDelete('set null');
+            });
+        
 
         Schema::create('password_reset_tokens', function (Blueprint $table) {
             $table->string('email')->primary();

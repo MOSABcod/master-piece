@@ -13,11 +13,17 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        // User::factory(10)->create();
-
-        User::factory()->create([
-            'name' => 'Test User',
-            'email' => 'test@example.com',
+        $this->call([
+            ClassesTableSeeder::class,
+            CategoriesTableSeeder::class,
+            UsersTableSeeder::class,
+            MediaTableSeeder::class, // Should be run before Questions and QuestionOptions if they require media
+            ExamsTableSeeder::class,
+            QuestionsTableSeeder::class,
+            QuestionOptionsTableSeeder::class,
+            AnswersTableSeeder::class,
+            ResultsTableSeeder::class,
+            EnrollmentsTableSeeder::class, // Typically run after Users and Classes
         ]);
     }
 }
