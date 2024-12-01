@@ -42,3 +42,7 @@ Route::middleware('auth')->group(function () {
 });
 
 require __DIR__ . '/auth.php';
+// Fallback route for undefined URLs
+Route::fallback(function () {
+    abort(404); // This will trigger the 404 error page
+});
