@@ -23,15 +23,35 @@
         <a href="#" class="btn btn-lg btn-primary btn-lg-square back-to-top"><i class="bi bi-arrow-up"></i></a>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+    <!-- Success Message -->
+    @if(session('success'))
+        <script>
+            Swal.fire({
+                icon: 'success',
+                title: 'نجاح',
+                text: '{{ session('success') }}',
+                confirmButtonText: 'حسنًا'
+            });
+        </script>
+    @endif
+
+    <!-- Error Messages -->
     @if ($errors->any())
-    <script>
-        Swal.fire({
-            icon: 'error',
-            title: 'Oops...',
-            text: '{{ $errors->first() }}',  // Show the first error message
-        });
-    </script>
-@endif
+        <script>
+            let errorMessages = `
+                @foreach ($errors->all() as $error)
+                    {{ $error }}<br>
+                @endforeach
+            `;
+            Swal.fire({
+                icon: 'error',
+                title: 'خطأ',
+                html: errorMessages, // Display all errors
+                confirmButtonText: 'حسنًا'
+            });
+        </script>
+    @endif
     <!-- JavaScript Libraries -->
    <!-- External JavaScript Libraries -->
 <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
@@ -46,25 +66,7 @@
 
 <!-- Template Javascript -->
 <script src="{{ asset('admin/js/main.js') }}"></script>
-@if($errors->any())
-<script>
-    Swal.fire({
-        icon: 'error',
-        title: 'Oops...',
-        text: '{{ implode(' ', $errors->all()) }}',
-    });
-</script>
-@endif
 
-@if(session('error'))
-<script>
-    Swal.fire({
-        icon: 'error',
-        title: 'Error',
-        text: '{{ session('error') }}',
-    });
-</script>
-@endif
 </body>
 
 </html>
