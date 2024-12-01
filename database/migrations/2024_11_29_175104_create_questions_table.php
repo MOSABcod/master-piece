@@ -18,7 +18,7 @@ return new class extends Migration
             $table->text('question_text')->nullable(); // Question text (nullable)
             $table->unsignedBigInteger('question_image_id')->nullable(); // Foreign key to media.id (nullable)
             $table->integer('question_order'); // Order of the question in the exam
-            $table->int('answer_type'); // 'Input'= 1 or 'Radio' = 0
+            $table->integer('answer_type'); // 'Input'= 1 or 'Radio' = 0
             $table->timestamps(); // created_at and updated_at
 
             // Foreign key constraints
@@ -31,7 +31,7 @@ return new class extends Migration
     /**
      * Reverse the migrations.
      */
-    public function down(): void
+    public function down()
     {
         Schema::dropIfExists('questions');
     }
