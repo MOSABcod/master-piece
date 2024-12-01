@@ -10,6 +10,7 @@ Route::post('/upload-students', [StudentController::class, 'upload'])->name('stu
 Route::get('/', function () {
     return view('welcome');
 });
+
 Route::get('/viewTeachers', function () {
     return view('admin.pages.teachers.manageTeachers');
 })->name('viewTeachers');
@@ -45,4 +46,21 @@ require __DIR__ . '/auth.php';
 // Fallback route for undefined URLs
 Route::fallback(function () {
     abort(404); // This will trigger the 404 error page
+});
+
+
+
+
+// home page
+
+
+
+Route::get('/homepage', function () {
+    return view('user.pages.index');
+});
+Route::get('/mathFirst', function () {
+    return view('user.pages.mathQuizFirst');
+});
+Route::get('/mathSecondAndThird', function () {
+    return view('user.pages.mathQuizSecAndThird');
 });

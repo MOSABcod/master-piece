@@ -1,6 +1,4 @@
-@extends('admin.layout.mainlayout')
-
-@section('content')
+user
 <style>
     /* Force labels to align to the right in RTL */
     .form-floating label {
