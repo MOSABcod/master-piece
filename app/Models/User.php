@@ -18,11 +18,9 @@ class User extends Authenticatable
      * @var array<int, string>
      */
     protected $fillable = [
-        'first_name',
-        'last_name',
-        'username',
+        'name',
+        'national_id',
         'password',
-        'email',
         'role',
         'age',
         'class_id',
@@ -50,7 +48,7 @@ class User extends Authenticatable
             'password' => 'hashed',
         ];
     }
-     /**
+    /**
      * Get the class associated with the user.
      */
     public function class()
