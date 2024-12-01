@@ -1,13 +1,22 @@
 @extends('admin.layout.mainlayout')
 
 @section('content')
+<style>
+    /* Force labels to align to the right in RTL */
+    .form-floating label {
+        direction: rtl;
+        text-align: right;
+        right: 0; /* Ensure it sticks to the right side */
+        left: unset; /* Remove any left alignment */
+    }
+</style>
 
     <div class="container-fluid pt-4 px-4" style="direction: rtl; text-align: right;">
         <div class="col-sm-12 col-xl-12">
             <div class="bg-light rounded h-100 p-4">
                 <h6 class="mb-4">نموذج إدخال البيانات</h6>
                 <!-- Form for creating teacher -->
-                <form action="{{ route('teacher.store') }}" method="POST" enctype="multipart/form-data">
+                <form action="{{ route('student.store') }}" method="POST" enctype="multipart/form-data">
                     @csrf
                     <!-- Name -->
                     <div class="form-floating mb-3">

@@ -7,7 +7,12 @@
             <div class="bg-light text-center rounded p-4">
                 <div class="d-flex align-items-center justify-content-between mb-4">
                     <h6 class="mb-0">قائمة الطلاب</h6>
-                    <a href="{{ route('teacher.create') }}">إضافة طالب/ة</a>
+                    <div>
+                        <a href="{{ route('student.create') }}" class="btn btn-success me-2">إضافة طالب/ة</a>
+                        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#uploadModal">
+                            رفع ملف الطلاب
+                        </button>
+                    </div>
                 </div>
                 <div class="table-responsive">
                     <table class="table table-bordered table-hover mb-0" style="text-align: right;">
@@ -38,23 +43,23 @@
                                         @else
                                             {{ $user->role }}
                                         @endif
-                                    </td>                                    <td>{{ $user->age ?? 'غير متوفر' }}</td>
+                                    </td>
+                                    <td>{{ $user->age ?? 'غير متوفر' }}</td>
                                     <td>{{ $user->class_id ?? 'غير متوفر' }}</td>
                                     <td>
-                                       <!-- Edit Button -->
-<button class="btn btn-sm btn-transparnt"  data-bs-toggle="modal" data-bs-target="#editModal-{{ $user->id }}">
-    <i class="fas fa-edit"></i> تعديل
-</button>
+                                        <!-- Edit Button -->
+                                        <button class="btn btn-sm btn-transparent" data-bs-toggle="modal" data-bs-target="#editModal-{{ $user->id }}">
+                                            <i class="fas fa-edit"></i> تعديل
+                                        </button>
 
-<!-- Delete Button -->
-<form action="{{ route('teacher.destroy', $user->id) }}" method="POST" style="display: inline;" id="delete-form-{{ $user->id }}">
-    @csrf
-    @method('DELETE')
-    <button type="button" class="btn btn-sm btn-transparnt"  style="color: red" onclick="confirmDelete({{ $user->id }})">
-        <i class="fas fa-trash-alt"></i> حذف
-    </button>
-</form>
-
+                                        <!-- Delete Button -->
+                                        <form action="{{ route('student.destroy', $user->id) }}" method="POST" style="display: inline;" id="delete-form-{{ $user->id }}">
+                                            @csrf
+                                            @method('DELETE')
+                                            <button type="button" class="btn btn-sm btn-transparent" style="color: red" onclick="confirmDelete({{ $user->id }})">
+                                                <i class="fas fa-trash-alt"></i> حذف
+                                            </button>
+                                        </form>
                                     </td>
                                 </tr>
 
@@ -63,7 +68,7 @@
                                     <div class="modal-dialog modal-dialog-scrollable">
                                         <div class="modal-content" style="direction: rtl; text-align: right;">
                                             <div class="modal-header">
-                                                <h5 class="modal-title" id="editModalLabel-{{ $user->id }}">تعديل بيانات المعلم/ة</h5>
+                                                <h5 class="modal-title" id="editModalLabel-{{ $user->id }}">تعديل بيانات الطالب/ة</h5>
                                                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="إغلاق"></button>
                                             </div>
                                             <div class="modal-body">
@@ -117,6 +122,30 @@
                                     <td colspan="7" class="text-center">لا توجد بيانات لعرضها</td>
                                 </tr>
                             @endforelse
+
+                           <!-- Modal for File Upload -->
+<div class="modal fade" id="uploadModal" tabindex="-1" aria-labelledby="uploadModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" style="direction: rtl; text-align: right;">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="uploadModalLabel">رفع ملف الطلاب</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="إغلاق"></button>
+            </div>
+            <div class="modal-body">
+                <form action="{{ route('students.upload') }}" method="POST" enctype="multipart/form-data">
+                    @csrf
+                    <div class="mb-3">
+                        <label for="file" class="form-label">اختر ملف Excel أو CSV</label>
+                        <input type="file" name="file" id="file" class="form-control" required>
+                    </div>
+                    <button type="submit" class="btn btn-primary">رفع</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- End Modal -->
+
                         </tbody>
                     </table>
                 </div>
