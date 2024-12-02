@@ -14,14 +14,12 @@ class CreateRoadmapsTable extends Migration
         Schema::create('roadmaps', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('user_id');
-            $table->unsignedBigInteger('exam_id');
             $table->string('generated_by', 50)->default('ChatGPT');
             $table->text('response'); // Store the Markdown roadmap
             $table->timestamps();
 
             // Foreign key constraints
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
-            $table->foreign('exam_id')->references('id')->on('exams')->onDelete('cascade');
         });
     }
 

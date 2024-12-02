@@ -57,19 +57,19 @@ Route::fallback(function () {
 
 Route::get('/homepage', function () {
     return view('user.pages.index');
-});
+})->name('homepage');
 Route::get('/mathFirst', function () {
     return view('user.pages.math.mathQuizFirst');
-});
+})->name('mathFirst');
 Route::get('/mathSecondAndThird', function () {
     return view('user.pages.math.mathQuizSecAndThird');
-});
+})->name('mathSecondAndThird');
 Route::get('/arabicFirst', function () {
     return view('user.pages.arabic.first');
-});
+})->name('arabicFirst');
 Route::get('/arabicSecondAndThird', function () {
     return view('user.pages.arabic.secondAndThird');
-});
+})->name('arabicSecondAndThird');
 Route::get('/science', function () {
     return view('user.pages.science.science');
-});
+})->name('science');

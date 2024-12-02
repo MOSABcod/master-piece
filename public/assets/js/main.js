@@ -92,7 +92,7 @@ document.addEventListener("DOMContentLoaded", () => {
     // BANNER SLIDER JS END
 
 
-    // GALLERY SLIDER JS START 
+    // GALLERY SLIDER JS START
     new Swiper(".ed-gallery-slider", {
         slidesPerView: "auto",
         centeredSlides: true,
@@ -274,3 +274,33 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     });
 });
+// quiz timer
+const timerElement = document.getElementById('timer');
+let timeRemaining = 15 * 60; // 15 minutes in seconds
+
+const updateTimer = () => {
+    const minutes = Math.floor(timeRemaining / 60).toString().padStart(2, '0');
+    const seconds = (timeRemaining % 60).toString().padStart(2, '0');
+    timerElement.textContent = `${minutes}:${seconds}`;
+
+    // Change timer color based on remaining time
+    if (timeRemaining <= 3.75 * 60) { // Danger color for last 25%
+        timerElement.style.backgroundColor = '#ef4444'; // Red
+    } else if (timeRemaining <= 7.5 * 60) { // Warning color for half time
+        timerElement.style.backgroundColor = '#f59e0b'; // Orange
+    } else {
+        timerElement.style.backgroundColor = '#10b981'; // Green
+    }
+
+    if (timeRemaining === 0) {
+        clearInterval(timerInterval);
+        // Redirect to another page
+        window.location.href = '/timeout-page'; // Change to your redirect URL
+    }
+
+    timeRemaining--;
+};
+
+// Update the timer every second
+const timerInterval = setInterval(updateTimer, 1000);
+updateTimer(); // Initial call to set timer immediately

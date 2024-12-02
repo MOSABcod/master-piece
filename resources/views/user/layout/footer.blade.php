@@ -86,7 +86,28 @@
     </div>
 </footer>
 <!-- FOOTER SECTION END -->
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
+<script>
+    function confirmExamStart(button) {
+        const route = button.getAttribute('data-route');
+        Swal.fire({
+            title: 'هل أنت متأكد؟',
+            text: "ستبدأ الاختبار الآن.",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'نعم، ابدأ الاختبار!',
+            cancelButtonText: 'إلغاء'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                // Redirect to the specified route
+                window.location.href = route;
+            }
+        });
+    }
+</script>
 <!-- js -->
 <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
 <script src="assets/vendor/fslightbox/fslightbox.js"></script>

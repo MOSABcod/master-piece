@@ -167,12 +167,76 @@
             color: #9ca3af;
             cursor: not-allowed;
         }
+        .navigation-buttons {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+.left-buttons {
+    display: flex;
+    gap: 10px; /* Space between the button and the link */
+}
+
+button, a {
+    padding: 12px 20px;
+    font-size: 1rem;
+    font-weight: bold;
+    border: none;
+    border-radius: 8px;
+    text-decoration: none; /* Ensure the link looks like a button */
+    text-align: center;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.prev {
+    background-color: #d1d5db;
+    color: #374151;
+}
+
+.prev:hover {
+    background-color: #9ca3af;
+}
+
+.next {
+    background-color: #3b82f6;
+    color: white;
+}
+
+.next:hover {
+    background-color: #2563eb;
+}
+
+button:disabled {
+    background-color: #e5e7eb;
+    color: #9ca3af;
+    cursor: not-allowed;
+}
+.exit-link {
+    background-color: #ef4444; /* Red background */
+    color: white; /* White text */
+    text-decoration: none; /* Remove underline */
+    padding: 12px 20px; /* Button-like padding */
+    font-size: 1rem;
+    font-weight: bold;
+    border-radius: 8px;
+    text-align: center;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.exit-link:hover {
+    background-color: #dc2626; /* Darker red for hover effect */
+}
     </style>
 </head>
 
 <body>
     <div class="wrapper">
         <div class="container">
+            <div id="timer" class="timer">15:00</div>
+
             <h1>ورقة عمل</h1>
 
             <div class="question active">
@@ -770,11 +834,14 @@
 
 
 
-            <!-- Navigation Buttons -->
-            <div class="navigation-buttons">
+           <!-- Navigation Buttons -->
+           <div class="navigation-buttons">
+            <div class="left-buttons">
                 <button id="prev" class="prev" disabled>السابق</button>
-                <button id="next" class="next">التالي</button>
+                <a href="{{ route('homepage') }}" class="exit-link">الخروج من الامتحان</a>
             </div>
+            <button id="next" class="next">التالي</button>
+        </div>
         </div>
     </div>
 

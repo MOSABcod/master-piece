@@ -167,217 +167,286 @@
             color: #9ca3af;
             cursor: not-allowed;
         }
+        .navigation-buttons {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+.left-buttons {
+    display: flex;
+    gap: 10px; /* Space between the button and the link */
+}
+
+button, a {
+    padding: 12px 20px;
+    font-size: 1rem;
+    font-weight: bold;
+    border: none;
+    border-radius: 8px;
+    text-decoration: none; /* Ensure the link looks like a button */
+    text-align: center;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.prev {
+    background-color: #d1d5db;
+    color: #374151;
+}
+
+.prev:hover {
+    background-color: #9ca3af;
+}
+
+.next {
+    background-color: #3b82f6;
+    color: white;
+}
+
+.next:hover {
+    background-color: #2563eb;
+}
+
+button:disabled {
+    background-color: #e5e7eb;
+    color: #9ca3af;
+    cursor: not-allowed;
+}
+.exit-link {
+    background-color: #ef4444; /* Red background */
+    color: white; /* White text */
+    text-decoration: none; /* Remove underline */
+    padding: 12px 20px; /* Button-like padding */
+    font-size: 1rem;
+    font-weight: bold;
+    border-radius: 8px;
+    text-align: center;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.exit-link:hover {
+    background-color: #dc2626; /* Darker red for hover effect */
+}
     </style>
 </head>
 
 <body>
     <div class="wrapper">
         <div class="container">
+            <div id="timer" class="timer">15:00</div>
+
             <h1>ورقة عمل</h1>
 
-            <!-- Questions -->
-            <div class="question active">
-                <label>اختر العدد (اثنان).</label>
-                <div class="radio-group">
-                    <label><input type="radio" name="number" value="1"> 1</label>
-                    <label><input type="radio" name="number" value="2"> 2</label>
-                    <label><input type="radio" name="number" value="3"> 3</label>
-                </div>
-            </div>
-            <div class="question">
-                <label>اختر العدد (سبعة).</label>
-                <div class="radio-group">
-                    <label><input type="radio" name="number" value="5"> 5</label>
-                    <label><input type="radio" name="number" value="7"> 7</label>
-                    <label><input type="radio" name="number" value="8"> 8</label>
-                </div>
-            </div>
+           <!-- Questions -->
+<div class="question active">
+    <p>السؤال الأول</p>
+    <label>اختر العدد (اثنان).</label>
+    <div class="radio-group">
+        <label><input type="radio" name="number" value="1"> 1</label>
+        <label><input type="radio" name="number" value="2"> 2</label>
+        <label><input type="radio" name="number" value="3"> 3</label>
+    </div>
+</div>
+<div class="question">
+    <p>السؤال الثاني</p>
+    <label>اختر العدد (سبعة).</label>
+    <div class="radio-group">
+        <label><input type="radio" name="number" value="5"> 5</label>
+        <label><input type="radio" name="number" value="7"> 7</label>
+        <label><input type="radio" name="number" value="8"> 8</label>
+    </div>
+</div>
 
+<div class="question">
+    <p>السؤال الثالث</p>
+    <label>بداية أحمد 4 قطع شوكولاتة، إذا قُسمت كل قطعة إلى نصفين، كم قطعة شوكولاتة سيتناول كل منهما؟</label>
+    <input type="number" class="answer" placeholder="أدخل الإجابة">
+</div>
 
+<div class="question">
+    <p>السؤال الرابع</p>
+    <label>اشترى سالم 5 بالونات، إذا طار منها بالونان، كم بالونًا بقي معه؟</label>
+    <input type="number" class="answer" placeholder="أدخل الإجابة">
+</div>
 
-            <div class="question">
-                <label>بداية أحمد 4 قطع شوكولاتة، إذا قُسمت كل قطعة إلى نصفين، كم قطعة شوكولاتة سيتناول كل منهما؟</label>
-                <input type="number" class="answer" placeholder="أدخل الإجابة">
-            </div>
+<div class="question">
+    <p>السؤال الخامس</p>
+    <label>ما هو العدد الأكبر؟</label>
+    <div class="radio-group">
+        <label><input type="radio" name="largest-number" value="3"> العدد ثلاثة</label>
+        <label><input type="radio" name="largest-number" value="5"> العدد خمسة</label>
+        <label><input type="radio" name="largest-number" value="7"> العدد سبعة</label>
+        <label><input type="radio" name="largest-number" value="9"> العدد تسعة</label>
+    </div>
+</div>
 
-            <div class="question">
-                <label>اشترى سالم 5 بالونات، إذا طار منها بالونان، كم بالونًا بقي معه؟</label>
-                <input type="number" class="answer" placeholder="أدخل الإجابة">
-            </div>
+<div class="question">
+    <p>السؤال السادس</p>
+    <label>اختر المجموعة الأكثر.</label>
+    <div class="radio-group">
+        <label class="radio-item">
+            <input type="radio" name="most-stars" value="group1">
+            <span class="stars">⭐⭐⭐</span>
+        </label>
+        <label class="radio-item">
+            <input type="radio" name="most-stars" value="group2">
+            <span class="stars">⭐⭐⭐⭐⭐</span>
+        </label>
+    </div>
+</div>
 
-            <div class="question">
-                <label>ما هو العدد الأكبر؟</label>
+<div class="question">
+    <p>السؤال السابع</p>
+    <label>اختر المجموعة الأقل.</label>
+    <div class="radio-group">
+        <label class="radio-item">
+            <input type="radio" name="most-stars" value="group1">
+            <span class="stars">⭐</span>
+        </label>
+        <label class="radio-item">
+            <input type="radio" name="most-stars" value="group2">
+            <span class="stars">⭐⭐⭐</span>
+        </label>
+    </div>
+</div>
 
-                <div class="radio-group">
-                    <label><input type="radio" name="largest-number" value="3"> العدد ثلاثة</label>
-                    <label><input type="radio" name="largest-number" value="5"> العدد خمسة</label>
-                    <label><input type="radio" name="largest-number" value="7"> العدد سبعة</label>
-                    <label><input type="radio" name="largest-number" value="9"> العدد تسعة</label>
-                </div>
-            </div>
+<div class="question">
+    <p>السؤال الثامن</p>
+    <label>اختر المجموعة الأقل.</label>
+    <div class="radio-group">
+        <label class="radio-item">
+            <input type="radio" name="most-stars" value="group1">
+            <span class="stars">⭐⭐⭐⭐</span><br>
+            <span class="stars" style="margin-right:29px">⭐⭐⭐⭐</span>
+        </label>
+        <label class="radio-item">
+            <input type="radio" name="most-stars" value="group2">
+            <span class="stars">⭐⭐⭐</span><br>
+            <span class="stars" style="margin-right:29px">⭐⭐⭐</span>
+        </label>
+    </div>
+</div>
 
-            <div class="question">
-                <label>اختر   المجموعة الأكثر.</label>
-                <div class="radio-group">
-                    <!-- First Group -->
-                    <label class="radio-item">
-                        <input type="radio" name="most-stars" value="group1">
-                        <span class="stars">⭐⭐⭐</span>
-                    </label>
-                    <!-- Second Group -->
-                    <label class="radio-item">
-                        <input type="radio" name="most-stars" value="group2">
-                        <span class="stars">⭐⭐⭐⭐⭐</span>
-                    </label>
-                </div>
-            </div>
-            <div class="question">
-                <label>اختر   المجموعة الاقل.</label>
-                <div class="radio-group">
-                    <!-- First Group -->
-                    <label class="radio-item">
-                        <input type="radio" name="most-stars" value="group1">
-                        <span class="stars">⭐</span>
-                    </label>
-                    <!-- Second Group -->
-                    <label class="radio-item">
-                        <input type="radio" name="most-stars" value="group2">
-                        <span class="stars">⭐⭐⭐</span>
-                    </label>
-                </div>
-            </div>
-            <div class="question">
-                <label>اختر   المجموعة الاقل.</label>
-                <div class="radio-group">
-                    <!-- First Group -->
-                    <label class="radio-item">
-                        <input type="radio" name="most-stars" value="group1">
-                        <span class="stars">⭐⭐⭐⭐</span><br>
-                        <span class="stars" style="margin-right:29px">⭐⭐⭐⭐</span>
-                    </label>
-                    <!-- Second Group -->
-                    <label class="radio-item">
-                        <input type="radio" name="most-stars" value="group2">
-                        <span class="stars">⭐⭐⭐</span><br>
-                        <span class="stars" style="margin-right:29px">⭐⭐⭐</span>
-                    </label>
-                </div>
-            </div>
+<div class="question">
+    <p>السؤال التاسع</p>
+    <label>اختر العدد الأكبر؟</label>
+    <div class="radio-group">
+        <label><input type="radio" name="largest-number" value="6"> 6 </label>
+        <label><input type="radio" name="largest-number" value="7"> 7 </label>
+        <label><input type="radio" name="largest-number" value="9"> 9 </label>
+    </div>
+</div>
 
-            <div class="question">
-                <label>اختر العدد الأكبر؟</label>
+<div class="question">
+    <p>السؤال العاشر</p>
+    <label>اختر العدد الأصغر؟</label>
+    <div class="radio-group">
+        <label><input type="radio" name="largest-number" value="11"> 11 </label>
+        <label><input type="radio" name="largest-number" value="7"> 7 </label>
+        <label><input type="radio" name="largest-number" value="4"> 4 </label>
+    </div>
+</div>
 
-                <div class="radio-group">
-                    <label><input type="radio" name="largest-number" value="6"> 6 </label>
-                    <label><input type="radio" name="largest-number" value="7"> 7 </label>
-                    <label><input type="radio" name="largest-number" value="9"> 9 </label>
-                </div>
-            </div>
-
-            <div class="question">
-                <label>اختر العدد الأصغر؟</label>
-
-                <div class="radio-group">
-                    <label><input type="radio" name="largest-number" value="11"> 11 </label>
-                    <label><input type="radio" name="largest-number" value="7"> 7 </label>
-                    <label><input type="radio" name="largest-number" value="4"> 4 </label>
-                </div>
-            </div>
-
-            <div class="question">
+<div class="question">
+    <p>السؤال الحادي عشر</p>
     <label>مع محمد 9 تفاحات (🍎)، أراد أن يضع كل 3 تفاحات (🍎) في كيس، كم كيسًا يحتاج؟</label>
-                <input type="number" class="answer" placeholder="أدخل الإجابة">
-            </div>
+    <input type="number" class="answer" placeholder="أدخل الإجابة">
+</div>
 
-            <div class="question">
+<div class="question">
+    <p>السؤال الثاني عشر</p>
     <label>اشترى محمد 4 دفاتر (📕) وأعطاه عمه 6 دفاتر (📕) أخرى، كم دفترًا أصبح مع محمد؟</label>
-                <input type="number" class="answer" placeholder="أدخل الإجابة">
-            </div>
-            <div class="question">
-                <label>ما عدد النجوم (⭐)؟ ضع دائرة حول العدد المناسب.</label>
-                <div class="stars-box mb-4">
-                    <div class="stars">
-                        ⭐ ⭐ ⭐ ⭐ ⭐ ⭐ ⭐ ⭐ ⭐ ⭐ ⭐ ⭐ ⭐ ⭐ ⭐ ⭐ ⭐ ⭐ ⭐ ⭐ ⭐
-                    </div>
-                </div>
-                <div class="radio-group flex justify-center gap-8">
-                    <label class="flex items-center gap-2 text-lg">
-                        <input type="radio" name="star-count" value="22" class="accent-blue-500">
-                        22
-                    </label>
-                    <label class="flex items-center gap-2 text-lg">
-                        <input type="radio" name="star-count" value="21" class="accent-blue-500">
-                        21
-                    </label>
-                    <label class="flex items-center gap-2 text-lg">
-                        <input type="radio" name="star-count" value="15" class="accent-blue-500">
-                        15
-                    </label>
-                </div>
-            </div>
-            <div class="question mt-6">
-                <label class="mb-4 block text-lg font-semibold text-gray-700">اكتب في المربع ما يتبقى عندما تأخذ 4 من 9.</label>
-                <div class="equation-box mx-auto flex items-center justify-center border border-gray-300 rounded-lg p-4 bg-gray-50 w-full max-w-md" >
-                    <span class="text-lg font-bold mx-2 text-gray-700" >9 - 4 = </span>
-                    <input type="number" style="    margin-top: 10px;    margin-bottom: 10px; width:25%" class="answer answer-input text-lg border border-gray-400 rounded-md text-center focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="؟">
-                </div>
-            </div>
+    <input type="number" class="answer" placeholder="أدخل الإجابة">
+</div>
 
-            <div class="question mt-6">
-                <label class="mb-4 block text-lg font-semibold text-gray-700">اكتب العدد الذي إذا أضفنا له 2 يصبح لدينا 5.</label>
-                <div class="equation-box mx-auto flex items-center justify-center border border-gray-300 rounded-lg p-4 bg-gray-50 w-full max-w-md">
-                    <input type="number"
-                           class="answer answer-input text-lg border border-gray-400 rounded-md text-center focus:outline-none focus:ring-2 focus:ring-blue-500 mx-2"
-                           placeholder="؟"
-                           style="width: 25%; margin-top: 10px; margin-bottom: 10px;">
-                    <span class="text-lg font-bold mx-2 text-gray-700">+ 2 = 5</span>
-                </div>
-            </div>
-            <div class="question mt-6">
-                <label class="mb-4 block text-lg font-semibold text-gray-700">اكتب العدد الذي إذا طرحناه من 8 يصبح لدينا 6.</label>
-                <div class="equation-box mx-auto flex items-center justify-center border border-gray-300 rounded-lg p-4 bg-gray-50 w-full max-w-md">
-                    <span class="text-lg font-bold mx-2 text-gray-700">8 -</span>
-                    <input type="number"
-                           class="answer answer-input text-lg border border-gray-400 rounded-md text-center focus:outline-none focus:ring-2 focus:ring-blue-500 mx-2"
-                           placeholder="؟"
-                           style="width: 25%; margin-top: 10px; margin-bottom: 10px;">
-                    <span class="text-lg font-bold mx-2 text-gray-700">= 6</span>
-                </div>
-            </div>
-            <div class="question mt-6">
-                <label class="mb-4 block text-lg font-semibold text-gray-700">اكتب الناتج عند إضافة 2 إلى 7.</label>
-                <div class="equation-box mx-auto flex items-center justify-center border border-gray-300 rounded-lg p-4 bg-gray-50 w-full max-w-md">
-                    <span class="text-lg font-bold mx-2 text-gray-700">7 + 2 =</span>
-                    <input type="number"
-                           class="answer answer-input text-lg border border-gray-400 rounded-md text-center focus:outline-none focus:ring-2 focus:ring-blue-500 mx-2"
-                           placeholder="؟"
-                           style="width: 25%; margin-top: 10px; margin-bottom: 10px;">
-                </div>
-            </div>
-            <div class="question mt-6">
-                <label class="mb-4 block text-lg font-semibold text-gray-700">اكتب العدد الذي إذا أضفناه إلى 16 يصبح الناتج 20.</label>
-                <div class="equation-box mx-auto flex items-center justify-center border border-gray-300 rounded-lg p-4 bg-gray-50 w-full max-w-md">
-                    <span class="text-lg font-bold mx-2 text-gray-700">16 +</span>
-                    <input type="number"
-                           class="answer answer-input text-lg border border-gray-400 rounded-md text-center focus:outline-none focus:ring-2 focus:ring-blue-500 mx-2"
-                           placeholder="؟"
-                           style="width: 25%; margin-top: 10px; margin-bottom: 10px;">
-                    <span class="text-lg font-bold mx-2 text-gray-700">= 20</span>
-                </div>
-            </div>
-
-
-
-
-            <!-- Navigation Buttons -->
-            <div class="navigation-buttons">
-                <button id="prev" class="prev" disabled>السابق</button>
-                <button id="next" class="next">التالي</button>
-            </div>
+<div class="question">
+    <p>السؤال الثالث عشر</p>
+    <label>ما عدد النجوم (⭐)؟ ضع دائرة حول العدد المناسب.</label>
+    <div class="stars-box mb-4">
+        <div class="stars">
+            ⭐ ⭐ ⭐ ⭐ ⭐ ⭐ ⭐ ⭐ ⭐ ⭐ ⭐ ⭐ ⭐ ⭐ ⭐ ⭐ ⭐ ⭐ ⭐ ⭐ ⭐
         </div>
     </div>
+    <div class="radio-group flex justify-center gap-8">
+        <label class="flex items-center gap-2 text-lg">
+            <input type="radio" name="star-count" value="22" class="accent-blue-500">
+            22
+        </label>
+        <label class="flex items-center gap-2 text-lg">
+            <input type="radio" name="star-count" value="21" class="accent-blue-500">
+            21
+        </label>
+        <label class="flex items-center gap-2 text-lg">
+            <input type="radio" name="star-count" value="15" class="accent-blue-500">
+            15
+        </label>
+    </div>
+</div>
 
+<div class="question mt-6">
+    <p>السؤال الرابع عشر</p>
+    <label>اكتب في المربع ما يتبقى عندما تأخذ 4 من 9.</label>
+    <div class="equation-box mx-auto flex items-center justify-center border border-gray-300 rounded-lg p-4 bg-gray-50 w-full max-w-md">
+        <span class="text-lg font-bold mx-2 text-gray-700">9 - 4 = </span>
+        <input type="number" class="answer answer-input text-lg border border-gray-400 rounded-md text-center focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="؟" style="width:25%; margin-top: 10px; margin-bottom: 10px;">
+    </div>
+</div>
+
+<div class="question mt-6">
+    <p>السؤال الخامس عشر</p>
+    <label>اكتب العدد الذي إذا أضفنا له 2 يصبح لدينا 5.</label>
+    <div class="equation-box mx-auto flex items-center justify-center border border-gray-300 rounded-lg p-4 bg-gray-50 w-full max-w-md">
+        <input type="number" class="answer answer-input text-lg border border-gray-400 rounded-md text-center focus:outline-none focus:ring-2 focus:ring-blue-500 mx-2" placeholder="؟" style="width: 25%; margin-top: 10px; margin-bottom: 10px;">
+        <span class="text-lg font-bold mx-2 text-gray-700">+ 2 = 5</span>
+    </div>
+</div>
+
+<div class="question mt-6">
+    <p>السؤال السادس عشر</p>
+    <label>اكتب العدد الذي إذا طرحناه من 8 يصبح لدينا 6.</label>
+    <div class="equation-box mx-auto flex items-center justify-center border border-gray-300 rounded-lg p-4 bg-gray-50 w-full max-w-md">
+        <span class="text-lg font-bold mx-2 text-gray-700">8 -</span>
+        <input type="number" class="answer answer-input text-lg border border-gray-400 rounded-md text-center focus:outline-none focus:ring-2 focus:ring-blue-500 mx-2" placeholder="؟" style="width: 25%; margin-top: 10px; margin-bottom: 10px;">
+        <span class="text-lg font-bold mx-2 text-gray-700">= 6</span>
+    </div>
+</div>
+
+<div class="question mt-6">
+    <p>السؤال السابع عشر</p>
+    <label>اكتب الناتج عند إضافة 2 إلى 7.</label>
+    <div class="equation-box mx-auto flex items-center justify-center border border-gray-300 rounded-lg p-4 bg-gray-50 w-full max-w-md">
+        <span class="text-lg font-bold mx-2 text-gray-700">7 + 2 =</span>
+        <input type="number" class="answer answer-input text-lg border border-gray-400 rounded-md text-center focus:outline-none focus:ring-2 focus:ring-blue-500 mx-2" placeholder="؟" style="width: 25%; margin-top: 10px; margin-bottom: 10px;">
+    </div>
+</div>
+
+<div class="question mt-6">
+    <p>السؤال الثامن عشر</p>
+    <label>اكتب العدد الذي إذا أضفناه إلى 16 يصبح الناتج 20.</label>
+    <div class="equation-box mx-auto flex items-center justify-center border border-gray-300 rounded-lg p-4 bg-gray-50 w-full max-w-md">
+        <span class="text-lg font-bold mx-2 text-gray-700">16 +</span>
+        <input type="number" class="answer answer-input text-lg border border-gray-400 rounded-md text-center focus:outline-none focus:ring-2 focus:ring-blue-500 mx-2" placeholder="؟" style="width: 25%; margin-top: 10px; margin-bottom: 10px;">
+        <span class="text-lg font-bold mx-2 text-gray-700">= 20</span>
+    </div>
+</div>
+
+  <!-- Navigation Buttons -->
+  <div class="navigation-buttons">
+    <div class="left-buttons">
+        <button id="prev" class="prev" disabled>السابق</button>
+        <a href="{{ route('homepage') }}" class="exit-link">الخروج من الامتحان</a>
+    </div>
+    <button id="next" class="next">التالي</button>
+</div>
+        </div>
+    </div>
     <script>
+
+    </script>
+    <script>
+
         const questions = document.querySelectorAll('.question');
         const prevButton = document.getElementById('prev');
         const nextButton = document.getElementById('next');

@@ -167,6 +167,68 @@
             color: #9ca3af;
             cursor: not-allowed;
         }
+        .navigation-buttons {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+.left-buttons {
+    display: flex;
+    gap: 10px; /* Space between the button and the link */
+}
+
+button, a {
+    padding: 12px 20px;
+    font-size: 1rem;
+    font-weight: bold;
+    border: none;
+    border-radius: 8px;
+    text-decoration: none; /* Ensure the link looks like a button */
+    text-align: center;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.prev {
+    background-color: #d1d5db;
+    color: #374151;
+}
+
+.prev:hover {
+    background-color: #9ca3af;
+}
+
+.next {
+    background-color: #3b82f6;
+    color: white;
+}
+
+.next:hover {
+    background-color: #2563eb;
+}
+
+button:disabled {
+    background-color: #e5e7eb;
+    color: #9ca3af;
+    cursor: not-allowed;
+}
+.exit-link {
+    background-color: #ef4444; /* Red background */
+    color: white; /* White text */
+    text-decoration: none; /* Remove underline */
+    padding: 12px 20px; /* Button-like padding */
+    font-size: 1rem;
+    font-weight: bold;
+    border-radius: 8px;
+    text-align: center;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.exit-link:hover {
+    background-color: #dc2626; /* Darker red for hover effect */
+}
     </style>
 </head>
 
@@ -174,9 +236,12 @@
     <div class="wrapper">
         <div class="container">
             <h1>ورقة عمل</h1>
+            <div id="timer" class="timer">15:00</div>
 
             <!-- Questions -->
 <div class="question active">
+    <p>السؤال الاول </p>
+
     <label class="mb-4 block text-lg font-semibold text-gray-700">
         كوكب الأرض الوحيد الذي يوجد عليه حياة بسبب:
     </label>
@@ -203,6 +268,8 @@
 </div>
 <!-- Questions -->
 <div class="question ">
+    <p>السؤال الثاني </p>
+
     <label class="mb-4 block text-lg font-semibold text-gray-700">
         تدور الأرض حول نفسها كل ساعة:
     </label>
@@ -228,6 +295,8 @@
 
 <!-- Questions -->
 <div class="question ">
+    <p>السؤال الثالث </p>
+
     <label class="mb-4 block text-lg font-semibold text-gray-700">
         مكونات النظام البيئي:
     </label>
@@ -252,6 +321,8 @@
 </div>
 <!-- Questions -->
 <div class="question ">
+    <p>السؤال الرابع </p>
+
     <label class="mb-4 block text-lg font-semibold text-gray-700">
         ما هو الإهتزاز الذي يحدث لصخور الأرض:
     </label>
@@ -272,6 +343,8 @@
 </div>
 <!-- Questions -->
 <div class="question active">
+    <p>السؤال الخامس </p>
+
     <label class="mb-4 block text-lg font-semibold text-gray-700">
         الطاقة الشمسية و الرياح:
     </label>
@@ -297,6 +370,8 @@
 
 <!-- Questions -->
 <div class="question ">
+    <p>السؤال السادس </p>
+
     <label class="mb-4 block text-lg font-semibold text-gray-700">
         يحفر الناس حفر عميقة للوصول إلى ..................... تسمى الآبار:
     </label>
@@ -317,6 +392,8 @@
 </div>
 <!-- Questions -->
 <div class="question active">
+    <p>السؤال السابع </p>
+
     <label class="mb-4 block text-lg font-semibold text-gray-700">
         مصدر المياه المالحة على كوكب الأرض هو:
     </label>
@@ -333,6 +410,8 @@
 </div>
 <!-- Questions -->
 <div class="question active">
+    <p>السؤال الثامن </p>
+
     <label class="mb-4 block text-lg font-semibold text-gray-700">
         تستخدم الأحافير لـ؟
     </label>
@@ -357,6 +436,8 @@
 </div>
 <!-- Questions -->
 <div class="question active">
+    <p>السؤال التاسع </p>
+
     <label class="mb-4 block text-lg font-semibold text-gray-700">
         النفط والفحم الحجري يعدان من؟
     </label>
@@ -377,6 +458,8 @@
 </div>
 <!-- Questions -->
 <div class="question active">
+    <p>السؤال العاشر </p>
+
     <label class="mb-4 block text-lg font-semibold text-gray-700">
         هي معالم طبيعية لسطح الأرض:
     </label>
@@ -397,6 +480,8 @@
 </div>
 <!-- Questions -->
 <div class="question active">
+    <p>السؤال الحادي عشر </p>
+
     <label class="mb-4 block text-lg font-semibold text-gray-700">
         يعتبر المرجان مثالا للكائنات الحية:
     </label>
@@ -415,10 +500,14 @@
 
             <!-- Navigation Buttons -->
             <div class="navigation-buttons">
-                <button id="prev" class="prev" disabled>السابق</button>
+                <div class="left-buttons">
+                    <button id="prev" class="prev" disabled>السابق</button>
+                    <a href="{{ route('homepage') }}" class="exit-link">الخروج من الامتحان</a>
+                </div>
                 <button id="next" class="next">التالي</button>
             </div>
-        </div>
+
+    </div>
     </div>
 
     <script>
