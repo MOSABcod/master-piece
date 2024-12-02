@@ -188,6 +188,11 @@
                     <!-- Second Option -->
                     <label class="radio-item flex flex-col items-center gap-2 cursor-pointer">
                         <input type="radio" name="word-choice" value="option2" class="form-radio w-5 h-5">
+                        <span style="font-size: 1.2em; font-weight: bold;">عَنيدُ</span>
+                    </label>
+                    <!-- Third Option -->
+                    <label class="radio-item flex flex-col items-center gap-2 cursor-pointer">
+                        <input type="radio" name="word-choice" value="option2" class="form-radio w-5 h-5">
                         <span style="font-size: 1.2em; font-weight: bold;">عيدُ</span>
                     </label>
                     <!-- Third Option -->
@@ -203,20 +208,20 @@
     </label>
     <div class="radio-group flex justify-between items-center px-4 py-3 border border-gray-300 rounded-md bg-gray-100">
         <label class="radio-item flex items-center gap-2">
-            <input type="radio" name="replace-syllable" value="سَمَع">
-            <span>سَمَع</span>
+            <input type="radio" name="replace-syllable" value="سَمَعَ">
+            <span>سَمَعَ</span>
         </label>
         <label class="radio-item flex items-center gap-2">
-            <input type="radio" name="replace-syllable" value="لَمَع">
-            <span>لَمَع</span>
+            <input type="radio" name="replace-syllable" value="لَمَعَ">
+            <span>لَمَعَ</span>
         </label>
         <label class="radio-item flex items-center gap-2">
-            <input type="radio" name="replace-syllable" value="قَمَع">
-            <span>قَمَع</span>
+            <input type="radio" name="replace-syllable" value="قَمَعَ">
+            <span>قَمَعَ</span>
         </label>
         <label class="radio-item flex items-center gap-2">
-            <input type="radio" name="replace-syllable" value="وَضَع">
-            <span>وَضَع</span>
+            <input type="radio" name="replace-syllable" value="وَضَعَ">
+            <span>وَضَعَ</span>
         </label>
     </div>
 </div>
@@ -227,20 +232,20 @@
     </label>
     <div class="radio-group flex justify-between items-center px-4 py-3 border border-gray-300 rounded-md bg-gray-100">
         <label class="radio-item flex items-center gap-2">
-            <input type="radio" name="word-with-madd" value="محمود">
-            <span>مَحْمُودُ</span>
+            <input type="radio" name="word-with-madd" value="مَحْمُودٌ">
+            <span>مَحْمُودٌ</span>
         </label>
         <label class="radio-item flex items-center gap-2">
-            <input type="radio" name="word-with-madd" value="عماد">
-            <span>عِمَادُ</span>
+            <input type="radio" name="word-with-madd" value="عِمَادٌ">
+            <span>عِمَادٌ</span>
         </label>
         <label class="radio-item flex items-center gap-2">
-            <input type="radio" name="word-with-madd" value="جميل">
-            <span>جَمِيلُ</span>
+            <input type="radio" name="word-with-madd" value="جَمِيلٌ">
+            <span>جَمِيلٌ</span>
         </label>
         <label class="radio-item flex items-center gap-2">
-            <input type="radio" name="word-with-madd" value="كتاب">
-            <span>كِتَابُ</span>
+            <input type="radio" name="word-with-madd" value="كِتَابٌ">
+            <span>كِتَابٌ</span>
         </label>
     </div>
 </div>
@@ -248,24 +253,24 @@
 
 <div class="question">
     <label class="mb-4 block text-lg font-semibold text-gray-700">
-        ضع دائرة حول كلمة (<span style="font-size: 1.2em; font-weight: bold;">عَلَمْ</span>).
+        ضع دائرة حول كلمة (<span style="font-size: 1.2em; font-weight: bold;">عَلَََمَ</span>).
     </label>
     <div class="radio-group flex justify-between items-center px-4 py-3 border border-gray-300 rounded-md bg-gray-100">
         <label class="radio-item flex items-center gap-2">
-            <input type="radio" name="choose-word" value="عَلَمْ">
-            <span>عَلَمْ</span>
+            <input type="radio" name="choose-word" value="عَلِمْ">
+            <span>عَلِمْ</span>
         </label>
         <label class="radio-item flex items-center gap-2">
-            <input type="radio" name="choose-word" value="عَلَمَ">
-            <span>عَلَمَ</span>
+            <input type="radio" name="choose-word" value="عَلَََمَ">
+            <span>عَلَََمَ</span>
         </label>
         <label class="radio-item flex items-center gap-2">
-            <input type="radio" name="choose-word" value="عَلِمَ">
-            <span>عَلِمَ</span>
+            <input type="radio" name="choose-word" value="عِلْمُ">
+            <span>عِلْمُ</span>
         </label>
         <label class="radio-item flex items-center gap-2">
-            <input type="radio" name="choose-word" value="عَلَمٌ">
-            <span>عَلَمٌ</span>
+            <input type="radio" name="choose-word" value="عَلَمُ">
+            <span>عَلَمُ</span>
         </label>
     </div>
 </div>
@@ -372,102 +377,43 @@
 </div>
 <div class="question">
     <label class="mb-4 block text-lg font-semibold text-gray-700">
-        ضع دائرة حول التحليل الصحيح لكلمة (<span style="font-size: 1.2em; font-weight: bold;">مَـجْـلِـسُ</span>).
-    </label>
-    <div class="radio-group flex justify-around items-center px-4 py-3 border border-gray-300 rounded-md bg-gray-100">
-        <!-- First Option -->
-        <label class="radio-item flex flex-col items-center cursor-pointer"  style="display: flex;flex-direction: row;">
-            <input type="radio" name="analysis" value="option1" class="form-radio w-5 h-5 mb-2">
-            <span class="text-gray-700">
-                <div class="grid grid-cols-5 gap-2">
-                    <span>اِسْ</span>
-                    <span>تَـ</span>
-                    <span>نْـ</span>
-                    <span>نْـ</span>
-                    <span>قَ</span>
-                </div>
-            </span>
-        </label>
-
-        <!-- Second Option -->
-        <label class="radio-item flex flex-col items-center cursor-pointer"  style="display: flex;flex-direction: row;">
-            <input type="radio" name="analysis" value="option2" class="form-radio w-5 h-5 mb-2">
-            <span class="text-gray-700">
-                <div class="grid grid-cols-3 gap-2">
-                    <span>مَـجَـ</span>
-                    <span>لَـ</span>
-                    <span>شَـ</span>
-                </div>
-            </span>
-        </label>
-
-        <!-- Third Option -->
-        <label class="radio-item flex flex-col items-center cursor-pointer"  style="display: flex;flex-direction: row;">
-            <input type="radio" name="analysis" value="option3" class="form-radio w-5 h-5 mb-2">
-            <span class="text-gray-700">
-                <div class="grid grid-cols-3 gap-2">
-                    <span>مَـجْـ</span>
-                    <span></span>
-                    <span>لِـسْ</span>
-                </div>
-            </span>
-        </label>
-    </div>
-</div>
-<div class="question">
-    <label class="mb-4 block text-lg font-semibold text-gray-700">
         ضع دائرة حول التحليل الصحيح لكلمة (<span style="font-size: 1.2em; font-weight: bold;">اِسْتَنْشَقَ</span>).
     </label>
-    <div class="radio-group flex flex-col gap-4 border border-gray-300 p-4 rounded-md bg-gray-100">
+    <div class="radio-group flex flex-col gap-4 border border-gray-300 p-4 rounded-md bg-gray-100" style="direction: rtl; text-align: right;">
         <!-- First Option -->
-        <label class="radio-item flex flex-col items-center cursor-pointer gap-2">
-            <input type="radio" name="analysis" value="option1" class="form-radio w-5 h-5 mb-2">
-            <div class="grid grid-cols-6 gap-4">
-                <span>اِسْ</span>
-                <span>تَـ</span>
-                <span>نْـ</span>
-                <span>شَـ</span>
-                <span>قَ</span>
-            </div>
+        <label class="radio-item flex items-center cursor-pointer gap-2">
+            <input type="radio" name="analysis" value="option1" class="form-radio w-5 h-5">
+            <span class="text-gray-700">
+                اِسْ &nbsp; تَـ &nbsp; نْـ &nbsp; شَـ &nbsp; قَ
+            </span>
         </label>
 
         <!-- Second Option -->
-        <label class="radio-item flex flex-col items-center cursor-pointer gap-2">
-            <input type="radio" name="analysis" value="option2" class="form-radio w-5 h-5 mb-2">
-            <div class="grid grid-cols-6 gap-4">
-                <span>اِسْـ</span>
-                <span>تَـ</span>
-                <span>نَـ</span>
-                <span>شَـ</span>
-                <span>قْ</span>
-            </div>
+        <label class="radio-item flex items-center cursor-pointer gap-2">
+            <input type="radio" name="analysis" value="option2" class="form-radio w-5 h-5">
+            <span class="text-gray-700">
+                اِ&nbsp; سْـ &nbsp; &nbsp;نَـتَـ  &nbsp; شَـقْ
+            </span>
         </label>
 
         <!-- Third Option -->
-        <label class="radio-item flex flex-col items-center cursor-pointer gap-2">
-            <input type="radio" name="analysis" value="option3" class="form-radio w-5 h-5 mb-2">
-            <div class="grid grid-cols-6 gap-4">
-                <span>اِسْـ</span>
-                <span>تَـ</span>
-                <span>نْـ</span>
-                <span>شَـ</span>
-                <span>قْ</span>
-            </div>
+        <label class="radio-item flex items-center cursor-pointer gap-2">
+            <input type="radio" name="analysis" value="option3" class="form-radio w-5 h-5">
+            <span class="text-gray-700">
+                اِسْـ &nbsp; تَـ &nbsp; شَـنْـ  &nbsp; قْ
+            </span>
         </label>
 
         <!-- Fourth Option -->
-        <label class="radio-item flex flex-col items-center cursor-pointer gap-2">
-            <input type="radio" name="analysis" value="option4" class="form-radio w-5 h-5 mb-2">
-            <div class="grid grid-cols-6 gap-4">
-                <span>اِسْـ</span>
-                <span>تَـ</span>
-                <span>نْـ</span>
-                <span>شَـ</span>
-                <span>قَ</span>
-            </div>
+        <label class="radio-item flex items-center cursor-pointer gap-2">
+            <input type="radio" name="analysis" value="option4" class="form-radio w-5 h-5">
+            <span class="text-gray-700">
+                اِسْـتَـ&nbsp;  &nbsp; نْـ &nbsp; شَـ &nbsp; قَ
+            </span>
         </label>
     </div>
 </div>
+
 <div class="question">
     <label class="mb-4 block text-lg font-semibold text-gray-700">
         حدد معنى الكلمة التي تحتها خط: <span style="font-weight: bold; "><span style="text-decoration: underline;">الْتَهَمَ</span> الأَسَدُ اللَّحْمَ</span>.

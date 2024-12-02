@@ -70,3 +70,6 @@ Route::get('/arabicFirst', function () {
 Route::get('/arabicSecondAndThird', function () {
     return view('user.pages.arabic.secondAndThird');
 });
+Route::get('/science', function () {
+    return view('user.pages.science.science');
+});
