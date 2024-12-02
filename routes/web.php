@@ -67,6 +67,6 @@ Route::get('/mathSecondAndThird', function () {
 Route::get('/arabicFirst', function () {
     return view('user.pages.arabic.first');
 });
-Route::get('/secondAndThird', function () {
+Route::get('/arabicSecondAndThird', function () {
     return view('user.pages.arabic.secondAndThird');
 });

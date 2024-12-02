@@ -372,6 +372,50 @@
 </div>
 <div class="question">
     <label class="mb-4 block text-lg font-semibold text-gray-700">
+        ضع دائرة حول التحليل الصحيح لكلمة (<span style="font-size: 1.2em; font-weight: bold;">مَـجْـلِـسُ</span>).
+    </label>
+    <div class="radio-group flex justify-around items-center px-4 py-3 border border-gray-300 rounded-md bg-gray-100">
+        <!-- First Option -->
+        <label class="radio-item flex flex-col items-center cursor-pointer"  style="display: flex;flex-direction: row;">
+            <input type="radio" name="analysis" value="option1" class="form-radio w-5 h-5 mb-2">
+            <span class="text-gray-700">
+                <div class="grid grid-cols-5 gap-2">
+                    <span>اِسْ</span>
+                    <span>تَـ</span>
+                    <span>نْـ</span>
+                    <span>نْـ</span>
+                    <span>قَ</span>
+                </div>
+            </span>
+        </label>
+
+        <!-- Second Option -->
+        <label class="radio-item flex flex-col items-center cursor-pointer"  style="display: flex;flex-direction: row;">
+            <input type="radio" name="analysis" value="option2" class="form-radio w-5 h-5 mb-2">
+            <span class="text-gray-700">
+                <div class="grid grid-cols-3 gap-2">
+                    <span>مَـجَـ</span>
+                    <span>لَـ</span>
+                    <span>شَـ</span>
+                </div>
+            </span>
+        </label>
+
+        <!-- Third Option -->
+        <label class="radio-item flex flex-col items-center cursor-pointer"  style="display: flex;flex-direction: row;">
+            <input type="radio" name="analysis" value="option3" class="form-radio w-5 h-5 mb-2">
+            <span class="text-gray-700">
+                <div class="grid grid-cols-3 gap-2">
+                    <span>مَـجْـ</span>
+                    <span></span>
+                    <span>لِـسْ</span>
+                </div>
+            </span>
+        </label>
+    </div>
+</div>
+<div class="question">
+    <label class="mb-4 block text-lg font-semibold text-gray-700">
         ضع دائرة حول التحليل الصحيح لكلمة (<span style="font-size: 1.2em; font-weight: bold;">اِسْتَنْشَقَ</span>).
     </label>
     <div class="radio-group flex flex-col gap-4 border border-gray-300 p-4 rounded-md bg-gray-100">
