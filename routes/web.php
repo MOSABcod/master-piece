@@ -59,8 +59,14 @@ Route::get('/homepage', function () {
     return view('user.pages.index');
 });
 Route::get('/mathFirst', function () {
-    return view('user.pages.mathQuizFirst');
+    return view('user.pages.math.mathQuizFirst');
 });
 Route::get('/mathSecondAndThird', function () {
-    return view('user.pages.mathQuizSecAndThird');
+    return view('user.pages.math.mathQuizSecAndThird');
+});
+Route::get('/arabicFirst', function () {
+    return view('user.pages.arabic.first');
+});
+Route::get('/secondAndThird', function () {
+    return view('user.pages.arabic.secondAndThird');
 });
