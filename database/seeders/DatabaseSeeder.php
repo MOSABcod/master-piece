@@ -14,16 +14,13 @@ class DatabaseSeeder extends Seeder
     public function run(): void
     {
         $this->call([
-            ClassesTableSeeder::class,
-            CategoriesTableSeeder::class,
-            UsersTableSeeder::class,
-            MediaTableSeeder::class, // Should be run before Questions and QuestionOptions if they require media
-            ExamsTableSeeder::class,
-            QuestionsTableSeeder::class,
-            QuestionOptionsTableSeeder::class,
-            AnswersTableSeeder::class,
-            ResultsTableSeeder::class,
-            EnrollmentsTableSeeder::class, // Typically run after Users and Classes
+            // UsersTableSeeder::class,         // Seed users
+            ClassesTableSeeder::class,      // Seed classes
+            ArabicFirstSeeder::class,       // Seed Arabic content for first grade
+            MathFirstKgSeeder::class,       // Seed Math content for first KG
+            MathSecThirdSeeder::class,      // Seed Math content for second & third grades
+            ScienceSeeder::class,           // Seed Science content
+            SecAndThirdSeeder::class,       // Seed second and third grade data
         ]);
     }
 }
