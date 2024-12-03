@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\MathFirstKgController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
@@ -29,7 +30,8 @@ Route::get('/students', [UserController::class, 'students'])->name('viewStudents
 Route::get('/createStudent', [UserController::class, 'createStudent'])->name('student.create');
 Route::post('/createStudent', [UserController::class, 'storeStudent'])->name('student.store');
 Route::delete('/students/{id}', [UserController::class, 'destroyStudent'])->name('student.destroy');
-
+// save answers
+Route::post('/saveAnswer', [MathFirstKgController::class, 'saveAnswers'])->name('save.math.first');
 
 
 Route::get('/dashboard', function () {
@@ -73,3 +75,8 @@ Route::get('/arabicSecondAndThird', function () {
 Route::get('/science', function () {
     return view('user.pages.science.science');
 })->name('science');
+
+// apis
+Route::prefix('api')->middleware('api')->group(function () {
+    Route::post('/saveAnswer', [MathFirstKgController::class, 'saveAnswers'])->name('save.math.first');
+});

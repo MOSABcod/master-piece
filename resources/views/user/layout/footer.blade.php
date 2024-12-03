@@ -89,6 +89,14 @@
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
 <script>
+     @if(session('sweet_alert'))
+        Swal.fire({
+            icon: '{{ session('sweet_alert.type') }}', // success or error
+            title: '{{ session('sweet_alert.title') }}',
+            html: '{{ session('sweet_alert.message') }}', // Use 'html' to include line breaks
+            confirmButtonText: 'موافق'
+        });
+    @endif
     function confirmExamStart(button) {
         const route = button.getAttribute('data-route');
         Swal.fire({

@@ -237,245 +237,295 @@ button:disabled {
         <div class="container">
             <div id="timer" class="timer">15:00</div>
 
-            <h1>ورقة عمل</h1>
+            <form id="questions-form" >
+                @csrf
+                <h1>ورقة عمل</h1>
 
-           <!-- Questions -->
-<div class="question active">
-    <p>السؤال الأول</p>
-    <label>اختر العدد (اثنان).</label>
-    <div class="radio-group">
-        <label><input type="radio" name="number" value="1"> 1</label>
-        <label><input type="radio" name="number" value="2"> 2</label>
-        <label><input type="radio" name="number" value="3"> 3</label>
-    </div>
-</div>
-<div class="question">
-    <p>السؤال الثاني</p>
-    <label>اختر العدد (سبعة).</label>
-    <div class="radio-group">
-        <label><input type="radio" name="number" value="5"> 5</label>
-        <label><input type="radio" name="number" value="7"> 7</label>
-        <label><input type="radio" name="number" value="8"> 8</label>
-    </div>
-</div>
+                <!-- Question 1 -->
+                <div class="question active">
+                    <p>السؤال الأول</p>
+                    <label>اختر العدد (اثنان).</label>
+                    <div class="radio-group">
+                        <label><input type="radio" name="answers[1]" value="1"> 1</label>
+                        <label><input type="radio" name="answers[1]" value="2"> 2</label>
+                        <label><input type="radio" name="answers[1]" value="3"> 3</label>
+                    </div>
+                </div>
 
-<div class="question">
-    <p>السؤال الثالث</p>
-    <label>بداية أحمد 4 قطع شوكولاتة، إذا قُسمت كل قطعة إلى نصفين، كم قطعة شوكولاتة سيتناول كل منهما؟</label>
-    <input type="number" class="answer" placeholder="أدخل الإجابة">
-</div>
+                <!-- Question 2 -->
+                <div class="question">
+                    <p>السؤال الثاني</p>
+                    <label>اختر العدد (سبعة).</label>
+                    <div class="radio-group">
+                        <label><input type="radio" name="answers[2]" value="5"> 5</label>
+                        <label><input type="radio" name="answers[2]" value="7"> 7</label>
+                        <label><input type="radio" name="answers[2]" value="8"> 8</label>
+                    </div>
+                </div>
 
-<div class="question">
-    <p>السؤال الرابع</p>
-    <label>اشترى سالم 5 بالونات، إذا طار منها بالونان، كم بالونًا بقي معه؟</label>
-    <input type="number" class="answer" placeholder="أدخل الإجابة">
-</div>
+                <!-- Question 3 -->
+                <div class="question">
+                    <p>السؤال الثالث</p>
+                    <label>بداية أحمد 4 قطع شوكولاتة، إذا قُسمت كل قطعة إلى نصفين، كم قطعة شوكولاتة سيتناول كل منهما؟</label>
+                    <input type="number" name="answers[3]" class="answer" placeholder="أدخل الإجابة">
+                </div>
 
-<div class="question">
-    <p>السؤال الخامس</p>
-    <label>ما هو العدد الأكبر؟</label>
-    <div class="radio-group">
-        <label><input type="radio" name="largest-number" value="3"> العدد ثلاثة</label>
-        <label><input type="radio" name="largest-number" value="5"> العدد خمسة</label>
-        <label><input type="radio" name="largest-number" value="7"> العدد سبعة</label>
-        <label><input type="radio" name="largest-number" value="9"> العدد تسعة</label>
-    </div>
-</div>
+                <!-- Question 4 -->
+                <div class="question">
+                    <p>السؤال الرابع</p>
+                    <label>اشترى سالم 5 بالونات، إذا طار منها بالونان، كم بالونًا بقي معه؟</label>
+                    <input type="number" name="answers[4]" class="answer" placeholder="أدخل الإجابة">
+                </div>
 
-<div class="question">
-    <p>السؤال السادس</p>
-    <label>اختر المجموعة الأكثر.</label>
-    <div class="radio-group">
-        <label class="radio-item">
-            <input type="radio" name="most-stars" value="group1">
-            <span class="stars">⭐⭐⭐</span>
-        </label>
-        <label class="radio-item">
-            <input type="radio" name="most-stars" value="group2">
-            <span class="stars">⭐⭐⭐⭐⭐</span>
-        </label>
-    </div>
-</div>
+                <!-- Question 5 -->
+                <div class="question">
+                    <p>السؤال الخامس</p>
+                    <label>ما هو العدد الأكبر؟</label>
+                    <div class="radio-group">
+                        <label><input type="radio" name="answers[5]" value="3"> العدد ثلاثة</label>
+                        <label><input type="radio" name="answers[5]" value="5"> العدد خمسة</label>
+                        <label><input type="radio" name="answers[5]" value="7"> العدد سبعة</label>
+                        <label><input type="radio" name="answers[5]" value="9"> العدد تسعة</label>
+                    </div>
+                </div>
 
-<div class="question">
-    <p>السؤال السابع</p>
-    <label>اختر المجموعة الأقل.</label>
-    <div class="radio-group">
-        <label class="radio-item">
-            <input type="radio" name="most-stars" value="group1">
-            <span class="stars">⭐</span>
-        </label>
-        <label class="radio-item">
-            <input type="radio" name="most-stars" value="group2">
-            <span class="stars">⭐⭐⭐</span>
-        </label>
-    </div>
-</div>
+                <!-- Question 6 -->
+                <div class="question">
+                    <p>السؤال السادس</p>
+                    <label>اختر المجموعة الأكثر.</label>
+                    <div class="radio-group">
+                        <label class="radio-item">
+                            <input type="radio" name="answers[6]" value="group1">
+                            <span class="stars">⭐⭐⭐</span>
+                        </label>
+                        <label class="radio-item">
+                            <input type="radio" name="answers[6]" value="group2">
+                            <span class="stars">⭐⭐⭐⭐⭐</span>
+                        </label>
+                    </div>
+                </div>
 
-<div class="question">
-    <p>السؤال الثامن</p>
-    <label>اختر المجموعة الأقل.</label>
-    <div class="radio-group">
-        <label class="radio-item">
-            <input type="radio" name="most-stars" value="group1">
-            <span class="stars">⭐⭐⭐⭐</span><br>
-            <span class="stars" style="margin-right:29px">⭐⭐⭐⭐</span>
-        </label>
-        <label class="radio-item">
-            <input type="radio" name="most-stars" value="group2">
-            <span class="stars">⭐⭐⭐</span><br>
-            <span class="stars" style="margin-right:29px">⭐⭐⭐</span>
-        </label>
-    </div>
-</div>
+                <!-- Question 7 -->
+                <div class="question">
+                    <p>السؤال السابع</p>
+                    <label>اختر المجموعة الأقل.</label>
+                    <div class="radio-group">
+                        <label class="radio-item">
+                            <input type="radio" name="answers[7]" value="group1">
+                            <span class="stars">⭐</span>
+                        </label>
+                        <label class="radio-item">
+                            <input type="radio" name="answers[7]" value="group2">
+                            <span class="stars">⭐⭐⭐</span>
+                        </label>
+                    </div>
+                </div>
 
-<div class="question">
-    <p>السؤال التاسع</p>
-    <label>اختر العدد الأكبر؟</label>
-    <div class="radio-group">
-        <label><input type="radio" name="largest-number" value="6"> 6 </label>
-        <label><input type="radio" name="largest-number" value="7"> 7 </label>
-        <label><input type="radio" name="largest-number" value="9"> 9 </label>
-    </div>
-</div>
+                <!-- Question 8 -->
+                <div class="question">
+                    <p>السؤال الثامن</p>
+                    <label>اختر المجموعة الأقل.</label>
+                    <div class="radio-group">
+                        <label class="radio-item">
+                            <input type="radio" name="answers[8]" value="group1">
+                            <span class="stars">⭐⭐⭐⭐</span><br>
+                            <span class="stars" style="margin-right:29px">⭐⭐⭐⭐</span>
+                        </label>
+                        <label class="radio-item">
+                            <input type="radio" name="answers[8]" value="group2">
+                            <span class="stars">⭐⭐⭐</span><br>
+                            <span class="stars" style="margin-right:29px">⭐⭐⭐</span>
+                        </label>
+                    </div>
+                </div>
 
-<div class="question">
-    <p>السؤال العاشر</p>
-    <label>اختر العدد الأصغر؟</label>
-    <div class="radio-group">
-        <label><input type="radio" name="largest-number" value="11"> 11 </label>
-        <label><input type="radio" name="largest-number" value="7"> 7 </label>
-        <label><input type="radio" name="largest-number" value="4"> 4 </label>
-    </div>
-</div>
+                <!-- Question 9 -->
+                <div class="question">
+                    <p>السؤال التاسع</p>
+                    <label>اختر العدد الأكبر؟</label>
+                    <div class="radio-group">
+                        <label><input type="radio" name="answers[9]" value="6"> 6</label>
+                        <label><input type="radio" name="answers[9]" value="7"> 7</label>
+                        <label><input type="radio" name="answers[9]" value="9"> 9</label>
+                    </div>
+                </div>
 
-<div class="question">
-    <p>السؤال الحادي عشر</p>
-    <label>مع محمد 9 تفاحات (🍎)، أراد أن يضع كل 3 تفاحات (🍎) في كيس، كم كيسًا يحتاج؟</label>
-    <input type="number" class="answer" placeholder="أدخل الإجابة">
-</div>
+                <!-- Question 10 -->
+                <div class="question">
+                    <p>السؤال العاشر</p>
+                    <label>اختر العدد الأصغر؟</label>
+                    <div class="radio-group">
+                        <label><input type="radio" name="answers[10]" value="11"> 11</label>
+                        <label><input type="radio" name="answers[10]" value="7"> 7</label>
+                        <label><input type="radio" name="answers[10]" value="4"> 4</label>
+                    </div>
+                </div>
 
-<div class="question">
-    <p>السؤال الثاني عشر</p>
-    <label>اشترى محمد 4 دفاتر (📕) وأعطاه عمه 6 دفاتر (📕) أخرى، كم دفترًا أصبح مع محمد؟</label>
-    <input type="number" class="answer" placeholder="أدخل الإجابة">
-</div>
+                <!-- Question 11 -->
+                <div class="question">
+                    <p>السؤال الحادي عشر</p>
+                    <label>مع محمد 9 تفاحات (🍎)، أراد أن يضع كل 3 تفاحات (🍎) في كيس، كم كيسًا يحتاج؟</label>
+                    <input type="number" name="answers[11]" class="answer" placeholder="أدخل الإجابة">
+                </div>
 
-<div class="question">
-    <p>السؤال الثالث عشر</p>
-    <label>ما عدد النجوم (⭐)؟ ضع دائرة حول العدد المناسب.</label>
-    <div class="stars-box mb-4">
-        <div class="stars">
-            ⭐ ⭐ ⭐ ⭐ ⭐ ⭐ ⭐ ⭐ ⭐ ⭐ ⭐ ⭐ ⭐ ⭐ ⭐ ⭐ ⭐ ⭐ ⭐ ⭐ ⭐
+                <!-- Question 12 -->
+                <div class="question">
+                    <p>السؤال الثاني عشر</p>
+                    <label>اشترى محمد 4 دفاتر (📕) وأعطاه عمه 6 دفاتر (📕) أخرى، كم دفترًا أصبح مع محمد؟</label>
+                    <input type="number" name="answers[12]" class="answer" placeholder="أدخل الإجابة">
+                </div>
+
+                <!-- Question 13 -->
+                <div class="question">
+                    <p>السؤال الثالث عشر</p>
+                    <label>ما عدد النجوم (⭐)؟ ضع دائرة حول العدد المناسب.</label>
+                    <div class="radio-group">
+                        <label><input type="radio" name="answers[13]" value="22"> 22</label>
+                        <label><input type="radio" name="answers[13]" value="21"> 21</label>
+                        <label><input type="radio" name="answers[13]" value="15"> 15</label>
+                    </div>
+                </div>
+
+                <!-- Question 14 -->
+                <div class="question">
+                    <p>السؤال الرابع عشر</p>
+                    <label>اكتب في المربع ما يتبقى عندما تأخذ 4 من 9.</label>
+                    <input type="number" name="answers[14]" class="answer" placeholder="أدخل الإجابة">
+                </div>
+
+                <!-- Question 15 -->
+                <div class="question">
+                    <p>السؤال الخامس عشر</p>
+                    <label>اكتب العدد الذي إذا أضفنا له 2 يصبح لدينا 5.</label>
+                    <input type="number" name="answers[15]" class="answer" placeholder="أدخل الإجابة">
+                </div>
+
+                <!-- Question 16 -->
+                <div class="question">
+                    <p>السؤال السادس عشر</p>
+                    <label>اكتب العدد الذي إذا طرحناه من 8 يصبح لدينا 6.</label>
+                    <input type="number" name="answers[16]" class="answer" placeholder="أدخل الإجابة">
+                </div>
+
+                <!-- Question 17 -->
+                <div class="question">
+                    <p>السؤال السابع عشر</p>
+                    <label>اكتب الناتج عند إضافة 2 إلى 7.</label>
+                    <input type="number" name="answers[17]" class="answer" placeholder="أدخل الإجابة">
+                </div>
+
+                <!-- Question 18 -->
+                <div class="question">
+                    <p>السؤال الثامن عشر</p>
+                    <label>اكتب العدد الذي إذا أضفناه إلى 16 يصبح الناتج 20.</label>
+                    <input type="number" name="answers[18]" class="answer" placeholder="أدخل الإجابة">
+                </div>
+
+                <!-- Navigation Buttons -->
+                <div class="navigation-buttons">
+                    <button id="prev" class="prev" type="button" disabled>السابق</button>
+                    <button id="next" class="next" type="button">التالي</button>
+                    <button type="button" id="submit-btn">إرسال</button>
+                </div>
+            </form>
         </div>
     </div>
-    <div class="radio-group flex justify-center gap-8">
-        <label class="flex items-center gap-2 text-lg">
-            <input type="radio" name="star-count" value="22" class="accent-blue-500">
-            22
-        </label>
-        <label class="flex items-center gap-2 text-lg">
-            <input type="radio" name="star-count" value="21" class="accent-blue-500">
-            21
-        </label>
-        <label class="flex items-center gap-2 text-lg">
-            <input type="radio" name="star-count" value="15" class="accent-blue-500">
-            15
-        </label>
-    </div>
-</div>
 
-<div class="question mt-6">
-    <p>السؤال الرابع عشر</p>
-    <label>اكتب في المربع ما يتبقى عندما تأخذ 4 من 9.</label>
-    <div class="equation-box mx-auto flex items-center justify-center border border-gray-300 rounded-lg p-4 bg-gray-50 w-full max-w-md">
-        <span class="text-lg font-bold mx-2 text-gray-700">9 - 4 = </span>
-        <input type="number" class="answer answer-input text-lg border border-gray-400 rounded-md text-center focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="؟" style="width:25%; margin-top: 10px; margin-bottom: 10px;">
-    </div>
-</div>
 
-<div class="question mt-6">
-    <p>السؤال الخامس عشر</p>
-    <label>اكتب العدد الذي إذا أضفنا له 2 يصبح لدينا 5.</label>
-    <div class="equation-box mx-auto flex items-center justify-center border border-gray-300 rounded-lg p-4 bg-gray-50 w-full max-w-md">
-        <input type="number" class="answer answer-input text-lg border border-gray-400 rounded-md text-center focus:outline-none focus:ring-2 focus:ring-blue-500 mx-2" placeholder="؟" style="width: 25%; margin-top: 10px; margin-bottom: 10px;">
-        <span class="text-lg font-bold mx-2 text-gray-700">+ 2 = 5</span>
-    </div>
-</div>
-
-<div class="question mt-6">
-    <p>السؤال السادس عشر</p>
-    <label>اكتب العدد الذي إذا طرحناه من 8 يصبح لدينا 6.</label>
-    <div class="equation-box mx-auto flex items-center justify-center border border-gray-300 rounded-lg p-4 bg-gray-50 w-full max-w-md">
-        <span class="text-lg font-bold mx-2 text-gray-700">8 -</span>
-        <input type="number" class="answer answer-input text-lg border border-gray-400 rounded-md text-center focus:outline-none focus:ring-2 focus:ring-blue-500 mx-2" placeholder="؟" style="width: 25%; margin-top: 10px; margin-bottom: 10px;">
-        <span class="text-lg font-bold mx-2 text-gray-700">= 6</span>
-    </div>
-</div>
-
-<div class="question mt-6">
-    <p>السؤال السابع عشر</p>
-    <label>اكتب الناتج عند إضافة 2 إلى 7.</label>
-    <div class="equation-box mx-auto flex items-center justify-center border border-gray-300 rounded-lg p-4 bg-gray-50 w-full max-w-md">
-        <span class="text-lg font-bold mx-2 text-gray-700">7 + 2 =</span>
-        <input type="number" class="answer answer-input text-lg border border-gray-400 rounded-md text-center focus:outline-none focus:ring-2 focus:ring-blue-500 mx-2" placeholder="؟" style="width: 25%; margin-top: 10px; margin-bottom: 10px;">
-    </div>
-</div>
-
-<div class="question mt-6">
-    <p>السؤال الثامن عشر</p>
-    <label>اكتب العدد الذي إذا أضفناه إلى 16 يصبح الناتج 20.</label>
-    <div class="equation-box mx-auto flex items-center justify-center border border-gray-300 rounded-lg p-4 bg-gray-50 w-full max-w-md">
-        <span class="text-lg font-bold mx-2 text-gray-700">16 +</span>
-        <input type="number" class="answer answer-input text-lg border border-gray-400 rounded-md text-center focus:outline-none focus:ring-2 focus:ring-blue-500 mx-2" placeholder="؟" style="width: 25%; margin-top: 10px; margin-bottom: 10px;">
-        <span class="text-lg font-bold mx-2 text-gray-700">= 20</span>
-    </div>
-</div>
-
-  <!-- Navigation Buttons -->
-  <div class="navigation-buttons">
-    <div class="left-buttons">
-        <button id="prev" class="prev" disabled>السابق</button>
-        <a href="{{ route('homepage') }}" class="exit-link">الخروج من الامتحان</a>
-    </div>
-    <button id="next" class="next">التالي</button>
-</div>
-        </div>
-    </div>
     <script>
 
-    </script>
-    <script>
+const questions = document.querySelectorAll('.question');
+const prevButton = document.getElementById('prev');
+const nextButton = document.getElementById('next');
+const submitButton = document.getElementById('submit-btn');
+let currentStep = 0;
 
-        const questions = document.querySelectorAll('.question');
-        const prevButton = document.getElementById('prev');
-        const nextButton = document.getElementById('next');
-        let currentStep = 0;
+function updateQuestions() {
+    // Show the current question and hide others
+    questions.forEach((question, index) => {
+        question.classList.toggle('active', index === currentStep);
+    });
 
-        function updateQuestions() {
-            questions.forEach((question, index) => {
-                question.classList.toggle('active', index === currentStep);
+    // Enable or disable the "السابق" button
+    prevButton.disabled = currentStep === 0;
+
+    // Show/hide "التالي" and "إرسال" buttons
+    nextButton.style.display = currentStep === questions.length - 1 ? 'none' : 'inline-block';
+    submitButton.style.display = currentStep === questions.length - 1 ? 'inline-block' : 'none';
+}
+
+// Event listener for the "السابق" button
+prevButton.addEventListener('click', () => {
+    if (currentStep > 0) {
+        currentStep--;
+        updateQuestions();
+    }
+});
+
+// Event listener for the "التالي" button
+nextButton.addEventListener('click', () => {
+    if (currentStep < questions.length - 1) {
+        currentStep++;
+        updateQuestions();
+    }
+});
+
+// Initialize the question navigation
+updateQuestions();
+document.getElementById('submit-btn').addEventListener('click', async function () {
+        const form = document.getElementById('questions-form');
+        const formData = new FormData(form);
+
+        // Convert FormData to JSON
+        const answers = {};
+        formData.forEach((value, key) => {
+            const match = key.match(/answers\[(\d+)\]/); // Extract question ID
+            if (match) {
+                answers[match[1]] = value;
+            }
+        });
+
+        // Send data to the API
+        try {
+            const response = await fetch('/api/saveAnswer', {
+                method: 'POST', // Ensure this matches the route definition
+                headers: {
+                    'Content-Type': 'application/json',
+                    // 'X-CSRF-TOKEN': csrfToken,
+
+                    // If using authentication tokens, include it here:
+                    // 'Authorization': 'Bearer YOUR_ACCESS_TOKEN',
+                },
+                body: JSON.stringify({ answers }),
             });
 
-            prevButton.disabled = currentStep === 0;
-            nextButton.disabled = currentStep === questions.length - 1;
+            const result = await response.json();
+
+            if (response.ok) {
+                Swal.fire({
+                    icon: 'success',
+                    title: 'نجاح!',
+                    text: result.message,
+                    confirmButtonText: 'موافق'
+                });
+            } else {
+                Swal.fire({
+                    icon: 'error',
+                    title: 'خطأ!',
+                    html: result.errors ? result.errors.join('<br>') : result.message,
+                    confirmButtonText: 'موافق'
+                });
+            }
+        } catch (error) {
+            Swal.fire({
+                icon: 'error',
+                title: 'خطأ!',
+                text: 'حدث خطأ أثناء إرسال الإجابات. يرجى المحاولة مرة أخرى.',
+                confirmButtonText: 'موافق'
+            });
+            console.error('Error:', error);
         }
-
-        prevButton.addEventListener('click', () => {
-            if (currentStep > 0) {
-                currentStep--;
-                updateQuestions();
-            }
-        });
-
-        nextButton.addEventListener('click', () => {
-            if (currentStep < questions.length - 1) {
-                currentStep++;
-                updateQuestions();
-            }
-        });
-
-        updateQuestions();
+    });
     </script>
 </body>
 
