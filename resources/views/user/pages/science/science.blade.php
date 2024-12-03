@@ -239,292 +239,334 @@ button:disabled {
             <div id="timer" class="timer">15:00</div>
 
             <!-- Questions -->
-<div class="question active">
-    <p>السؤال الاول </p>
+            <form id="questions-form" method="POST" action="{{ route('save.ar.Science') }}">
+                @csrf
+                <!-- Hidden input to store the remaining time -->
+                <input type="hidden" name="timer" id="scienceTimer">
 
-    <label class="mb-4 block text-lg font-semibold text-gray-700">
-        كوكب الأرض الوحيد الذي يوجد عليه حياة بسبب:
-    </label>
-    <div class="radio-group flex flex-col gap-4 px-4 py-3 border border-gray-300 rounded-md bg-gray-100">
-        <label class="radio-item flex items-center gap-2">
-            <input type="radio" name="reason" value="water_and_gravity">
-            <span>وجود الماء والجاذبية</span>
-        </label>
-
-        <label class="radio-item flex items-center gap-2">
-            <input type="radio" name="reason" value="temperature">
-            <span>درجة الحرارة المناسبة</span>
-        </label>
-        <label class="radio-item flex items-center gap-2">
-            <input type="radio" name="reason" value="air_only">
-            <span>وجود الهواء فقط</span>
-        </label>
-        <label class="radio-item flex items-center gap-2">
-            <input type="radio" name="reason" value="all">
-            <span>جميع ما سبق</span>
-        </label>
-    </div>
-
-</div>
-<!-- Questions -->
-<div class="question ">
-    <p>السؤال الثاني </p>
-
-    <label class="mb-4 block text-lg font-semibold text-gray-700">
-        تدور الأرض حول نفسها كل ساعة:
-    </label>
-    <div class="radio-group grid grid-cols-2 gap-4 px-4 py-3 border border-gray-300 rounded-md bg-gray-100">
-        <label class="radio-item flex items-center justify-center gap-2 bg-blue-500 text-white p-4 rounded-lg">
-            <input type="radio" name="rotation" value="12_hours"">
-            <span>12</span>
-        </label>
-        <label class="radio-item flex items-center justify-center gap-2 bg-teal-500 text-white p-4 rounded-lg">
-            <input type="radio" name="rotation" value="5_hours" >
-            <span>5</span>
-        </label>
-        <label class="radio-item flex items-center justify-center gap-2 bg-orange-500 text-white p-4 rounded-lg">
-            <input type="radio" name="rotation" value="10_hours" >
-            <span>10</span>
-        </label>
-        <label class="radio-item flex items-center justify-center gap-2 bg-pink-500 text-white p-4 rounded-lg">
-            <input type="radio" name="rotation" value="24_hours" >
-            <span>24</span>
-        </label>
-    </div>
-</div>
-
-<!-- Questions -->
-<div class="question ">
-    <p>السؤال الثالث </p>
-
-    <label class="mb-4 block text-lg font-semibold text-gray-700">
-        مكونات النظام البيئي:
-    </label>
-    <div class="radio-group grid grid-cols-2 gap-4 px-4 py-3 border border-gray-300 rounded-md bg-gray-100">
-        <label class="radio-item flex items-center justify-center gap-2 bg-blue-500 text-white p-4 rounded-lg">
-            <input type="radio" name="ecosystem" value="water_air_soil_rocks" >
-            <span>الماء، الهواء، و التربة و الصخور</span>
-        </label>
-        <label class="radio-item flex items-center justify-center gap-2 bg-teal-500 text-white p-4 rounded-lg">
-            <input type="radio" name="ecosystem" value="none_of_the_above" >
-            <span>لا شيء من ما ذكر</span>
-        </label>
-        <label class="radio-item flex items-center justify-center gap-2 bg-orange-500 text-white p-4 rounded-lg">
-            <input type="radio" name="ecosystem" value="water_air_soil" >
-            <span>الماء، الهواء و التربة</span>
-        </label>
-        <label class="radio-item flex items-center justify-center gap-2 bg-pink-500 text-white p-4 rounded-lg">
-            <input type="radio" name="ecosystem" value="water_only" >
-            <span>الماء فقط</span>
-        </label>
-    </div>
-</div>
-<!-- Questions -->
-<div class="question ">
-    <p>السؤال الرابع </p>
-
-    <label class="mb-4 block text-lg font-semibold text-gray-700">
-        ما هو الإهتزاز الذي يحدث لصخور الأرض:
-    </label>
-    <div class="radio-group grid grid-cols-3 gap-4 px-4 py-3 border border-gray-300 rounded-md bg-gray-100">
-        <label class="radio-item flex items-center justify-start gap-2 bg-blue-500 text-white p-4 rounded-lg">
-            <input type="radio" name="vibration" value="volcanoes" class="form-radio">
-            <span>البراكين</span>
-        </label>
-        <label class="radio-item flex items-center justify-start gap-2 bg-teal-500 text-white p-4 rounded-lg">
-            <input type="radio" name="vibration" value="storms" class="form-radio">
-            <span>العواصف</span>
-        </label>
-        <label class="radio-item flex items-center justify-start gap-2 bg-orange-500 text-white p-4 rounded-lg">
-            <input type="radio" name="vibration" value="earthquake" class="form-radio">
-            <span>الزلزال</span>
-        </label>
-    </div>
-</div>
-<!-- Questions -->
-<div class="question active">
-    <p>السؤال الخامس </p>
-
-    <label class="mb-4 block text-lg font-semibold text-gray-700">
-        الطاقة الشمسية و الرياح:
-    </label>
-    <div class="radio-group grid grid-cols-2 gap-4 px-4 py-3 border border-gray-300 rounded-md bg-gray-100">
-        <label class="radio-item flex items-center justify-start gap-2 bg-blue-500 text-white p-4 rounded-lg">
-            <input type="radio" name="energy" value="exhaustible" class="form-radio">
-            <span>تنفذ</span>
-        </label>
-        <label class="radio-item flex items-center justify-start gap-2 bg-teal-500 text-white p-4 rounded-lg">
-            <input type="radio" name="energy" value="nonrenewable" class="form-radio">
-            <span>موارد طاقة غير متجددة</span>
-        </label>
-        <label class="radio-item flex items-center justify-start gap-2 bg-orange-500 text-white p-4 rounded-lg">
-            <input type="radio" name="energy" value="renewable" class="form-radio">
-            <span>موارد طاقة متجددة</span>
-        </label>
-        <label class="radio-item flex items-center justify-start gap-2 bg-pink-500 text-white p-4 rounded-lg">
-            <input type="radio" name="energy" value="pollution" class="form-radio">
-            <span>تلوث البيئة</span>
-        </label>
-    </div>
-</div>
-
-<!-- Questions -->
-<div class="question ">
-    <p>السؤال السادس </p>
-
-    <label class="mb-4 block text-lg font-semibold text-gray-700">
-        يحفر الناس حفر عميقة للوصول إلى ..................... تسمى الآبار:
-    </label>
-    <div class="radio-group grid grid-cols-3 gap-4 px-4 py-3 border border-gray-300 rounded-md bg-gray-100">
-        <label class="radio-item flex items-center justify-start gap-2 bg-blue-500 text-white p-4 rounded-lg">
-            <input type="radio" name="wells" value="earth_resources" class="form-radio w-5 h-5">
-            <span>موارد الأرض</span>
-        </label>
-        <label class="radio-item flex items-center justify-start gap-2 bg-teal-500 text-white p-4 rounded-lg">
-            <input type="radio" name="wells" value="groundwater" class="form-radio w-5 h-5">
-            <span>المياه الجوفية</span>
-        </label>
-        <label class="radio-item flex items-center justify-start gap-2 bg-orange-500 text-white p-4 rounded-lg">
-            <input type="radio" name="wells" value="irrigation" class="form-radio w-5 h-5">
-            <span>الري</span>
-        </label>
-    </div>
-</div>
-<!-- Questions -->
-<div class="question active">
-    <p>السؤال السابع </p>
-
-    <label class="mb-4 block text-lg font-semibold text-gray-700">
-        مصدر المياه المالحة على كوكب الأرض هو:
-    </label>
-    <div class="radio-group grid grid-cols-2 gap-4 px-4 py-3 border border-gray-300 rounded-md bg-gray-100">
-        <label class="radio-item flex items-center justify-start gap-2 bg-blue-500 text-white p-4 rounded-lg">
-            <input type="radio" name="salt_water" value="lakes" class="form-radio w-5 h-5">
-            <span>البحيرات</span>
-        </label>
-        <label class="radio-item flex items-center justify-start gap-2 bg-teal-500 text-white p-4 rounded-lg">
-            <input type="radio" name="salt_water" value="springs" class="form-radio w-5 h-5">
-            <span>الينابيع</span>
-        </label>
-    </div>
-</div>
-<!-- Questions -->
-<div class="question active">
-    <p>السؤال الثامن </p>
-
-    <label class="mb-4 block text-lg font-semibold text-gray-700">
-        تستخدم الأحافير لـ؟
-    </label>
-    <div class="radio-group grid grid-cols-2 gap-4 px-4 py-3 border border-gray-300 rounded-md bg-gray-100">
-        <label class="radio-item flex items-center justify-start gap-2 bg-blue-500 text-white p-4 rounded-lg">
-            <input type="radio" name="fossils" value="geological_events" class="form-radio w-5 h-5">
-            <span>ترتيب الأحداث الجيولوجية</span>
-        </label>
-        <label class="radio-item flex items-center justify-start gap-2 bg-teal-500 text-white p-4 rounded-lg">
-            <input type="radio" name="fossils" value="oil_exploration" class="form-radio w-5 h-5">
-            <span>تنقيب عن النفط</span>
-        </label>
-        <label class="radio-item flex items-center justify-start gap-2 bg-orange-500 text-white p-4 rounded-lg">
-            <input type="radio" name="fossils" value="all_of_above" class="form-radio w-5 h-5">
-            <span>جميع ما ذكر</span>
-        </label>
-        <label class="radio-item flex items-center justify-start gap-2 bg-pink-500 text-white p-4 rounded-lg">
-            <input type="radio" name="fossils" value="rock_ages" class="form-radio w-5 h-5">
-            <span>معرفة أعمار الصخور</span>
-        </label>
-    </div>
-</div>
-<!-- Questions -->
-<div class="question active">
-    <p>السؤال التاسع </p>
-
-    <label class="mb-4 block text-lg font-semibold text-gray-700">
-        النفط والفحم الحجري يعدان من؟
-    </label>
-    <div class="radio-group grid grid-cols-3 gap-4 px-4 py-3 border border-gray-300 rounded-md bg-gray-100">
-        <label class="radio-item flex items-center justify-start gap-2 bg-blue-500 text-white p-4 rounded-lg">
-            <input type="radio" name="resource_type" value="fossil_fuel" class="form-radio w-5 h-5">
-            <span>الوقود الأحفوري</span>
-        </label>
-        <label class="radio-item flex items-center justify-start gap-2 bg-teal-500 text-white p-4 rounded-lg">
-            <input type="radio" name="resource_type" value="renewable_energy" class="form-radio w-5 h-5">
-            <span>الطاقة المتجددة</span>
-        </label>
-        <label class="radio-item flex items-center justify-start gap-2 bg-orange-500 text-white p-4 rounded-lg">
-            <input type="radio" name="resource_type" value="eco_friendly" class="form-radio w-5 h-5">
-            <span>أصدقاء البيئة</span>
-        </label>
-    </div>
-</div>
-<!-- Questions -->
-<div class="question active">
-    <p>السؤال العاشر </p>
-
-    <label class="mb-4 block text-lg font-semibold text-gray-700">
-        هي معالم طبيعية لسطح الأرض:
-    </label>
-    <div class="radio-group grid grid-cols-3 gap-4 px-4 py-3 border border-gray-300 rounded-md bg-gray-100">
-        <label class="radio-item flex items-center justify-start gap-2 bg-blue-500 text-white p-4 rounded-lg">
-            <input type="radio" name="earth_features" value="erosion" class="form-radio w-5 h-5">
-            <span>التضاريس</span>
-        </label>
-        <label class="radio-item flex items-center justify-start gap-2 bg-teal-500 text-white p-4 rounded-lg">
-            <input type="radio" name="earth_features" value="soil" class="form-radio w-5 h-5">
-            <span>التعرية</span>
-        </label>
-        <label class="radio-item flex items-center justify-start gap-2 bg-orange-500 text-white p-4 rounded-lg">
-            <input type="radio" name="earth_features" value="atmosphere" class="form-radio w-5 h-5">
-            <span>الغلاف الجوي</span>
-        </label>
-    </div>
-</div>
-<!-- Questions -->
-<div class="question active">
-    <p>السؤال الحادي عشر </p>
-
-    <label class="mb-4 block text-lg font-semibold text-gray-700">
-        يعتبر المرجان مثالا للكائنات الحية:
-    </label>
-    <div class="radio-group grid grid-cols-2 gap-4 px-4 py-3 border border-gray-300 rounded-md bg-gray-100">
-        <label class="radio-item flex items-center justify-start gap-2 bg-blue-500 text-white p-4 rounded-lg">
-            <input type="radio" name="coral_example" value="true" class="form-radio w-5 h-5">
-            <span>صواب</span>
-        </label>
-        <label class="radio-item flex items-center justify-start gap-2 bg-teal-500 text-white p-4 rounded-lg">
-            <input type="radio" name="coral_example" value="false" class="form-radio w-5 h-5">
-            <span>خطأ</span>
-        </label>
-    </div>
-</div>
-
-
-            <!-- Navigation Buttons -->
-            <div class="navigation-buttons">
-                <div class="left-buttons">
-                    <button id="prev" class="prev" disabled>السابق</button>
-                    <a href="{{ route('homepage') }}" class="exit-link">الخروج من الامتحان</a>
+                <!-- السؤال الاول -->
+                <div class="question active">
+                    <p>السؤال الأول</p>
+                    <label class="mb-4 block text-lg font-semibold text-gray-700">
+                        كوكب الأرض الوحيد الذي يوجد عليه حياة بسبب:
+                    </label>
+                    <div class="radio-group flex flex-col gap-4 px-4 py-3 border border-gray-300 rounded-md bg-gray-100">
+                        @foreach([
+                            'answers.1.water_and_gravity' => 'وجود الماء والجاذبية',
+                            'answers.1.temperature' => 'درجة الحرارة المناسبة',
+                            'answers.1.air_only' => 'وجود الهواء فقط',
+                            'answers.1.all' => 'جميع ما سبق'
+                        ] as $name => $label)
+                            <label class="radio-item flex items-center gap-2">
+                                <input type="radio" name="answers[1]" value="{{ explode('.', $name)[2] }}"
+                                    {{ old('answers.1') == explode('.', $name)[2] ? 'checked' : '' }}>
+                                <span>{{ $label }}</span>
+                            </label>
+                        @endforeach
+                    </div>
                 </div>
-                <button id="next" class="next">التالي</button>
-            </div>
+
+                <!-- السؤال الثاني -->
+                <div class="question">
+                    <p>السؤال الثاني</p>
+                    <label class="mb-4 block text-lg font-semibold text-gray-700">
+                        تدور الأرض حول نفسها كل ساعة:
+                    </label>
+                    <div class="radio-group grid grid-cols-2 gap-4 px-4 py-3 border border-gray-300 rounded-md bg-gray-100">
+                        @foreach([
+                            'answers.2.12_hours' => '12',
+                            'answers.2.5_hours' => '5',
+                            'answers.2.10_hours' => '10',
+                            'answers.2.24_hours' => '24'
+                        ] as $name => $label)
+                            <label class="radio-item flex items-center justify-center gap-2 bg-blue-500 text-white p-4 rounded-lg">
+                                <input type="radio" name="answers[2]" value="{{ explode('.', $name)[2] }}"
+                                    {{ old('answers.2') == explode('.', $name)[2] ? 'checked' : '' }}>
+                                <span>{{ $label }}</span>
+                            </label>
+                        @endforeach
+                    </div>
+                </div>
+
+                <!-- السؤال الثالث -->
+                <div class="question">
+                    <p>السؤال الثالث</p>
+                    <label class="mb-4 block text-lg font-semibold text-gray-700">
+                        مكونات النظام البيئي:
+                    </label>
+                    <div class="radio-group grid grid-cols-2 gap-4 px-4 py-3 border border-gray-300 rounded-md bg-gray-100">
+                        @foreach([
+                            'answers.3.water_air_soil_rocks' => 'الماء، الهواء، و التربة و الصخور',
+                            'answers.3.none_of_the_above' => 'لا شيء من ما ذكر',
+                            'answers.3.water_air_soil' => 'الماء، الهواء و التربة',
+                            'answers.3.water_only' => 'الماء فقط'
+                        ] as $name => $label)
+                            <label class="radio-item flex items-center justify-center gap-2 bg-teal-500 text-white p-4 rounded-lg">
+                                <input type="radio" name="answers[3]" value="{{ explode('.', $name)[2] }}"
+                                    {{ old('answers.3') == explode('.', $name)[2] ? 'checked' : '' }}>
+                                <span>{{ $label }}</span>
+                            </label>
+                        @endforeach
+                    </div>
+                </div>
+
+                <!-- السؤال الرابع -->
+                <div class="question">
+                    <p>السؤال الرابع</p>
+                    <label class="mb-4 block text-lg font-semibold text-gray-700">
+                        ما هو الإهتزاز الذي يحدث لصخور الأرض:
+                    </label>
+                    <div class="radio-group grid grid-cols-3 gap-4 px-4 py-3 border border-gray-300 rounded-md bg-gray-100">
+                        @foreach([
+                            'answers.4.volcanoes' => 'البراكين',
+                            'answers.4.storms' => 'العواصف',
+                            'answers.4.earthquake' => 'الزلزال'
+                        ] as $name => $label)
+                            <label class="radio-item flex items-center justify-start gap-2 bg-orange-500 text-white p-4 rounded-lg">
+                                <input type="radio" name="answers[4]" value="{{ explode('.', $name)[2] }}"
+                                    {{ old('answers.4') == explode('.', $name)[2] ? 'checked' : '' }}>
+                                <span>{{ $label }}</span>
+                            </label>
+                        @endforeach
+                    </div>
+                </div>
+
+                <!-- السؤال الخامس -->
+                <div class="question">
+                    <p>السؤال الخامس</p>
+                    <label class="mb-4 block text-lg font-semibold text-gray-700">
+                        الطاقة الشمسية و الرياح:
+                    </label>
+                    <div class="radio-group grid grid-cols-2 gap-4 px-4 py-3 border border-gray-300 rounded-md bg-gray-100">
+                        @foreach([
+                            'answers.5.exhaustible' => 'تنفذ',
+                            'answers.5.nonrenewable' => 'موارد طاقة غير متجددة',
+                            'answers.5.renewable' => 'موارد طاقة متجددة',
+                            'answers.5.pollution' => 'تلوث البيئة'
+                        ] as $name => $label)
+                            <label class="radio-item flex items-center justify-start gap-2 bg-pink-500 text-white p-4 rounded-lg">
+                                <input type="radio" name="answers[5]" value="{{ explode('.', $name)[2] }}"
+                                    {{ old('answers.5') == explode('.', $name)[2] ? 'checked' : '' }}>
+                                <span>{{ $label }}</span>
+                            </label>
+                        @endforeach
+                    </div>
+                </div>
+
+                <!-- السؤال السادس -->
+                <div class="question">
+                    <p>السؤال السادس</p>
+                    <label class="mb-4 block text-lg font-semibold text-gray-700">
+                        يحفر الناس حفر عميقة للوصول إلى ..................... تسمى الآبار:
+                    </label>
+                    <div class="radio-group grid grid-cols-3 gap-4 px-4 py-3 border border-gray-300 rounded-md bg-gray-100">
+                        @foreach([
+                            'answers.6.earth_resources' => 'موارد الأرض',
+                            'answers.6.groundwater' => 'المياه الجوفية',
+                            'answers.6.irrigation' => 'الري'
+                        ] as $name => $label)
+                            <label class="radio-item flex items-center justify-start gap-2 bg-blue-500 text-white p-4 rounded-lg">
+                                <input type="radio" name="answers[6]" value="{{ explode('.', $name)[2] }}"
+                                    {{ old('answers.6') == explode('.', $name)[2] ? 'checked' : '' }}>
+                                <span>{{ $label }}</span>
+                            </label>
+                        @endforeach
+                    </div>
+                </div>
+
+                <!-- السؤال السابع -->
+                <div class="question">
+                    <p>السؤال السابع</p>
+                    <label class="mb-4 block text-lg font-semibold text-gray-700">
+                        مصدر المياه المالحة على كوكب الأرض هو:
+                    </label>
+                    <div class="radio-group grid grid-cols-2 gap-4 px-4 py-3 border border-gray-300 rounded-md bg-gray-100">
+                        @foreach([
+                            'answers.7.lakes' => 'البحيرات',
+                            'answers.7.springs' => 'الينابيع'
+                        ] as $name => $label)
+                            <label class="radio-item flex items-center justify-start gap-2 bg-blue-500 text-white p-4 rounded-lg">
+                                <input type="radio" name="answers[7]" value="{{ explode('.', $name)[2] }}"
+                                    {{ old('answers.7') == explode('.', $name)[2] ? 'checked' : '' }}>
+                                <span>{{ $label }}</span>
+                            </label>
+                        @endforeach
+                    </div>
+                </div>
+
+                <!-- السؤال الثامن -->
+                <div class="question">
+                    <p>السؤال الثامن</p>
+                    <label class="mb-4 block text-lg font-semibold text-gray-700">
+                        تستخدم الأحافير لـ؟
+                    </label>
+                    <div class="radio-group grid grid-cols-2 gap-4 px-4 py-3 border border-gray-300 rounded-md bg-gray-100">
+                        @foreach([
+                            'answers.8.geological_events' => 'ترتيب الأحداث الجيولوجية',
+                            'answers.8.oil_exploration' => 'تنقيب عن النفط',
+                            'answers.8.all_of_above' => 'جميع ما ذكر',
+                            'answers.8.rock_ages' => 'معرفة أعمار الصخور'
+                        ] as $name => $label)
+                            <label class="radio-item flex items-center justify-start gap-2 bg-teal-500 text-white p-4 rounded-lg">
+                                <input type="radio" name="answers[8]" value="{{ explode('.', $name)[2] }}"
+                                    {{ old('answers.8') == explode('.', $name)[2] ? 'checked' : '' }}>
+                                <span>{{ $label }}</span>
+                            </label>
+                        @endforeach
+                    </div>
+                </div>
+
+                <!-- السؤال التاسع -->
+                <div class="question">
+                    <p>السؤال التاسع</p>
+                    <label class="mb-4 block text-lg font-semibold text-gray-700">
+                        النفط والفحم الحجري يعدان من؟
+                    </label>
+                    <div class="radio-group grid grid-cols-3 gap-4 px-4 py-3 border border-gray-300 rounded-md bg-gray-100">
+                        @foreach([
+                            'answers.9.fossil_fuel' => 'الوقود الأحفوري',
+                            'answers.9.renewable_energy' => 'الطاقة المتجددة',
+                            'answers.9.eco_friendly' => 'أصدقاء البيئة'
+                        ] as $name => $label)
+                            <label class="radio-item flex items-center justify-start gap-2 bg-orange-500 text-white p-4 rounded-lg">
+                                <input type="radio" name="answers[9]" value="{{ explode('.', $name)[2] }}"
+                                    {{ old('answers.9') == explode('.', $name)[2] ? 'checked' : '' }}>
+                                <span>{{ $label }}</span>
+                            </label>
+                        @endforeach
+                    </div>
+                </div>
+
+                <!-- السؤال العاشر -->
+                <div class="question">
+                    <p>السؤال العاشر</p>
+                    <label class="mb-4 block text-lg font-semibold text-gray-700">
+                        هي معالم طبيعية لسطح الأرض:
+                    </label>
+                    <div class="radio-group grid grid-cols-3 gap-4 px-4 py-3 border border-gray-300 rounded-md bg-gray-100">
+                        @foreach([
+                            'answers.10.erosion' => 'التضاريس',
+                            'answers.10.storms' => 'التعرية',
+                            'answers.10.atmosphere' => 'الغلاف الجوي'
+                        ] as $name => $label)
+                            <label class="radio-item flex items-center justify-start gap-2 bg-blue-500 text-white p-4 rounded-lg">
+                                <input type="radio" name="answers[10]" value="{{ explode('.', $name)[2] }}"
+                                    {{ old('answers.10') == explode('.', $name)[2] ? 'checked' : '' }}>
+                                <span>{{ $label }}</span>
+                            </label>
+                        @endforeach
+                    </div>
+                </div>
+
+                <!-- السؤال الحادي عشر -->
+                <div class="question">
+                    <p>السؤال الحادي عشر</p>
+                    <label class="mb-4 block text-lg font-semibold text-gray-700">
+                        يعتبر المرجان مثالا للكائنات الحية:
+                    </label>
+                    <div class="radio-group grid grid-cols-2 gap-4 px-4 py-3 border border-gray-300 rounded-md bg-gray-100">
+                        @foreach([
+                            'answers.11.true' => 'صواب',
+                            'answers.11.false' => 'خطأ'
+                        ] as $name => $label)
+                            <label class="radio-item flex items-center justify-start gap-2 bg-blue-500 text-white p-4 rounded-lg">
+                                <input type="radio" name="answers[11]" value="{{ explode('.', $name)[2] }}"
+                                    {{ old('answers.11') == explode('.', $name)[2] ? 'checked' : '' }}>
+                                <span>{{ $label }}</span>
+                            </label>
+                        @endforeach
+                    </div>
+                </div>
+
+                <!-- Navigation Buttons -->
+                <div class="navigation-buttons">
+                    <div class="left-buttons">
+                        <button id="prev" class="prev" type="button" disabled>السابق</button>
+                        <a href="{{ route('homepage') }}" class="exit-link">الخروج من الامتحان</a>
+                    </div>
+                    <button id="next" class="next" type="button">التالي</button>
+                    <button id="submit-btn" class="next" type="submit" style="display: none;">إرسال</button>
+                </div>
+            </form>
 
     </div>
     </div>
 
     <script>
+       // Timer Functionality with localStorage
+       const timerElement = document.getElementById('timer');
+        const timerInput = document.getElementById('scienceTimer');
+
+        let timeRemaining = parseInt(localStorage.getItem('timeRemainingScience')) || 25 * 60; // 15 minutes in seconds
+
+        const updateTimer = () => {
+            const minutes = Math.floor(timeRemaining / 60).toString().padStart(2, '0');
+            const seconds = (timeRemaining % 60).toString().padStart(2, '0');
+            timerElement.textContent = `${minutes}:${seconds}`;
+
+            // Change timer color based on remaining time
+            if (timeRemaining <= 3.75 * 60) { // Last 25%
+                timerElement.classList.add('danger');
+                timerElement.classList.remove('warning', 'green');
+            } else if (timeRemaining <= 7.5 * 60) { // Last 50%
+                timerElement.classList.add('warning');
+                timerElement.classList.remove('danger', 'green');
+            } else {
+                timerElement.classList.remove('danger', 'warning');
+                timerElement.classList.add('green');
+            }
+
+            // Save the remaining time to localStorage
+            localStorage.setItem('timeRemainingScience', timeRemaining);
+
+            // If time runs out, clear the interval and submit the form
+            if (timeRemaining <= 0) {
+                clearInterval(timerInterval);
+                localStorage.removeItem('timeRemainingScience'); // Clear the timer from localStorage
+                document.getElementById('questions-form').submit(); // Automatically submit the form
+                // Alternatively, redirect to a timeout page:
+                // window.location.href = '/timeout-page'; // Redirect to your timeout page
+            }
+
+            // Update the hidden input field
+            timerInput.value = timeRemaining;
+
+            timeRemaining--;
+        };
+
+        // Update the timer every second
+        const timerInterval = setInterval(updateTimer, 1000);
+
+        // Initial call to set timer immediately
+        updateTimer();
+
+        // Question Navigation
         const questions = document.querySelectorAll('.question');
         const prevButton = document.getElementById('prev');
         const nextButton = document.getElementById('next');
+        const submitButton = document.getElementById('submit-btn');
         let currentStep = 0;
 
         function updateQuestions() {
+            // Show the current question and hide others
             questions.forEach((question, index) => {
                 question.classList.toggle('active', index === currentStep);
             });
 
+            // Enable or disable the "السابق" button
             prevButton.disabled = currentStep === 0;
-            nextButton.disabled = currentStep === questions.length - 1;
+
+            // Show/hide "التالي" and "إرسال" buttons
+            if (currentStep === questions.length - 1) {
+                nextButton.style.display = 'none';
+                submitButton.style.display = 'inline-block';
+            } else {
+                nextButton.style.display = 'inline-block';
+                submitButton.style.display = 'none';
+            }
         }
 
+        // Event listener for the "السابق" button
         prevButton.addEventListener('click', () => {
             if (currentStep > 0) {
                 currentStep--;
@@ -532,6 +574,7 @@ button:disabled {
             }
         });
 
+        // Event listener for the "التالي" button
         nextButton.addEventListener('click', () => {
             if (currentStep < questions.length - 1) {
                 currentStep++;
@@ -539,6 +582,7 @@ button:disabled {
             }
         });
 
+        // Initialize the question navigation
         updateQuestions();
     </script>
 </body>

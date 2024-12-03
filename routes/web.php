@@ -79,4 +79,6 @@ Route::get('/science', function () {
 // apis
 Route::post('/saveAnswer', [MathFirstKgController::class, 'saveAnswers'])->name('save.math.first');
 Route::post('/saveAnswerSec', [MathFirstKgController::class, 'saveAnswersSecMath'])->name('save.math.Sec');
-Route::post('/saveAnswerSec', [MathFirstKgController::class, 'saveAnswersFirstAr'])->name('save.ar.first');
+Route::post('/saveAnswerAR', [MathFirstKgController::class, 'saveAnswersFirstAr'])->name('save.ar.first');
+Route::post('/saveAnswerARSec', [MathFirstKgController::class, 'saveAnswersSecAr'])->name('save.ar.sec');
+Route::post('/saveAnswerScience', [MathFirstKgController::class, 'saveAnswersScience'])->name('save.ar.Science');

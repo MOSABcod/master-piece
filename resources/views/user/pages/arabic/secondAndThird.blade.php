@@ -238,689 +238,750 @@ button:disabled {
             <div id="timer" class="timer">15:00</div>
 
             <h1>ورقة عمل</h1>
+            <form id="questions-form" method="POST" action="{{ route('save.ar.sec') }}">
+                @csrf
+<!-- Hidden input to store the remaining time -->
+<input type="hidden" name="timer" id="arSecTimer" > <!-- 15 minutes in seconds -->
+<!-- Timer Input -->
+<input type="hidden" name="timer" >
 
-             <!-- السؤال الأول -->
-    <div class="question active">
-        <p>السؤال الأول</p>
-        <label class="mb-4 block text-lg font-semibold text-gray-700">
-            عند حذف المقطع الصوتي الأول من كلمة (<span style="font-weight: bold;">سعيد</span>) تنتج كلمة جديدة ذات معنى هي:
+<!-- السؤال الأول -->
+<div class="question active">
+    <p>السؤال الأول</p>
+    <label class="mb-4 block text-lg font-semibold text-gray-700">
+        عند حذف المقطع الصوتي الأول من كلمة (<span style="font-weight: bold;">سعيد</span>) تنتج كلمة جديدة ذات معنى هي:
+    </label>
+    <div class="radio-group flex justify-around items-center px-4 py-3 border border-gray-300 rounded-md bg-gray-100">
+        <!-- الخيار الأول -->
+        <label class="radio-item flex flex-col items-center gap-2 cursor-pointer">
+            <input type="radio" name="answers[1]" value="بَعيدُ" {{ old('answers.1') == 'بَعيدُ' ? 'checked' : '' }} class="form-radio w-5 h-5">
+            <span style="font-size: 1.2em; font-weight: bold;">بَعيدُ</span>
         </label>
-        <div class="radio-group flex justify-around items-center px-4 py-3 border border-gray-300 rounded-md bg-gray-100">
-            <!-- الخيار الأول -->
-            <label class="radio-item flex flex-col items-center gap-2 cursor-pointer">
-                <input type="radio" name="word-choice1" value="بَعيدُ" {{ old('word-choice1') == 'بَعيدُ' ? 'checked' : '' }} class="form-radio w-5 h-5">
-                <span style="font-size: 1.2em; font-weight: bold;">بَعيدُ</span>
+        <!-- الخيار الثاني -->
+        <label class="radio-item flex flex-col items-center gap-2 cursor-pointer">
+            <input type="radio" name="answers[1]" value="عَنيدُ" {{ old('answers.1') == 'عَنيدُ' ? 'checked' : '' }} class="form-radio w-5 h-5">
+            <span style="font-size: 1.2em; font-weight: bold;">عَنيدُ</span>
+        </label>
+        <!-- الخيار الثالث -->
+        <label class="radio-item flex flex-col items-center gap-2 cursor-pointer">
+            <input type="radio" name="answers[1]" value="عيدُ" {{ old('answers.1') == 'عيدُ' ? 'checked' : '' }} class="form-radio w-5 h-5">
+            <span style="font-size: 1.2em; font-weight: bold;">عيدُ</span>
+        </label>
+        <!-- الخيار الرابع -->
+        <label class="radio-item flex flex-col items-center gap-2 cursor-pointer">
+            <input type="radio" name="answers[1]" value="عَديدُ" {{ old('answers.1') == 'عَديدُ' ? 'checked' : '' }} class="form-radio w-5 h-5">
+            <span style="font-size: 1.2em; font-weight: bold;">عَديدُ</span>
+        </label>
+    </div>
+</div>
+
+<!-- السؤال الثاني -->
+<div class="question">
+    <p>السؤال الثاني</p>
+    <label class="mb-4 block text-lg font-semibold text-gray-700">
+        ضع المقطع الصوتي (لَ) بدلاً من المقطع الصوتي (جَ) في كلمة (جَمَع) لتكون كلمة جديدة ذات معنى:
+    </label>
+    <div class="radio-group flex justify-between items-center px-4 py-3 border border-gray-300 rounded-md bg-gray-100">
+        <label class="radio-item flex items-center gap-2 cursor-pointer">
+            <input type="radio" name="answers[2]" value="سَمَعَ" {{ old('answers.2') == 'سَمَعَ' ? 'checked' : '' }} class="form-radio w-5 h-5">
+            <span>سَمَعَ</span>
+        </label>
+        <label class="radio-item flex items-center gap-2 cursor-pointer">
+            <input type="radio" name="answers[2]" value="لَمَعَ" {{ old('answers.2') == 'لَمَعَ' ? 'checked' : '' }} class="form-radio w-5 h-5">
+            <span>لَمَعَ</span>
+        </label>
+        <label class="radio-item flex items-center gap-2 cursor-pointer">
+            <input type="radio" name="answers[2]" value="قَمَعَ" {{ old('answers.2') == 'قَمَعَ' ? 'checked' : '' }} class="form-radio w-5 h-5">
+            <span>قَمَعَ</span>
+        </label>
+        <label class="radio-item flex items-center gap-2 cursor-pointer">
+            <input type="radio" name="answers[2]" value="وَضَعَ" {{ old('answers.2') == 'وَضَعَ' ? 'checked' : '' }} class="form-radio w-5 h-5">
+            <span>وَضَعَ</span>
+        </label>
+    </div>
+</div>
+
+<!-- السؤال الثالث -->
+<div class="question">
+    <p>السؤال الثالث</p>
+    <label class="mb-4 block text-lg font-semibold text-gray-700">
+        ضع دائرة حول الكلمة التي تحتوي مداً بالياء، ما يأتي:
+    </label>
+    <div class="radio-group flex justify-between items-center px-4 py-3 border border-gray-300 rounded-md bg-gray-100">
+        <label class="radio-item flex items-center gap-2 cursor-pointer">
+            <input type="radio" name="answers[3]" value="مَحْمُودٌ" {{ old('answers.3') == 'مَحْمُودٌ' ? 'checked' : '' }} class="form-radio w-5 h-5">
+            <span>مَحْمُودٌ</span>
+        </label>
+        <label class="radio-item flex items-center gap-2 cursor-pointer">
+            <input type="radio" name="answers[3]" value="عِمَادٌ" {{ old('answers.3') == 'عِمَادٌ' ? 'checked' : '' }} class="form-radio w-5 h-5">
+            <span>عِمَادٌ</span>
+        </label>
+        <label class="radio-item flex items-center gap-2 cursor-pointer">
+            <input type="radio" name="answers[3]" value="جَمِيلٌ" {{ old('answers.3') == 'جَمِيلٌ' ? 'checked' : '' }} class="form-radio w-5 h-5">
+            <span>جَمِيلٌ</span>
+        </label>
+        <label class="radio-item flex items-center gap-2 cursor-pointer">
+            <input type="radio" name="answers[3]" value="كِتَابٌ" {{ old('answers.3') == 'كِتَابٌ' ? 'checked' : '' }} class="form-radio w-5 h-5">
+            <span>كِتَابٌ</span>
+        </label>
+    </div>
+</div>
+
+<!-- السؤال الرابع -->
+<div class="question">
+    <p>السؤال الرابع</p>
+    <label class="mb-4 block text-lg font-semibold text-gray-700">
+        ضع دائرة حول كلمة (<span style="font-size: 1.2em; font-weight: bold;">عَلَََمَ</span>).
+    </label>
+    <div class="radio-group flex justify-between items-center px-4 py-3 border border-gray-300 rounded-md bg-gray-100">
+        <label class="radio-item flex items-center gap-2 cursor-pointer">
+            <input type="radio" name="answers[4]" value="عَلِمْ" {{ old('answers.4') == 'عَلِمْ' ? 'checked' : '' }} class="form-radio w-5 h-5">
+            <span>عَلِمْ</span>
+        </label>
+        <label class="radio-item flex items-center gap-2 cursor-pointer">
+            <input type="radio" name="answers[4]" value="عَلَََمَ" {{ old('answers.4') == 'عَلَََمَ' ? 'checked' : '' }} class="form-radio w-5 h-5">
+            <span>عَلَََمَ</span>
+        </label>
+        <label class="radio-item flex items-center gap-2 cursor-pointer">
+            <input type="radio" name="answers[4]" value="عِلْمُ" {{ old('answers.4') == 'عِلْمُ' ? 'checked' : '' }} class="form-radio w-5 h-5">
+            <span>عِلْمُ</span>
+        </label>
+        <label class="radio-item flex items-center gap-2 cursor-pointer">
+            <input type="radio" name="answers[4]" value="عَلَمُ" {{ old('answers.4') == 'عَلَمُ' ? 'checked' : '' }} class="form-radio w-5 h-5">
+            <span>عَلَمُ</span>
+        </label>
+    </div>
+</div>
+
+<!-- السؤال الخامس -->
+<div class="question">
+    <p>السؤال الخامس</p>
+    <label class="mb-4 block text-lg font-semibold text-gray-700">
+        ضع دائرة حول الكلمة التي تبدأ باللام الشمسية في الجملة الآتية:
+    </label>
+    <p class="mb-2 text-gray-600 text-lg">العنب فاكهتي المُفضَّلة في فصل الصيف.</p>
+    <div class="radio-group flex justify-between items-center px-4 py-3 border border-gray-300 rounded-md bg-gray-100">
+        <label class="radio-item flex items-center gap-2 cursor-pointer">
+            <input type="radio" name="answers[5]" value="العنب" {{ old('answers.5') == 'العنب' ? 'checked' : '' }} class="form-radio w-5 h-5">
+            <span>العنب</span>
+        </label>
+        <label class="radio-item flex items-center gap-2 cursor-pointer">
+            <input type="radio" name="answers[5]" value="فاكهتي" {{ old('answers.5') == 'فاكهتي' ? 'checked' : '' }} class="form-radio w-5 h-5">
+            <span>فاكهتي</span>
+        </label>
+        <label class="radio-item flex items-center gap-2 cursor-pointer">
+            <input type="radio" name="answers[5]" value="المُفضَّلة" {{ old('answers.5') == 'المُفضَّلة' ? 'checked' : '' }} class="form-radio w-5 h-5">
+            <span>المُفضَّلة</span>
+        </label>
+        <label class="radio-item flex items-center gap-2 cursor-pointer">
+            <input type="radio" name="answers[5]" value="في" {{ old('answers.5') == 'في' ? 'checked' : '' }} class="form-radio w-5 h-5">
+            <span>في</span>
+        </label>
+        <label class="radio-item flex items-center gap-2 cursor-pointer">
+            <input type="radio" name="answers[5]" value="فصل" {{ old('answers.5') == 'فصل' ? 'checked' : '' }} class="form-radio w-5 h-5">
+            <span>فصل</span>
+        </label>
+        <label class="radio-item flex items-center gap-2 cursor-pointer">
+            <input type="radio" name="answers[5]" value="الصيف" {{ old('answers.5') == 'الصيف' ? 'checked' : '' }} class="form-radio w-5 h-5">
+            <span>الصيف</span>
+        </label>
+    </div>
+</div>
+
+<!-- السؤال السادس -->
+<div class="question">
+    <p>السؤال السادس</p>
+    <label class="mb-4 block text-lg font-semibold text-gray-700">
+        ضع دائرة حول كلمة (لَبَن).
+    </label>
+    <div class="radio-group flex justify-between items-center px-4 py-3 border border-gray-300 rounded-md bg-gray-100">
+        <label class="radio-item flex items-center gap-2 cursor-pointer">
+            <input type="radio" name="answers[6]" value="لَبْنَا" {{ old('answers.6') == 'لَبْنَا' ? 'checked' : '' }} class="form-radio w-5 h-5">
+            <span>لَبْنَا</span>
+        </label>
+        <label class="radio-item flex items-center gap-2 cursor-pointer">
+            <input type="radio" name="answers[6]" value="لَبَنُ" {{ old('answers.6') == 'لَبَنُ' ? 'checked' : '' }} class="form-radio w-5 h-5">
+            <span>لَبَنُ</span>
+        </label>
+        <label class="radio-item flex items-center gap-2 cursor-pointer">
+            <input type="radio" name="answers[6]" value="لَبَنٍ" {{ old('answers.6') == 'لَبَنٍ' ? 'checked' : '' }} class="form-radio w-5 h-5">
+            <span>لَبَنٍ</span>
+        </label>
+        <label class="radio-item flex items-center gap-2 cursor-pointer">
+            <input type="radio" name="answers[6]" value="لَبَنْ" {{ old('answers.6') == 'لَبَنْ' ? 'checked' : '' }} class="form-radio w-5 h-5">
+            <span>لَبَنْ</span>
+        </label>
+    </div>
+</div>
+
+<!-- السؤال السابع -->
+<div class="question">
+    <p>السؤال السابع</p>
+    <label class="mb-4 block text-lg font-semibold text-gray-700">
+        ضع دائرة حول كلمة (سَحَبَ).
+    </label>
+    <div class="radio-group flex justify-between items-center px-4 py-3 border border-gray-300 rounded-md bg-gray-100">
+        <label class="radio-item flex items-center gap-2 cursor-pointer">
+            <input type="radio" name="answers[7]" value="سَحَبَ" {{ old('answers.7') == 'سَحَبَ' ? 'checked' : '' }} class="form-radio w-5 h-5">
+            <span>سَحَبَ</span>
+        </label>
+        <label class="radio-item flex items-center gap-2 cursor-pointer">
+            <input type="radio" name="answers[7]" value="سَحْبُ" {{ old('answers.7') == 'سَحْبُ' ? 'checked' : '' }} class="form-radio w-5 h-5">
+            <span>سَحْبُ</span>
+        </label>
+        <label class="radio-item flex items-center gap-2 cursor-pointer">
+            <input type="radio" name="answers[7]" value="سَحْبٍ" {{ old('answers.7') == 'سَحْبٍ' ? 'checked' : '' }} class="form-radio w-5 h-5">
+            <span>سَحْبٍ</span>
+        </label>
+        <label class="radio-item flex items-center gap-2 cursor-pointer">
+            <input type="radio" name="answers[7]" value="سَحَابَةُ" {{ old('answers.7') == 'سَحَابَةُ' ? 'checked' : '' }} class="form-radio w-5 h-5">
+            <span>سَحَابَةُ</span>
+        </label>
+    </div>
+</div>
+
+<!-- السؤال الثامن -->
+<div class="question">
+    <p>السؤال الثامن</p>
+    <label class="mb-4 block text-lg font-semibold text-gray-700">
+        ضع دائرة حول كلمة (عَمِلَتْ).
+    </label>
+    <div class="radio-group flex justify-between items-center px-4 py-3 border border-gray-300 rounded-md bg-gray-100">
+        <label class="radio-item flex items-center gap-2 cursor-pointer">
+            <input type="radio" name="answers[8]" value="عملت" {{ old('answers.8') == 'عملت' ? 'checked' : '' }} class="form-radio w-5 h-5">
+            <span>عَمِلَتْ</span>
+        </label>
+        <label class="radio-item flex items-center gap-2 cursor-pointer">
+            <input type="radio" name="answers[8]" value="عُمْلَة" {{ old('answers.8') == 'عُمْلَة' ? 'checked' : '' }} class="form-radio w-5 h-5">
+            <span>عُمْلَة</span>
+        </label>
+        <label class="radio-item flex items-center gap-2 cursor-pointer">
+            <input type="radio" name="answers[8]" value="عَمَّلَة" {{ old('answers.8') == 'عَمَّلَة' ? 'checked' : '' }} class="form-radio w-5 h-5">
+            <span>عَمَّلَة</span>
+        </label>
+        <label class="radio-item flex items-center gap-2 cursor-pointer">
+            <input type="radio" name="answers[8]" value="عَمَل" {{ old('answers.8') == 'عَمَل' ? 'checked' : '' }} class="form-radio w-5 h-5">
+            <span>عَمَل</span>
+        </label>
+    </div>
+</div>
+
+<!-- السؤال التاسع -->
+<div class="question">
+    <p>السؤال التاسع</p>
+    <label class="mb-4 block text-lg font-semibold text-gray-700">
+        ضع دائرة حول التحليل الصحيح لكلمة (<span style="font-size: 1.2em; font-weight: bold;">اِسْتَنْشَقَ</span>).
+    </label>
+    <div class="radio-group flex flex-col gap-4 border border-gray-300 p-4 rounded-md bg-gray-100" style="direction: rtl; text-align: right;">
+        <!-- الخيار الأول -->
+        <label class="radio-item flex items-center cursor-pointer gap-2">
+            <input type="radio" name="answers[9]" value="option1" {{ old('answers.9') == 'option1' ? 'checked' : '' }} class="form-radio w-5 h-5">
+            <span class="text-gray-700">
+                اِسْ &nbsp; تَـ &nbsp; نْـ &nbsp; شَـ &nbsp; قَ
+            </span>
+        </label>
+
+        <!-- الخيار الثاني -->
+        <label class="radio-item flex items-center cursor-pointer gap-2">
+            <input type="radio" name="answers[9]" value="option2" {{ old('answers.9') == 'option2' ? 'checked' : '' }} class="form-radio w-5 h-5">
+            <span class="text-gray-700">
+                اِ&nbsp; سْـ &nbsp; &nbsp;نَـتَـ  &nbsp; شَـقْ
+            </span>
+        </label>
+
+        <!-- الخيار الثالث -->
+        <label class="radio-item flex items-center cursor-pointer gap-2">
+            <input type="radio" name="answers[9]" value="option3" {{ old('answers.9') == 'option3' ? 'checked' : '' }} class="form-radio w-5 h-5">
+            <span class="text-gray-700">
+                اِسْـ &nbsp; تَـ &nbsp; شَـنْـ  &nbsp; قْ
+            </span>
+        </label>
+
+        <!-- الخيار الرابع -->
+        <label class="radio-item flex items-center cursor-pointer gap-2">
+            <input type="radio" name="answers[9]" value="option4" {{ old('answers.9') == 'option4' ? 'checked' : '' }} class="form-radio w-5 h-5">
+            <span class="text-gray-700">
+                اِسْـتَـ&nbsp;  &nbsp; نْـ &nbsp; شَـ &nbsp; قَ
+            </span>
+        </label>
+    </div>
+</div>
+
+<!-- السؤال العاشر -->
+<div class="question">
+    <p>السؤال العاشر</p>
+    <label class="mb-4 block text-lg font-semibold text-gray-700">
+        حدد معنى الكلمة التي تحتها خط: <span style="font-weight: bold; "><span style="text-decoration: underline;">الْتَهَمَ</span> الأَسَدُ اللَّحْمَ</span>.
+    </label>
+    <div class="radio-group flex justify-between items-center px-4 py-3 border border-gray-300 rounded-md bg-gray-100">
+        <!-- الخيار الأول -->
+        <label class="radio-item flex flex-col items-center cursor-pointer">
+            <input type="radio" name="answers[10]" value="رَمى" {{ old('answers.10') == 'رَمى' ? 'checked' : '' }} class="form-radio w-5 h-5 mb-2">
+            <span class="text-gray-700">رَمى</span>
+        </label>
+
+        <!-- الخيار الثاني -->
+        <label class="radio-item flex flex-col items-center cursor-pointer">
+            <input type="radio" name="answers[10]" value="شَرِبَ" {{ old('answers.10') == 'شَرِبَ' ? 'checked' : '' }} class="form-radio w-5 h-5 mb-2">
+            <span class="text-gray-700">شَرِبَ</span>
+        </label>
+
+        <!-- الخيار الثالث -->
+        <label class="radio-item flex flex-col items-center cursor-pointer">
+            <input type="radio" name="answers[10]" value="أَكَلَ" {{ old('answers.10') == 'أَكَلَ' ? 'checked' : '' }} class="form-radio w-5 h-5 mb-2">
+            <span class="text-gray-700">أَكَلَ</span>
+        </label>
+
+        <!-- الخيار الرابع -->
+        <label class="radio-item flex flex-col items-center cursor-pointer">
+            <input type="radio" name="answers[10]" value="تَرَكَ" {{ old('answers.10') == 'تَرَكَ' ? 'checked' : '' }} class="form-radio w-5 h-5 mb-2">
+            <span class="text-gray-700">تَرَكَ</span>
+        </label>
+    </div>
+</div>
+
+<!-- السؤال الحادي عشر -->
+<div class="question">
+    <p>السؤال الحادي عشر</p>
+    <label class="mb-4 block text-lg font-semibold text-gray-700">
+        حدد معنى الكلمة التي تحتها خط: <span style="font-weight: bold;"><span style="text-decoration: underline;">عَبَرَ</span> مُحَمَّدُ الشَّارِعَ</span>.
+    </label>
+    <div class="radio-group flex justify-between items-center px-4 py-3 border border-gray-300 rounded-md bg-gray-100">
+        <!-- الخيار الأول -->
+        <label class="radio-item flex flex-col items-center cursor-pointer">
+            <input type="radio" name="answers[11]" value="أَخَذَ" {{ old('answers.11') == 'أَخَذَ' ? 'checked' : '' }} class="form-radio w-5 h-5 mb-2">
+            <span class="text-gray-700">أَخَذَ</span>
+        </label>
+
+        <!-- الخيار الثاني -->
+        <label class="radio-item flex flex-col items-center cursor-pointer">
+            <input type="radio" name="answers[11]" value="قَطَعَ" {{ old('answers.11') == 'قَطَعَ' ? 'checked' : '' }} class="form-radio w-5 h-5 mb-2">
+            <span class="text-gray-700">قَطَعَ</span>
+        </label>
+
+        <!-- الخيار الثالث -->
+        <label class="radio-item flex flex-col items-center cursor-pointer">
+            <input type="radio" name="answers[11]" value="سَارَ" {{ old('answers.11') == 'سَارَ' ? 'checked' : '' }} class="form-radio w-5 h-5 mb-2">
+            <span class="text-gray-700">سَارَ</span>
+        </label>
+
+        <!-- الخيار الرابع -->
+        <label class="radio-item flex flex-col items-center cursor-pointer">
+            <input type="radio" name="answers[11]" value="أَحَبَّ" {{ old('answers.11') == 'أَحَبَّ' ? 'checked' : '' }} class="form-radio w-5 h-5 mb-2">
+            <span class="text-gray-700">أَحَبَّ</span>
+        </label>
+    </div>
+</div>
+
+<!-- السؤال الثاني عشر -->
+<div class="question">
+    <p>السؤال الثاني عشر</p>
+    <label class="mb-4 block text-lg font-semibold text-gray-700">
+        حدد معنى الكلمة التي تحتها خط: <span style="font-weight: bold;"> غَيَّرَتْ<span style="text-decoration: underline;"> عَجَلَةَ </span>الدَّرَّاجَةِ.</span>
+    </label>
+    <div class="radio-group flex justify-between items-center px-4 py-3 border border-gray-300 rounded-md bg-gray-100">
+        <!-- الخيار الأول -->
+        <label class="radio-item flex flex-col items-center cursor-pointer">
+            <input type="radio" name="answers[12]" value="مَفْقُود" {{ old('answers.12') == 'مَفْقُود' ? 'checked' : '' }} class="form-radio w-5 h-5 mb-2">
+            <span class="text-gray-700">مَفْقُود</span>
+        </label>
+
+        <!-- الخيار الثاني -->
+        <label class="radio-item flex flex-col items-center cursor-pointer">
+            <input type="radio" name="answers[12]" value="إِطَار" {{ old('answers.12') == 'إِطَار' ? 'checked' : '' }} class="form-radio w-5 h-5 mb-2">
+            <span class="text-gray-700">إِطَار</span>
+        </label>
+
+        <!-- الخيار الثالث -->
+        <label class="radio-item flex flex-col items-center cursor-pointer">
+            <input type="radio" name="answers[12]" value="كُرْسِي" {{ old('answers.12') == 'كُرْسِي' ? 'checked' : '' }} class="form-radio w-5 h-5 mb-2">
+            <span class="text-gray-700">كُرْسِي</span>
+        </label>
+
+        <!-- الخيار الرابع -->
+        <label class="radio-item flex flex-col items-center cursor-pointer">
+            <input type="radio" name="answers[12]" value="سُرْعَة" {{ old('answers.12') == 'سُرْعَة' ? 'checked' : '' }} class="form-radio w-5 h-5 mb-2">
+            <span class="text-gray-700">سُرْعَة</span>
+        </label>
+    </div>
+</div>
+
+<!-- السؤال الثالث عشر -->
+<div class="question">
+    <p>السؤال الثالث عشر</p>
+    <label class="mb-4 block text-lg font-semibold text-gray-700">
+        حدد معنى الكلمة التي تحتها خط: <span style="font-weight: bold;"> كُنْتُ في<span style="text-decoration: underline;"> عَجَلَةٍ </span>مِنْ أَمْرِي.</span>
+    </label>
+    <div class="radio-group flex justify-between items-center px-4 py-3 border border-gray-300 rounded-md bg-gray-100">
+        <!-- الخيار الأول -->
+        <label class="radio-item flex flex-col items-center cursor-pointer">
+            <input type="radio" name="answers[13]" value="ضَعْف" {{ old('answers.13') == 'ضَعْف' ? 'checked' : '' }} class="form-radio w-5 h-5 mb-2">
+            <span class="text-gray-700">ضَعْف</span>
+        </label>
+
+        <!-- الخيار الثاني -->
+        <label class="radio-item flex flex-col items-center cursor-pointer">
+            <input type="radio" name="answers[13]" value="بُطْء" {{ old('answers.13') == 'بُطْء' ? 'checked' : '' }} class="form-radio w-5 h-5 mb-2">
+            <span class="text-gray-700">بُطْء</span>
+        </label>
+
+        <!-- الخيار الثالث -->
+        <label class="radio-item flex flex-col items-center cursor-pointer">
+            <input type="radio" name="answers[13]" value="إِطَار" {{ old('answers.13') == 'إِطَار' ? 'checked' : '' }} class="form-radio w-5 h-5 mb-2">
+            <span class="text-gray-700">إِطَار</span>
+        </label>
+
+        <!-- الخيار الرابع -->
+        <label class="radio-item flex flex-col items-center cursor-pointer">
+            <input type="radio" name="answers[13]" value="سُرْعَة" {{ old('answers.13') == 'سُرْعَة' ? 'checked' : '' }} class="form-radio w-5 h-5 mb-2">
+            <span class="text-gray-700">سُرْعَة</span>
+        </label>
+    </div>
+</div>
+
+<!-- السؤال الرابع عشر -->
+<div class="question">
+    <p>السؤال الرابع عشر</p>
+    <label class="mb-4 block text-lg font-semibold text-gray-700">
+        ضع دائرة حول الكلمة المختلفة.
+    </label>
+    <div class="radio-group flex justify-between items-center px-4 py-3 border border-gray-300 rounded-md bg-gray-100">
+        <!-- الخيار الأول -->
+        <label class="radio-item flex flex-col items-center cursor-pointer">
+            <input type="radio" name="answers[14]" value="مَزْرَعَة" {{ old('answers.14') == 'مَزْرَعَة' ? 'checked' : '' }} class="form-radio w-5 h-5 mb-2">
+            <span class="text-gray-700">مَزْرَعَة</span>
+        </label>
+
+        <!-- الخيار الثاني -->
+        <label class="radio-item flex flex-col items-center cursor-pointer">
+            <input type="radio" name="answers[14]" value="مَزَارِع" {{ old('answers.14') == 'مَزَارِع' ? 'checked' : '' }} class="form-radio w-5 h-5 mb-2">
+            <span class="text-gray-700">مَزَارِع</span>
+        </label>
+
+        <!-- الخيار الثالث -->
+        <label class="radio-item flex flex-col items-center cursor-pointer">
+            <input type="radio" name="answers[14]" value="ثِمَار" {{ old('answers.14') == 'ثِمَار' ? 'checked' : '' }} class="form-radio w-5 h-5 mb-2">
+            <span class="text-gray-700">ثِمَار</span>
+        </label>
+
+        <!-- الخيار الرابع -->
+        <label class="radio-item flex flex-col items-center cursor-pointer">
+            <input type="radio" name="answers[14]" value="زِرَاعَة" {{ old('answers.14') == 'زِرَاعَة' ? 'checked' : '' }} class="form-radio w-5 h-5 mb-2">
+            <span class="text-gray-700">زِرَاعَة</span>
+        </label>
+    </div>
+</div>
+
+<!-- السؤال الخامس عشر -->
+<div class="question">
+    <p>السؤال الخامس عشر</p>
+    <label class="mb-4 block text-lg font-semibold text-gray-700">
+        اختر ثلاث كلمات مرتبطة بكلمة (رَمَضَان).
+    </label>
+    <div class="radio-group grid grid-cols-4 gap-4 px-4 py-3 border border-gray-300 rounded-md bg-gray-100">
+        <!-- الصف الأول -->
+        <div class="grid grid-cols-4 gap-4">
+            <label class="radio-item flex flex-col items-center cursor-pointer">
+                <input type="checkbox" name="answers[15]" value="صِيَام" {{ (is_array(old('answers.15')) && in_array('صِيَام', old('answers.15'))) ? 'checked' : '' }} class="form-checkbox w-5 h-5 mb-2">
+                <span class="text-gray-700">صِيَام</span>
             </label>
-            <!-- الخيار الثاني -->
-            <label class="radio-item flex flex-col items-center gap-2 cursor-pointer">
-                <input type="radio" name="word-choice1" value="عَنيدُ" {{ old('word-choice1') == 'عَنيدُ' ? 'checked' : '' }} class="form-radio w-5 h-5">
-                <span style="font-size: 1.2em; font-weight: bold;">عَنيدُ</span>
+            <label class="radio-item flex flex-col items-center cursor-pointer">
+                <input type="checkbox" name="answers[15]" value="زَكَاة" {{ (is_array(old('answers.15')) && in_array('زَكَاة', old('answers.15'))) ? 'checked' : '' }} class="form-checkbox w-5 h-5 mb-2">
+                <span class="text-gray-700">زَكَاة</span>
             </label>
-            <!-- الخيار الثالث -->
-            <label class="radio-item flex flex-col items-center gap-2 cursor-pointer">
-                <input type="radio" name="word-choice1" value="عيدُ" {{ old('word-choice1') == 'عيدُ' ? 'checked' : '' }} class="form-radio w-5 h-5">
-                <span style="font-size: 1.2em; font-weight: bold;">عيدُ</span>
+            <label class="radio-item flex flex-col items-center cursor-pointer">
+                <input type="checkbox" name="answers[15]" value="نَظَّارَات" {{ (is_array(old('answers.15')) && in_array('نَظَّارَات', old('answers.15'))) ? 'checked' : '' }} class="form-checkbox w-5 h-5 mb-2">
+                <span class="text-gray-700">نَظَّارَات</span>
             </label>
-            <!-- الخيار الرابع -->
-            <label class="radio-item flex flex-col items-center gap-2 cursor-pointer">
-                <input type="radio" name="word-choice1" value="عَديدُ" {{ old('word-choice1') == 'عَديدُ' ? 'checked' : '' }} class="form-radio w-5 h-5">
-                <span style="font-size: 1.2em; font-weight: bold;">عَديدُ</span>
+            <label class="radio-item flex flex-col items-center cursor-pointer">
+                <input type="checkbox" name="answers[15]" value="هِلَال" {{ (is_array(old('answers.15')) && in_array('هِلَال', old('answers.15'))) ? 'checked' : '' }} class="form-checkbox w-5 h-5 mb-2">
+                <span class="text-gray-700">هِلَال</span>
+            </label>
+        </div>
+
+        <!-- الصف الثاني -->
+        <div class="grid grid-cols-4 gap-4">
+            <label class="radio-item flex flex-col items-center cursor-pointer">
+                <input type="checkbox" name="answers[15]" value="فُطُور" {{ (is_array(old('answers.15')) && in_array('فُطُور', old('answers.15'))) ? 'checked' : '' }} class="form-checkbox w-5 h-5 mb-2">
+                <span class="text-gray-700">فُطُور</span>
+            </label>
+            <label class="radio-item flex flex-col items-center cursor-pointer">
+                <input type="checkbox" name="answers[15]" value="حَاسُوب" {{ (is_array(old('answers.15')) && in_array('حَاسُوب', old('answers.15'))) ? 'checked' : '' }} class="form-checkbox w-5 h-5 mb-2">
+                <span class="text-gray-700">حَاسُوب</span>
+            </label>
+            <label class="radio-item flex flex-col items-center cursor-pointer">
+                <input type="checkbox" name="answers[15]" value="أَنْف" {{ (is_array(old('answers.15')) && in_array('أَنْف', old('answers.15'))) ? 'checked' : '' }} class="form-checkbox w-5 h-5 mb-2">
+                <span class="text-gray-700">أَنْف</span>
+            </label>
+            <label class="radio-item flex flex-col items-center cursor-pointer">
+                <input type="checkbox" name="answers[15]" value="رَأْس" {{ (is_array(old('answers.15')) && in_array('رَأْس', old('answers.15'))) ? 'checked' : '' }} class="form-checkbox w-5 h-5 mb-2">
+                <span class="text-gray-700">رَأْس</span>
             </label>
         </div>
     </div>
+</div>
 
-    <!-- السؤال الثاني -->
-    <div class="question">
-        <p>السؤال الثاني</p>
-        <label class="mb-4 block text-lg font-semibold text-gray-700">
-            ضع المقطع الصوتي (لَ) بدلاً من المقطع الصوتي (جَ) في كلمة (جَمَع) لتكون كلمة جديدة ذات معنى:
+<!-- السؤال السادس عشر -->
+<div class="question">
+    <p>السؤال السادس عشر</p>
+    <label class="mb-4 block text-lg font-semibold text-gray-700">
+        أكمل الجملة الآتية بوصف مناسب: تناولت فطورًا _______ في الصباح.
+    </label>
+    <div class="radio-group flex justify-between items-center px-4 py-3 border border-gray-300 rounded-md bg-gray-100">
+        <!-- الخيار الأول -->
+        <label class="radio-item flex flex-col items-center cursor-pointer">
+            <input type="radio" name="answers[16]" value="لَذِيذًا" {{ old('answers.16') == 'لَذِيذًا' ? 'checked' : '' }} class="form-radio w-5 h-5 mb-2">
+            <span class="text-gray-700">لَذِيذًا</span>
         </label>
-        <div class="radio-group flex justify-between items-center px-4 py-3 border border-gray-300 rounded-md bg-gray-100">
-            <label class="radio-item flex items-center gap-2 cursor-pointer">
-                <input type="radio" name="replace-syllable2" value="سَمَعَ" {{ old('replace-syllable2') == 'سَمَعَ' ? 'checked' : '' }} class="form-radio w-5 h-5">
-                <span>سَمَعَ</span>
-            </label>
-            <label class="radio-item flex items-center gap-2 cursor-pointer">
-                <input type="radio" name="replace-syllable2" value="لَمَعَ" {{ old('replace-syllable2') == 'لَمَعَ' ? 'checked' : '' }} class="form-radio w-5 h-5">
-                <span>لَمَعَ</span>
-            </label>
-            <label class="radio-item flex items-center gap-2 cursor-pointer">
-                <input type="radio" name="replace-syllable2" value="قَمَعَ" {{ old('replace-syllable2') == 'قَمَعَ' ? 'checked' : '' }} class="form-radio w-5 h-5">
-                <span>قَمَعَ</span>
-            </label>
-            <label class="radio-item flex items-center gap-2 cursor-pointer">
-                <input type="radio" name="replace-syllable2" value="وَضَعَ" {{ old('replace-syllable2') == 'وَضَعَ' ? 'checked' : '' }} class="form-radio w-5 h-5">
-                <span>وَضَعَ</span>
-            </label>
-        </div>
-    </div>
 
-    <!-- السؤال الثالث -->
-    <div class="question">
-        <p>السؤال الثالث</p>
-        <label class="mb-4 block text-lg font-semibold text-gray-700">
-            ضع دائرة حول الكلمة التي تحتوي مداً بالياء، ما يأتي:
+        <!-- الخيار الثاني -->
+        <label class="radio-item flex flex-col items-center cursor-pointer">
+            <input type="radio" name="answers[16]" value="بَعِيدًا" {{ old('answers.16') == 'بَعِيدًا' ? 'checked' : '' }} class="form-radio w-5 h-5 mb-2">
+            <span class="text-gray-700">بَعِيدًا</span>
         </label>
-        <div class="radio-group flex justify-between items-center px-4 py-3 border border-gray-300 rounded-md bg-gray-100">
-            <label class="radio-item flex items-center gap-2 cursor-pointer">
-                <input type="radio" name="word-with-madd3" value="مَحْمُودٌ" {{ old('word-with-madd3') == 'مَحْمُودٌ' ? 'checked' : '' }} class="form-radio w-5 h-5">
-                <span>مَحْمُودٌ</span>
-            </label>
-            <label class="radio-item flex items-center gap-2 cursor-pointer">
-                <input type="radio" name="word-with-madd3" value="عِمَادٌ" {{ old('word-with-madd3') == 'عِمَادٌ' ? 'checked' : '' }} class="form-radio w-5 h-5">
-                <span>عِمَادٌ</span>
-            </label>
-            <label class="radio-item flex items-center gap-2 cursor-pointer">
-                <input type="radio" name="word-with-madd3" value="جَمِيلٌ" {{ old('word-with-madd3') == 'جَمِيلٌ' ? 'checked' : '' }} class="form-radio w-5 h-5">
-                <span>جَمِيلٌ</span>
-            </label>
-            <label class="radio-item flex items-center gap-2 cursor-pointer">
-                <input type="radio" name="word-with-madd3" value="كِتَابٌ" {{ old('word-with-madd3') == 'كِتَابٌ' ? 'checked' : '' }} class="form-radio w-5 h-5">
-                <span>كِتَابٌ</span>
-            </label>
-        </div>
-    </div>
 
-    <!-- السؤال الرابع -->
-    <div class="question">
-        <p>السؤال الرابع</p>
-        <label class="mb-4 block text-lg font-semibold text-gray-700">
-            ضع دائرة حول كلمة (<span style="font-size: 1.2em; font-weight: bold;">عَلَََمَ</span>).
+        <!-- الخيار الثالث -->
+        <label class="radio-item flex flex-col items-center cursor-pointer">
+            <input type="radio" name="answers[16]" value="عَالِيًا" {{ old('answers.16') == 'عَالِيًا' ? 'checked' : '' }} class="form-radio w-5 h-5 mb-2">
+            <span class="text-gray-700">عَالِيًا</span>
         </label>
-        <div class="radio-group flex justify-between items-center px-4 py-3 border border-gray-300 rounded-md bg-gray-100">
-            <label class="radio-item flex items-center gap-2 cursor-pointer">
-                <input type="radio" name="choose-word4" value="عَلِمْ" {{ old('choose-word4') == 'عَلِمْ' ? 'checked' : '' }} class="form-radio w-5 h-5">
-                <span>عَلِمْ</span>
-            </label>
-            <label class="radio-item flex items-center gap-2 cursor-pointer">
-                <input type="radio" name="choose-word4" value="عَلَََمَ" {{ old('choose-word4') == 'عَلَََمَ' ? 'checked' : '' }} class="form-radio w-5 h-5">
-                <span>عَلَََمَ</span>
-            </label>
-            <label class="radio-item flex items-center gap-2 cursor-pointer">
-                <input type="radio" name="choose-word4" value="عِلْمُ" {{ old('choose-word4') == 'عِلْمُ' ? 'checked' : '' }} class="form-radio w-5 h-5">
-                <span>عِلْمُ</span>
-            </label>
-            <label class="radio-item flex items-center gap-2 cursor-pointer">
-                <input type="radio" name="choose-word4" value="عَلَمُ" {{ old('choose-word4') == 'عَلَمُ' ? 'checked' : '' }} class="form-radio w-5 h-5">
-                <span>عَلَمُ</span>
-            </label>
-        </div>
-    </div>
 
-    <!-- السؤال الخامس -->
-    <div class="question">
-        <p>السؤال الخامس</p>
-        <label class="mb-4 block text-lg font-semibold text-gray-700">
-            ضع دائرة حول الكلمة التي تبدأ باللام الشمسية في الجملة الآتية:
+        <!-- الخيار الرابع -->
+        <label class="radio-item flex flex-col items-center cursor-pointer">
+            <input type="radio" name="answers[16]" value="نَحِيفًا" {{ old('answers.16') == 'نَحِيفًا' ? 'checked' : '' }} class="form-radio w-5 h-5 mb-2">
+            <span class="text-gray-700">نَحِيفًا</span>
         </label>
-        <p class="mb-2 text-gray-600 text-lg">العنب فاكهتي المُفضَّلة في فصل الصيف.</p>
-        <div class="radio-group flex justify-between items-center px-4 py-3 border border-gray-300 rounded-md bg-gray-100">
-            <label class="radio-item flex items-center gap-2 cursor-pointer">
-                <input type="radio" name="shamsi-lam5" value="العنب" {{ old('shamsi-lam5') == 'العنب' ? 'checked' : '' }} class="form-radio w-5 h-5">
-                <span>العنب</span>
-            </label>
-            <label class="radio-item flex items-center gap-2 cursor-pointer">
-                <input type="radio" name="shamsi-lam5" value="فاكهتي" {{ old('shamsi-lam5') == 'فاكهتي' ? 'checked' : '' }} class="form-radio w-5 h-5">
-                <span>فاكهتي</span>
-            </label>
-            <label class="radio-item flex items-center gap-2 cursor-pointer">
-                <input type="radio" name="shamsi-lam5" value="المُفضَّلة" {{ old('shamsi-lam5') == 'المُفضَّلة' ? 'checked' : '' }} class="form-radio w-5 h-5">
-                <span>المُفضَّلة</span>
-            </label>
-            <label class="radio-item flex items-center gap-2 cursor-pointer">
-                <input type="radio" name="shamsi-lam5" value="في" {{ old('shamsi-lam5') == 'في' ? 'checked' : '' }} class="form-radio w-5 h-5">
-                <span>في</span>
-            </label>
-            <label class="radio-item flex items-center gap-2 cursor-pointer">
-                <input type="radio" name="shamsi-lam5" value="فصل" {{ old('shamsi-lam5') == 'فصل' ? 'checked' : '' }} class="form-radio w-5 h-5">
-                <span>فصل</span>
-            </label>
-            <label class="radio-item flex items-center gap-2 cursor-pointer">
-                <input type="radio" name="shamsi-lam5" value="الصيف" {{ old('shamsi-lam5') == 'الصيف' ? 'checked' : '' }} class="form-radio w-5 h-5">
-                <span>الصيف</span>
-            </label>
-        </div>
     </div>
+</div>
 
-    <!-- السؤال السادس -->
-    <div class="question">
-        <p>السؤال السادس</p>
-        <label class="mb-4 block text-lg font-semibold text-gray-700">
-            ضع دائرة حول كلمة (لَبَن).
-        </label>
-        <div class="radio-group flex justify-between items-center px-4 py-3 border border-gray-300 rounded-md bg-gray-100">
-            <label class="radio-item flex items-center gap-2 cursor-pointer">
-                <input type="radio" name="word-selection6" value="لَبْنَا" {{ old('word-selection6') == 'لَبْنَا' ? 'checked' : '' }} class="form-radio w-5 h-5">
-                <span>لَبْنَا</span>
-            </label>
-            <label class="radio-item flex items-center gap-2 cursor-pointer">
-                <input type="radio" name="word-selection6" value="لَبَنُ" {{ old('word-selection6') == 'لَبَنُ' ? 'checked' : '' }} class="form-radio w-5 h-5">
-                <span>لَبَنُ</span>
-            </label>
-            <label class="radio-item flex items-center gap-2 cursor-pointer">
-                <input type="radio" name="word-selection6" value="لَبَنٍ" {{ old('word-selection6') == 'لَبَنٍ' ? 'checked' : '' }} class="form-radio w-5 h-5">
-                <span>لَبَنٍ</span>
-            </label>
-            <label class="radio-item flex items-center gap-2 cursor-pointer">
-                <input type="radio" name="word-selection6" value="لَبَنْ" {{ old('word-selection6') == 'لَبَنْ' ? 'checked' : '' }} class="form-radio w-5 h-5">
-                <span>لَبَنْ</span>
-            </label>
-        </div>
-    </div>
+<!-- السؤال السابع عشر -->
+<div class="question">
+    <p>السؤال السابع عشر</p>
+    <label class="mb-4 block text-lg font-semibold text-gray-700">
+        ماذا أقول لمن عاد من السَّفر؟ (<span style="text-decoration: underline;">____________</span>)
+    </label>
+    <textarea name="answers[17]" value="{{ old('answers.17') }}" class="answer w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+              placeholder="اكتب إجابتك هنا..."></textarea>
+</div>
 
-    <!-- السؤال السابع -->
-    <div class="question">
-        <p>السؤال السابع</p>
-        <label class="mb-4 block text-lg font-semibold text-gray-700">
-            ضع دائرة حول كلمة (سَحَبَ).
-        </label>
-        <div class="radio-group flex justify-between items-center px-4 py-3 border border-gray-300 rounded-md bg-gray-100">
-            <label class="radio-item flex items-center gap-2 cursor-pointer">
-                <input type="radio" name="word-selection7" value="سَحَبَ" {{ old('word-selection7') == 'سَحَبَ' ? 'checked' : '' }} class="form-radio w-5 h-5">
-                <span>سَحَبَ</span>
-            </label>
-            <label class="radio-item flex items-center gap-2 cursor-pointer">
-                <input type="radio" name="word-selection7" value="سَحْبُ" {{ old('word-selection7') == 'سَحْبُ' ? 'checked' : '' }} class="form-radio w-5 h-5">
-                <span>سَحْبُ</span>
-            </label>
-            <label class="radio-item flex items-center gap-2 cursor-pointer">
-                <input type="radio" name="word-selection7" value="سَحْبٍ" {{ old('word-selection7') == 'سَحْبٍ' ? 'checked' : '' }} class="form-radio w-5 h-5">
-                <span>سَحْبٍ</span>
-            </label>
-            <label class="radio-item flex items-center gap-2 cursor-pointer">
-                <input type="radio" name="word-selection7" value="سَحَابَةُ" {{ old('word-selection7') == 'سَحَابَةُ' ? 'checked' : '' }} class="form-radio w-5 h-5">
-                <span>سَحَابَةُ</span>
-            </label>
-        </div>
-    </div>
-
-    <!-- السؤال الثامن -->
-    <div class="question">
-        <p>السؤال الثامن</p>
-        <label class="mb-4 block text-lg font-semibold text-gray-700">
-            ضع دائرة حول كلمة (عَمِلَتْ).
-        </label>
-        <div class="radio-group flex justify-between items-center px-4 py-3 border border-gray-300 rounded-md bg-gray-100">
-            <label class="radio-item flex items-center gap-2 cursor-pointer">
-                <input type="radio" name="worked-word8" value="عملت" {{ old('worked-word8') == 'عملت' ? 'checked' : '' }} class="form-radio w-5 h-5">
-                <span>عَمِلَتْ</span>
-            </label>
-            <label class="radio-item flex items-center gap-2 cursor-pointer">
-                <input type="radio" name="worked-word8" value="عملة" {{ old('worked-word8') == 'عملة' ? 'checked' : '' }} class="form-radio w-5 h-5">
-                <span>عُمْلَة</span>
-            </label>
-            <label class="radio-item flex items-center gap-2 cursor-pointer">
-                <input type="radio" name="worked-word8" value="عملة-with-shadda" {{ old('worked-word8') == 'عملة-with-shadda' ? 'checked' : '' }} class="form-radio w-5 h-5">
-                <span>عَمَّلَة</span>
-            </label>
-            <label class="radio-item flex items-center gap-2 cursor-pointer">
-                <input type="radio" name="worked-word8" value="عمل" {{ old('worked-word8') == 'عمل' ? 'checked' : '' }} class="form-radio w-5 h-5">
-                <span>عَمَل</span>
-            </label>
-        </div>
-    </div>
-
-    <!-- السؤال التاسع -->
-    <div class="question">
-        <p>السؤال التاسع</p>
-        <label class="mb-4 block text-lg font-semibold text-gray-700">
-            ضع دائرة حول التحليل الصحيح لكلمة (<span style="font-size: 1.2em; font-weight: bold;">اِسْتَنْشَقَ</span>).
-        </label>
-        <div class="radio-group flex flex-col gap-4 border border-gray-300 p-4 rounded-md bg-gray-100" style="direction: rtl; text-align: right;">
-            <!-- الخيار الأول -->
-            <label class="radio-item flex items-center cursor-pointer gap-2">
-                <input type="radio" name="analysis9" value="option1" {{ old('analysis9') == 'option1' ? 'checked' : '' }} class="form-radio w-5 h-5">
-                <span class="text-gray-700">
-                    اِسْ &nbsp; تَـ &nbsp; نْـ &nbsp; شَـ &nbsp; قَ
-                </span>
-            </label>
-
-            <!-- الخيار الثاني -->
-            <label class="radio-item flex items-center cursor-pointer gap-2">
-                <input type="radio" name="analysis9" value="option2" {{ old('analysis9') == 'option2' ? 'checked' : '' }} class="form-radio w-5 h-5">
-                <span class="text-gray-700">
-                    اِ&nbsp; سْـ &nbsp; &nbsp;نَـتَـ  &nbsp; شَـقْ
-                </span>
-            </label>
-
-            <!-- الخيار الثالث -->
-            <label class="radio-item flex items-center cursor-pointer gap-2">
-                <input type="radio" name="analysis9" value="option3" {{ old('analysis9') == 'option3' ? 'checked' : '' }} class="form-radio w-5 h-5">
-                <span class="text-gray-700">
-                    اِسْـ &nbsp; تَـ &nbsp; شَـنْـ  &nbsp; قْ
-                </span>
-            </label>
-
-            <!-- الخيار الرابع -->
-            <label class="radio-item flex items-center cursor-pointer gap-2">
-                <input type="radio" name="analysis9" value="option4" {{ old('analysis9') == 'option4' ? 'checked' : '' }} class="form-radio w-5 h-5">
-                <span class="text-gray-700">
-                    اِسْـتَـ&nbsp;  &nbsp; نْـ &nbsp; شَـ &nbsp; قَ
-                </span>
-            </label>
-        </div>
-    </div>
-
-    <!-- السؤال العاشر -->
-    <div class="question">
-        <p>السؤال العاشر</p>
-        <label class="mb-4 block text-lg font-semibold text-gray-700">
-            حدد معنى الكلمة التي تحتها خط: <span style="font-weight: bold; "><span style="text-decoration: underline;">الْتَهَمَ</span> الأَسَدُ اللَّحْمَ</span>.
-        </label>
-        <div class="radio-group flex justify-between items-center px-4 py-3 border border-gray-300 rounded-md bg-gray-100">
-            <!-- الخيار الأول -->
-            <label class="radio-item flex flex-col items-center cursor-pointer">
-                <input type="radio" name="meaning10" value="رَمى" {{ old('meaning10') == 'رَمى' ? 'checked' : '' }} class="form-radio w-5 h-5 mb-2">
-                <span class="text-gray-700">رَمى</span>
-            </label>
-
-            <!-- الخيار الثاني -->
-            <label class="radio-item flex flex-col items-center cursor-pointer">
-                <input type="radio" name="meaning10" value="شَرِبَ" {{ old('meaning10') == 'شَرِبَ' ? 'checked' : '' }} class="form-radio w-5 h-5 mb-2">
-                <span class="text-gray-700">شَرِبَ</span>
-            </label>
-
-            <!-- الخيار الثالث -->
-            <label class="radio-item flex flex-col items-center cursor-pointer">
-                <input type="radio" name="meaning10" value="أَكَلَ" {{ old('meaning10') == 'أَكَلَ' ? 'checked' : '' }} class="form-radio w-5 h-5 mb-2">
-                <span class="text-gray-700">أَكَلَ</span>
-            </label>
-
-            <!-- الخيار الرابع -->
-            <label class="radio-item flex flex-col items-center cursor-pointer">
-                <input type="radio" name="meaning10" value="تَرَكَ" {{ old('meaning10') == 'تَرَكَ' ? 'checked' : '' }} class="form-radio w-5 h-5 mb-2">
-                <span class="text-gray-700">تَرَكَ</span>
-            </label>
-        </div>
-    </div>
-
-    <!-- السؤال الحادي عشر -->
-    <div class="question">
-        <p>السؤال الحادي عشر</p>
-        <label class="mb-4 block text-lg font-semibold text-gray-700">
-            حدد معنى الكلمة التي تحتها خط: <span style="font-weight: bold;"><span style="text-decoration: underline;">عَبَرَ</span> مُحَمَّدُ الشَّارِعَ</span>.
-        </label>
-        <div class="radio-group flex justify-between items-center px-4 py-3 border border-gray-300 rounded-md bg-gray-100">
-            <!-- الخيار الأول -->
-            <label class="radio-item flex flex-col items-center cursor-pointer">
-                <input type="radio" name="meaning11" value="أَخَذَ" {{ old('meaning11') == 'أَخَذَ' ? 'checked' : '' }} class="form-radio w-5 h-5 mb-2">
-                <span class="text-gray-700">أَخَذَ</span>
-            </label>
-
-            <!-- الخيار الثاني -->
-            <label class="radio-item flex flex-col items-center cursor-pointer">
-                <input type="radio" name="meaning11" value="قَطَعَ" {{ old('meaning11') == 'قَطَعَ' ? 'checked' : '' }} class="form-radio w-5 h-5 mb-2">
-                <span class="text-gray-700">قَطَعَ</span>
-            </label>
-
-            <!-- الخيار الثالث -->
-            <label class="radio-item flex flex-col items-center cursor-pointer">
-                <input type="radio" name="meaning11" value="سَارَ" {{ old('meaning11') == 'سَارَ' ? 'checked' : '' }} class="form-radio w-5 h-5 mb-2">
-                <span class="text-gray-700">سَارَ</span>
-            </label>
-
-            <!-- الخيار الرابع -->
-            <label class="radio-item flex flex-col items-center cursor-pointer">
-                <input type="radio" name="meaning11" value="أَحَبَّ" {{ old('meaning11') == 'أَحَبَّ' ? 'checked' : '' }} class="form-radio w-5 h-5 mb-2">
-                <span class="text-gray-700">أَحَبَّ</span>
-            </label>
-        </div>
-    </div>
-
-    <!-- السؤال الثاني عشر -->
-    <div class="question">
-        <p>السؤال الثاني عشر</p>
-        <label class="mb-4 block text-lg font-semibold text-gray-700">
-            حدد معنى الكلمة التي تحتها خط: <span style="font-weight: bold;"> غَيَّرَتْ<span style="text-decoration: underline;"> عَجَلَةَ </span>الدَّرَّاجَةِ.</span>
-        </label>
-        <div class="radio-group flex justify-between items-center px-4 py-3 border border-gray-300 rounded-md bg-gray-100">
-            <!-- الخيار الأول -->
-            <label class="radio-item flex flex-col items-center cursor-pointer">
-                <input type="radio" name="meaning12" value="مَفْقُود" {{ old('meaning12') == 'مَفْقُود' ? 'checked' : '' }} class="form-radio w-5 h-5 mb-2">
-                <span class="text-gray-700">مَفْقُود</span>
-            </label>
-
-            <!-- الخيار الثاني -->
-            <label class="radio-item flex flex-col items-center cursor-pointer">
-                <input type="radio" name="meaning12" value="إِطَار" {{ old('meaning12') == 'إِطَار' ? 'checked' : '' }} class="form-radio w-5 h-5 mb-2">
-                <span class="text-gray-700">إِطَار</span>
-            </label>
-
-            <!-- الخيار الثالث -->
-            <label class="radio-item flex flex-col items-center cursor-pointer">
-                <input type="radio" name="meaning12" value="كُرْسِي" {{ old('meaning12') == 'كُرْسِي' ? 'checked' : '' }} class="form-radio w-5 h-5 mb-2">
-                <span class="text-gray-700">كُرْسِي</span>
-            </label>
-
-            <!-- الخيار الرابع -->
-            <label class="radio-item flex flex-col items-center cursor-pointer">
-                <input type="radio" name="meaning12" value="سُرْعَة" {{ old('meaning12') == 'سُرْعَة' ? 'checked' : '' }} class="form-radio w-5 h-5 mb-2">
-                <span class="text-gray-700">سُرْعَة</span>
-            </label>
-        </div>
-    </div>
-
-    <!-- السؤال الثالث عشر -->
-    <div class="question">
-        <p>السؤال الثالث عشر</p>
-        <label class="mb-4 block text-lg font-semibold text-gray-700">
-            حدد معنى الكلمة التي تحتها خط: <span style="font-weight: bold;"> كُنْتُ في<span style="text-decoration: underline;"> عَجَلَةٍ </span>مِنْ أَمْرِي.</span>
-        </label>
-        <div class="radio-group flex justify-between items-center px-4 py-3 border border-gray-300 rounded-md bg-gray-100">
-            <!-- الخيار الأول -->
-            <label class="radio-item flex flex-col items-center cursor-pointer">
-                <input type="radio" name="meaning13" value="ضَعْف" {{ old('meaning13') == 'ضَعْف' ? 'checked' : '' }} class="form-radio w-5 h-5 mb-2">
-                <span class="text-gray-700">ضَعْف</span>
-            </label>
-
-            <!-- الخيار الثاني -->
-            <label class="radio-item flex flex-col items-center cursor-pointer">
-                <input type="radio" name="meaning13" value="بُطْء" {{ old('meaning13') == 'بُطْء' ? 'checked' : '' }} class="form-radio w-5 h-5 mb-2">
-                <span class="text-gray-700">بُطْء</span>
-            </label>
-
-            <!-- الخيار الثالث -->
-            <label class="radio-item flex flex-col items-center cursor-pointer">
-                <input type="radio" name="meaning13" value="إِطَار" {{ old('meaning13') == 'إِطَار' ? 'checked' : '' }} class="form-radio w-5 h-5 mb-2">
-                <span class="text-gray-700">إِطَار</span>
-            </label>
-
-            <!-- الخيار الرابع -->
-            <label class="radio-item flex flex-col items-center cursor-pointer">
-                <input type="radio" name="meaning13" value="سُرْعَة" {{ old('meaning13') == 'سُرْعَة' ? 'checked' : '' }} class="form-radio w-5 h-5 mb-2">
-                <span class="text-gray-700">سُرْعَة</span>
-            </label>
-        </div>
-    </div>
-
-    <!-- السؤال الرابع عشر -->
-    <div class="question">
-        <p>السؤال الرابع عشر</p>
-        <label class="mb-4 block text-lg font-semibold text-gray-700">
-            ضع دائرة حول الكلمة المختلفة.
-        </label>
-        <div class="radio-group flex justify-between items-center px-4 py-3 border border-gray-300 rounded-md bg-gray-100">
-            <!-- الخيار الأول -->
-            <label class="radio-item flex flex-col items-center cursor-pointer">
-                <input type="radio" name="different-word14" value="مَزْرَعَة" {{ old('different-word14') == 'مَزْرَعَة' ? 'checked' : '' }} class="form-radio w-5 h-5 mb-2">
-                <span class="text-gray-700">مَزْرَعَة</span>
-            </label>
-
-            <!-- الخيار الثاني -->
-            <label class="radio-item flex flex-col items-center cursor-pointer">
-                <input type="radio" name="different-word14" value="مَزَارِع" {{ old('different-word14') == 'مَزَارِع' ? 'checked' : '' }} class="form-radio w-5 h-5 mb-2">
-                <span class="text-gray-700">مَزَارِع</span>
-            </label>
-
-            <!-- الخيار الثالث -->
-            <label class="radio-item flex flex-col items-center cursor-pointer">
-                <input type="radio" name="different-word14" value="ثِمَار" {{ old('different-word14') == 'ثِمَار' ? 'checked' : '' }} class="form-radio w-5 h-5 mb-2">
-                <span class="text-gray-700">ثِمَار</span>
-            </label>
-
-            <!-- الخيار الرابع -->
-            <label class="radio-item flex flex-col items-center cursor-pointer">
-                <input type="radio" name="different-word14" value="زِرَاعَة" {{ old('different-word14') == 'زِرَاعَة' ? 'checked' : '' }} class="form-radio w-5 h-5 mb-2">
-                <span class="text-gray-700">زِرَاعَة</span>
-            </label>
-        </div>
-    </div>
-
-    <!-- السؤال الخامس عشر -->
-    <div class="question">
-        <p>السؤال الخامس عشر</p>
-        <label class="mb-4 block text-lg font-semibold text-gray-700">
-            اختر ثلاث كلمات مرتبطة بكلمة (رَمَضَان).
-        </label>
-        <div class="radio-group grid grid-cols-4 gap-4 px-4 py-3 border border-gray-300 rounded-md bg-gray-100">
-            <!-- الصف الأول -->
-            <div class="grid grid-cols-4 gap-4">
-                <label class="radio-item flex flex-col items-center cursor-pointer">
-                    <input type="checkbox" name="related-words15[]" value="صِيَام" {{ (is_array(old('related-words15')) && in_array('صِيَام', old('related-words15'))) ? 'checked' : '' }} class="form-checkbox w-5 h-5 mb-2">
-                    <span class="text-gray-700">صِيَام</span>
-                </label>
-                <label class="radio-item flex flex-col items-center cursor-pointer">
-                    <input type="checkbox" name="related-words15[]" value="زَكَاة" {{ (is_array(old('related-words15')) && in_array('زَكَاة', old('related-words15'))) ? 'checked' : '' }} class="form-checkbox w-5 h-5 mb-2">
-                    <span class="text-gray-700">زَكَاة</span>
-                </label>
-                <label class="radio-item flex flex-col items-center cursor-pointer">
-                    <input type="checkbox" name="related-words15[]" value="نَظَّارَات" {{ (is_array(old('related-words15')) && in_array('نَظَّارَات', old('related-words15'))) ? 'checked' : '' }} class="form-checkbox w-5 h-5 mb-2">
-                    <span class="text-gray-700">نَظَّارَات</span>
-                </label>
-                <label class="radio-item flex flex-col items-center cursor-pointer">
-                    <input type="checkbox" name="related-words15[]" value="هِلَال" {{ (is_array(old('related-words15')) && in_array('هِلَال', old('related-words15'))) ? 'checked' : '' }} class="form-checkbox w-5 h-5 mb-2">
-                    <span class="text-gray-700">هِلَال</span>
-                </label>
-            </div>
-
-            <!-- الصف الثاني -->
-            <div class="grid grid-cols-4 gap-4">
-                <label class="radio-item flex flex-col items-center cursor-pointer">
-                    <input type="checkbox" name="related-words15[]" value="فُطُور" {{ (is_array(old('related-words15')) && in_array('فُطُور', old('related-words15'))) ? 'checked' : '' }} class="form-checkbox w-5 h-5 mb-2">
-                    <span class="text-gray-700">فُطُور</span>
-                </label>
-                <label class="radio-item flex flex-col items-center cursor-pointer">
-                    <input type="checkbox" name="related-words15[]" value="حَاسُوب" {{ (is_array(old('related-words15')) && in_array('حَاسُوب', old('related-words15'))) ? 'checked' : '' }} class="form-checkbox w-5 h-5 mb-2">
-                    <span class="text-gray-700">حَاسُوب</span>
-                </label>
-                <label class="radio-item flex flex-col items-center cursor-pointer">
-                    <input type="checkbox" name="related-words15[]" value="أَنْف" {{ (is_array(old('related-words15')) && in_array('أَنْف', old('related-words15'))) ? 'checked' : '' }} class="form-checkbox w-5 h-5 mb-2">
-                    <span class="text-gray-700">أَنْف</span>
-                </label>
-                <label class="radio-item flex flex-col items-center cursor-pointer">
-                    <input type="checkbox" name="related-words15[]" value="رَأْس" {{ (is_array(old('related-words15')) && in_array('رَأْس', old('related-words15'))) ? 'checked' : '' }} class="form-checkbox w-5 h-5 mb-2">
-                    <span class="text-gray-700">رَأْس</span>
-                </label>
-            </div>
-        </div>
-    </div>
-
-    <!-- السؤال السادس عشر -->
-    <div class="question">
-        <p>السؤال السادس عشر</p>
-        <label class="mb-4 block text-lg font-semibold text-gray-700">
-            أكمل الجملة الآتية بوصف مناسب: تناولت فطورًا _______ في الصباح.
-        </label>
-        <div class="radio-group flex justify-between items-center px-4 py-3 border border-gray-300 rounded-md bg-gray-100">
-            <!-- الخيار الأول -->
-            <label class="radio-item flex flex-col items-center cursor-pointer">
-                <input type="radio" name="description16" value="لَذِيذًا" {{ old('description16') == 'لَذِيذًا' ? 'checked' : '' }} class="form-radio w-5 h-5 mb-2">
-                <span class="text-gray-700">لَذِيذًا</span>
-            </label>
-
-            <!-- الخيار الثاني -->
-            <label class="radio-item flex flex-col items-center cursor-pointer">
-                <input type="radio" name="description16" value="بَعِيدًا" {{ old('description16') == 'بَعِيدًا' ? 'checked' : '' }} class="form-radio w-5 h-5 mb-2">
-                <span class="text-gray-700">بَعِيدًا</span>
-            </label>
-
-            <!-- الخيار الثالث -->
-            <label class="radio-item flex flex-col items-center cursor-pointer">
-                <input type="radio" name="description16" value="عَالِيًا" {{ old('description16') == 'عَالِيًا' ? 'checked' : '' }} class="form-radio w-5 h-5 mb-2">
-                <span class="text-gray-700">عَالِيًا</span>
-            </label>
-
-            <!-- الخيار الرابع -->
-            <label class="radio-item flex flex-col items-center cursor-pointer">
-                <input type="radio" name="description16" value="نَحِيفًا" {{ old('description16') == 'نَحِيفًا' ? 'checked' : '' }} class="form-radio w-5 h-5 mb-2">
-                <span class="text-gray-700">نَحِيفًا</span>
-            </label>
-        </div>
-    </div>
-
-    <!-- السؤال السابع عشر -->
-    <div class="question">
-        <p>السؤال السابع عشر</p>
-        <label class="mb-4 block text-lg font-semibold text-gray-700">
-            ماذا أقول لمن عاد من السَّفر؟ (<span style="text-decoration: underline;">____________</span>)
-        </label>
-        <textarea name="response17" value="{{ old('response17') }}" class="answer w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
-                  placeholder="اكتب إجابتك هنا..."></textarea>
-    </div>
-
-    <!-- قسم الأسئلة المقروءة -->
-    <div class="questions">
-        <!-- السؤال الثامن عشر -->
-        <div class="question mb-4">
-            <p>السؤال الثامن عشر</p>
-            <!-- قسم الفقرة -->
-            <div class="paragraph mb-4">
-                <label class="mb-2 block text-lg font-semibold text-gray-700">
-                    أقرا وحدك الفقرة الاتية للإجابة عن الاسئلة التي تليها:
-                    <p>
-                        قرأتُ قصةً مع عائلتي عن شجرةِ الكتب. الشجرةُ في غابة، وأوراقُ الشجرةِ ليستْ خضراءَ،
-                        بل هي كُتُبٌ صغيرةٌ، وكلُّ ورقةٍ تمثّلُ كتابًا. وأجملُ قصةٍ في الغابة كانت عن صناعة القوارب.
-                    </p>
-                </label>
-                <p class="text-lg text-gray-700 font-semibold leading-relaxed">
-                </p>
-            </div>
-
-            <label class="mb-2 block text-lg text-gray-700">
-                ضع إشارةً على المستطيل رقم "١" 🖋:
-                ما هي القصةُ الأجملُ التي تَمثّلها الشجرةُ؟
-            </label>
-            <div class="radio-group flex flex-col gap-2">
-                <label class="radio-item flex items-center gap-2 cursor-pointer">
-                    <input type="radio" name="question18-1" value="القصص" {{ old('question18-1') == 'القصص' ? 'checked' : '' }} class="form-radio w-5 h-5">
-                    <span class="text-gray-700">القصصُ عن صناعة القوارب</span>
-                </label>
-                <label class="radio-item flex items-center gap-2 cursor-pointer">
-                    <input type="radio" name="question18-1" value="الأوراق" {{ old('question18-1') == 'الأوراق' ? 'checked' : '' }} class="form-radio w-5 h-5">
-                    <span class="text-gray-700">الأوراقُ الخضراءُ للأشجار</span>
-                </label>
-                <label class="radio-item flex items-center gap-2 cursor-pointer">
-                    <input type="radio" name="question18-1" value="الأشجار" {{ old('question18-1') == 'الأشجار' ? 'checked' : '' }} class="form-radio w-5 h-5">
-                    <span class="text-gray-700">الأشجارُ في الغابة</span>
-                </label>
-                <label class="radio-item flex items-center gap-2 cursor-pointer">
-                    <input type="radio" name="question18-1" value="العائلة" {{ old('question18-1') == 'العائلة' ? 'checked' : '' }} class="form-radio w-5 h-5">
-                    <span class="text-gray-700">القصةُ عن عائلةٍ تقرأ الكُتُبَ</span>
-                </label>
-            </div>
-        </div>
-
-        <!-- السؤال التاسع عشر -->
-        <div class="question mb-4">
-            <p>السؤال التاسع عشر</p>
-            <div class="paragraph mb-4">
-                <label class="mb-2 block text-lg font-semibold text-gray-700">
-                    أقرا وحدك الفقرة الاتية للإجابة عن الاسئلة التي تليها:
-                    <p>
-                        قرأتُ قصةً مع عائلتي عن شجرةِ الكتب. الشجرةُ في غابة، وأوراقُ الشجرةِ ليستْ خضراءَ،
-                        بل هي كُتُبٌ صغيرةٌ، وكلُّ ورقةٍ تمثّلُ كتابًا. وأجملُ قصةٍ في الغابة كانت عن صناعة القوارب.
-                    </p>
-                </label>
-                <p class="text-lg text-gray-700 font-semibold leading-relaxed">
-                </p>
-            </div>
+<!-- قسم الأسئلة المقروءة -->
+<div class="questions">
+    <!-- السؤال الثامن عشر -->
+    <div class="question mb-4">
+        <p>السؤال الثامن عشر</p>
+        <!-- قسم الفقرة -->
+        <div class="paragraph mb-4">
             <label class="mb-2 block text-lg font-semibold text-gray-700">
-                ضع إشارةً على المستطيل رقم "٢" 🖋:
-                ماذا تمثّلُ الأوراقُ في الشجرة؟
+                أقرا وحدك الفقرة الاتية للإجابة عن الاسئلة التي تليها:
+                <p>
+                    قرأتُ قصةً مع عائلتي عن شجرةِ الكتب. الشجرةُ في غابة، وأوراقُ الشجرةِ ليستْ خضراءَ،
+                    بل هي كُتُبٌ صغيرةٌ، وكلُّ ورقةٍ تمثّلُ كتابًا. وأجملُ قصةٍ في الغابة كانت عن صناعة القوارب.
+                </p>
             </label>
-            <div class="radio-group flex flex-col gap-2">
-                <label class="radio-item flex items-center gap-2 cursor-pointer">
-                    <input type="radio" name="question19-2" value="كتب" {{ old('question19-2') == 'كتب' ? 'checked' : '' }} class="form-radio w-5 h-5">
-                    <span class="text-gray-700">كُتُبٌ صغيرةٌ</span>
-                </label>
-                <label class="radio-item flex items-center gap-2 cursor-pointer">
-                    <input type="radio" name="question19-2" value="أشجار" {{ old('question19-2') == 'أشجار' ? 'checked' : '' }} class="form-radio w-5 h-5">
-                    <span class="text-gray-700">أشجارٌ في الغابة</span>
-                </label>
-                <label class="radio-item flex items-center gap-2 cursor-pointer">
-                    <input type="radio" name="question19-2" value="أوراق" {{ old('question19-2') == 'أوراق' ? 'checked' : '' }} class="form-radio w-5 h-5">
-                    <span class="text-gray-700">أوراقٌ خضراء</span>
-                </label>
-                <label class="radio-item flex items-center gap-2 cursor-pointer">
-                    <input type="radio" name="question19-2" value="قصة" {{ old('question19-2') == 'قصة' ? 'checked' : '' }} class="form-radio w-5 h-5">
-                    <span class="text-gray-700">قصةٌ عن القوارب</span>
-                </label>
-            </div>
+            <p class="text-lg text-gray-700 font-semibold leading-relaxed">
+            </p>
         </div>
 
-        <!-- السؤال العشرون -->
-        <div class="question">
-            <p>السؤال العشرون</p>
-            <div class="paragraph mb-4">
-                <label class="mb-2 block text-lg font-semibold text-gray-700">
-                    أقرا وحدك الفقرة الاتية للإجابة عن الاسئلة التي تليها:
-                    <p>
-                        قرأتُ قصةً مع عائلتي عن شجرةِ الكتب. الشجرةُ في غابة، وأوراقُ الشجرةِ ليستْ خضراءَ،
-                        بل هي كُتُبٌ صغيرةٌ، وكلُّ ورقةٍ تمثّلُ كتابًا. وأجملُ قصةٍ في الغابة كانت عن صناعة القوارب.
-                    </p>
-                </label>
-                <p class="text-lg text-gray-700 font-semibold leading-relaxed">
-                </p>
-            </div>
-            <label class="mb-2 block text-lg font-semibold text-gray-700">
-                ضع إشارةً على المستطيل رقم "٣" 🖋:
-                اذكر كلمةً تعبرُ عن شجرةِ الكُتُبِ.
+        <label class="mb-2 block text-lg text-gray-700">
+            ضع إشارةً على المستطيل رقم "١" 🖋:
+            ما هي القصةُ الأجملُ التي تَمثّلها الشجرةُ؟
+        </label>
+        <div class="radio-group flex flex-col gap-2">
+            <label class="radio-item flex items-center gap-2 cursor-pointer">
+                <input type="radio" name="answers[18]" value="القصص" {{ old('answers.18.1') == 'القصص' ? 'checked' : '' }} class="form-radio w-5 h-5">
+                <span class="text-gray-700">القصصُ عن صناعة القوارب</span>
             </label>
-            <div class="radio-group flex flex-col gap-2">
-                <label class="radio-item flex items-center gap-2 cursor-pointer">
-                    <input type="radio" name="question20-3" value="تقرأ" {{ old('question20-3') == 'تقرأ' ? 'checked' : '' }} class="form-radio w-5 h-5">
-                    <span class="text-gray-700">تقرأُ القوارب</span>
-                </label>
-                <label class="radio-item flex items-center gap-2 cursor-pointer">
-                    <input type="radio" name="question20-3" value="تصنع" {{ old('question20-3') == 'تصنع' ? 'checked' : '' }} class="form-radio w-5 h-5">
-                    <span class="text-gray-700">تصنعُ القوارب</span>
-                </label>
-                <label class="radio-item flex items-center gap-2 cursor-pointer">
-                    <input type="radio" name="question20-3" value="تزرع" {{ old('question20-3') == 'تزرع' ? 'checked' : '' }} class="form-radio w-5 h-5">
-                    <span class="text-gray-700">تزرعُ الأشجار</span>
-                </label>
-                <label class="radio-item flex items-center gap-2 cursor-pointer">
-                    <input type="radio" name="question20-3" value="تغني" {{ old('question20-3') == 'تغني' ? 'checked' : '' }} class="form-radio w-5 h-5">
-                    <span class="text-gray-700">تغني في الغابة</span>
-                </label>
-            </div>
+            <label class="radio-item flex items-center gap-2 cursor-pointer">
+                <input type="radio" name="answers[18]" value="الأوراق" {{ old('answers.18.1') == 'الأوراق' ? 'checked' : '' }} class="form-radio w-5 h-5">
+                <span class="text-gray-700">الأوراقُ الخضراءُ للأشجار</span>
+            </label>
+            <label class="radio-item flex items-center gap-2 cursor-pointer">
+                <input type="radio" name="answers[18]" value="الأشجار" {{ old('answers.18.1') == 'الأشجار' ? 'checked' : '' }} class="form-radio w-5 h-5">
+                <span class="text-gray-700">الأشجارُ في الغابة</span>
+            </label>
+            <label class="radio-item flex items-center gap-2 cursor-pointer">
+                <input type="radio" name="answers[18]" value="العائلة" {{ old('answers.18.1') == 'العائلة' ? 'checked' : '' }} class="form-radio w-5 h-5">
+                <span class="text-gray-700">القصةُ عن عائلةٍ تقرأ الكُتُبَ</span>
+            </label>
         </div>
     </div>
+
+    <!-- السؤال التاسع عشر -->
+    <div class="question mb-4">
+        <p>السؤال التاسع عشر</p>
+        <div class="paragraph mb-4">
+            <label class="mb-2 block text-lg font-semibold text-gray-700">
+                أقرا وحدك الفقرة الاتية للإجابة عن الاسئلة التي تليها:
+                <p>
+                    قرأتُ قصةً مع عائلتي عن شجرةِ الكتب. الشجرةُ في غابة، وأوراقُ الشجرةِ ليستْ خضراءَ،
+                    بل هي كُتُبٌ صغيرةٌ، وكلُّ ورقةٍ تمثّلُ كتابًا. وأجملُ قصةٍ في الغابة كانت عن صناعة القوارب.
+                </p>
+            </label>
+            <p class="text-lg text-gray-700 font-semibold leading-relaxed">
+            </p>
+        </div>
+        <label class="mb-2 block text-lg font-semibold text-gray-700">
+            ضع إشارةً على المستطيل رقم "٢" 🖋:
+            ماذا تمثّلُ الأوراقُ في الشجرة؟
+        </label>
+        <div class="radio-group flex flex-col gap-2">
+            <label class="radio-item flex items-center gap-2 cursor-pointer">
+                <input type="radio" name="answers[19]" value="كتب" {{ old('answers.19.2') == 'كتب' ? 'checked' : '' }} class="form-radio w-5 h-5">
+                <span class="text-gray-700">كُتُبٌ صغيرةٌ</span>
+            </label>
+            <label class="radio-item flex items-center gap-2 cursor-pointer">
+                <input type="radio" name="answers[19]" value="أشجار" {{ old('answers.19.2') == 'أشجار' ? 'checked' : '' }} class="form-radio w-5 h-5">
+                <span class="text-gray-700">أشجارٌ في الغابة</span>
+            </label>
+            <label class="radio-item flex items-center gap-2 cursor-pointer">
+                <input type="radio" name="answers[19]" value="أوراق" {{ old('answers.19.2') == 'أوراق' ? 'checked' : '' }} class="form-radio w-5 h-5">
+                <span class="text-gray-700">أوراقٌ خضراء</span>
+            </label>
+            <label class="radio-item flex items-center gap-2 cursor-pointer">
+                <input type="radio" name="answers[19]" value="قصة" {{ old('answers.19.2') == 'قصة' ? 'checked' : '' }} class="form-radio w-5 h-5">
+                <span class="text-gray-700">قصةٌ عن القوارب</span>
+            </label>
+        </div>
+    </div>
+
+    <!-- السؤال العشرون -->
+    <div class="question">
+        <p>السؤال العشرون</p>
+        <div class="paragraph mb-4">
+            <label class="mb-2 block text-lg font-semibold text-gray-700">
+                أقرا وحدك الفقرة الاتية للإجابة عن الاسئلة التي تليها:
+                <p>
+                    قرأتُ قصةً مع عائلتي عن شجرةِ الكتب. الشجرةُ في غابة، وأوراقُ الشجرةِ ليستْ خضراءَ،
+                    بل هي كُتُبٌ صغيرةٌ، وكلُّ ورقةٍ تمثّلُ كتابًا. وأجملُ قصةٍ في الغابة كانت عن صناعة القوارب.
+                </p>
+            </label>
+            <p class="text-lg text-gray-700 font-semibold leading-relaxed">
+            </p>
+        </div>
+        <label class="mb-2 block text-lg font-semibold text-gray-700">
+            ضع إشارةً على المستطيل رقم "٣" 🖋:
+            اذكر كلمةً تعبرُ عن شجرةِ الكُتُبِ.
+        </label>
+        <div class="radio-group flex flex-col gap-2">
+            <label class="radio-item flex items-center gap-2 cursor-pointer">
+                <input type="radio" name="answers[20]" value="تقرأ" {{ old('answers.20.3') == 'تقرأ' ? 'checked' : '' }} class="form-radio w-5 h-5">
+                <span class="text-gray-700">تقرأُ القوارب</span>
+            </label>
+            <label class="radio-item flex items-center gap-2 cursor-pointer">
+                <input type="radio" name="answers[20]" value="تصنع" {{ old('answers.20.3') == 'تصنع' ? 'checked' : '' }} class="form-radio w-5 h-5">
+                <span class="text-gray-700">تصنعُ القوارب</span>
+            </label>
+            <label class="radio-item flex items-center gap-2 cursor-pointer">
+                <input type="radio" name="answers[20]" value="تزرع" {{ old('answers.20.3') == 'تزرع' ? 'checked' : '' }} class="form-radio w-5 h-5">
+                <span class="text-gray-700">تزرعُ الأشجار</span>
+            </label>
+            <label class="radio-item flex items-center gap-2 cursor-pointer">
+                <input type="radio" name="answers[20]" value="تغني" {{ old('answers.20.3') == 'تغني' ? 'checked' : '' }} class="form-radio w-5 h-5">
+                <span class="text-gray-700">تغني في الغابة</span>
+            </label>
+        </div>
+    </div>
+</div>
 
 
 
 
            <!-- Navigation Buttons -->
-           <div class="navigation-buttons">
-            <div class="left-buttons">
-                <button id="prev" class="prev" disabled>السابق</button>
-                <a href="{{ route('homepage') }}" class="exit-link">الخروج من الامتحان</a>
-            </div>
-            <button id="next" class="next">التالي</button>
-        </div>
+         <!-- Navigation Buttons -->
+  <div class="navigation-buttons">
+    <div class="left-buttons">
+        <button id="prev" class="prev" type="button" disabled>السابق</button>
+        <a href="{{ route('homepage') }}" class="exit-link">الخروج من الامتحان</a>
+    </div>
+    <button id="next" class="next" type="button">التالي</button>
+    <button id="submit-btn" class="next" type="submit" style="display: none;">إرسال</button>
+
+</div>
+</form>
+
         </div>
     </div>
 
     <script>
-        const questions = document.querySelectorAll('.question');
-        const prevButton = document.getElementById('prev');
-        const nextButton = document.getElementById('next');
-        let currentStep = 0;
+        const timerElement = document.getElementById('timer');
+const timerInput = document.getElementById('arSecTimer');
 
-        function updateQuestions() {
-            questions.forEach((question, index) => {
-                question.classList.toggle('active', index === currentStep);
-            });
 
-            prevButton.disabled = currentStep === 0;
-            nextButton.disabled = currentStep === questions.length - 1;
-        }
+let timeRemaining = parseInt(localStorage.getItem('timeRemainingArSec')) || 15 * 60;
 
-        prevButton.addEventListener('click', () => {
-            if (currentStep > 0) {
-                currentStep--;
-                updateQuestions();
-            }
-        });
+const updateTimer = () => {
+    const minutes = Math.floor(timeRemaining / 60).toString().padStart(2, '0');
+    const seconds = (timeRemaining % 60).toString().padStart(2, '0');
+    timerElement.textContent = `${minutes}:${seconds}`;
 
-        nextButton.addEventListener('click', () => {
-            if (currentStep < questions.length - 1) {
-                currentStep++;
-                updateQuestions();
-            }
-        });
+    // Change timer color based on remaining time
+    if (timeRemaining <= 3.75 * 60) { // Danger color for last 25%
+        timerElement.style.backgroundColor = '#ef4444'; // Red
+    } else if (timeRemaining <= 7.5 * 60) { // Warning color for half time
+        timerElement.style.backgroundColor = '#f59e0b'; // Orange
+    } else {
+        timerElement.style.backgroundColor = '#10b981'; // Green
+    }
 
+    // Save the remaining time to localStorage
+    localStorage.setItem('timeRemainingArSec', timeRemaining);
+
+    // If time runs out, clear the interval and redirect
+    if (timeRemaining === 0) {
+        clearInterval(timerInterval);
+        localStorage.removeItem('timeRemainingArSec'); // Clear the timer from localStorage
+        window.location.href = '/timeout-page'; // Redirect to your timeout page
+    }
+
+    // Update the hidden input field
+    timerInput.value = timeRemaining;
+
+    timeRemaining--;
+};
+
+// Update the timer every second
+const timerInterval = setInterval(updateTimer, 1000);
+
+// Initial call to set timer immediately
+updateTimer();
+const questions = document.querySelectorAll('.question');
+const prevButton = document.getElementById('prev');
+const nextButton = document.getElementById('next');
+const submitButton = document.getElementById('submit-btn');
+let currentStep = 0;
+
+function updateQuestions() {
+    // Show the current question and hide others
+    questions.forEach((question, index) => {
+        question.classList.toggle('active', index === currentStep);
+    });
+
+    // Enable or disable the "السابق" button
+    prevButton.disabled = currentStep === 0;
+
+    // Show/hide "التالي" and "إرسال" buttons
+    nextButton.style.display = currentStep === questions.length - 1 ? 'none' : 'inline-block';
+    submitButton.style.display = currentStep === questions.length - 1 ? 'inline-block' : 'none';
+}
+
+// Event listener for the "السابق" button
+prevButton.addEventListener('click', () => {
+    if (currentStep > 0) {
+        currentStep--;
         updateQuestions();
+    }
+});
+
+// Event listener for the "التالي" button
+nextButton.addEventListener('click', () => {
+    if (currentStep < questions.length - 1) {
+        currentStep++;
+        updateQuestions();
+    }
+});
+
+// Initialize the question navigation
+updateQuestions();
     </script>
 </body>
 
