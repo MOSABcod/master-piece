@@ -56,50 +56,11 @@ class User extends Authenticatable
         return $this->belongsTo(Classes::class, 'class_id');
     }
 
-    /**
-     * Get the enrollments for the user.
-     */
-    public function enrollments()
-    {
-        return $this->hasMany(Enrollment::class, 'user_id');
-    }
-
-    /**
-     * Get the exams created by the teacher.
-     */
-    public function createdExams()
-    {
-        return $this->hasMany(Exam::class, 'creator_user_id');
-    }
     public function roadmaps()
     {
         return $this->hasMany(Roadmap::class);
     }
-    /**
-     * Get the answers submitted by the user.
-     */
-    public function answers()
-    {
-        return $this->hasMany(Answer::class);
-    }
 
-    /**
-     * Get the results of the user.
-     */
-    public function results()
-    {
-        return $this->hasMany(Result::class);
-    }
-
-    // Role-based Helper Methods
-
-    /**
-     * Check if the user is a teacher.
-     */
-    public function isTeacher()
-    {
-        return $this->role === 1; // Integer value for Teacher
-    }
 
     /**
      * Check if the user is a student.
@@ -107,5 +68,25 @@ class User extends Authenticatable
     public function isStudent()
     {
         return $this->role === 0; // Integer value for Student
+    }
+    public function mathAnswersFirst()
+    {
+        return $this->hasMany(AnswersMathFirstKg::class, 'user_id');
+    }
+    public function mathAnswersSecondThird()
+    {
+        return $this->hasMany(MathAnswerSecondThird::class, 'user_id');
+    }
+    public function arabicAnswersSecondThird()
+    {
+        return $this->hasMany(ArabicAnswersSecondThird::class, 'user_id');
+    }
+    public function arabicAnswersFirstKg()
+    {
+        return $this->hasMany(ArabicAnswersFirstKg::class, 'user_id');
+    }
+    public function scienceAnswers()
+    {
+        return $this->hasMany(ScienceAnswers::class, 'user_id');
     }
 }

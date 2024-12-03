@@ -11,10 +11,13 @@ class CreateAnswersMathFirstkgTable extends Migration
         Schema::create('answers_math_firstkg', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('question_id'); // Foreign key for math_first_kg table
+            $table->unsignedBigInteger('user_id'); // Foreign key for users table
             $table->string('answer'); // Answer field
-            $table->timestamps(); // Created_at and updated_at
+            $table->timestamps(); // created_at and updated_at
 
+            // Foreign key constraints
             $table->foreign('question_id')->references('id')->on('math_first_kg')->onDelete('cascade');
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
         });
     }
 
