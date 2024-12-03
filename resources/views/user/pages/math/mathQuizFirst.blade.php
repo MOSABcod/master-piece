@@ -237,18 +237,26 @@ button:disabled {
         <div class="container">
             <div id="timer" class="timer">15:00</div>
 
-            <form id="questions-form" >
+            <!-- Form Start -->
+            <form id="questions-form" method="POST" action="{{ route('save.math.first') }}">
                 @csrf
-                <h1>ورقة عمل</h1>
+                <!-- Hidden input to store the remaining time -->
+                @if(session('resetTimer'))
+                    <input type="hidden" name="mathFirstTimer" id="mathFirstTimer" value="900"> <!-- 15 minutes in seconds -->
+                @else
+                    <input type="hidden" name="mathFirstTimer" id="mathFirstTimer" value="{{ old('mathFirstTimer', session('exam_timer', 900)) }}">
+                @endif
+
+                <h1>ورقة عمل الرياضيات</h1>
 
                 <!-- Question 1 -->
                 <div class="question active">
                     <p>السؤال الأول</p>
                     <label>اختر العدد (اثنان).</label>
                     <div class="radio-group">
-                        <label><input type="radio" name="answers[1]" value="1"> 1</label>
-                        <label><input type="radio" name="answers[1]" value="2"> 2</label>
-                        <label><input type="radio" name="answers[1]" value="3"> 3</label>
+                        <label><input type="radio" name="answers[1]" value="1" {{ old('answers.1') == '1' ? 'checked' : '' }}> 1</label>
+                        <label><input type="radio" name="answers[1]" value="2" {{ old('answers.1') == '2' ? 'checked' : '' }}> 2</label>
+                        <label><input type="radio" name="answers[1]" value="3" {{ old('answers.1') == '3' ? 'checked' : '' }}> 3</label>
                     </div>
                 </div>
 
@@ -257,9 +265,9 @@ button:disabled {
                     <p>السؤال الثاني</p>
                     <label>اختر العدد (سبعة).</label>
                     <div class="radio-group">
-                        <label><input type="radio" name="answers[2]" value="5"> 5</label>
-                        <label><input type="radio" name="answers[2]" value="7"> 7</label>
-                        <label><input type="radio" name="answers[2]" value="8"> 8</label>
+                        <label><input type="radio" name="answers[2]" value="5" {{ old('answers.2') == '5' ? 'checked' : '' }}> 5</label>
+                        <label><input type="radio" name="answers[2]" value="7" {{ old('answers.2') == '7' ? 'checked' : '' }}> 7</label>
+                        <label><input type="radio" name="answers[2]" value="8" {{ old('answers.2') == '8' ? 'checked' : '' }}> 8</label>
                     </div>
                 </div>
 
@@ -267,14 +275,14 @@ button:disabled {
                 <div class="question">
                     <p>السؤال الثالث</p>
                     <label>بداية أحمد 4 قطع شوكولاتة، إذا قُسمت كل قطعة إلى نصفين، كم قطعة شوكولاتة سيتناول كل منهما؟</label>
-                    <input type="number" name="answers[3]" class="answer" placeholder="أدخل الإجابة">
+                    <input type="number" name="answers[3]" class="answer" placeholder="أدخل الإجابة" value="{{ old('answers.3') }}">
                 </div>
 
                 <!-- Question 4 -->
                 <div class="question">
                     <p>السؤال الرابع</p>
                     <label>اشترى سالم 5 بالونات، إذا طار منها بالونان، كم بالونًا بقي معه؟</label>
-                    <input type="number" name="answers[4]" class="answer" placeholder="أدخل الإجابة">
+                    <input type="number" name="answers[4]" class="answer" placeholder="أدخل الإجابة" value="{{ old('answers.4') }}">
                 </div>
 
                 <!-- Question 5 -->
@@ -282,10 +290,10 @@ button:disabled {
                     <p>السؤال الخامس</p>
                     <label>ما هو العدد الأكبر؟</label>
                     <div class="radio-group">
-                        <label><input type="radio" name="answers[5]" value="3"> العدد ثلاثة</label>
-                        <label><input type="radio" name="answers[5]" value="5"> العدد خمسة</label>
-                        <label><input type="radio" name="answers[5]" value="7"> العدد سبعة</label>
-                        <label><input type="radio" name="answers[5]" value="9"> العدد تسعة</label>
+                        <label><input type="radio" name="answers[5]" value="3" {{ old('answers.5') == '3' ? 'checked' : '' }}> العدد ثلاثة</label>
+                        <label><input type="radio" name="answers[5]" value="5" {{ old('answers.5') == '5' ? 'checked' : '' }}> العدد خمسة</label>
+                        <label><input type="radio" name="answers[5]" value="7" {{ old('answers.5') == '7' ? 'checked' : '' }}> العدد سبعة</label>
+                        <label><input type="radio" name="answers[5]" value="9" {{ old('answers.5') == '9' ? 'checked' : '' }}> العدد تسعة</label>
                     </div>
                 </div>
 
@@ -295,11 +303,11 @@ button:disabled {
                     <label>اختر المجموعة الأكثر.</label>
                     <div class="radio-group">
                         <label class="radio-item">
-                            <input type="radio" name="answers[6]" value="group1">
+                            <input type="radio" name="answers[6]" value="group1" {{ old('answers.6') == 'group1' ? 'checked' : '' }}>
                             <span class="stars">⭐⭐⭐</span>
                         </label>
                         <label class="radio-item">
-                            <input type="radio" name="answers[6]" value="group2">
+                            <input type="radio" name="answers[6]" value="group2" {{ old('answers.6') == 'group2' ? 'checked' : '' }}>
                             <span class="stars">⭐⭐⭐⭐⭐</span>
                         </label>
                     </div>
@@ -311,11 +319,11 @@ button:disabled {
                     <label>اختر المجموعة الأقل.</label>
                     <div class="radio-group">
                         <label class="radio-item">
-                            <input type="radio" name="answers[7]" value="group1">
+                            <input type="radio" name="answers[7]" value="group1" {{ old('answers.7') == 'group1' ? 'checked' : '' }}>
                             <span class="stars">⭐</span>
                         </label>
                         <label class="radio-item">
-                            <input type="radio" name="answers[7]" value="group2">
+                            <input type="radio" name="answers[7]" value="group2" {{ old('answers.7') == 'group2' ? 'checked' : '' }}>
                             <span class="stars">⭐⭐⭐</span>
                         </label>
                     </div>
@@ -327,12 +335,12 @@ button:disabled {
                     <label>اختر المجموعة الأقل.</label>
                     <div class="radio-group">
                         <label class="radio-item">
-                            <input type="radio" name="answers[8]" value="group1">
+                            <input type="radio" name="answers[8]" value="group1" {{ old('answers.8') == 'group1' ? 'checked' : '' }}>
                             <span class="stars">⭐⭐⭐⭐</span><br>
                             <span class="stars" style="margin-right:29px">⭐⭐⭐⭐</span>
                         </label>
                         <label class="radio-item">
-                            <input type="radio" name="answers[8]" value="group2">
+                            <input type="radio" name="answers[8]" value="group2" {{ old('answers.8') == 'group2' ? 'checked' : '' }}>
                             <span class="stars">⭐⭐⭐</span><br>
                             <span class="stars" style="margin-right:29px">⭐⭐⭐</span>
                         </label>
@@ -344,9 +352,9 @@ button:disabled {
                     <p>السؤال التاسع</p>
                     <label>اختر العدد الأكبر؟</label>
                     <div class="radio-group">
-                        <label><input type="radio" name="answers[9]" value="6"> 6</label>
-                        <label><input type="radio" name="answers[9]" value="7"> 7</label>
-                        <label><input type="radio" name="answers[9]" value="9"> 9</label>
+                        <label><input type="radio" name="answers[9]" value="6" {{ old('answers.9') == '6' ? 'checked' : '' }}> 6</label>
+                        <label><input type="radio" name="answers[9]" value="7" {{ old('answers.9') == '7' ? 'checked' : '' }}> 7</label>
+                        <label><input type="radio" name="answers[9]" value="9" {{ old('answers.9') == '9' ? 'checked' : '' }}> 9</label>
                     </div>
                 </div>
 
@@ -355,9 +363,9 @@ button:disabled {
                     <p>السؤال العاشر</p>
                     <label>اختر العدد الأصغر؟</label>
                     <div class="radio-group">
-                        <label><input type="radio" name="answers[10]" value="11"> 11</label>
-                        <label><input type="radio" name="answers[10]" value="7"> 7</label>
-                        <label><input type="radio" name="answers[10]" value="4"> 4</label>
+                        <label><input type="radio" name="answers[10]" value="11" {{ old('answers.10') == '11' ? 'checked' : '' }}> 11</label>
+                        <label><input type="radio" name="answers[10]" value="7" {{ old('answers.10') == '7' ? 'checked' : '' }}> 7</label>
+                        <label><input type="radio" name="answers[10]" value="4" {{ old('answers.10') == '4' ? 'checked' : '' }}> 4</label>
                     </div>
                 </div>
 
@@ -365,14 +373,14 @@ button:disabled {
                 <div class="question">
                     <p>السؤال الحادي عشر</p>
                     <label>مع محمد 9 تفاحات (🍎)، أراد أن يضع كل 3 تفاحات (🍎) في كيس، كم كيسًا يحتاج؟</label>
-                    <input type="number" name="answers[11]" class="answer" placeholder="أدخل الإجابة">
+                    <input type="number" name="answers[11]" class="answer" placeholder="أدخل الإجابة" value="{{ old('answers.11') }}">
                 </div>
 
                 <!-- Question 12 -->
                 <div class="question">
                     <p>السؤال الثاني عشر</p>
                     <label>اشترى محمد 4 دفاتر (📕) وأعطاه عمه 6 دفاتر (📕) أخرى، كم دفترًا أصبح مع محمد؟</label>
-                    <input type="number" name="answers[12]" class="answer" placeholder="أدخل الإجابة">
+                    <input type="number" name="answers[12]" class="answer" placeholder="أدخل الإجابة" value="{{ old('answers.12') }}">
                 </div>
 
                 <!-- Question 13 -->
@@ -380,9 +388,9 @@ button:disabled {
                     <p>السؤال الثالث عشر</p>
                     <label>ما عدد النجوم (⭐)؟ ضع دائرة حول العدد المناسب.</label>
                     <div class="radio-group">
-                        <label><input type="radio" name="answers[13]" value="22"> 22</label>
-                        <label><input type="radio" name="answers[13]" value="21"> 21</label>
-                        <label><input type="radio" name="answers[13]" value="15"> 15</label>
+                        <label><input type="radio" name="answers[13]" value="22" {{ old('answers.13') == '22' ? 'checked' : '' }}> 22</label>
+                        <label><input type="radio" name="answers[13]" value="21" {{ old('answers.13') == '21' ? 'checked' : '' }}> 21</label>
+                        <label><input type="radio" name="answers[13]" value="15" {{ old('answers.13') == '15' ? 'checked' : '' }}> 15</label>
                     </div>
                 </div>
 
@@ -390,50 +398,96 @@ button:disabled {
                 <div class="question">
                     <p>السؤال الرابع عشر</p>
                     <label>اكتب في المربع ما يتبقى عندما تأخذ 4 من 9.</label>
-                    <input type="number" name="answers[14]" class="answer" placeholder="أدخل الإجابة">
+                    <input type="number" name="answers[14]" class="answer" placeholder="أدخل الإجابة" value="{{ old('answers.14') }}">
                 </div>
 
                 <!-- Question 15 -->
                 <div class="question">
                     <p>السؤال الخامس عشر</p>
                     <label>اكتب العدد الذي إذا أضفنا له 2 يصبح لدينا 5.</label>
-                    <input type="number" name="answers[15]" class="answer" placeholder="أدخل الإجابة">
+                    <input type="number" name="answers[15]" class="answer" placeholder="أدخل الإجابة" value="{{ old('answers.15') }}">
                 </div>
 
                 <!-- Question 16 -->
                 <div class="question">
                     <p>السؤال السادس عشر</p>
                     <label>اكتب العدد الذي إذا طرحناه من 8 يصبح لدينا 6.</label>
-                    <input type="number" name="answers[16]" class="answer" placeholder="أدخل الإجابة">
+                    <input type="number" name="answers[16]" class="answer" placeholder="أدخل الإجابة" value="{{ old('answers.16') }}">
                 </div>
 
                 <!-- Question 17 -->
                 <div class="question">
                     <p>السؤال السابع عشر</p>
                     <label>اكتب الناتج عند إضافة 2 إلى 7.</label>
-                    <input type="number" name="answers[17]" class="answer" placeholder="أدخل الإجابة">
+                    <input type="number" name="answers[17]" class="answer" placeholder="أدخل الإجابة" value="{{ old('answers.17') }}">
                 </div>
 
                 <!-- Question 18 -->
                 <div class="question">
                     <p>السؤال الثامن عشر</p>
                     <label>اكتب العدد الذي إذا أضفناه إلى 16 يصبح الناتج 20.</label>
-                    <input type="number" name="answers[18]" class="answer" placeholder="أدخل الإجابة">
+                    <input type="number" name="answers[18]" class="answer" placeholder="أدخل الإجابة" value="{{ old('answers.18') }}">
                 </div>
 
-                <!-- Navigation Buttons -->
-                <div class="navigation-buttons">
-                    <button id="prev" class="prev" type="button" disabled>السابق</button>
-                    <button id="next" class="next" type="button">التالي</button>
-                    <button type="button" id="submit-btn">إرسال</button>
-                </div>
+                  <!-- Navigation Buttons -->
+  <div class="navigation-buttons">
+    <div class="left-buttons">
+        <button id="prev" class="prev" type="button" disabled>السابق</button>
+        <a href="{{ route('homepage') }}" class="exit-link">الخروج من الامتحان</a>
+    </div>
+    <button id="next" class="next" type="button">التالي</button>
+    <button id="submit-btn" class="next" type="submit" style="display: none;">إرسال</button>
+
+</div>
+
             </form>
+            <!-- Form End -->
         </div>
     </div>
 
 
     <script>
+const timerElement = document.getElementById('timer');
+const timerInput = document.getElementById('mathFirstTimer');
 
+
+let timeRemaining = parseInt(localStorage.getItem('timeRemaining')) || 15 * 60;
+
+const updateTimer = () => {
+    const minutes = Math.floor(timeRemaining / 60).toString().padStart(2, '0');
+    const seconds = (timeRemaining % 60).toString().padStart(2, '0');
+    timerElement.textContent = `${minutes}:${seconds}`;
+
+    // Change timer color based on remaining time
+    if (timeRemaining <= 3.75 * 60) { // Danger color for last 25%
+        timerElement.style.backgroundColor = '#ef4444'; // Red
+    } else if (timeRemaining <= 7.5 * 60) { // Warning color for half time
+        timerElement.style.backgroundColor = '#f59e0b'; // Orange
+    } else {
+        timerElement.style.backgroundColor = '#10b981'; // Green
+    }
+
+    // Save the remaining time to localStorage
+    localStorage.setItem('timeRemaining', timeRemaining);
+
+    // If time runs out, clear the interval and redirect
+    if (timeRemaining === 0) {
+        clearInterval(timerInterval);
+        localStorage.removeItem('timeRemaining'); // Clear the timer from localStorage
+        window.location.href = '/timeout-page'; // Redirect to your timeout page
+    }
+
+    // Update the hidden input field
+    timerInput.value = timeRemaining;
+
+    timeRemaining--;
+};
+
+// Update the timer every second
+const timerInterval = setInterval(updateTimer, 1000);
+
+// Initial call to set timer immediately
+updateTimer();
 const questions = document.querySelectorAll('.question');
 const prevButton = document.getElementById('prev');
 const nextButton = document.getElementById('next');
@@ -472,60 +526,6 @@ nextButton.addEventListener('click', () => {
 
 // Initialize the question navigation
 updateQuestions();
-document.getElementById('submit-btn').addEventListener('click', async function () {
-        const form = document.getElementById('questions-form');
-        const formData = new FormData(form);
-
-        // Convert FormData to JSON
-        const answers = {};
-        formData.forEach((value, key) => {
-            const match = key.match(/answers\[(\d+)\]/); // Extract question ID
-            if (match) {
-                answers[match[1]] = value;
-            }
-        });
-
-        // Send data to the API
-        try {
-            const response = await fetch('/api/saveAnswer', {
-                method: 'POST', // Ensure this matches the route definition
-                headers: {
-                    'Content-Type': 'application/json',
-                    // 'X-CSRF-TOKEN': csrfToken,
-
-                    // If using authentication tokens, include it here:
-                    // 'Authorization': 'Bearer YOUR_ACCESS_TOKEN',
-                },
-                body: JSON.stringify({ answers }),
-            });
-
-            const result = await response.json();
-
-            if (response.ok) {
-                Swal.fire({
-                    icon: 'success',
-                    title: 'نجاح!',
-                    text: result.message,
-                    confirmButtonText: 'موافق'
-                });
-            } else {
-                Swal.fire({
-                    icon: 'error',
-                    title: 'خطأ!',
-                    html: result.errors ? result.errors.join('<br>') : result.message,
-                    confirmButtonText: 'موافق'
-                });
-            }
-        } catch (error) {
-            Swal.fire({
-                icon: 'error',
-                title: 'خطأ!',
-                text: 'حدث خطأ أثناء إرسال الإجابات. يرجى المحاولة مرة أخرى.',
-                confirmButtonText: 'موافق'
-            });
-            console.error('Error:', error);
-        }
-    });
     </script>
 </body>
 

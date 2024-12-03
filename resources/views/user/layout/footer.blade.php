@@ -89,6 +89,11 @@
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
 <script>
+      @if(session('resetTimer'))
+                // Clear localStorage if resetTimer is set
+                localStorage.removeItem('timeRemaining');
+                localStorage.removeItem('timeRemainingMathSec');
+            @endif
      @if(session('sweet_alert'))
         Swal.fire({
             icon: '{{ session('sweet_alert.type') }}', // success or error

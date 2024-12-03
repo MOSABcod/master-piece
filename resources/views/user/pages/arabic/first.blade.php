@@ -238,328 +238,375 @@ button:disabled {
             <div id="timer" class="timer">15:00</div>
 
             <h1>ورقة عمل</h1>
+            <form id="questions-form" method="POST" action="{{ route('save.ar.first') }}">
+                @csrf
+ <!-- السؤال الأول -->
+ <!-- Hidden input to store the remaining time -->
+ <input type="hidden" name="timer" id="arFirstTimer" > <!-- 15 minutes in seconds -->
+<!-- Timer Input -->
+<input type="hidden" name="timer" >
 
-            <!-- Questions -->
-            <div class="question active">
-                <label class="mb-2 block text-lg font-semibold text-gray-700">
-                    حدد موقع المقطع الصوتي (عُ) في كلمة (شارعُ).
-                </label>
-                <div class="radio-group flex justify-between items-center px-4 py-3 border border-gray-300 rounded-md bg-gray-100">
-                    <label class="radio-item flex items-center gap-2">
-                        <input type="radio" name="position" value="first">
-                        <span>أول</span>
-                    </label>
-                    <label class="radio-item flex items-center gap-2">
-                        <input type="radio" name="position" value="middle">
-                        <span>وسط</span>
-                    </label>
-                    <label class="radio-item flex items-center gap-2">
-                        <input type="radio" name="position" value="last">
-                        <span>آخر</span>
-                    </label>
-                </div>
-            </div>
-            <div class="question ">
-                <label class="mb-2 block text-lg font-semibold text-gray-700">
-                    حدد موقع المقطع الصوتي (<span style="font-size: 1.2em; font-weight: bold;">جَ</span>) في كلمة (<span style="font-size: 1.2em; font-weight: bold;">جَبَلُ</span>).
-                </label>
-                <div class="radio-group flex justify-between items-center px-4 py-3 border border-gray-300 rounded-md bg-gray-100">
-                    <label class="radio-item flex items-center gap-2">
-                        <input type="radio" name="position" value="first">
-                        <span>أول</span>
-                    </label>
-                    <label class="radio-item flex items-center gap-2">
-                        <input type="radio" name="position" value="middle">
-                        <span>وسط</span>
-                    </label>
-                    <label class="radio-item flex items-center gap-2">
-                        <input type="radio" name="position" value="last">
-                        <span>آخر</span>
-                    </label>
-                </div>
-            </div>
-            <div class="question">
-                <label class="mb-2 block text-lg font-semibold text-gray-700">
-                    حدد موقع المقطع الصوتي (<span style="font-size: 1.2em; font-weight: bold;">ط</span>) في كلمة (<span style="font-size: 1.2em; font-weight: bold;">مَطَر</span>).
-                </label>
-                <div class="radio-group flex justify-between items-center px-4 py-3 border border-gray-300 rounded-md bg-gray-100">
-                    <label class="radio-item flex items-center gap-2">
-                        <input type="radio" name="position-matar" value="first">
-                        <span>أول</span>
-                    </label>
-                    <label class="radio-item flex items-center gap-2">
-                        <input type="radio" name="position-matar" value="middle">
-                        <span>وسط</span>
-                    </label>
-                    <label class="radio-item flex items-center gap-2">
-                        <input type="radio" name="position-matar" value="last">
-                        <span>آخر</span>
-                    </label>
-                </div>
-            </div>
-            <div class="question">
-                <label class="mb-4 block text-lg font-semibold text-gray-700">
-                    ضع دائرة حول الصورة المناسبة عند تركيب المقاطع الصوتية (<span style="font-size: 1.2em; font-weight: bold;">جَـ مَـ ل</span>).
-                </label>
-                <div class="radio-group grid grid-cols-1 gap-4 border border-gray-300 p-4 rounded-md bg-gray-100">
-                    <!-- First Image Option -->
-                    <label class="radio-item flex items-center gap-4 cursor-pointer" style="display: flex;flex-direction: row;">
-                        <input type="radio" name="matching-image" value="camel" class="form-radio w-5 h-5">
-                        <span class="flex items-center gap-2">
-                            <img src="{{ asset('quiz images/1.1.png') }}" alt="Camel" class="w-24 h-24 rounded-md border border-gray-200">
-                        </span>
-                    </label>
-                    <!-- Second Image Option -->
-                    <label class="radio-item flex items-center gap-4 cursor-pointer" style="display: flex;flex-direction: row;">
-                        <input type="radio" name="matching-image" value="rope" class="form-radio w-5 h-5">
-                        <span class="flex items-center gap-2">
-                            <img src="{{ asset('quiz images/1.2.png') }}" alt="Rope" class="w-24 h-24 rounded-md border border-gray-200">
-                        </span>
-                    </label>
-                    <!-- Third Image Option -->
-                    <label class="radio-item flex items-center gap-4 cursor-pointer" style="display: flex;flex-direction: row;">
-                        <input type="radio" name="matching-image" value="mountain" class="form-radio w-5 h-5">
-                        <span class="flex items-center gap-2">
-                            <img src="{{ asset('quiz images/1.3.png') }}" alt="Mountain" class="w-24 h-24 rounded-md border border-gray-200">
-                        </span>
-                    </label>
-                </div>
-            </div>
-            <div class="question">
-                <label class="mb-4 block text-lg font-semibold text-gray-700">
-                    ضع دائرة حول الصورة المناسبة عند حذف المقطع الصوتي الأول من كلمة (<span style="font-size: 1.2em; font-weight: bold;">مَـنار</span>) لتصبح (<span style="font-size: 1.2em; font-weight: bold;">نار</span>).
-                </label>
-                <div class="radio-group grid grid-cols-3 gap-4 border border-gray-300 p-4 rounded-md bg-gray-100">
-                    <!-- First Image Option -->
-                    <label class="radio-item flex flex-col items-center gap-2 cursor-pointer" style="display: flex;flex-direction: row;">
-                        <input type="radio" name="matching-image" value="house" class="form-radio w-5 h-5">
-                        <img src="{{ asset('quiz images/2.1.png') }}" alt="House" class="w-24 h-24 rounded-md border border-gray-200">
-                    </label>
-                    <!-- Second Image Option -->
-                    <label class="radio-item flex flex-col items-center gap-2 cursor-pointer" style="display: flex;flex-direction: row;">
-                        <input type="radio" name="matching-image" value="mouse" class="form-radio w-5 h-5">
-                        <img src="{{ asset('quiz images/2.2.png') }}" alt="Mouse" class="w-24 h-24 rounded-md border border-gray-200">
-                    </label>
-                    <!-- Third Image Option -->
-                    <label class="radio-item flex flex-col items-center gap-2 cursor-pointer" style="display: flex;flex-direction: row;">
-                        <input type="radio" name="matching-image" value="fire" class="form-radio w-5 h-5">
-                        <img src="{{ asset('quiz images/2.3.png') }}" alt="Fire" class="w-24 h-24 rounded-md border border-gray-200">
-                    </label>
-                </div>
-            </div>
-            <div class="question">
-                <label class="mb-4 block text-lg font-semibold text-gray-700">
-                    كم مقطعًا صوتيًا نسمع عند تحليل كلمة (<span style="font-size: 1.2em; font-weight: bold;">عَلَمُ</span>)؟
-                </label>
-                <div class="radio-group flex justify-between items-center px-4 py-3 border border-gray-300 rounded-md bg-gray-100">
-                    <label class="radio-item flex items-center gap-2">
-                        <input type="radio" name="syllable-count" value="2">
-                        <span>٢</span>
-                    </label>
-                    <label class="radio-item flex items-center gap-2">
-                        <input type="radio" name="syllable-count" value="3">
-                        <span>٣</span>
-                    </label>
-                    <label class="radio-item flex items-center gap-2">
-                        <input type="radio" name="syllable-count" value="4">
-                        <span>٤</span>
-                    </label>
-                </div>
-            </div>
-            <div class="question">
-                <label class="mb-4 block text-lg font-semibold text-gray-700">
-                    ضع دائرة حول الكلمة التي تتكون من المقاطع الآتية (<span style="font-size: 1.2em; font-weight: bold;">جَ رَ سْ</span>).
-                </label>
-                <div class="radio-group flex justify-between items-center px-4 py-3 border border-gray-300 rounded-md bg-gray-100">
-                    <label class="radio-item flex items-center gap-2">
-                        <input type="radio" name="matching-word" value="جرس">
-                        <span>جَرَسْ</span>
-                    </label>
-                    <label class="radio-item flex items-center gap-2">
-                        <input type="radio" name="matching-word" value="سرح">
-                        <span>سَرَحْ</span>
-                    </label>
-                    <label class="radio-item flex items-center gap-2">
-                        <input type="radio" name="matching-word" value="حرس">
-                        <span>حَرَسْ</span>
-                    </label>
-                </div>
-            </div>
-            <div class="question">
-                <label class="mb-4 block text-lg font-semibold text-gray-700">
-                    ضع دائرة حول التحليل الصحيح لكلمة (<span style="font-size: 1.2em; font-weight: bold;">مَـجْـلِـسُ</span>).
-                </label>
-                <div class="radio-group flex justify-around items-center px-4 py-3 border border-gray-300 rounded-md bg-gray-100">
-                    <!-- First Option -->
-                    <label class="radio-item flex flex-col items-center cursor-pointer"  style="display: flex;flex-direction: row;">
-                        <input type="radio" name="analysis" value="option1" class="form-radio w-5 h-5 mb-2">
-                        <span class="text-gray-700">
-                            <div class="grid grid-cols-3 gap-2">
-                                <span>مَـ</span>
-                                <span>جْـ</span>
-                                <span>لِـسُ</span>
-                            </div>
-                        </span>
-                    </label>
+<!-- السؤال الأول -->
+<div class="question">
+    <p>السؤال الأول</p>
+    <label class="mb-2 block text-lg font-semibold text-gray-700">
+        حدد موقع المقطع الصوتي (عُ) في كلمة (شارعُ).
+    </label>
+    <div class="radio-group flex justify-between items-center px-4 py-3 border border-gray-300 rounded-md bg-gray-100">
+        <label class="radio-item flex items-center gap-2">
+            <input type="radio" name="answers[1]" value="first" {{ old('answers.1') == 'first' ? 'checked' : '' }}>
+            <span>أول</span>
+        </label>
+        <label class="radio-item flex items-center gap-2">
+            <input type="radio" name="answers[1]" value="middle" {{ old('answers.1') == 'middle' ? 'checked' : '' }}>
+            <span>وسط</span>
+        </label>
+        <label class="radio-item flex items-center gap-2">
+            <input type="radio" name="answers[1]" value="last" {{ old('answers.1') == 'last' ? 'checked' : '' }}>
+            <span>آخر</span>
+        </label>
+    </div>
+</div>
 
-                    <!-- Second Option -->
-                    <label class="radio-item flex flex-col items-center cursor-pointer"  style="display: flex;flex-direction: row;">
-                        <input type="radio" name="analysis" value="option2" class="form-radio w-5 h-5 mb-2">
-                        <span class="text-gray-700">
-                            <div class="grid grid-cols-3 gap-2">
-                                <span>مَـجَـ</span>
-                                <span>لَـ</span>
-                                <span>سُ</span>
-                            </div>
-                        </span>
-                    </label>
+<!-- السؤال الثاني -->
+<div class="question">
+    <p>السؤال الثاني</p>
+    <label class="mb-2 block text-lg font-semibold text-gray-700">
+        حدد موقع المقطع الصوتي (جَ) في كلمة (جَبَلُ).
+    </label>
+    <div class="radio-group flex justify-between items-center px-4 py-3 border border-gray-300 rounded-md bg-gray-100">
+        <label class="radio-item flex items-center gap-2">
+            <input type="radio" name="answers[2]" value="first" {{ old('answers.2') == 'first' ? 'checked' : '' }}>
+            <span>أول</span>
+        </label>
+        <label class="radio-item flex items-center gap-2">
+            <input type="radio" name="answers[2]" value="middle" {{ old('answers.2') == 'middle' ? 'checked' : '' }}>
+            <span>وسط</span>
+        </label>
+        <label class="radio-item flex items-center gap-2">
+            <input type="radio" name="answers[2]" value="last" {{ old('answers.2') == 'last' ? 'checked' : '' }}>
+            <span>آخر</span>
+        </label>
+    </div>
+</div>
 
-                    <!-- Third Option -->
-                    <label class="radio-item flex flex-col items-center cursor-pointer"  style="display: flex;flex-direction: row;">
-                        <input type="radio" name="analysis" value="option3" class="form-radio w-5 h-5 mb-2">
-                        <span class="text-gray-700">
-                            <div class="grid grid-cols-3 gap-2">
-                                <span>مَـجْـ</span>
-                                <span></span>
-                                <span>لِـسْ</span>
-                            </div>
-                        </span>
-                    </label>
-                </div>
-            </div>
-            <div class="question">
-                <label class="mb-4 block text-lg font-semibold text-gray-700">
-                    ضع دائرة حول كلمة (<span style="font-size: 1.2em; font-weight: bold;">صِفْرُ</span>).
-                </label>
-                <div class="radio-group flex justify-between items-center px-4 py-3 border border-gray-300 rounded-md bg-gray-100">
-                    <!-- First Option -->
-                    <label class="radio-item flex items-center gap-2 cursor-pointer">
-                        <input type="radio" name="word-choice" value="option1" class="form-radio w-5 h-5">
-                        <span style="font-size: 1.2em; font-weight: bold;">صِفْرُ</span>
-                    </label>
-                    <!-- Second Option -->
-                    <label class="radio-item flex items-center gap-2 cursor-pointer">
-                        <input type="radio" name="word-choice" value="option2" class="form-radio w-5 h-5">
-                        <span style="font-size: 1.2em; font-weight: bold;">صَفْرُ</span>
-                    </label>
-                    <!-- Third Option -->
-                    <label class="radio-item flex items-center gap-2 cursor-pointer">
-                        <input type="radio" name="word-choice" value="option3" class="form-radio w-5 h-5">
-                        <span style="font-size: 1.2em; font-weight: bold;">صُفْرُ</span>
-                    </label>
-                </div>
-            </div>
-            <div class="question">
-                <label class="mb-4 block text-lg font-semibold text-gray-700">
-                    ضع دائرة حول كلمة (<span style="font-size: 1.2em; font-weight: bold;">زَيْدٍ</span>).
-                </label>
-                <div class="radio-group flex justify-between items-center px-4 py-3 border border-gray-300 rounded-md bg-gray-100">
-                    <!-- First Option -->
-                    <label class="radio-item flex items-center gap-2 cursor-pointer">
-                        <input type="radio" name="word-choice" value="option1" class="form-radio w-5 h-5">
-                        <span style="font-size: 1.2em; font-weight: bold;">زَيْدُ</span>
-                    </label>
-                    <!-- Second Option -->
-                    <label class="radio-item flex items-center gap-2 cursor-pointer">
-                        <input type="radio" name="word-choice" value="option2" class="form-radio w-5 h-5">
-                        <span style="font-size: 1.2em; font-weight: bold;">زَيْداً</span>
-                    </label>
-                    <!-- Third Option -->
-                    <label class="radio-item flex items-center gap-2 cursor-pointer">
-                        <input type="radio" name="word-choice" value="option3" class="form-radio w-5 h-5">
-                        <span style="font-size: 1.2em; font-weight: bold;">زَيْدٍ</span>
-                    </label>
-                </div>
-            </div>
-            <div class="question">
-                <label class="mb-4 block text-lg font-semibold text-gray-700">
-                    ضع دائرة حول الكلمة التي تبدأ باللام القمرية (التي تُنطق) من الكلمات الآتية:
-                </label>
-                <div class="radio-group flex justify-between items-center px-4 py-3 border border-gray-300 rounded-md bg-gray-100">
-                    <!-- First Option -->
-                    <label class="radio-item flex items-center gap-2 cursor-pointer">
-                        <input type="radio" name="lam-choice" value="option1" class="form-radio w-5 h-5">
-                        <span style="font-size: 1.2em; font-weight: bold;">الشَّارِعُ</span>
-                    </label>
-                    <!-- Second Option -->
-                    <label class="radio-item flex items-center gap-2 cursor-pointer">
-                        <input type="radio" name="lam-choice" value="option2" class="form-radio w-5 h-5">
-                        <span style="font-size: 1.2em; font-weight: bold;">الْبَيْتُ</span>
-                    </label>
-                    <!-- Third Option -->
-                    <label class="radio-item flex items-center gap-2 cursor-pointer">
-                        <input type="radio" name="lam-choice" value="option3" class="form-radio w-5 h-5">
-                        <span style="font-size: 1.2em; font-weight: bold;">النَّظَرُ</span>
-                    </label>
-                </div>
-            </div>
-            <div class="question">
-                <label class="mb-4 block text-lg font-semibold text-gray-700">
-                    ضع دائرة حول كلمة (دَرَّسَ).
-                </label>
-                <div class="radio-group flex justify-between items-center px-4 py-3 border border-gray-300 rounded-md bg-gray-100">
-                    <!-- First Option -->
-                    <label class="radio-item flex items-center gap-2 cursor-pointer">
-                        <input type="radio" name="word-choice" value="option1" class="form-radio w-5 h-5">
-                        <span style="font-size: 1.2em; font-weight: bold;">دَرَسَ</span>
-                    </label>
-                    <!-- Second Option -->
-                    <label class="radio-item flex items-center gap-2 cursor-pointer">
-                        <input type="radio" name="word-choice" value="option2" class="form-radio w-5 h-5">
-                        <span style="font-size: 1.2em; font-weight: bold;">دَرْسَ</span>
-                    </label>
-                    <!-- Third Option -->
-                    <label class="radio-item flex items-center gap-2 cursor-pointer">
-                        <input type="radio" name="word-choice" value="option3" class="form-radio w-5 h-5">
-                        <span style="font-size: 1.2em; font-weight: bold;">دَرَّسَ </span>
-                    </label>
-                </div>
-            </div>
+<!-- السؤال الثالث -->
+<div class="question">
+    <p>السؤال الثالث</p>
+    <label class="mb-2 block text-lg font-semibold text-gray-700">
+        حدد موقع المقطع الصوتي (ط) في كلمة (مَطَر).
+    </label>
+    <div class="radio-group flex justify-between items-center px-4 py-3 border border-gray-300 rounded-md bg-gray-100">
+        <label class="radio-item flex items-center gap-2">
+            <input type="radio" name="answers[3]" value="first" {{ old('answers.3') == 'first' ? 'checked' : '' }}>
+            <span>أول</span>
+        </label>
+        <label class="radio-item flex items-center gap-2">
+            <input type="radio" name="answers[3]" value="middle" {{ old('answers.3') == 'middle' ? 'checked' : '' }}>
+            <span>وسط</span>
+        </label>
+        <label class="radio-item flex items-center gap-2">
+            <input type="radio" name="answers[3]" value="last" {{ old('answers.3') == 'last' ? 'checked' : '' }}>
+            <span>آخر</span>
+        </label>
+    </div>
+</div>
 
+<!-- السؤال الرابع -->
+<div class="question">
+    <p>السؤال الرابع</p>
+    <label class="mb-4 block text-lg font-semibold text-gray-700">
+        ضع دائرة حول الصورة المناسبة عند تركيب المقاطع الصوتية (جَـ مَـ ل).
+    </label>
+    <div class="radio-group grid grid-cols-1 gap-4 border border-gray-300 p-4 rounded-md bg-gray-100">
+        <label class="radio-item flex items-center gap-4 cursor-pointer">
+            <input type="radio" name="answers[4]" value="camel" {{ old('answers.4') == 'camel' ? 'checked' : '' }}>
+            <img src="{{ asset('quiz images/1.1.png') }}" alt="Camel" class="w-24 h-24 rounded-md border border-gray-200">
+        </label>
+        <label class="radio-item flex items-center gap-4 cursor-pointer">
+            <input type="radio" name="answers[4]" value="rope" {{ old('answers.4') == 'rope' ? 'checked' : '' }}>
+            <img src="{{ asset('quiz images/1.2.png') }}" alt="Rope" class="w-24 h-24 rounded-md border border-gray-200">
+        </label>
+        <label class="radio-item flex items-center gap-4 cursor-pointer">
+            <input type="radio" name="answers[4]" value="mountain" {{ old('answers.4') == 'mountain' ? 'checked' : '' }}>
+            <img src="{{ asset('quiz images/1.3.png') }}" alt="Mountain" class="w-24 h-24 rounded-md border border-gray-200">
+        </label>
+    </div>
+</div>
+
+<!-- السؤال الخامس -->
+<div class="question">
+    <p>السؤال الخامس</p>
+    <label class="mb-4 block text-lg font-semibold text-gray-700">
+        ضع دائرة حول الصورة المناسبة عند حذف المقطع الصوتي الأول من كلمة (مَـنار) لتصبح (نار).
+    </label>
+    <div class="radio-group grid grid-cols-3 gap-4 border border-gray-300 p-4 rounded-md bg-gray-100">
+        <label class="radio-item flex flex-col items-center gap-2 cursor-pointer">
+            <input type="radio" name="answers[5]" value="house" {{ old('answers.5') == 'house' ? 'checked' : '' }}>
+            <img src="{{ asset('quiz images/2.1.png') }}" alt="House" class="w-24 h-24 rounded-md border border-gray-200">
+        </label>
+        <label class="radio-item flex flex-col items-center gap-2 cursor-pointer">
+            <input type="radio" name="answers[5]" value="mouse" {{ old('answers.5') == 'mouse' ? 'checked' : '' }}>
+            <img src="{{ asset('quiz images/2.2.png') }}" alt="Mouse" class="w-24 h-24 rounded-md border border-gray-200">
+        </label>
+        <label class="radio-item flex flex-col items-center gap-2 cursor-pointer">
+            <input type="radio" name="answers[5]" value="fire" {{ old('answers.5') == 'fire' ? 'checked' : '' }}>
+            <img src="{{ asset('quiz images/2.3.png') }}" alt="Fire" class="w-24 h-24 rounded-md border border-gray-200">
+        </label>
+    </div>
+</div>
+
+<!-- السؤال السادس -->
+<div class="question">
+    <p>السؤال السادس</p>
+    <label class="mb-4 block text-lg font-semibold text-gray-700">
+        كم مقطعًا صوتيًا نسمع عند تحليل كلمة (عَلَمُ)؟
+    </label>
+    <div class="radio-group flex justify-between items-center px-4 py-3 border border-gray-300 rounded-md bg-gray-100">
+        <label class="radio-item flex items-center gap-2">
+            <input type="radio" name="answers[6]" value="2" {{ old('answers.6') == '2' ? 'checked' : '' }}>
+            <span>٢</span>
+        </label>
+        <label class="radio-item flex items-center gap-2">
+            <input type="radio" name="answers[6]" value="3" {{ old('answers.6') == '3' ? 'checked' : '' }}>
+            <span>٣</span>
+        </label>
+        <label class="radio-item flex items-center gap-2">
+            <input type="radio" name="answers[6]" value="4" {{ old('answers.6') == '4' ? 'checked' : '' }}>
+            <span>٤</span>
+        </label>
+    </div>
+</div>
+
+<!-- السؤال السابع -->
+<div class="question">
+    <p>السؤال السابع</p>
+    <label class="mb-4 block text-lg font-semibold text-gray-700">
+        ضع دائرة حول الكلمة التي تتكون من المقاطع الآتية (جَ رَ سْ).
+    </label>
+    <div class="radio-group flex justify-between items-center px-4 py-3 border border-gray-300 rounded-md bg-gray-100">
+        <label class="radio-item flex items-center gap-2">
+            <input type="radio" name="answers[7]" value="جرس" {{ old('answers.7') == 'جرس' ? 'checked' : '' }}>
+            <span>جَرَسْ</span>
+        </label>
+        <label class="radio-item flex items-center gap-2">
+            <input type="radio" name="answers[7]" value="سرح" {{ old('answers.7') == 'سرح' ? 'checked' : '' }}>
+            <span>سَرَحْ</span>
+        </label>
+        <label class="radio-item flex items-center gap-2">
+            <input type="radio" name="answers[7]" value="حرس" {{ old('answers.7') == 'حرس' ? 'checked' : '' }}>
+            <span>حَرَسْ</span>
+        </label>
+    </div>
+</div>
+
+<!-- السؤال الثامن -->
+<div class="question">
+    <p>السؤال الثامن</p>
+    <label class="mb-4 block text-lg font-semibold text-gray-700">
+        ضع دائرة حول التحليل الصحيح لكلمة (مَـجْـلِـسُ).
+    </label>
+    <div class="radio-group flex justify-around items-center px-4 py-3 border border-gray-300 rounded-md bg-gray-100">
+        <label class="radio-item flex flex-col items-center cursor-pointer">
+            <input type="radio" name="answers[8]" value="مَـ، جْـ، لِـسُ" {{ old('answers.8') == 'مَـ، جْـ، لِـسُ' ? 'checked' : '' }}>
+            <span>مَـ، جْـ، لِـسُ</span>
+        </label>
+        <label class="radio-item flex flex-col items-center cursor-pointer">
+            <input type="radio" name="answers[8]" value="مَـجَـ، لَـ، سُ" {{ old('answers.8') == 'مَـجَـ، لَـ، سُ' ? 'checked' : '' }}>
+            <span>مَـجَـ، لَـ، سُ</span>
+        </label>
+        <label class="radio-item flex flex-col items-center cursor-pointer">
+            <input type="radio" name="answers[8]" value="مَـجْـ، لِـسْ" {{ old('answers.8') == 'مَـجْـ، لِـسْ' ? 'checked' : '' }}>
+            <span>مَـجْـ، لِـسْ</span>
+        </label>
+    </div>
+</div>
+
+<!-- السؤال التاسع -->
+<div class="question">
+    <p>السؤال التاسع</p>
+    <label class="mb-4 block text-lg font-semibold text-gray-700">
+        ضع دائرة حول كلمة (صِفْرُ).
+    </label>
+    <div class="radio-group flex justify-between items-center px-4 py-3 border border-gray-300 rounded-md bg-gray-100">
+        <label class="radio-item flex items-center gap-2">
+            <input type="radio" name="answers[9]" value="صِفْرُ" {{ old('answers.9') == 'صِفْرُ' ? 'checked' : '' }}>
+            <span>صِفْرُ</span>
+        </label>
+        <label class="radio-item flex items-center gap-2">
+            <input type="radio" name="answers[9]" value="صَفْرُ" {{ old('answers.9') == 'صَفْرُ' ? 'checked' : '' }}>
+            <span>صَفْرُ</span>
+        </label>
+        <label class="radio-item flex items-center gap-2">
+            <input type="radio" name="answers[9]" value="صُفْرُ" {{ old('answers.9') == 'صُفْرُ' ? 'checked' : '' }}>
+            <span>صُفْرُ</span>
+        </label>
+    </div>
+</div>
+
+<!-- السؤال العاشر -->
+<div class="question">
+    <p>السؤال العاشر</p>
+    <label class="mb-4 block text-lg font-semibold text-gray-700">
+        ضع دائرة حول كلمة (زَيْدٍ).
+    </label>
+    <div class="radio-group flex justify-between items-center px-4 py-3 border border-gray-300 rounded-md bg-gray-100">
+        <label class="radio-item flex items-center gap-2">
+            <input type="radio" name="answers[10]" value="زَيْدٍ" {{ old('answers.10') == 'زَيْدٍ' ? 'checked' : '' }}>
+            <span>زَيْدٍ</span>
+        </label>
+        <label class="radio-item flex items-center gap-2">
+            <input type="radio" name="answers[10]" value="زَيْداً" {{ old('answers.10') == 'زَيْداً' ? 'checked' : '' }}>
+            <span>زَيْداً</span>
+        </label>
+        <label class="radio-item flex items-center gap-2">
+            <input type="radio" name="answers[10]" value="زَيْدُ" {{ old('answers.10') == 'زَيْدُ' ? 'checked' : '' }}>
+            <span>زَيْدُ</span>
+        </label>
+    </div>
+</div>
+
+<!-- السؤال الحادي عشر -->
+<div class="question">
+    <p>السؤال الحادي عشر</p>
+    <label class="mb-4 block text-lg font-semibold text-gray-700">
+        ضع دائرة حول الكلمة التي تبدأ باللام القمرية (التي تُنطق) من الكلمات الآتية:
+    </label>
+    <div class="radio-group flex justify-between items-center px-4 py-3 border border-gray-300 rounded-md bg-gray-100">
+        <label class="radio-item flex items-center gap-2">
+            <input type="radio" name="answers[11]" value="الْبَيْتُ" {{ old('answers.11') == 'الْبَيْتُ' ? 'checked' : '' }}>
+            <span>الْبَيْتُ</span>
+        </label>
+        <label class="radio-item flex items-center gap-2">
+            <input type="radio" name="answers[11]" value="الشَّارِعُ" {{ old('answers.11') == 'الشَّارِعُ' ? 'checked' : '' }}>
+            <span>الشَّارِعُ</span>
+        </label>
+        <label class="radio-item flex items-center gap-2">
+            <input type="radio" name="answers[11]" value="النَّظَرُ" {{ old('answers.11') == 'النَّظَرُ' ? 'checked' : '' }}>
+            <span>النَّظَرُ</span>
+        </label>
+    </div>
+</div>
+
+<!-- السؤال الثاني عشر -->
+<div class="question">
+    <p>السؤال الثاني عشر</p>
+    <label class="mb-4 block text-lg font-semibold text-gray-700">
+        ضع دائرة حول كلمة (دَرَّسَ).
+    </label>
+    <div class="radio-group flex justify-between items-center px-4 py-3 border border-gray-300 rounded-md bg-gray-100">
+        <label class="radio-item flex items-center gap-2">
+            <input type="radio" name="answers[12]" value="دَرَّسَ" {{ old('answers.12') == 'دَرَّسَ' ? 'checked' : '' }}>
+            <span>دَرَّسَ</span>
+        </label>
+        <label class="radio-item flex items-center gap-2">
+            <input type="radio" name="answers[12]" value="دَرَسَ" {{ old('answers.12') == 'دَرَسَ' ? 'checked' : '' }}>
+            <span>دَرَسَ</span>
+        </label>
+        <label class="radio-item flex items-center gap-2">
+            <input type="radio" name="answers[12]" value="دَرْسَ" {{ old('answers.12') == 'دَرْسَ' ? 'checked' : '' }}>
+            <span>دَرْسَ</span>
+        </label>
+    </div>
+</div>
 
 
 
   <!-- Navigation Buttons -->
   <div class="navigation-buttons">
     <div class="left-buttons">
-        <button id="prev" class="prev" disabled>السابق</button>
+        <button id="prev" class="prev" type="button" disabled>السابق</button>
         <a href="{{ route('homepage') }}" class="exit-link">الخروج من الامتحان</a>
     </div>
-    <button id="next" class="next">التالي</button>
+    <button id="next" class="next" type="button">التالي</button>
+    <button id="submit-btn" class="next" type="submit" style="display: none;">إرسال</button>
+
 </div>
+</form>
+
         </div>
     </div>
 
     <script>
-        const questions = document.querySelectorAll('.question');
-        const prevButton = document.getElementById('prev');
-        const nextButton = document.getElementById('next');
-        let currentStep = 0;
+const timerElement = document.getElementById('timer');
+const timerInput = document.getElementById('arFirstTimer');
 
-        function updateQuestions() {
-            questions.forEach((question, index) => {
-                question.classList.toggle('active', index === currentStep);
-            });
 
-            prevButton.disabled = currentStep === 0;
-            nextButton.disabled = currentStep === questions.length - 1;
-        }
+let timeRemaining = parseInt(localStorage.getItem('timeRemainingArFirst')) || 15 * 60;
 
-        prevButton.addEventListener('click', () => {
-            if (currentStep > 0) {
-                currentStep--;
-                updateQuestions();
-            }
-        });
+const updateTimer = () => {
+    const minutes = Math.floor(timeRemaining / 60).toString().padStart(2, '0');
+    const seconds = (timeRemaining % 60).toString().padStart(2, '0');
+    timerElement.textContent = `${minutes}:${seconds}`;
 
-        nextButton.addEventListener('click', () => {
-            if (currentStep < questions.length - 1) {
-                currentStep++;
-                updateQuestions();
-            }
-        });
+    // Change timer color based on remaining time
+    if (timeRemaining <= 3.75 * 60) { // Danger color for last 25%
+        timerElement.style.backgroundColor = '#ef4444'; // Red
+    } else if (timeRemaining <= 7.5 * 60) { // Warning color for half time
+        timerElement.style.backgroundColor = '#f59e0b'; // Orange
+    } else {
+        timerElement.style.backgroundColor = '#10b981'; // Green
+    }
 
+    // Save the remaining time to localStorage
+    localStorage.setItem('timeRemainingArFirst', timeRemaining);
+
+    // If time runs out, clear the interval and redirect
+    if (timeRemaining === 0) {
+        clearInterval(timerInterval);
+        localStorage.removeItem('timeRemainingArFirst'); // Clear the timer from localStorage
+        window.location.href = '/timeout-page'; // Redirect to your timeout page
+    }
+
+    // Update the hidden input field
+    timerInput.value = timeRemaining;
+
+    timeRemaining--;
+};
+
+// Update the timer every second
+const timerInterval = setInterval(updateTimer, 1000);
+
+// Initial call to set timer immediately
+updateTimer();
+const questions = document.querySelectorAll('.question');
+const prevButton = document.getElementById('prev');
+const nextButton = document.getElementById('next');
+const submitButton = document.getElementById('submit-btn');
+let currentStep = 0;
+
+function updateQuestions() {
+    // Show the current question and hide others
+    questions.forEach((question, index) => {
+        question.classList.toggle('active', index === currentStep);
+    });
+
+    // Enable or disable the "السابق" button
+    prevButton.disabled = currentStep === 0;
+
+    // Show/hide "التالي" and "إرسال" buttons
+    nextButton.style.display = currentStep === questions.length - 1 ? 'none' : 'inline-block';
+    submitButton.style.display = currentStep === questions.length - 1 ? 'inline-block' : 'none';
+}
+
+// Event listener for the "السابق" button
+prevButton.addEventListener('click', () => {
+    if (currentStep > 0) {
+        currentStep--;
         updateQuestions();
+    }
+});
+
+// Event listener for the "التالي" button
+nextButton.addEventListener('click', () => {
+    if (currentStep < questions.length - 1) {
+        currentStep++;
+        updateQuestions();
+    }
+});
+
+// Initialize the question navigation
+updateQuestions();
     </script>
 </body>
 

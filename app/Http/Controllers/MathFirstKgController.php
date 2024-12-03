@@ -4,6 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\AnswersMathFirstKg;
+use App\Models\ArabicAnswerFirstKg;
+use App\Models\ArabicAnswersFirstKg;
+use App\Models\MathAnswerSecondThird;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Validator;
 
@@ -11,38 +14,49 @@ class MathFirstKgController extends Controller
 {
     public function saveAnswers(Request $request)
     {
-        // Simulate user authentication for API (if necessary)
-        $userId = $request->user()->id ?? null; // Assuming API token provides user
+        // Store the exam timer from the request input
+        $remainingTime = $request->input('timer');
+        // dd($remainingTime);
+        // Ensure the user is authenticated
+        $userId = Auth::id(); // Get the authenticated user ID
         if (!$userId) {
-            return response()->json([
-                'status' => 'error',
-                'message' => 'المستخدم غير مصرح.',
-            ], 401);
+            return redirect()->route('login')->with([
+                'sweet_alert' => [
+                    'type' => 'error',
+                    'title' => 'خطأ!',
+                    'message' => 'يجب تسجيل الدخول لحفظ الإجابات.',
+                ],
+                'remaining_time' => $remainingTime,
+            ]);
         }
 
         // Validation
-        $validator = Validator::make($request->all(), [
-            'answers' => 'required|array',
-            'answers.*' => 'required',
-        ], [
-            'answers.required' => 'يجب تقديم الإجابات.',
-            'answers.*.required' => 'يجب على جميع الأسئلة أن تحتوي على إجابة.',
-        ]);
+        $answers = $request->input('answers', []);
+        $totalQuestions = 18; // Update this number based on the total number of questions
+        $missingAnswers = [];
 
-        if ($validator->fails()) {
-            // Group errors to avoid duplicates
-            $errors = array_unique($validator->errors()->all());
+        // Check for missing answers
+        foreach (range(1, $totalQuestions) as $questionId) {
+            if (!isset($answers[$questionId]) || trim($answers[$questionId]) === '') {
+                $missingAnswers[] = $questionId;
+            }
+        }
 
-            return response()->json([
-                'status' => 'error',
-                'message' => 'فشل التحقق من البيانات.',
-                'errors' => $errors,
-            ], 422);
+        if (count($missingAnswers) > 0) {
+            // Calculate the number of unanswered questions
+            $missingCount = count($missingAnswers);
+            $missingList = implode(', ', $missingAnswers); // List the unanswered question IDs
+            return redirect()->back()->with([
+                'sweet_alert' => [
+                    'type' => 'error',
+                    'title' => 'خطأ!',
+                    'message' => "لم يتم الإجابة على $missingCount سؤال/أسئلة: $missingList.",
+                ],
+                'remaining_time' => $remainingTime,
+            ])->withInput();
         }
 
         try {
-            $answers = $request->input('answers', []);
-
             // Save answers
             foreach ($answers as $questionId => $answer) {
                 AnswersMathFirstKg::create([
@@ -52,16 +66,178 @@ class MathFirstKgController extends Controller
                 ]);
             }
 
-            return response()->json([
-                'status' => 'success',
-                'message' => 'تم حفظ الإجابات بنجاح!',
-            ], 200);
+            // Redirect back with success message
+            return redirect()->route('homepage')->with([
+                'sweet_alert' => [
+                    'type' => 'success',
+                    'title' => 'نجاح!',
+                    'message' => 'تم حفظ الإجابات بنجاح!',
+                ],
+                'remaining_time' => $remainingTime,
+                'resetTimer' => true,
+            ]);
         } catch (\Exception $e) {
+            // Redirect back with error message
+            return redirect()->back()->with([
+                'sweet_alert' => [
+                    'type' => 'error',
+                    'title' => 'خطأ!',
+                    'message' => 'حدث خطأ أثناء حفظ الإجابات. يرجى المحاولة مرة أخرى.',
+                ],
+                'remaining_time' => $remainingTime,
+            ]);
+        }
+    }
+    public function saveAnswersSecMath(Request $request)
+    {
+        // Store the exam timer from the request input
+        $remainingTime = $request->input('timer');
+        // dd($remainingTime);
+        // Ensure the user is authenticated
+        $userId = Auth::id(); // Get the authenticated user ID
+        if (!$userId) {
+            return redirect()->route('login')->with([
+                'sweet_alert' => [
+                    'type' => 'error',
+                    'title' => 'خطأ!',
+                    'message' => 'يجب تسجيل الدخول لحفظ الإجابات.',
+                ],
+                'remaining_time' => $remainingTime,
+            ]);
+        }
 
-            return response()->json([
-                'status' => 'error',
-                'message' => 'حدث خطأ أثناء حفظ الإجابات. يرجى المحاولة مرة أخرى.',
-            ], 500);
+        // Validation
+        $answers = $request->input('answers', []);
+        $totalQuestions = 25; // Update this number based on the total number of questions
+        $missingAnswers = [];
+
+        // Check for missing answers
+        foreach (range(1, $totalQuestions) as $questionId) {
+            if (!isset($answers[$questionId]) || trim($answers[$questionId]) === '') {
+                $missingAnswers[] = $questionId;
+            }
+        }
+
+        if (count($missingAnswers) > 0) {
+            // Calculate the number of unanswered questions
+            $missingCount = count($missingAnswers);
+            $missingList = implode(', ', $missingAnswers); // List the unanswered question IDs
+            return redirect()->back()->with([
+                'sweet_alert' => [
+                    'type' => 'error',
+                    'title' => 'خطأ!',
+                    'message' => "لم يتم الإجابة على $missingCount سؤال/أسئلة: $missingList.",
+                ],
+                'remaining_time' => $remainingTime,
+            ])->withInput();
+        }
+
+        try {
+            // Save answers
+            foreach ($answers as $questionId => $answer) {
+                MathAnswerSecondThird::create([
+                    'question_id' => $questionId,
+                    'user_id' => $userId,
+                    'answer' => $answer,
+                ]);
+            }
+
+            // Redirect back with success message
+            return redirect()->route('homepage')->with([
+                'sweet_alert' => [
+                    'type' => 'success',
+                    'title' => 'نجاح!',
+                    'message' => 'تم حفظ الإجابات بنجاح!',
+                ],
+                'remaining_time' => $remainingTime,
+                'resetTimer' => true,
+            ]);
+        } catch (\Exception $e) {
+            // Redirect back with error message
+            return redirect()->back()->with([
+                'sweet_alert' => [
+                    'type' => 'error',
+                    'title' => 'خطأ!',
+                    'message' => 'حدث خطأ أثناء حفظ الإجابات. يرجى المحاولة مرة أخرى.',
+                ],
+                'remaining_time' => $remainingTime,
+            ]);
+        }
+    }
+    public function saveAnswersFirstAr(Request $request)
+    {
+        // Store the exam timer from the request input
+        $remainingTime = $request->input('timer');
+        // dd($remainingTime);
+        // Ensure the user is authenticated
+        $userId = Auth::id(); // Get the authenticated user ID
+        if (!$userId) {
+            return redirect()->route('login')->with([
+                'sweet_alert' => [
+                    'type' => 'error',
+                    'title' => 'خطأ!',
+                    'message' => 'يجب تسجيل الدخول لحفظ الإجابات.',
+                ],
+                'remaining_time' => $remainingTime,
+            ]);
+        }
+
+        // Validation
+        $answers = $request->input('answers', []);
+        $totalQuestions = 12; // Update this number based on the total number of questions
+        $missingAnswers = [];
+
+        // Check for missing answers
+        foreach (range(1, $totalQuestions) as $questionId) {
+            if (!isset($answers[$questionId]) || trim($answers[$questionId]) === '') {
+                $missingAnswers[] = $questionId;
+            }
+        }
+
+        if (count($missingAnswers) > 0) {
+            // Calculate the number of unanswered questions
+            $missingCount = count($missingAnswers);
+            $missingList = implode(', ', $missingAnswers); // List the unanswered question IDs
+            return redirect()->back()->with([
+                'sweet_alert' => [
+                    'type' => 'error',
+                    'title' => 'خطأ!',
+                    'message' => "لم يتم الإجابة على $missingCount سؤال/أسئلة: $missingList.",
+                ],
+                'remaining_time' => $remainingTime,
+            ])->withInput();
+        }
+
+        try {
+            // Save answers
+            foreach ($answers as $questionId => $answer) {
+                ArabicAnswerFirstKg::create([
+                    'question_id' => $questionId,
+                    'user_id' => $userId,
+                    'answer' => $answer,
+                ]);
+            }
+
+            // Redirect back with success message
+            return redirect()->route('homepage')->with([
+                'sweet_alert' => [
+                    'type' => 'success',
+                    'title' => 'نجاح!',
+                    'message' => 'تم حفظ الإجابات بنجاح!',
+                ],
+                'remaining_time' => $remainingTime,
+                'resetTimer' => true,
+            ]);
+        } catch (\Exception $e) {
+            // Redirect back with error message
+            return redirect()->back()->with([
+                'sweet_alert' => [
+                    'type' => 'error',
+                    'title' => 'خطأ!',
+                    'message' => 'حدث خطأ أثناء حفظ الإجابات. يرجى المحاولة مرة أخرى.',
+                ],
+                'remaining_time' => $remainingTime,
+            ]);
         }
     }
 }
