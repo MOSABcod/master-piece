@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\MathFirstKgController;
+use App\Http\Controllers\OpenAIController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
@@ -75,6 +76,12 @@ Route::get('/arabicSecondAndThird', function () {
 Route::get('/science', function () {
     return view('user.pages.science.science');
 })->name('science');
+Route::get('/result', function () {
+    return view('user.pages.result');
+})->name('result');
+Route::get('/timeout', function () {
+    return view('user.pages.timeout');
+})->name('timeout');
 
 // apis
 Route::post('/saveAnswer', [MathFirstKgController::class, 'saveAnswers'])->name('save.math.first');

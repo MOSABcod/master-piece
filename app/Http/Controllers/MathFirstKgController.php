@@ -71,7 +71,7 @@ class MathFirstKgController extends Controller
             }
 
             // Redirect back with success message
-            return redirect()->route('homepage')->with([
+            return redirect()->route('result')->with([
                 'sweet_alert' => [
                     'type' => 'success',
                     'title' => 'نجاح!',
@@ -147,7 +147,7 @@ class MathFirstKgController extends Controller
             }
 
             // Redirect back with success message
-            return redirect()->route('homepage')->with([
+            return redirect()->route('result')->with([
                 'sweet_alert' => [
                     'type' => 'success',
                     'title' => 'نجاح!',
@@ -223,7 +223,7 @@ class MathFirstKgController extends Controller
             }
 
             // Redirect back with success message
-            return redirect()->route('homepage')->with([
+            return redirect()->route('result')->with([
                 'sweet_alert' => [
                     'type' => 'success',
                     'title' => 'نجاح!',
@@ -300,7 +300,7 @@ class MathFirstKgController extends Controller
             }
 
             // Redirect back with success message
-            return redirect()->route('homepage')->with([
+            return redirect()->route('result')->with([
                 'sweet_alert' => [
                     'type' => 'success',
                     'title' => 'نجاح!',
@@ -377,7 +377,7 @@ class MathFirstKgController extends Controller
             }
 
             // Redirect back with success message
-            return redirect()->route('homepage')->with([
+            return redirect()->route('result')->with([
                 'sweet_alert' => [
                     'type' => 'success',
                     'title' => 'نجاح!',

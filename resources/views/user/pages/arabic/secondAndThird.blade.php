@@ -930,7 +930,7 @@ const updateTimer = () => {
     if (timeRemaining === 0) {
         clearInterval(timerInterval);
         localStorage.removeItem('timeRemainingArSec'); // Clear the timer from localStorage
-        window.location.href = '/timeout-page'; // Redirect to your timeout page
+        window.location.href = '/timeout'; // Redirect to your timeout page
     }
 
     // Update the hidden input field

@@ -525,7 +525,7 @@ button:disabled {
                 localStorage.removeItem('timeRemainingScience'); // Clear the timer from localStorage
                 document.getElementById('questions-form').submit(); // Automatically submit the form
                 // Alternatively, redirect to a timeout page:
-                // window.location.href = '/timeout-page'; // Redirect to your timeout page
+                window.location.href = '/timeout'; // Redirect to your timeout page
             }
 
             // Update the hidden input field
