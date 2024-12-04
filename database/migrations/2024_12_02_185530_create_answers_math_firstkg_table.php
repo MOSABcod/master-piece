@@ -13,6 +13,8 @@ class CreateAnswersMathFirstkgTable extends Migration
             $table->unsignedBigInteger('question_id'); // Foreign key for math_first_kg table
             $table->unsignedBigInteger('user_id'); // Foreign key for users table
             $table->string('answer'); // Answer field
+            $table->boolean('is_correct')->default(false); // Whether the answer is correct
+
             $table->timestamps(); // created_at and updated_at
 
             // Foreign key constraints

@@ -43,8 +43,8 @@ class MathSecThirdSeeder extends Seeder
                 'correct_answer' => '116'
             ],
             [
-                'question' => 'اكتب العدد الذي إذا طرحناه من 300 يصبح الناتج 270.',
-                'correct_answer' => '30'
+                'question' => 'اكتب العدد الذي إذا طرحناه من 30 يصبح الناتج 270.',
+                'correct_answer' => '300'
             ],
             [
                 'question' => 'مع حمزة 57 دينارًا اشترى ملابس بـ 25 دينارًا، كم دينارًا بقي معه؟',

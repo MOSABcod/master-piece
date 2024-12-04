@@ -10,7 +10,7 @@ class AnswersMathFirstKg extends Model
     use HasFactory;
 
     protected $table = 'answers_math_firstkg'; // Table name
-    protected $fillable = ['question_id', 'user_id', 'answer']; // Fillable columns
+    protected $fillable = ['question_id', 'user_id', 'answer', 'is_correct']; // Fillable columns
 
     /**
      * Relationship to the MathFirstKg model.

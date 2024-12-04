@@ -82,7 +82,7 @@
 <div class="result-wrapper">
     <div class="result-container">
         <h1 class="result-heading">النتيجة النهائية</h1>
-        <p class="result-value">12/25</p>
+        <p class="result-value">{{ session('result') ? session('result'): 0 }}/{{ session('countofqus')?session('countofqus') :0 }}</p>
         <p class="result-description">تهانينا! لقد أتممت الاختبار بنجاح.</p>
         <div class="action-buttons">
             <a href="{{ route('homepage') }}" class="exit">خروج</a>

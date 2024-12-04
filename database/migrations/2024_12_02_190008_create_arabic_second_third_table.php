@@ -12,6 +12,7 @@ class CreateArabicSecondThirdTable extends Migration
             $table->id();
             $table->string('question'); // Column for the question
             $table->string('correct_answer'); // Question field
+            $table->boolean('is_correct')->default(false); // Whether the answer is correct
 
             $table->timestamps(); // created_at and updated_at
         });

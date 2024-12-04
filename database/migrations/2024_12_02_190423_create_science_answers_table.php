@@ -13,6 +13,8 @@ class CreateScienceAnswersTable extends Migration
             $table->unsignedBigInteger('question_id'); // Foreign key referencing science table
             $table->unsignedBigInteger('user_id'); // Foreign key referencing users table
             $table->string('answer'); // Column for the answer text
+            $table->boolean('is_correct')->default(false); // Whether the answer is correct
+
             $table->timestamps(); // created_at and updated_at
 
             // Foreign key constraints

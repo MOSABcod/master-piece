@@ -252,10 +252,10 @@ button:disabled {
                     </label>
                     <div class="radio-group flex flex-col gap-4 px-4 py-3 border border-gray-300 rounded-md bg-gray-100">
                         @foreach([
-                            'answers.1.water_and_gravity' => 'وجود الماء والجاذبية',
-                            'answers.1.temperature' => 'درجة الحرارة المناسبة',
-                            'answers.1.air_only' => 'وجود الهواء فقط',
-                            'answers.1.all' => 'جميع ما سبق'
+                            'answers.1.وجود الماء والجاذبية' => 'وجود الماء والجاذبية',
+                            'answers.1.درجة الحرارة المناسبة' => 'درجة الحرارة المناسبة',
+                            'answers.1.وجود الهواء فقط' => 'وجود الهواء فقط',
+                            'answers.1.جميع ما سبق' => 'جميع ما سبق'
                         ] as $name => $label)
                             <label class="radio-item flex items-center gap-2">
                                 <input type="radio" name="answers[1]" value="{{ explode('.', $name)[2] }}"
@@ -274,10 +274,10 @@ button:disabled {
                     </label>
                     <div class="radio-group grid grid-cols-2 gap-4 px-4 py-3 border border-gray-300 rounded-md bg-gray-100">
                         @foreach([
-                            'answers.2.12_hours' => '12',
-                            'answers.2.5_hours' => '5',
-                            'answers.2.10_hours' => '10',
-                            'answers.2.24_hours' => '24'
+                            'answers.2.12' => '12',
+                            'answers.2.5' => '5',
+                            'answers.2.10' => '10',
+                            'answers.2.24' => '24'
                         ] as $name => $label)
                             <label class="radio-item flex items-center justify-center gap-2 bg-blue-500 text-white p-4 rounded-lg">
                                 <input type="radio" name="answers[2]" value="{{ explode('.', $name)[2] }}"
@@ -296,10 +296,10 @@ button:disabled {
                     </label>
                     <div class="radio-group grid grid-cols-2 gap-4 px-4 py-3 border border-gray-300 rounded-md bg-gray-100">
                         @foreach([
-                            'answers.3.water_air_soil_rocks' => 'الماء، الهواء، و التربة و الصخور',
-                            'answers.3.none_of_the_above' => 'لا شيء من ما ذكر',
-                            'answers.3.water_air_soil' => 'الماء، الهواء و التربة',
-                            'answers.3.water_only' => 'الماء فقط'
+                            'answers.3.الماء، الهواء، و التربة و الصخور' => 'الماء، الهواء، و التربة و الصخور',
+                            'answers.3.لا شيء من ما ذكر' => 'لا شيء من ما ذكر',
+                            'answers.3.الماء، الهواء و التربة' => 'الماء، الهواء و التربة',
+                            'answers.3.الماء فقط' => 'الماء فقط'
                         ] as $name => $label)
                             <label class="radio-item flex items-center justify-center gap-2 bg-teal-500 text-white p-4 rounded-lg">
                                 <input type="radio" name="answers[3]" value="{{ explode('.', $name)[2] }}"
@@ -318,9 +318,9 @@ button:disabled {
                     </label>
                     <div class="radio-group grid grid-cols-3 gap-4 px-4 py-3 border border-gray-300 rounded-md bg-gray-100">
                         @foreach([
-                            'answers.4.volcanoes' => 'البراكين',
-                            'answers.4.storms' => 'العواصف',
-                            'answers.4.earthquake' => 'الزلزال'
+                            'answers.4.البراكين' => 'البراكين',
+                            'answers.4.العواصف' => 'العواصف',
+                            'answers.4.الزلزال' => 'الزلزال'
                         ] as $name => $label)
                             <label class="radio-item flex items-center justify-start gap-2 bg-orange-500 text-white p-4 rounded-lg">
                                 <input type="radio" name="answers[4]" value="{{ explode('.', $name)[2] }}"
@@ -339,10 +339,10 @@ button:disabled {
                     </label>
                     <div class="radio-group grid grid-cols-2 gap-4 px-4 py-3 border border-gray-300 rounded-md bg-gray-100">
                         @foreach([
-                            'answers.5.exhaustible' => 'تنفذ',
-                            'answers.5.nonrenewable' => 'موارد طاقة غير متجددة',
-                            'answers.5.renewable' => 'موارد طاقة متجددة',
-                            'answers.5.pollution' => 'تلوث البيئة'
+                            'answers.5.تنفذ' => 'تنفذ',
+                            'answers.5.موارد طاقة غير متجددة' => 'موارد طاقة غير متجددة',
+                            'answers.5.موارد طاقة متجددة' => 'موارد طاقة متجددة',
+                            'answers.5.تلوث البيئة' => 'تلوث البيئة'
                         ] as $name => $label)
                             <label class="radio-item flex items-center justify-start gap-2 bg-pink-500 text-white p-4 rounded-lg">
                                 <input type="radio" name="answers[5]" value="{{ explode('.', $name)[2] }}"
@@ -361,9 +361,9 @@ button:disabled {
                     </label>
                     <div class="radio-group grid grid-cols-3 gap-4 px-4 py-3 border border-gray-300 rounded-md bg-gray-100">
                         @foreach([
-                            'answers.6.earth_resources' => 'موارد الأرض',
-                            'answers.6.groundwater' => 'المياه الجوفية',
-                            'answers.6.irrigation' => 'الري'
+                            'answers.6.موارد الأرض' => 'موارد الأرض',
+                            'answers.6.المياه الجوفية' => 'المياه الجوفية',
+                            'answers.6.الري' => 'الري'
                         ] as $name => $label)
                             <label class="radio-item flex items-center justify-start gap-2 bg-blue-500 text-white p-4 rounded-lg">
                                 <input type="radio" name="answers[6]" value="{{ explode('.', $name)[2] }}"
@@ -382,8 +382,8 @@ button:disabled {
                     </label>
                     <div class="radio-group grid grid-cols-2 gap-4 px-4 py-3 border border-gray-300 rounded-md bg-gray-100">
                         @foreach([
-                            'answers.7.lakes' => 'البحيرات',
-                            'answers.7.springs' => 'الينابيع'
+                            'answers.7.البحيرات' => 'البحيرات',
+                            'answers.7.الينابيع' => 'الينابيع'
                         ] as $name => $label)
                             <label class="radio-item flex items-center justify-start gap-2 bg-blue-500 text-white p-4 rounded-lg">
                                 <input type="radio" name="answers[7]" value="{{ explode('.', $name)[2] }}"
@@ -402,10 +402,10 @@ button:disabled {
                     </label>
                     <div class="radio-group grid grid-cols-2 gap-4 px-4 py-3 border border-gray-300 rounded-md bg-gray-100">
                         @foreach([
-                            'answers.8.geological_events' => 'ترتيب الأحداث الجيولوجية',
-                            'answers.8.oil_exploration' => 'تنقيب عن النفط',
-                            'answers.8.all_of_above' => 'جميع ما ذكر',
-                            'answers.8.rock_ages' => 'معرفة أعمار الصخور'
+                            'answers.8.ترتيب الأحداث الجيولوجية' => 'ترتيب الأحداث الجيولوجية',
+                            'answers.8.تنقيب عن النفط' => 'تنقيب عن النفط',
+                            'answers.8.جميع ما ذكر' => 'جميع ما ذكر',
+                            'answers.8.معرفة أعمار الصخور' => 'معرفة أعمار الصخور'
                         ] as $name => $label)
                             <label class="radio-item flex items-center justify-start gap-2 bg-teal-500 text-white p-4 rounded-lg">
                                 <input type="radio" name="answers[8]" value="{{ explode('.', $name)[2] }}"
@@ -424,9 +424,9 @@ button:disabled {
                     </label>
                     <div class="radio-group grid grid-cols-3 gap-4 px-4 py-3 border border-gray-300 rounded-md bg-gray-100">
                         @foreach([
-                            'answers.9.fossil_fuel' => 'الوقود الأحفوري',
-                            'answers.9.renewable_energy' => 'الطاقة المتجددة',
-                            'answers.9.eco_friendly' => 'أصدقاء البيئة'
+                            'answers.9.الوقود الأحفوري' => 'الوقود الأحفوري',
+                            'answers.9.الطاقة المتجددة' => 'الطاقة المتجددة',
+                            'answers.9.أصدقاء البيئة' => 'أصدقاء البيئة'
                         ] as $name => $label)
                             <label class="radio-item flex items-center justify-start gap-2 bg-orange-500 text-white p-4 rounded-lg">
                                 <input type="radio" name="answers[9]" value="{{ explode('.', $name)[2] }}"
@@ -445,9 +445,9 @@ button:disabled {
                     </label>
                     <div class="radio-group grid grid-cols-3 gap-4 px-4 py-3 border border-gray-300 rounded-md bg-gray-100">
                         @foreach([
-                            'answers.10.erosion' => 'التضاريس',
-                            'answers.10.storms' => 'التعرية',
-                            'answers.10.atmosphere' => 'الغلاف الجوي'
+                            'answers.10.التضاريس' => 'التضاريس',
+                            'answers.10.التعرية' => 'التعرية',
+                            'answers.10.الغلاف الجوي' => 'الغلاف الجوي'
                         ] as $name => $label)
                             <label class="radio-item flex items-center justify-start gap-2 bg-blue-500 text-white p-4 rounded-lg">
                                 <input type="radio" name="answers[10]" value="{{ explode('.', $name)[2] }}"
@@ -466,8 +466,8 @@ button:disabled {
                     </label>
                     <div class="radio-group grid grid-cols-2 gap-4 px-4 py-3 border border-gray-300 rounded-md bg-gray-100">
                         @foreach([
-                            'answers.11.true' => 'صواب',
-                            'answers.11.false' => 'خطأ'
+                            'answers.11.صواب' => 'صواب',
+                            'answers.11.خطأ' => 'خطأ'
                         ] as $name => $label)
                             <label class="radio-item flex items-center justify-start gap-2 bg-blue-500 text-white p-4 rounded-lg">
                                 <input type="radio" name="answers[11]" value="{{ explode('.', $name)[2] }}"

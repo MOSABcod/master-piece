@@ -10,7 +10,7 @@ class ScienceAnswer extends Model
     use HasFactory;
 
     protected $table = 'science_answers'; // Table name
-    protected $fillable = ['question_id', 'user_id', 'answer']; // Fillable columns
+    protected $fillable = ['question_id', 'user_id', 'answer', 'is_correct']; // Fillable columns
 
     /**
      * Relationship with Science.

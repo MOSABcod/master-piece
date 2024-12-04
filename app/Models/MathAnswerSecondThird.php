@@ -10,7 +10,7 @@ class MathAnswerSecondThird extends Model
     use HasFactory;
 
     protected $table = 'math_answers_second_third'; // Table name
-    protected $fillable = ['question_id', 'user_id', 'answer']; // Fillable columns
+    protected $fillable = ['question_id', 'user_id', 'answer', 'is_correct']; // Fillable columns
 
     /**
      * Relationship to the MathSecondThird model.

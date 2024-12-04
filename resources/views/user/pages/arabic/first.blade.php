@@ -343,7 +343,7 @@ button:disabled {
     <div class="radio-group grid grid-cols-3 gap-4 border border-gray-300 p-4 rounded-md bg-gray-100">
         <label class="radio-item flex flex-col items-center gap-2 cursor-pointer">
             <input type="radio" name="answers[5]" value="house" {{ old('answers.5') == 'house' ? 'checked' : '' }}>
-            <img src="{{ asset('quiz images/2.1.png') }}" alt="House" class="w-24 h-24 rounded-md border border-gray-200">
+            <img src="{{ asset('quiz images/2.3.png') }}" alt="House" class="w-24 h-24 rounded-md border border-gray-200">
         </label>
         <label class="radio-item flex flex-col items-center gap-2 cursor-pointer">
             <input type="radio" name="answers[5]" value="mouse" {{ old('answers.5') == 'mouse' ? 'checked' : '' }}>
@@ -351,7 +351,7 @@ button:disabled {
         </label>
         <label class="radio-item flex flex-col items-center gap-2 cursor-pointer">
             <input type="radio" name="answers[5]" value="fire" {{ old('answers.5') == 'fire' ? 'checked' : '' }}>
-            <img src="{{ asset('quiz images/2.3.png') }}" alt="Fire" class="w-24 h-24 rounded-md border border-gray-200">
+            <img src="{{ asset('quiz images/2.1.png') }}" alt="Fire" class="w-24 h-24 rounded-md border border-gray-200">
         </label>
     </div>
 </div>
@@ -382,12 +382,12 @@ button:disabled {
 <div class="question">
     <p>السؤال السابع</p>
     <label class="mb-4 block text-lg font-semibold text-gray-700">
-        ضع دائرة حول الكلمة التي تتكون من المقاطع الآتية (جَ رَ سْ).
+        ضع دائرة حول الكلمة التي تتكون من المقاطع الآتية (جَ رَ سُ).
     </label>
     <div class="radio-group flex justify-between items-center px-4 py-3 border border-gray-300 rounded-md bg-gray-100">
         <label class="radio-item flex items-center gap-2">
             <input type="radio" name="answers[7]" value="جرس" {{ old('answers.7') == 'جرس' ? 'checked' : '' }}>
-            <span>جَرَسْ</span>
+            <span>جَرَسُ</span>
         </label>
         <label class="radio-item flex items-center gap-2">
             <input type="radio" name="answers[7]" value="سرح" {{ old('answers.7') == 'سرح' ? 'checked' : '' }}>
@@ -434,12 +434,12 @@ button:disabled {
             <span>صِفْرُ</span>
         </label>
         <label class="radio-item flex items-center gap-2">
-            <input type="radio" name="answers[9]" value="صَفْرُ" {{ old('answers.9') == 'صَفْرُ' ? 'checked' : '' }}>
-            <span>صَفْرُ</span>
+            <input type="radio" name="answers[9]" value="صَفْرُ" {{ old('answers.9') == 'صَفَرُ' ? 'checked' : '' }}>
+            <span>صَفَرُ</span>
         </label>
         <label class="radio-item flex items-center gap-2">
-            <input type="radio" name="answers[9]" value="صُفْرُ" {{ old('answers.9') == 'صُفْرُ' ? 'checked' : '' }}>
-            <span>صُفْرُ</span>
+            <input type="radio" name="answers[9]" value="صَفيرُ" {{ old('answers.9') == 'صَفيرُ' ? 'checked' : '' }}>
+            <span>صَفيرُ</span>
         </label>
     </div>
 </div>
@@ -452,16 +452,16 @@ button:disabled {
     </label>
     <div class="radio-group flex justify-between items-center px-4 py-3 border border-gray-300 rounded-md bg-gray-100">
         <label class="radio-item flex items-center gap-2">
-            <input type="radio" name="answers[10]" value="زَيْدٍ" {{ old('answers.10') == 'زَيْدٍ' ? 'checked' : '' }}>
-            <span>زَيْدٍ</span>
+            <input type="radio" name="answers[10]" value="زَيْدُ" {{ old('answers.10') == 'زَيْدُ' ? 'checked' : '' }}>
+            <span>زَيْدُ</span>
         </label>
         <label class="radio-item flex items-center gap-2">
             <input type="radio" name="answers[10]" value="زَيْداً" {{ old('answers.10') == 'زَيْداً' ? 'checked' : '' }}>
             <span>زَيْداً</span>
         </label>
         <label class="radio-item flex items-center gap-2">
-            <input type="radio" name="answers[10]" value="زَيْدُ" {{ old('answers.10') == 'زَيْدُ' ? 'checked' : '' }}>
-            <span>زَيْدُ</span>
+            <input type="radio" name="answers[10]" value="زَيْدٍ" {{ old('answers.10') == 'زَيْدٍ' ? 'checked' : '' }}>
+            <span>زَيْدٍ</span>
         </label>
     </div>
 </div>
@@ -506,6 +506,46 @@ button:disabled {
         <label class="radio-item flex items-center gap-2">
             <input type="radio" name="answers[12]" value="دَرْسَ" {{ old('answers.12') == 'دَرْسَ' ? 'checked' : '' }}>
             <span>دَرْسَ</span>
+        </label>
+    </div>
+</div>
+<div class="question">
+    <p>السؤال الثالث عشر</p>
+    <label class="mb-4 block text-lg font-semibold text-gray-700">
+        ضع دائرة حول المقطع الصوتي (م) مما يأتي:
+    </label>
+    <div class="radio-group flex justify-between items-center px-4 py-3 border border-gray-300 rounded-md bg-gray-100">
+        <label class="radio-item flex items-center gap-2">
+            <input type="radio" name="answers[13]" value="م" {{ old('answers.13') == 'م' ? 'checked' : '' }}>
+            <span>م</span>
+        </label>
+        <label class="radio-item flex items-center gap-2">
+            <input type="radio" name="answers[13]" value="مَ" {{ old('answers.13') == 'مَ' ? 'checked' : '' }}>
+            <span>مَ</span>
+        </label>
+        <label class="radio-item flex items-center gap-2">
+            <input type="radio" name="answers[13]" value="مُ" {{ old('answers.13') == 'مُ' ? 'checked' : '' }}>
+            <span>مُ</span>
+        </label>
+    </div>
+</div>
+<div class="question">
+    <p>السؤال الرابع عشر</p>
+    <label class="mb-4 block text-lg font-semibold text-gray-700">
+        ضع دائرة حول المقطع الصوتي (با) مما يأتي:
+    </label>
+    <div class="radio-group flex justify-between items-center px-4 py-3 border border-gray-300 rounded-md bg-gray-100">
+        <label class="radio-item flex items-center gap-2">
+            <input type="radio" name="answers[14]" value="با" {{ old('answers.14') == 'با' ? 'checked' : '' }}>
+            <span>با</span>
+        </label>
+        <label class="radio-item flex items-center gap-2">
+            <input type="radio" name="answers[14]" value="بو" {{ old('answers.14') == 'بو' ? 'checked' : '' }}>
+            <span>بو</span>
+        </label>
+        <label class="radio-item flex items-center gap-2">
+            <input type="radio" name="answers[14]" value="بي" {{ old('answers.13') == 'بي' ? 'checked' : '' }}>
+            <span>بي</span>
         </label>
     </div>
 </div>
