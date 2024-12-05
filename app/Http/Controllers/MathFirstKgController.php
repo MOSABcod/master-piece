@@ -23,6 +23,8 @@ class MathFirstKgController extends Controller
 {
     public function saveAnswers(Request $request)
     {
+        $studentAnswers = AnswersMathFirstKg::with('question')->where('user_id', Auth::user()->id)->get();
+        dd($studentAnswers);
         // Store the exam timer from the request input
         $remainingTime = $request->input('timer');
 

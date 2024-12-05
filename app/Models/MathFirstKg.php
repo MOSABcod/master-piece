@@ -14,6 +14,6 @@ class MathFirstKg extends Model
 
     public function answers()
     {
-        return $this->hasMany(AnswerMathFirstKg::class, 'question_id');
+        return $this->hasMany(AnswersMathFirstKg::class, 'question_id');
     }
 }
