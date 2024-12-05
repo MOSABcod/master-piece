@@ -304,13 +304,11 @@ class MathFirstKgController extends Controller
             ]);
         }
     }
-
     public function saveAnswersSecAr(Request $request)
     {
         // Store the exam timer from the request input
         $remainingTime = $request->input('timer');
-        // dd($request->input('answers'));
-        // dd($remainingTime);
+
         // Ensure the user is authenticated
         $userId = Auth::id(); // Get the authenticated user ID
         if (!$userId) {
@@ -351,16 +349,33 @@ class MathFirstKgController extends Controller
         }
 
         try {
-            // Save answers
+            // Save answers and validate correctness
             foreach ($answers as $questionId => $answer) {
+                // Fetch the correct answer for the question
+                $question = ArabicSecondThird::where('id', $questionId)->first();
+
+                if (!$question) {
+                    continue; // Skip if question not found
+                }
+
+                // Check if the user's answer is correct
+                $isCorrect = strtolower(trim($answer)) === strtolower(trim($question->correct_answer)) ? 1 : 0;
+
+                // Save the user's answer to the database
                 ArabicAnswerSecondThird::create([
                     'question_id' => $questionId,
                     'user_id' => $userId,
                     'answer' => $answer,
+                    'is_correct' => $isCorrect,
                 ]);
             }
 
-            // Redirect back with success message
+            // Calculate the result: number of correct answers
+            $result = ArabicAnswerSecondThird::where('user_id', $userId)
+                ->where('is_correct', 1)
+                ->count();
+            $countofqus = ArabicSecondThird::count();
+
             return redirect()->route('result')->with([
                 'sweet_alert' => [
                     'type' => 'success',
@@ -368,8 +383,9 @@ class MathFirstKgController extends Controller
                     'message' => 'تم حفظ الإجابات بنجاح!',
                 ],
                 'remaining_time' => $remainingTime,
+                'countofqus' => $countofqus,
                 'resetTimer' => true,
-            ]);
+            ])->with('result', $result);
         } catch (\Exception $e) {
             // Redirect back with error message
             return redirect()->back()->with([
@@ -382,6 +398,7 @@ class MathFirstKgController extends Controller
             ]);
         }
     }
+
     public function saveAnswersScience(Request $request)
     {
         // Store the exam timer from the request input

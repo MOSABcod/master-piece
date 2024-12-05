@@ -12,39 +12,39 @@ class SecAndThirdSeeder extends Seeder
         DB::table('arabic_second_third')->insert([
             [
                 'question' => 'عند حذف المقطع الصوتي الأول من كلمة (سعيد) تنتج كلمة جديدة ذات معنى هي:',
-                'correct_answer' => 'عيد'
+                'correct_answer' => 'عيدُ'
             ],
             [
                 'question' => 'ضع المقطع الصوتي (لَ) بدلاً من المقطع الصوتي (جَ) في كلمة (جَمَع) لتكون كلمة جديدة ذات معنى:',
-                'correct_answer' => 'لمع'
+                'correct_answer' => 'لَمَعَ'
             ],
             [
                 'question' => 'ضع دائرة حول الكلمة التي تحتوي مداً بالياء:',
-                'correct_answer' => 'جميل'
+                'correct_answer' => 'جَمِيلٌ'
             ],
             [
                 'question' => 'ضع دائرة حول كلمة (عَلَََمَ).',
-                'correct_answer' => 'عَلَََمَ'
+                'correct_answer' => 'عَلَّمَ'
             ],
             [
                 'question' => 'ضع دائرة حول الكلمة التي تبدأ باللام الشمسية في الجملة الآتية: العنب فاكهتي المُفضَّلة في فصل الصيف.',
-                'correct_answer' => 'العنب'
+                'correct_answer' => 'الصيف'
             ],
             [
                 'question' => 'ضع دائرة حول كلمة (لَبَن).',
-                'correct_answer' => 'لَبَنُ'
+                'correct_answer' => 'لَبَنٌ'
             ],
             [
                 'question' => 'ضع دائرة حول كلمة (سَحَبَ).',
-                'correct_answer' => 'سَحَبَ'
+                'correct_answer' => 'سُحُبُ'
             ],
             [
                 'question' => 'ضع دائرة حول كلمة (عَمِلَتْ).',
-                'correct_answer' => 'عَمِلَتْ'
+                'correct_answer' => 'عَمِلَتُ'
             ],
             [
                 'question' => 'ضع دائرة حول التحليل الصحيح لكلمة (اِسْتَنْشَقَ).',
-                'correct_answer' => 'اِسْ تَـ نْـ شَـ قَ'
+                'correct_answer' => 'اسْ   تَـ   نْـ   شَـ   قَ'
             ],
             [
                 'question' => 'حدد معنى الكلمة التي تحتها خط: الْتَهَمَ الأَسَدُ اللَّحْمَ.',
@@ -67,8 +67,8 @@ class SecAndThirdSeeder extends Seeder
                 'correct_answer' => 'ثِمَار'
             ],
             [
-                'question' => 'اختر ثلاث كلمات مرتبطة بكلمة (رَمَضَان).',
-                'correct_answer' => json_encode(['صِيَام', 'زَكَاة', 'هِلَال'])
+                'question' => 'اختر كلمة مرتبطة بكلمة (رَمَضَان).',
+                'correct_answer' => 'فُطُور'
             ],
             [
                 'question' => 'أكمل الجملة الآتية بوصف مناسب: تناولت فطورًا _______ في الصباح.',
