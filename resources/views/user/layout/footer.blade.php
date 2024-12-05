@@ -89,6 +89,7 @@
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
 <script>
+
       @if(session('resetTimer'))
                 // Clear localStorage if resetTimer is set
                 localStorage.removeItem('timeRemaining');

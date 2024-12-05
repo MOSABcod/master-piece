@@ -153,6 +153,9 @@
 
                 <!-- course cards -->
                 <div class="ed-2-courses-container grid grid-cols-4 xl:grid-cols-3 md:grid-cols-2 xs:grid-cols-1 gap-[30px] xxl:gap-[20px]">
+                    @if (Auth::user() &&( Auth::user()->class_id == 1 || Auth::user()->class_id == 2 || Auth::user()->role == "teacher")  )
+
+
                     <div class="ed-2-single-course mix personal-skill border border-[#e5e5e5] rounded-[10px] p-[20px] group">
                         <!-- course image  -->
                         <div class="relative overflow-hidden rounded-[10px] mb-[24px]">
@@ -191,11 +194,15 @@
                             <button
                                 class="bg-edpurple text-white px-[10px] w-full py-[6px] rounded-[8px] hover:bg-[#5a35a5]"
                                 onclick="confirmExamStart(this)"
+
                                 data-route="{{ route('mathFirst') }}">
                                 ابدأ الاختبار
                             </button>
                         </div>
                     </div>
+                    @endif
+                    @if (Auth::user() &&(Auth::user()->class_id == 3 || Auth::user()->class_id == 4 || Auth::user()->role == "teacher")  )
+
                     <div class="ed-2-single-course mix personal-skill border border-[#e5e5e5] rounded-[10px] p-[20px] group">
                         <!-- course image  -->
                         <div class="relative overflow-hidden rounded-[10px] mb-[24px]">
@@ -239,6 +246,9 @@
                             </button>
                         </div>
                     </div>
+                    @endif
+                    @if (Auth::user() &&(Auth::user()->class_id == 1 || Auth::user()->class_id == 2 || Auth::user()->role == "teacher")  )
+
                     <div class="ed-2-single-course mix personal-skill border border-[#e5e5e5] rounded-[10px] p-[20px] group">
                         <!-- course image  -->
                         <div class="relative overflow-hidden rounded-[10px] mb-[24px]">
@@ -282,6 +292,9 @@
                             </button>
                         </div>
                     </div>
+                    @endif
+                    @if (Auth::user() &&(Auth::user()->class_id == 3 || Auth::user()->class_id == 4 || Auth::user()->role == "teacher")  )
+
                     <div class="ed-2-single-course mix personal-skill border border-[#e5e5e5] rounded-[10px] p-[20px] group">
                         <!-- course image  -->
                         <div class="relative overflow-hidden rounded-[10px] mb-[24px]">
@@ -325,6 +338,197 @@
                             </button>
                         </div>
                     </div>
+                    @endif
+                    @if (!Auth::user())
+                    <div class="ed-2-single-course mix personal-skill border border-[#e5e5e5] rounded-[10px] p-[20px] group">
+                        <!-- course image  -->
+                        <div class="relative overflow-hidden rounded-[10px] mb-[24px]">
+                            <img src="assets/img/course-1.jpg" alt="Course Image" class="aspect-[330/223] w-full object-cover group-hover:scale-110">
+
+                        </div>
+
+                        <!-- course infos -->
+                        <div class="flex justify-between items-center mb-[16px]">
+                            <span class="inline-flex items-center justify-center border border-[#e5e5e5] px-[10px] h-[33px] rounded-[6px] font-medium text-[#808080] text-[14px]">مبتدئ</span>
+                        </div>
+
+                        <!-- course title -->
+                        <h5 class="font-semibold text-[20px] text-edblue mb-[23px]">
+                            <a href="course-details.html" class="hover:text-edpurple">امتحان رياضيات - روضة و الصف الاول</a>
+                        </h5>
+
+                        <!-- course stats -->
+                        <div class="flex flex-wrap items-center gap-x-[30px] gap-y-[10px]">
+                            <div class="flex items-center gap-[8px] text-[14px] text-edgray">
+                                <span class="icon"><img src="assets/img/icon/user-group.svg" alt="icon"></span>
+                                <span class="txt">169 Students</span>
+                            </div>
+
+                            <div class="flex items-center gap-[8px] text-[14px] text-edgray">
+                                <span class="icon"><img src="assets/img/icon/lesson.svg" alt="icon"></span>
+                                <span class="txt">12 Lesson</span>
+                            </div>
+                        </div>
+
+                        <!-- course footer -->
+                        <div class="flex flex-wrap gap-x-[20px] gap-y-[15px] justify-between items-center border-t border-[#E5E5E5] pt-[24px] mt-[24px]">
+
+
+                            <!-- button to confirm exam start -->
+                            <button
+                                class="bg-edpurple text-white px-[10px] w-full py-[6px] rounded-[8px] hover:bg-[#5a35a5]"
+                                disabled
+                                style="background-color: grey;
+                                cursor :not-allowed"
+                                title="سجل الدخول لتقديم الاختبار "
+                                onclick="confirmExamStart(this)"
+                                data-route="{{ route('mathFirst') }}">
+                                ابدأ الاختبار
+                            </button>
+                        </div>
+                    </div>
+<div class="ed-2-single-course mix personal-skill border border-[#e5e5e5] rounded-[10px] p-[20px] group">
+                        <!-- course image  -->
+                        <div class="relative overflow-hidden rounded-[10px] mb-[24px]">
+                            <img src="assets/img/course-1.jpg" alt="Course Image" class="aspect-[330/223] w-full object-cover group-hover:scale-110">
+
+                        </div>
+
+                        <!-- course infos -->
+                        <div class="flex justify-between items-center mb-[16px]">
+                            <span class="inline-flex items-center justify-center border border-[#e5e5e5] px-[10px] h-[33px] rounded-[6px] font-medium text-[#808080] text-[14px]">مبتدئ</span>
+                        </div>
+
+                        <!-- course title -->
+                        <h5 class="font-semibold text-[20px] text-edblue mb-[23px]">
+                            <a href="course-details.html" class="hover:text-edpurple">امتحان رياضيات - الصف الثاني والثالث</a>
+                        </h5>
+
+                        <!-- course stats -->
+                        <div class="flex flex-wrap items-center gap-x-[30px] gap-y-[10px]">
+                            <div class="flex items-center gap-[8px] text-[14px] text-edgray">
+                                <span class="icon"><img src="assets/img/icon/user-group.svg" alt="icon"></span>
+                                <span class="txt">169 Students</span>
+                            </div>
+
+                            <div class="flex items-center gap-[8px] text-[14px] text-edgray">
+                                <span class="icon"><img src="assets/img/icon/lesson.svg" alt="icon"></span>
+                                <span class="txt">12 Lesson</span>
+                            </div>
+                        </div>
+
+                        <!-- course footer -->
+                        <div class="flex flex-wrap gap-x-[20px] gap-y-[15px] justify-between items-center border-t border-[#E5E5E5] pt-[24px] mt-[24px]">
+
+
+                            <!-- button to confirm exam start -->
+                            <button
+                                class="bg-edpurple text-white px-[10px] w-full py-[6px] rounded-[8px] hover:bg-[#5a35a5]"
+                                disabled
+                                style="background-color: grey;
+                                cursor :not-allowed"
+                                title="سجل الدخول لتقديم الاختبار "
+                                onclick="confirmExamStart(this)"
+                                data-route="{{ route('mathSecondAndThird') }}">
+                                ابدأ الاختبار
+                            </button>
+                        </div>
+                    </div>
+<div class="ed-2-single-course mix personal-skill border border-[#e5e5e5] rounded-[10px] p-[20px] group">
+                        <!-- course image  -->
+                        <div class="relative overflow-hidden rounded-[10px] mb-[24px]">
+                            <img src="assets/img/course-1.jpg" alt="Course Image" class="aspect-[330/223] w-full object-cover group-hover:scale-110">
+
+                        </div>
+
+                        <!-- course infos -->
+                        <div class="flex justify-between items-center mb-[16px]">
+                            <span class="inline-flex items-center justify-center border border-[#e5e5e5] px-[10px] h-[33px] rounded-[6px] font-medium text-[#808080] text-[14px]">مبتدئ</span>
+                        </div>
+
+                        <!-- course title -->
+                        <h5 class="font-semibold text-[20px] text-edblue mb-[23px]">
+                            <a href="course-details.html" class="hover:text-edpurple">امتحان عربي - روضة و الصف الاول</a>
+                        </h5>
+
+                        <!-- course stats -->
+                        <div class="flex flex-wrap items-center gap-x-[30px] gap-y-[10px]">
+                            <div class="flex items-center gap-[8px] text-[14px] text-edgray">
+                                <span class="icon"><img src="assets/img/icon/user-group.svg" alt="icon"></span>
+                                <span class="txt">169 Students</span>
+                            </div>
+
+                            <div class="flex items-center gap-[8px] text-[14px] text-edgray">
+                                <span class="icon"><img src="assets/img/icon/lesson.svg" alt="icon"></span>
+                                <span class="txt">12 Lesson</span>
+                            </div>
+                        </div>
+
+                        <!-- course footer -->
+                        <div class="flex flex-wrap gap-x-[20px] gap-y-[15px] justify-between items-center border-t border-[#E5E5E5] pt-[24px] mt-[24px]">
+
+
+                            <!-- button to confirm exam start -->
+                            <button
+                                class="bg-edpurple text-white px-[10px] w-full py-[6px] rounded-[8px] hover:bg-[#5a35a5]"
+                                disabled
+                                style="background-color: grey;
+                                cursor :not-allowed"
+                                title="سجل الدخول لتقديم الاختبار "
+                                onclick="confirmExamStart(this)"
+                                data-route="{{ route('arabicFirst') }}">
+                                ابدأ الاختبار
+                            </button>
+                        </div>
+                    </div>
+                    <div class="ed-2-single-course mix personal-skill border border-[#e5e5e5] rounded-[10px] p-[20px] group">
+                        <!-- course image  -->
+                        <div class="relative overflow-hidden rounded-[10px] mb-[24px]">
+                            <img src="assets/img/course-1.jpg" alt="Course Image" class="aspect-[330/223] w-full object-cover group-hover:scale-110">
+
+                        </div>
+
+                        <!-- course infos -->
+                        <div class="flex justify-between items-center mb-[16px]">
+                            <span class="inline-flex items-center justify-center border border-[#e5e5e5] px-[10px] h-[33px] rounded-[6px] font-medium text-[#808080] text-[14px]">مبتدئ</span>
+                        </div>
+
+                        <!-- course title -->
+                        <h5 class="font-semibold text-[20px] text-edblue mb-[23px]">
+                            <a href="course-details.html" class="hover:text-edpurple">امتحان عربي - الصف الثاني و الصف الثالث</a>
+                        </h5>
+
+                        <!-- course stats -->
+                        <div class="flex flex-wrap items-center gap-x-[30px] gap-y-[10px]">
+                            <div class="flex items-center gap-[8px] text-[14px] text-edgray">
+                                <span class="icon"><img src="assets/img/icon/user-group.svg" alt="icon"></span>
+                                <span class="txt">169 Students</span>
+                            </div>
+
+                            <div class="flex items-center gap-[8px] text-[14px] text-edgray">
+                                <span class="icon"><img src="assets/img/icon/lesson.svg" alt="icon"></span>
+                                <span class="txt">12 Lesson</span>
+                            </div>
+                        </div>
+
+                        <!-- course footer -->
+                        <div class="flex flex-wrap gap-x-[20px] gap-y-[15px] justify-between items-center border-t border-[#E5E5E5] pt-[24px] mt-[24px]">
+
+
+                            <!-- button to confirm exam start -->
+                            <button
+                                class="bg-edpurple text-white px-[10px] w-full py-[6px] rounded-[8px] hover:bg-[#5a35a5]"
+                                disabled
+                                style="background-color: grey;
+                                cursor :not-allowed"
+                                title="سجل الدخول لتقديم الاختبار "
+                                onclick="confirmExamStart(this)"
+                                data-route="{{ route('arabicSecondAndThird') }}">
+                                ابدأ الاختبار
+                            </button>
+                        </div>
+                    </div>
+                    @endif
                     <div class="ed-2-single-course mix personal-skill border border-[#e5e5e5] rounded-[10px] p-[20px] group">
                         <!-- course image  -->
                         <div class="relative overflow-hidden rounded-[10px] mb-[24px]">
@@ -362,6 +566,13 @@
                             <!-- button to confirm exam start -->
                             <button
                                 class="bg-edpurple text-white px-[10px] w-full py-[6px] rounded-[8px] hover:bg-[#5a35a5]"
+                                @if (!Auth::user())
+                                disabled
+                                style="background-color: grey;
+                                cursor :not-allowed"
+                                title="سجل الدخول لتقديم الاختبار "
+                                @endif
+
                                 onclick="confirmExamStart(this)"
                                 data-route="{{ route('science') }}">
                                 ابدأ الاختبار
@@ -1143,5 +1354,14 @@
             </div>
         </div>
     </main>
-
+    @if (session('error'))
+    <script>
+        Swal.fire({
+            icon: 'error',
+            title: 'خطأ',
+            text: '{{ session('error') }}',
+            confirmButtonText: 'حسناً'
+        });
+    </script>
+@endif
 @endsection

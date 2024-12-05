@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="assets/vendor/swiper/swiper-bundle.min.css">
     <link rel="stylesheet" href="assets/vendor/font-awesome/all.min.css">
     <link rel="stylesheet" href="assets/vendor/slim-select/slimselect.css">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
     <!-- tailwind css -->
     <link rel="stylesheet" href="src/output.css">

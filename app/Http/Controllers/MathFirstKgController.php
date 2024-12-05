@@ -21,10 +21,79 @@ use Illuminate\Support\Facades\Validator;
 
 class MathFirstKgController extends Controller
 {
+
+    public function checkApplyMathFirst(Request $request)
+    {
+        if (!Auth::check()) {
+            return redirect()->route('login')->with('error', 'يجب تسجيل الدخول للتقديم.');
+        }
+
+        if (AnswersMathFirstKg::with('question')->where('user_id', Auth::user()->id)->exists()) {
+            return redirect()->back()->with('error', 'لا يمكنك التقديم مرة أخرى.');
+        }
+
+        return view('user.pages.math.mathQuizFirst');
+    }
+
+    public function checkApplyMathSec(Request $request)
+    {
+        if (!Auth::check()) {
+            return redirect()->route('login')->with('error', 'يجب تسجيل الدخول للتقديم.');
+        }
+
+        if (AnswersMathFirstKg::with('question')->where('user_id', Auth::user()->id)->exists()) {
+            return redirect()->back()->with('error', 'لا يمكنك التقديم مرة أخرى.');
+        }
+
+        return view('user.pages.math.mathQuizSecAndThird');
+    }
+
+    public function checkApplyArabicFirst(Request $request)
+    {
+        if (!Auth::check()) {
+            return redirect()->route('login')->with('error', 'يجب تسجيل الدخول للتقديم.');
+        }
+
+        if (AnswersMathFirstKg::with('question')->where('user_id', Auth::user()->id)->exists()) {
+            return redirect()->back()->with('error', 'لا يمكنك التقديم مرة أخرى.');
+        }
+
+        return view('user.pages.arabic.first');
+    }
+
+    public function checkApplyArabicSec(Request $request)
+    {
+        if (!Auth::check()) {
+            return redirect()->route('login')->with('error', 'يجب تسجيل الدخول للتقديم.');
+        }
+
+        if (AnswersMathFirstKg::with('question')->where('user_id', Auth::user()->id)->exists()) {
+            return redirect()->back()->with('error', 'لا يمكنك التقديم مرة أخرى.');
+        }
+
+        return view('user.pages.arabic.secondAndThird');
+    }
+
+    public function checkApplyScience(Request $request)
+    {
+        if (!Auth::check()) {
+            return redirect()->route('login')->with('error', 'يجب تسجيل الدخول للتقديم.');
+        }
+
+        if (AnswersMathFirstKg::with('question')->where('user_id', Auth::user()->id)->exists()) {
+            return redirect()->back()->with('error', 'لا يمكنك التقديم مرة أخرى.');
+        }
+
+        return view('user.pages.science.science');
+    }
+
     public function saveAnswers(Request $request)
     {
-        $studentAnswers = AnswersMathFirstKg::with('question')->where('user_id', Auth::user()->id)->get();
-        dd($studentAnswers);
+        $user = Auth::user();
+        if (in_array($user->role, ['teacher', 'manager'])) {
+            return redirect()->route('homepage')->with('error', 'لا يُسمح للمعلمين أو المديرين بالتقديم.');
+        }
+        // dd($studentAnswers);
         // Store the exam timer from the request input
         $remainingTime = $request->input('timer');
 
@@ -117,6 +186,10 @@ class MathFirstKgController extends Controller
 
     public function saveAnswersSecMath(Request $request)
     {
+        $user = Auth::user();
+        if (in_array($user->role, ['teacher', 'manager'])) {
+            return redirect()->route('homepage')->with('error', 'لا يُسمح للمعلمين أو المديرين بالتقديم.');
+        }
         // Store the exam timer from the request input
         $remainingTime = $request->input('timer');
 
@@ -211,6 +284,10 @@ class MathFirstKgController extends Controller
 
     public function saveAnswersFirstAr(Request $request)
     {
+        $user = Auth::user();
+        if (in_array($user->role, ['teacher', 'manager'])) {
+            return redirect()->route('homepage')->with('error', 'لا يُسمح للمعلمين أو المديرين بالتقديم.');
+        }
         // Store the exam timer from the request input
         $remainingTime = $request->input('timer');
 
@@ -308,6 +385,10 @@ class MathFirstKgController extends Controller
     }
     public function saveAnswersSecAr(Request $request)
     {
+        $user = Auth::user();
+        if (in_array($user->role, ['teacher', 'manager'])) {
+            return redirect()->route('homepage')->with('error', 'لا يُسمح للمعلمين أو المديرين بالتقديم.');
+        }
         // Store the exam timer from the request input
         $remainingTime = $request->input('timer');
 
@@ -403,6 +484,10 @@ class MathFirstKgController extends Controller
 
     public function saveAnswersScience(Request $request)
     {
+        $user = Auth::user();
+        if (in_array($user->role, ['teacher', 'manager'])) {
+            return redirect()->route('homepage')->with('error', 'لا يُسمح للمعلمين أو المديرين بالتقديم.');
+        }
         // Store the exam timer from the request input
         $remainingTime = $request->input('timer');
 
