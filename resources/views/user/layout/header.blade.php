@@ -64,7 +64,7 @@
             <!-- heading -->
             <div class="ed-sidebar-heading p-[20px] lg:p-[20px] border-b border-edgray/20">
                 <div class="logo flex justify-between items-center">
-                    <a href="index.html"><img src="assets/img/logo.png" alt="logo"></a>
+                    <a href="index.html"><img src="assets/img/mainlogo.png" alt="logo"></a>
 
                     <button type="button" class="ed-sidebar-close-btn border border-edgray/20 w-[45px] aspect-square shrink-0 text-black text-[22px] rounded-full hover:text-edpurple"><i class="fa-solid fa-xmark"></i></button>
                 </div>
@@ -76,8 +76,9 @@
     </div>
 
     <!-- HEADER SECTION START -->
-    <header class="bg-edblue ed-header--2 relative z-[2] px-[7.9%] xxxxl:px-[6.5%] xxxl:px-[1%] lg:px-[15px] py-[25px] xxs:py-[16px] flex items-center justify-between to-be-fixed">
-        <div class="logo xxs:max-w-[40%]"><a href="index.html"><img src="assets/img/logo-light.png" alt="logo" class="logo"></a></div>
+    <header style="background-color: #27703b " class="bg-edblue ed-header--2 relative z-[2] px-[7.9%] xxxxl:px-[6.5%] xxxl:px-[1%] lg:px-[15px] py-[25px] xxs:py-[16px] flex items-center justify-between to-be-fixed">
+        <div class="logo xxs:max-w-[40%]"><a href="index.html"><img src="assets/img/mainlogo.png" style="height: 74px;
+" alt="logo"  class="logo"></a></div>
 
         <div class="flex lg:items-center lg:gap-[30px]">
             <div class="flex lg:flex-col items-center gap-[60px] xxl:gap-[25px] xl:gap-[30px] md:gap-y-[15px]">

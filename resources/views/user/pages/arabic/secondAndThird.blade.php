@@ -179,7 +179,7 @@
 }
 
 button, a {
-    padding: 12px 20px;
+    /* padding: 12px 20px; */
     font-size: 1rem;
     font-weight: bold;
     border: none;

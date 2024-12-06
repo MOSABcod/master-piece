@@ -1,13 +1,7 @@
 @extends('user.layout.mainlayout')
 
 @section('content')
-<!DOCTYPE html>
-<html lang="ar" dir="rtl">
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Worksheet</title>
     <style>
         .radio-group {
     display: flex;
@@ -167,6 +161,7 @@
             color: #9ca3af;
             cursor: not-allowed;
         }
+        /*  */
         .navigation-buttons {
     display: flex;
     justify-content: space-between;
@@ -179,7 +174,7 @@
 }
 
 button, a {
-    padding: 12px 20px;
+    /*  */
     font-size: 1rem;
     font-weight: bold;
     border: none;
@@ -198,7 +193,7 @@ button, a {
 .prev:hover {
     background-color: #9ca3af;
 }
-
+/*  */
 .next {
     background-color: #3b82f6;
     color: white;
