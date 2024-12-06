@@ -18,9 +18,11 @@ use App\Models\ScienceAnswers;
 use Illuminate\Container\Attributes\DB;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Validator;
+use App\Services\RoadmapService;
 
 class MathFirstKgController extends Controller
 {
+    protected $roadmapService;
 
     public function checkApplyMathFirst(Request $request)
     {
@@ -87,13 +89,18 @@ class MathFirstKgController extends Controller
         return view('user.pages.science.science');
     }
 
+    public function __construct(RoadmapService $roadmapService)
+    {
+        $this->roadmapService = $roadmapService;
+    }
+    //======================================= save first and KG and make roadmap for enhancment===============================
     public function saveAnswers(Request $request)
     {
         $user = Auth::user();
         if (in_array($user->role, ['teacher', 'manager'])) {
             return redirect()->route('homepage')->with('error', 'لا يُسمح للمعلمين أو المديرين بالتقديم.');
         }
-        // dd($studentAnswers);
+
         // Store the exam timer from the request input
         $remainingTime = $request->input('timer');
 
@@ -137,30 +144,45 @@ class MathFirstKgController extends Controller
         }
 
         try {
-            // Save answers and compare with the correct answers
+            // Calculate the result and percentage score
+
+            $countOfQuestions = MathFirstKg::count();
+
+
+
+            // saving in database the answers
+
             foreach ($answers as $questionId => $answer) {
+                // dd($request->all());
                 // Fetch the correct answer for the question
                 $question = MathFirstKg::where('id', $questionId)->first();
+                // dd($request->all());
 
-                // Check if the question exists
                 if (!$question) {
                     continue; // Skip if question not found
                 }
+                // dd($request->all());
 
-                // Compare the user's answer with the correct answer
-                $isCorrect = strtolower(trim($answer)) === strtolower(trim($question->correct_answer)) ? true : false;
+                // Check if the user's answer is correct
+                $isCorrect = strtolower(trim($answer)) === strtolower(trim($question->correct_answer)) ? 1 : 0;
 
-                // Save the answer to the database
+                // Save the user's answer to the database
                 AnswersMathFirstKg::create([
                     'question_id' => $questionId,
                     'user_id' => $userId,
                     'answer' => $answer,
-                    'is_correct' => $isCorrect, // Store whether the answer is correct
+                    'is_correct' => $isCorrect,
                 ]);
             }
             $result = AnswersMathFirstKg::where('user_id', $userId)->where('is_correct', 1)->count();
-            $countofqus = MathFirstKg::count();
-            // Redirect back with success message
+            $percentageScore = ($result / $countOfQuestions) * 100;
+            // Prepare student performance data
+            $studentPerformance = $this->calculateStudentPerformance($userId);
+            // Use RoadmapService to generate roadmap and HTML table
+            // dd($percentageScore);
+            $roadmap = $this->roadmapService->generateRoadmap($studentPerformance, $percentageScore);
+            $htmlTable = $this->roadmapService->generateHtmlTable($studentPerformance, $percentageScore);
+            // Redirect with all necessary data
             return redirect()->route('result')->with([
                 'sweet_alert' => [
                     'type' => 'success',
@@ -168,11 +190,17 @@ class MathFirstKgController extends Controller
                     'message' => 'تم حفظ الإجابات بنجاح!',
                 ],
                 'remaining_time' => $remainingTime,
-                'countofqus' => $countofqus,
+                'countofqus' => $countOfQuestions,
                 'resetTimer' => true,
+                'result' => $result,
+                'percentage_score' => $percentageScore,
+                'student_performance' => $studentPerformance,
+                'roadmap' => $roadmap,
+                'html_table' => $htmlTable,
             ])->with('result', $result);
         } catch (\Exception $e) {
-            // Redirect back with error message
+            // Handle exceptions
+
             return redirect()->back()->with([
                 'sweet_alert' => [
                     'type' => 'error',
@@ -182,6 +210,72 @@ class MathFirstKgController extends Controller
                 'remaining_time' => $remainingTime,
             ]);
         }
+    }
+
+    /**
+     * Calculate student performance per skill.
+     *
+     * @param int $userId
+     * @return array
+     */
+    private function calculateStudentPerformance(int $userId): array
+    {
+        // Define the mapping of question IDs to skills
+        $questionToSkillMap = [
+            1  => 'مهارات العد',
+            2  => 'مهارات العد',
+            3  => 'مهارات حل المسائل',
+            4  => 'مهارات حل المسائل',
+            5  => 'مهارات العد',
+            6  => 'مهارات العد',
+            7  => 'مهارات العد',
+            8  => 'مهارات العد',
+            9  => 'مهارات العد',
+            10 => 'مهارات العد',
+            11 => 'مهارات حل المسائل',
+            12 => 'مهارات حل المسائل',
+            13 => 'مهارات العد',
+            14 => 'مهارات التلاعب بالأعداد',
+            15 => 'مهارات التلاعب بالأعداد',
+            16 => 'مهارات التلاعب بالأعداد',
+            17 => 'مهارات التلاعب بالأعداد',
+            18 => 'مهارات التلاعب بالأعداد',
+        ];
+
+        // Define the skills and their total questions
+        $skills = [
+            'مهارات العد' => 9,
+            'مهارات التلاعب بالأعداد' => 5,
+            'مهارات حل المسائل' => 4,
+        ];
+
+        // Initialize performance array
+        $performance = [];
+        foreach ($skills as $skill => $totalQuestions) {
+            $performance[$skill] = [
+                'total_score' => 0,
+                'total_possible' => $totalQuestions,
+            ];
+        }
+
+        // Retrieve all answers for the user
+        $answers = AnswersMathFirstKg::where('user_id', $userId)->get();
+
+        foreach ($answers as $answer) {
+            $questionId = $answer->question_id;
+
+            // Determine the skill based on question ID
+            $skill = $questionToSkillMap[$questionId] ?? null;
+
+            if ($skill && array_key_exists($skill, $performance)) {
+                if ($answer->is_correct) {
+                    $performance[$skill]['total_score'] += 1; // Assuming each correct answer is 1 point
+                }
+                // 'total_possible' is already initialized based on the defined question counts
+            }
+        }
+
+        return $performance;
     }
 
     public function saveAnswersSecMath(Request $request)

@@ -16,6 +16,7 @@ class CreateRoadmapsTable extends Migration
             $table->unsignedBigInteger('user_id');
             $table->string('generated_by', 50)->default('ChatGPT');
             $table->text('response'); // Store the Markdown roadmap
+            $table->text('result'); // Store the Markdown roadmap
             $table->timestamps();
 
             // Foreign key constraints

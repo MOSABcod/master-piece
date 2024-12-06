@@ -11,10 +11,11 @@ class Roadmap extends Model
 
     protected $fillable = [
         'user_id',
-        'exam_id',
         'generated_by',
         'response',
+        'result',
     ];
+
 
     /**
      * Get the user associated with the roadmap.

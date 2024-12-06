@@ -2,99 +2,60 @@
 
 namespace App\Http\Controllers;
 
-
-use App\Models\AnswersMathFirstKg;
 use App\Models\Roadmap;
-use App\Services\OpenAIService;
+use App\Services\RoadmapService;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
 class OpenAIController extends Controller
 {
-    protected $openAIService;
+    protected $roadmapService;
 
-    public function __construct(OpenAIService $openAIService)
+    /**
+     * Inject the RoadmapService into the controller.
+     *
+     * @param RoadmapService $roadmapService
+     */
+    public function __construct(RoadmapService $roadmapService)
     {
-        $this->openAIService = $openAIService;
+        $this->roadmapService = $roadmapService;
     }
 
+    /**
+     * Handle the request to generate a roadmap based on student performance.
+     *
+     * @param Request $request
+     * @return \Illuminate\Http\JsonResponse
+     */
     public function ask(Request $request)
     {
-        // Retrieve the data passed from saveAnswers
+        // Retrieve the necessary data from the request
         $studentAnswers = $request->input('answers', []);
         $percentageScore = $request->input('percentage_score', 0);
         $studentPerformance = $request->input('student_performance', []);
 
-        // Generate the roadmap
-        if ($percentageScore < 80) {
-            // Prepare the prompt for OpenAI to generate a roadmap in Arabic
-            $prompt = $this->generateRoadmapPrompt($studentPerformance, $percentageScore);
+        try {
+            // Use the RoadmapService to generate the roadmap
+            $roadmap = $this->roadmapService->generateRoadmap($studentPerformance, $percentageScore);
 
-            // Send the prompt to OpenAI and get the roadmap
-            $response = $this->openAIService->generateResponse($prompt);
+            if ($roadmap) {
+                // Return the generated roadmap as JSON
+                return response()->json([
+                    'roadmap' => $roadmap,
+                ]);
+            }
 
-            // Save the roadmap response to the database
-            $roadmap = new Roadmap();
-            $roadmap->user_id = Auth::user()->id;
-            $roadmap->generated_by = 'OpenAI';
-            $roadmap->response = $response;
-            $roadmap->save();
-
-            // Return the response (the generated roadmap)
+            // If no roadmap is needed (score >= 80)
             return response()->json([
-                'roadmap' => $response,
+                'message' => 'Student passed with good results',
             ]);
+        } catch (\Exception $e) {
+            // Log the exception for debugging purposes
+
+            // Return an error response
+            return response()->json([
+                'error' => 'حدث خطأ أثناء توليد خطة التحسين. يرجى المحاولة مرة أخرى.',
+            ], 500);
         }
-
-        return response()->json([
-            'message' => 'Student passed with good results',
-        ]);
-    }
-
-    private function generateHtmlTable($studentPerformance, $percentageScore)
-    {
-        // Start building the HTML table
-        $table = '<h2>نتيجة امتحان الرياضيات للروضة والصف الأول</h2>';
-        $table .= '<table border="1" style="width:100%; text-align:center; border-collapse: collapse;">';
-        $table .= '<thead>';
-        $table .= '<tr><th>المهارة</th><th>النتيجة</th><th>التقييم</th></tr>';
-        $table .= '</thead><tbody>';
-
-        foreach ($studentPerformance as $skill => $performance) {
-            $totalScore = $performance['total_score'];
-            $totalPossible = $performance['total_possible'];
-            $percentage = ($totalScore / $totalPossible) * 100;
-
-            $table .= '<tr>';
-            $table .= "<td>{$skill}</td>";
-            $table .= "<td>{$totalScore} / {$totalPossible}</td>";
-            $table .= "<td>{$percentage}%</td>";
-            $table .= '</tr>';
-        }
-
-        $table .= '</tbody>';
-        $table .= '</table>';
-
-        $table .= "<p>النتيجة الإجمالية: {$percentageScore}%</p>";
-
-        return $table;
-    }
-
-    private function generateRoadmapPrompt($studentPerformance, $percentageScore)
-    {
-        // Build the student performance summary to send to OpenAI
-        $summary = "الطالب حصل على نتيجة إجمالية: $percentageScore%.\n";
-        $summary .= "تفاصيل الأداء:\n";
-
-        // Include performance for each skill
-        foreach ($studentPerformance as $skill => $performance) {
-            $summary .= "$skill: {$performance['total_score']} / {$performance['total_possible']} (" . ($performance['total_score'] / $performance['total_possible']) * 100 . "%)\n";
-        }
-
-        // Request OpenAI to generate a roadmap for the student
-        $prompt = "الطالب يحتاج إلى تحسين في بعض المهارات. بناءً على أدائه في المهارات التالية: $summary ";
-        $prompt .= "يرجى تقديم خطة تحسين بالخطوات باللغة العربية.";
-
-        return $prompt;
     }
 }
