@@ -371,12 +371,7 @@ button:disabled {
                     <input type="number" name="answers[11]" class="answer" placeholder="أدخل الإجابة" value="{{ old('answers.11') }}">
                 </div>
 
-                <!-- Question 12 -->
-                <div class="question">
-                    <p>السؤال الثاني عشر</p>
-                    <label>اشترى محمد 4 دفاتر (📕) وأعطاه عمه 6 دفاتر (📕) أخرى، كم دفترًا أصبح مع محمد؟</label>
-                    <input type="number" name="answers[12]" class="answer" placeholder="أدخل الإجابة" value="{{ old('answers.12') }}">
-                </div>
+               c
 
                 <!-- Question 13 -->
                 <div class="question">

@@ -35,6 +35,14 @@ class ArabicFirstSeeder extends Seeder
                 'correct_answer' => '3',
             ],
             [
+                'question' => 'ضع دائرة حول المقطع الصوتي (م) مما يأتي:',
+                'correct_answer' => 'مُ',
+            ],
+            [
+                'question' => 'ضع دائرة حول المقطع الصوتي (با) مما يأتي:',
+                'correct_answer' => 'با',
+            ],
+            [
                 'question' => 'ضع دائرة حول الكلمة التي تتكون من المقاطع الآتية (جَ رَ سُ).',
                 'correct_answer' => 'جرس',
             ],
@@ -59,14 +67,23 @@ class ArabicFirstSeeder extends Seeder
                 'correct_answer' => 'دَرَّسَ',
             ],
             [
-                'question' => 'ضع دائرة حول المقطع الصوتي (مُ) مما يأتي:',
-                'correct_answer' => 'مُ',
+                'question' => 'اكتب ما يملى عليك (قَ)',
+                'correct_answer' => 'قَ',
             ],
             [
-                'question' => 'ضع دائرة حول المقطع الصوتي (با) مما يأتي:',
-                'correct_answer' => 'با',
+                'question' => 'اكتب ما يملى عليك (شَجَرَةُ)',
+                'correct_answer' => 'شَجَرَةُ',
+            ],
+            [
+                'question' => 'اكتب ما يملى عليك (سَريرُ)',
+                'correct_answer' => 'سَريرُ',
+            ],
+            [
+                'question' => 'اكتب ما يملى عليك (كِتابُ)',
+                'correct_answer' => 'كِتابُ',
             ],
         ];
+
         DB::table('arabic_first_kg')->insert($questions);
     }
 }

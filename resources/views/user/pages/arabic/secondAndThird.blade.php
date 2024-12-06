@@ -736,22 +736,34 @@ button:disabled {
         </label>
     </div>
 </div>
-
 <!-- السؤال السابع عشر -->
 <div class="question">
     <p>السؤال السابع عشر</p>
+    <label>اكتب ما يملى عليك (نَجَحَتِ الْفَتاةُ)</label>
+    <input type="text" name="answers[17]" class="answer" placeholder="أدخل الإجابة" value="{{ old('answers.17') }}">
+</div>
+
+<!-- السؤال الثامن عشر -->
+<div class="question">
+    <p>السؤال الثامن عشر</p>
+    <label>اكتب ما يملى عليك (رَكِبَ مُحَمَّدٌ الدَّرّاجَةَ)</label>
+    <input type="text" name="answers[18]" class="answer" placeholder="أدخل الإجابة" value="{{ old('answers.18') }}">
+</div>
+
+<!-- السؤال التاسع عشر -->
+<div class="question">
+    <p>السؤال التاسع عشر</p>
     <label class="mb-4 block text-lg font-semibold text-gray-700">
         ماذا أقول لمن عاد من السَّفر؟ (<span style="text-decoration: underline;">____________</span>)
     </label>
-    <textarea name="answers[17]" value="{{ old('answers.17') }}" class="answer w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
-              placeholder="اكتب إجابتك هنا..."></textarea>
+    <textarea name="answers[19]" class="answer w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+              placeholder="اكتب إجابتك هنا...">{{ old('answers.19') }}</textarea>
 </div>
-
 <!-- قسم الأسئلة المقروءة -->
 <div class="questions">
-    <!-- السؤال الثامن عشر -->
+    <!-- السؤال عشرين -->
     <div class="question mb-4">
-        <p>السؤال الثامن عشر</p>
+        <p>السؤال عشرين </p>
         <!-- قسم الفقرة -->
         <div class="paragraph mb-4">
             <label class="mb-2 block text-lg font-semibold text-gray-700">
@@ -771,27 +783,27 @@ button:disabled {
         </label>
         <div class="radio-group flex flex-col gap-2">
             <label class="radio-item flex items-center gap-2 cursor-pointer">
-                <input type="radio" name="answers[18]" value="القصصُ عن صناعة القوارب" {{ old('answers.18.1') == 'القصصُ عن صناعة القوارب' ? 'checked' : '' }} class="form-radio w-5 h-5">
+                <input type="radio" name="answers[20]" value="القصص" {{ old('answers.20.1') == 'القصص' ? 'checked' : '' }} class="form-radio w-5 h-5">
                 <span class="text-gray-700">القصصُ عن صناعة القوارب</span>
             </label>
             <label class="radio-item flex items-center gap-2 cursor-pointer">
-                <input type="radio" name="answers[18]" value="الأوراق" {{ old('answers.18.1') == 'الأوراق' ? 'checked' : '' }} class="form-radio w-5 h-5">
+                <input type="radio" name="answers[20]" value="الأوراق" {{ old('answers.20.1') == 'الأوراق' ? 'checked' : '' }} class="form-radio w-5 h-5">
                 <span class="text-gray-700">الأوراقُ الخضراءُ للأشجار</span>
             </label>
             <label class="radio-item flex items-center gap-2 cursor-pointer">
-                <input type="radio" name="answers[18]" value="الأشجار" {{ old('answers.18.1') == 'الأشجار' ? 'checked' : '' }} class="form-radio w-5 h-5">
+                <input type="radio" name="answers[20]" value="الأشجار" {{ old('answers.20.1') == 'الأشجار' ? 'checked' : '' }} class="form-radio w-5 h-5">
                 <span class="text-gray-700">الأشجارُ في الغابة</span>
             </label>
             <label class="radio-item flex items-center gap-2 cursor-pointer">
-                <input type="radio" name="answers[18]" value="العائلة" {{ old('answers.18.1') == 'العائلة' ? 'checked' : '' }} class="form-radio w-5 h-5">
+                <input type="radio" name="answers[20]" value="العائلة" {{ old('answers.20.1') == 'العائلة' ? 'checked' : '' }} class="form-radio w-5 h-5">
                 <span class="text-gray-700">القصةُ عن عائلةٍ تقرأ الكُتُبَ</span>
             </label>
         </div>
     </div>
 
-    <!-- السؤال التاسع عشر -->
+    <!-- السؤال واحد وعشرين -->
     <div class="question mb-4">
-        <p>السؤال التاسع عشر</p>
+        <p>السؤال واحد وعشرين</p>
         <div class="paragraph mb-4">
             <label class="mb-2 block text-lg font-semibold text-gray-700">
                 أقرا وحدك الفقرة الاتية للإجابة عن الاسئلة التي تليها:
@@ -809,27 +821,27 @@ button:disabled {
         </label>
         <div class="radio-group flex flex-col gap-2">
             <label class="radio-item flex items-center gap-2 cursor-pointer">
-                <input type="radio" name="answers[19]" value="كُتُبٌ صغيرةٌ" {{ old('answers.19.2') == 'كُتُبٌ صغيرةٌ' ? 'checked' : '' }} class="form-radio w-5 h-5">
+                <input type="radio" name="answers[21]" value="كتب" {{ old('answers.21.2') == 'كتب' ? 'checked' : '' }} class="form-radio w-5 h-5">
                 <span class="text-gray-700">كُتُبٌ صغيرةٌ</span>
             </label>
             <label class="radio-item flex items-center gap-2 cursor-pointer">
-                <input type="radio" name="answers[19]" value="أشجار" {{ old('answers.19.2') == 'أشجار' ? 'checked' : '' }} class="form-radio w-5 h-5">
+                <input type="radio" name="answers[21]" value="أشجار" {{ old('answers.21.2') == 'أشجار' ? 'checked' : '' }} class="form-radio w-5 h-5">
                 <span class="text-gray-700">أشجارٌ في الغابة</span>
             </label>
             <label class="radio-item flex items-center gap-2 cursor-pointer">
-                <input type="radio" name="answers[19]" value="أوراق" {{ old('answers.19.2') == 'أوراق' ? 'checked' : '' }} class="form-radio w-5 h-5">
+                <input type="radio" name="answers[21]" value="أوراق" {{ old('answers.21.2') == 'أوراق' ? 'checked' : '' }} class="form-radio w-5 h-5">
                 <span class="text-gray-700">أوراقٌ خضراء</span>
             </label>
             <label class="radio-item flex items-center gap-2 cursor-pointer">
-                <input type="radio" name="answers[19]" value="قصة" {{ old('answers.19.2') == 'قصة' ? 'checked' : '' }} class="form-radio w-5 h-5">
+                <input type="radio" name="answers[21]" value="قصة" {{ old('answers.21.2') == 'قصة' ? 'checked' : '' }} class="form-radio w-5 h-5">
                 <span class="text-gray-700">قصةٌ عن القوارب</span>
             </label>
         </div>
     </div>
 
-    <!-- السؤال العشرون -->
+    <!-- السؤال ثاني وعشرين -->
     <div class="question">
-        <p>السؤال العشرون</p>
+        <p>السؤال ثاني وعشرين</p>
         <div class="paragraph mb-4">
             <label class="mb-2 block text-lg font-semibold text-gray-700">
                 أقرا وحدك الفقرة الاتية للإجابة عن الاسئلة التي تليها:
@@ -847,19 +859,19 @@ button:disabled {
         </label>
         <div class="radio-group flex flex-col gap-2">
             <label class="radio-item flex items-center gap-2 cursor-pointer">
-                <input type="radio" name="answers[20]" value="تقرأ" {{ old('answers.20.3') == 'تقرأ' ? 'checked' : '' }} class="form-radio w-5 h-5">
+                <input type="radio" name="answers[22]" value="تقرأ" {{ old('answers.22.3') == 'تقرأ' ? 'checked' : '' }} class="form-radio w-5 h-5">
                 <span class="text-gray-700">تقرأُ القوارب</span>
             </label>
             <label class="radio-item flex items-center gap-2 cursor-pointer">
-                <input type="radio" name="answers[20]" value="تصنعُ القوارب" {{ old('answers.20.3') == 'تصنعُ القوارب' ? 'checked' : '' }} class="form-radio w-5 h-5">
+                <input type="radio" name="answers[22]" value="تصنع" {{ old('answers.22.3') == 'تصنع' ? 'checked' : '' }} class="form-radio w-5 h-5">
                 <span class="text-gray-700">تصنعُ القوارب</span>
             </label>
             <label class="radio-item flex items-center gap-2 cursor-pointer">
-                <input type="radio" name="answers[20]" value="تزرع" {{ old('answers.20.3') == 'تزرع' ? 'checked' : '' }} class="form-radio w-5 h-5">
+                <input type="radio" name="answers[22]" value="تزرع" {{ old('answers.22.3') == 'تزرع' ? 'checked' : '' }} class="form-radio w-5 h-5">
                 <span class="text-gray-700">تزرعُ الأشجار</span>
             </label>
             <label class="radio-item flex items-center gap-2 cursor-pointer">
-                <input type="radio" name="answers[20]" value="تغني" {{ old('answers.20.3') == 'تغني' ? 'checked' : '' }} class="form-radio w-5 h-5">
+                <input type="radio" name="answers[22]" value="تغني" {{ old('answers.22.3') == 'تغني' ? 'checked' : '' }} class="form-radio w-5 h-5">
                 <span class="text-gray-700">تغني في الغابة</span>
             </label>
         </div>

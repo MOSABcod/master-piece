@@ -28,11 +28,4 @@ class Roadmap extends Model
     {
         return $this->hasMany(Roadmap::class);
     }
-    /**
-     * Get the exam associated with the roadmap.
-     */
-    public function exam()
-    {
-        return $this->belongsTo(Exam::class);
-    }
 }

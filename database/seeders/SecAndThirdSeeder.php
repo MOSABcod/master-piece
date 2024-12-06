@@ -75,6 +75,15 @@ class SecAndThirdSeeder extends Seeder
                 'correct_answer' => 'لَذِيذًا'
             ],
             [
+                'question' => 'اكتب ما يملى عليك (نَجَحَتِ الْفَتاةُ)',
+                'correct_answer' => 'نَجَحَتِ الْفَتاةُ'
+            ],
+            [
+                'question' => 'اكتب ما يملى عليك (رَكِبَ مُحَمَّدٌ الدَّرّاجَةَ)',
+                'correct_answer' => 'رَكِبَ مُحَمَّدٌ الدَّرّاجَةَ'
+            ],
+
+            [
                 'question' => 'ماذا أقول لمن عاد من السَّفر؟',
                 'correct_answer' => 'الحمد لله على السلامة'
             ],
