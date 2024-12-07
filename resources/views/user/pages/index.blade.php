@@ -4,20 +4,52 @@
 @section('content')
 
     <main>
-        
+<style>
+.swiper-slide {
+    height: 125vh; /* Ensures all slides take up the full viewport height */
+}
+.your-class {
+    background-repeat: no-repeat; /* Ensures the background does not repeat */
+    background-position: center; /* Centers the background image */
+    background-size: cover; /* Ensures the background image covers the entire container */
+}
+
+
+</style>
         <!-- BANNER SECTION START -->
         <section>
             <div class="ed-banner-slider swiper relative">
                 <div class="swiper-wrapper">
                     <!-- الشريحة الأولى -->
                     <div class="swiper-slide">
-                        <div class="pt-[390px] md:pt-[300px] xs:pt-[280px] pb-[205px] bg-[url('../assets/img/banner-bg-1.jpg')] bg-no-repeat bg-center bg-cover relative z-[1] before:absolute before:-z-[1] before:inset-0 before:bg-edblue/70 before:pointer-events-none">
+                        <div style=" height: 125vh !important;" class="pt-[390px] md:pt-[300px] xs:pt-[280px] pb-[205px] bg-[url('../assets/img/banner-bg-1.jpg')] bg-no-repeat bg-center bg-cover relative z-[1] before:absolute before:-z-[1] before:inset-0 before:bg-edblue/70 before:pointer-events-none">
+                            <div class="mx-[10%] md:mx-[15px]">
+                                <div class="text-white w-[48%] xl:w-[60%] md:w-[70%] sm:w-[80%] xs:w-full">
+                                    <h2 class="font-bold text-[clamp(35px,4.57vw,80px)] leading-[1.13] mb-[15px]">
+                                        "مدرسة زبدا الثانوية"
+
+                                    </h2>
+                                    <p class="leading-[1.75] mb-[41px]" style=" font-size: 20px !important;">
+                                        "رؤيتنا لبيئة تعليمية عادلة وصحية تلبي احتياجات الجميع."
+
+                                    </p>
+                                    <div class="flex items-center gap-[20px]">
+                                        <a href="#" class="ed-btn"> تعرف على رسالتنا</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- الشريحة الثانية -->
+                    <div class="swiper-slide">
+                        <div class="pt-[390px] md:pt-[300px] xs:pt-[280px] pb-[205px] bg-[url('../assets/img/banner-bg-2.jpg')] bg-no-repeat bg-center bg-cover relative z-[1] before:absolute before:-z-[1] before:inset-0 before:bg-edblue/70 before:pointer-events-none">
                             <div class="mx-[10%] md:mx-[15px]">
                                 <div class="text-white w-[48%] xl:w-[60%] md:w-[70%] sm:w-[80%] xs:w-full">
                                     <h2 class="font-bold text-[clamp(35px,4.57vw,80px)] leading-[1.13] mb-[15px]">
                                         "مرحلة جديدة من التعليم تبدأ بفهم احتياجات طلابنا."
                                     </h2>
-                                    <p class="leading-[1.75] mb-[41px]">
+                                    <p class="leading-[1.75] mb-[41px]" style=" font-size: 20px !important;">
                                         "معًا لنكتشف صعوبات التعلم ونبني مستقبلًا أفضل."
                                     </p>
                                     <div class="flex items-center gap-[20px]">
@@ -27,38 +59,18 @@
                             </div>
                         </div>
                     </div>
-        
-                    <!-- الشريحة الثانية -->
-                    <div class="swiper-slide">
-                        <div class="pt-[390px] md:pt-[300px] xs:pt-[280px] pb-[205px] bg-[url('../assets/img/banner-bg-2.jpg')] bg-no-repeat bg-center bg-cover relative z-[1] before:absolute before:-z-[1] before:inset-0 before:bg-edblue/70 before:pointer-events-none">
-                            <div class="mx-[10%] md:mx-[15px]">
-                                <div class="text-white w-[48%] xl:w-[60%] md:w-[70%] sm:w-[80%] xs:w-full">
-                                    <h2 class="font-bold text-[clamp(35px,4.57vw,80px)] leading-[1.13] mb-[15px]">
-                                        "مدرسة زبدا الثانوية"
-                                    </h2>
-                                    <p class="leading-[1.75] mb-[41px]">
-                                        "رؤيتنا لبيئة تعليمية عادلة وصحية تلبي احتياجات الجميع."
-                                    </p>
-                                    <div class="flex items-center gap-[20px]">
-                                        <a href="#" class="ed-btn">تعرف على رسالتنا</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-        
                     <!-- الشريحة الثالثة -->
                     <div class="swiper-slide">
-                        <div class="pt-[390px] md:pt-[300px] xs:pt-[280px] pb-[205px] bg-[url('../assets/img/banner-bg-3.jpg')] bg-no-repeat bg-center bg-cover relative z-[1] before:absolute before:-z-[1] before:inset-0 before:bg-edblue/70 before:pointer-events-none">
+                        <div  style="background: url('../assets/img/banner-bg-3.jpg')!important;background-repeat: no-repeat !important ;   background-size: cover !important; background-position: center !important;" class="pt-[390px] md:pt-[300px] xs:pt-[280px] pb-[205px] bg-[url('../assets/img/banner-bg-3.jpg')] bg-no-repeat bg-center bg-cover relative z-[1] before:absolute before:-z-[1] before:inset-0 before:bg-edblue/70 before:pointer-events-none">
                             <div class="mx-[10%] md:mx-[15px]">
                                 <div class="text-white w-[48%] xl:w-[60%] md:w-[70%] sm:w-[80%] xs:w-full">
                                     <h2 class="font-bold text-[clamp(35px,4.57vw,80px)] leading-[1.13] mb-[15px]">
                                         "فريقنا المتخصص من المعلمات"
                                     </h2>
-                                    <p class="leading-[1.75] mb-[41px]">
+                                    <p class="leading-[1.75] mb-[41px]"style=" font-size: 20px !important;">
                                         "يعمل من أجل تطوير قدرات الطلاب وتحقيق أهداف التعليم الشامل."
                                     </p>
-                                    <div class="flex items-center gap-[20px]">
+                                    <div class="flex items-center gap-[20px]" >
                                         <a href="#" class="ed-btn">تعرف على فريق العمل</a>
                                     </div>
                                 </div>
@@ -66,11 +78,12 @@
                         </div>
                     </div>
                 </div>
-        
+
 
             </div>
         </section>
         <!-- BANNER SECTION END -->
+
 
 
         <!-- CATEGORIES SECTION START -->
@@ -130,457 +143,205 @@
             </div>
         </div>
         <!-- CATEGORIES SECTION END -->
+        <!-- ABOUT SECTION START -->
+        <section class="py-[120px] xl:py-[80px] md:py-[60px]" dir="rtl">
+            <div class="mx-[19.71%] xxxl:mx-[14.71%] xxl:mx-[9.71%] xl:mx-[5.71%] md:mx-[12px]">
+                <div class="flex md:flex-col justify-between items-center gap-x-[60px] xl:gap-x-[40px] gap-y-[40px]">
+                    <!-- img -->
+                    <div class="max-w-[50%] md:max-w-full grow relative">
+                        <img src="assets/img/about-img.png" alt="صورة عن المدرسة">
+                        <img src="assets/img/about-img-vector.svg" alt="رمز" class="absolute -top-[25px] left-[25px] -z-[1] w-[90%] max-w-[100%]">
+                    </div>
+
+                    <!-- txt -->
+                    <div class="max-w-[50%] md:max-w-full shrink-0 grow">
+
+                        <h6 class="ed-section-sub-title"   style="margin-right: 47px;">من نحن</h6>
+                        <h2 class="ed-section-title mb-[9px]">مرحباً بكم في مدرسة زبدا الثانوية المختلطة</h2>
+                        <p class="text-edgray">مدرسة زبدا الثانوية المختلطة تسعى لتحقيق بيئة تعليمية عادلة وصحية، تعزز من إمكانيات جميع الطلاب وتراعي الفروق الفردية.</p>
+
+
+
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="bg-edoffwhite py-[120px] xl:py-[80px] md:py-[60px]" dir="rtl" style="margin-bottom: 10vh; margin-top:10vh">
+
+            <div class="mx-[19.71%] xxxl:mx-[14.71%] xxl:mx-[9.71%] xl:mx-[5.71%] md:mx-[12px]">
+                <div class="flex flex-col justify-between items-center gap-y-[40px]">
+                    <div class="text-center mb-[46px] lg:mb-[36px] md:mb-[26px]">
+                        <h2 class="ed-section-sub-title">رسالتنا ورؤيتنا </h2>
+                        <h6 class="ed-section-title">رسالتنا ورؤيتنا</h6>
+                    </div>
+                    <!-- Text Section -->
+                    <div class="w-full ">
+                        <!-- Additional Info Section -->
+                        <div class="flex flex-row gap-y-[30px] gap-x-[40px] justify-center items-center">
+                            <!-- Single Info (رسالتنا) -->
+                            <div class="flex flex-col items-center text-center gap-[15px] max-w-[45%]">
+                                <div class="shrink-0 bg-edpurple h-[100px] aspect-square rounded-[8px] flex items-center justify-center">
+                                    <img src="assets/img/icon/target.svg" alt="هدفنا" class="w-[50%]">
+                                </div>
+                                <div>
+                                    <h6 class="font-bold text-[30px] text-edblue mb-[10px] leading-[1.4]">رسالتنا</h6>
+                                    <p class="text-[24px] text-edgray leading-[1.8]">إعداد طلبة ناجحين من خلال استراتيجيات مبتكرة تواكب احتياجات التعليم الحديث.</p>
+                                </div>
+                            </div>
+
+                            <!-- Single Info (رؤيتنا) -->
+                            <div class="flex flex-col items-center text-center gap-[15px] max-w-[45%]">
+                                <div class="shrink-0 bg-edpurple h-[100px] aspect-square rounded-[8px] flex items-center justify-center">
+                                    <img src="assets/img/icon/book-light.svg" alt="رؤيتنا" class="w-[50%]">
+                                </div>
+                                <div>
+                                    <h6 class="font-bold text-[30px] text-edblue mb-[10px] leading-[1.4]">رؤيتنا</h6>
+                                    <p class="text-[24px] text-edgray leading-[1.8]">تعزيز فرص التعليم الشامل والارتقاء بالمستوى التعليمي للمجتمع.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+<!-- INSTRUCTORS SECTION START -->
+<section class="bg-edoffwhite py-[120px] xl:py-[80px] md:py-[60px] relative z-[1] overflow-hidden" dir="rtl">
+    <div class="mx-[19.7%] xxxl:mx-[14.7%] xxl:mx-[9.7%] xl:mx-[3.2%] md:mx-[15px]">
+        <!-- heading -->
+        <div class="text-center mb-[46px] lg:mb-[36px] md:mb-[26px]">
+            <h2 class="ed-section-sub-title">فريق العمل</h2>
+            <h6 class="ed-section-title">فريقنا من الخبراء</h6>
+        </div>
+
+        <!-- instructor cards -->
+        <div class="grid grid-cols-4 sm:grid-cols-3 xs:grid-cols-2 xxs:grid-cols-1 gap-[30px] md:gap-[15px]">
+            <!-- single instructor -->
+            <div class="text-center group">
+                <!-- img -->
+                <div class="relative mb-[18px] overflow-hidden rounded-[12px]">
+                    <img src="assets/img/instructor-1.jpg" alt="هدى التركية" class="w-full aspect-[270/320] object-cover group-hover:scale-110">
+                </div>
+
+                <!-- txt -->
+                <div>
+                    <h6 class="font-semibold text-[18px] text-edblue mb-[12px]">هدى التركية</h6>
+                    <span class="text-edgray">معلمة المرحلة الأساسية (الصف الأول)</span>
+                </div>
+            </div>
+
+            <!-- single instructor -->
+            <div class="text-center group">
+                <!-- img -->
+                <div class="relative mb-[18px] overflow-hidden rounded-[12px]">
+                    <img src="assets/img/instructor-2.jpg" alt="أسماء الجويفل" class="w-full aspect-[270/320] object-cover group-hover:scale-110">
+                </div>
+
+                <!-- txt -->
+                <div>
+                    <h6 class="font-semibold text-[18px] text-edblue mb-[12px]">أسماء الجويفل</h6>
+                    <span class="text-edgray">معلمة المرحلة الأساسية (الصف الثاني)</span>
+                </div>
+            </div>
+
+            <!-- single instructor -->
+            <div class="text-center group">
+                <!-- img -->
+                <div class="relative mb-[18px] overflow-hidden rounded-[12px]">
+                    <img src="assets/img/instructor-3.jpg" alt="ياسمين الدعجة" class="w-full aspect-[270/320] object-cover group-hover:scale-110">
+                </div>
+
+                <!-- txt -->
+                <div>
+                    <h6 class="font-semibold text-[18px] text-edblue mb-[12px]">ياسمين الدعجة</h6>
+                    <span class="text-edgray">معلمة الفيزياء</span>
+                </div>
+            </div>
+
+            <!-- single instructor -->
+            <div class="text-center group">
+                <!-- img -->
+                <div class="relative mb-[18px] overflow-hidden rounded-[12px]">
+                    <img src="assets/img/instructor-4.jpg" alt="عبير السكارنة" class="w-full aspect-[270/320] object-cover group-hover:scale-110">
+                </div>
+
+                <!-- txt -->
+                <div>
+                    <h6 class="font-semibold text-[18px] text-edblue mb-[12px]">عبير السكارنة</h6>
+                    <span class="text-edgray">معلمة الرياضيات</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- vectors -->
+        <div class="lg:hidden">
+            <div class="pointer-events-none w-[434px] aspect-square rounded-full bg-edpurple/15 absolute -z-[1] top-0 left-[56px] -translate-y-[50%]"></div>
+            <div class="pointer-events-none w-[694px] aspect-square rounded-full bg-edpurple/10 absolute -z-[1] bottom-0 right-[21px] translate-y-[50%]"></div>
+            <img src="assets/img/admission-vector-2.svg" alt="vector" class="absolute -z-[1] bottom-[154px] right-[58px]">
+            <img src="assets/img/instructor-vector.svg" alt="vector" class="absolute -z-[1] top-[120px] left-0">
+        </div>
+    </div>
+</section>
+<!-- INSTRUCTORS SECTION END -->
+<!-- BLOG SECTION START -->
+<section class="py-[120px] xl:py-[80px] md:py-[60px] relative z-[1] overflow-hidden" dir="rtl">
+    <div class="mx-[19.71%] xxxl:mx-[14.71%] xxl:mx-[9.71%] xl:mx-[5.71%] md:mx-[12px]">
+        <!-- heading -->
+        <div class="text-center mb-[46px] md:mb-[30px]">
+            <h6 class="ed-section-sub-title">خدمات الموقع</h6>
+            <h2 class="ed-section-title">أحدث الخدمات لدينا</h2>
+        </div>
+
+        <!-- service cards -->
+        <div class="grid grid-cols-3 md:grid-cols-2 xs:grid-cols-1 xs:max-w-[65%] xxs:max-w-full xs:mx-auto gap-[30px] lg:gap-[20px] sm:gap-[15px]">
+            <!-- single service -->
+            <div class="et-service bg-white border border-[#E5E5E5] rounded-[8px] p-[24px] lg:p-[20px] sm:p-[18px] relative group">
+                <div class="et-service__txt">
+                    <h4 class="et-service__title text-[20px] sm:text-[18px] font-semibold leading-[1.6] mb-[20px]">تشخيص صعوبات التعلم في القراءة والحساب</h4>
+                    <p class="text-edgray text-[16px]">تقديم تشخيص دقيق ومبني على أسس علمية لتحديد صعوبات التعلم في مهارات القراءة والحساب الأساسية.</p>
+                </div>
+            </div>
+
+            <!-- single service -->
+            <div class="et-service bg-white border border-[#E5E5E5] rounded-[8px] p-[24px] lg:p-[20px] sm:p-[18px] relative group">
+                <div class="et-service__txt">
+                    <h4 class="et-service__title text-[20px] sm:text-[18px] font-semibold leading-[1.6] mb-[20px]">تقارير تفصيلية للطلاب لتحديد الاحتياجات التعليمية</h4>
+                    <p class="text-edgray text-[16px]">إعداد تقارير شاملة لكل طالب تحتوي على توصيات تعليمية تساعد على تحقيق أهداف التعلم.</p>
+                </div>
+            </div>
+
+            <!-- single service -->
+            <div class="et-service bg-white border border-[#E5E5E5] rounded-[8px] p-[24px] lg:p-[20px] sm:p-[18px] relative group">
+                <div class="et-service__txt">
+                    <h4 class="et-service__title text-[20px] sm:text-[18px] font-semibold leading-[1.6] mb-[20px]">استراتيجيات دعم خاصة مصممة لكل طالب</h4>
+                    <p class="text-edgray text-[16px]">تصميم خطط دعم فردية وفقًا لاحتياجات الطالب لضمان تحقيق أقصى قدر من التحصيل الدراسي.</p>
+                </div>
+            </div>
+        </div>
+
+
+
+
+    </div>
+</section>
+<!-- BLOG SECTION END -->
+<!-- CTA 2 SECTION START -->
+<section class="mt-[120px] xl:mt-[80px] md:mt-[60px]" dir="rtl">
+    <div class="mx-[19.7%] xxxl:mx-[14.7%] xxl:mx-[9.7%] xl:mx-[3.2%] md:mx-[15px] bg-[url('../assets/img/cta-3-bg.jpg')] bg-no-repeat bg-cover bg-center rounded-[20px] overflow-hidden text-center py-[120px] xl:py-[80px] md:py-[60px] relative z-[1] before:absolute before:inset-0 before:bg-edpurple/80 before:-z-[1]">
+        <div class="max-w-[570px] mx-auto">
+            <h6 class="ed-section-sub-title ed-section-sub-title--white ml-[48px]">رسالتنا التعليمية</h6>
+            <h2 class="ed-section-title !text-white mb-[18px]">خلق بيئة تعليمية تفاعلية تشجع أولياء الأمور والمجتمع المحلي على المساهمة في بناء مستقبل طلابنا</h2>
+        </div>
+    </div>
+</section>
+<!-- CTA 2 SECTION END -->
+
 
 
         <!-- COURSES SECTION START -->
         <section class="ed-2-courses py-[120px] xl:py-[80px] md:py-[60px]">
-            <div class="mx-[9.2%] xxxl:mx-[8.2%] xxl:mx-[3%]">
-                <!-- section heading -->
-                <div class="text-center mb-[21px]">
-                    <h6 class="ed-section-sub-title">الامتحانات</h6>
-                    <h2 class="ed-section-title">الامتحانات</h2>
-                </div>
 
-                {{-- <div class="ed-2-courses-filter-navs flex flex-wrap justify-center gap-[10px] mb-[40px] xs:mb-[30px] pb-[30px] xs:pb-[20px] border-b border-[#002147]/15 mx-[200px] lg:mx-[100px] md:mx-[12px] *:border *:border-edpurple *:rounded-[6px] *:py-[5px] *:px-[10px] *:text-edpurple *:font-medium *:text-[14px]">
-                    <button class="hover:bg-edpurple hover:text-white" data-filter="all">All</button>
-                    <button class="hover:bg-edpurple hover:text-white" data-filter=".personal-skill">Personal Skill</button>
-                    <button class="hover:bg-edpurple hover:text-white" data-filter=".web-dev">Web Development</button>
-                    <button class="hover:bg-edpurple hover:text-white" data-filter=".ui-ux-design">UX/UI Design</button>
-                    <button class="hover:bg-edpurple hover:text-white" data-filter=".data-science">Data Science</button>
-                    <button class="hover:bg-edpurple hover:text-white" data-filter=".finance">Finance</button>
-                </div> --}}
-
-                <!-- course cards -->
-                <div class="ed-2-courses-container grid grid-cols-4 xl:grid-cols-3 md:grid-cols-2 xs:grid-cols-1 gap-[30px] xxl:gap-[20px]">
-                    @if (Auth::user() &&( Auth::user()->class_id == 1 || Auth::user()->class_id == 2 || Auth::user()->role == "teacher")  )
-
-
-                    <div class="ed-2-single-course mix personal-skill border border-[#e5e5e5] rounded-[10px] p-[20px] group">
-                        <!-- course image  -->
-                        <div class="relative overflow-hidden rounded-[10px] mb-[24px]">
-                            <img src="assets/img/الرياضيات.svg" alt="Course Image" class="w-full aspect-[330/223] h-auto object-contain group-hover:scale-110">
-
-                        </div>
-
-                        <!-- course infos -->
-                        <div class="flex justify-between items-center mb-[16px]">
-                            <span class="inline-flex items-center justify-center border border-[#e5e5e5] px-[10px] h-[33px] rounded-[6px] font-medium text-[#808080] text-[14px]">مبتدئ</span>
-                        </div>
-
-                        <!-- course title -->
-                        <h5 class="font-semibold text-[20px] text-edblue mb-[23px]">
-                            <a  class="hover:text-edpurple">امتحان رياضيات - روضة و الصف الاول</a>
-                        </h5>
-
-                        <!-- course stats -->
-                        <div class="flex flex-wrap items-center gap-x-[30px] gap-y-[10px]">
-                            <div class="flex items-center gap-[8px] text-[14px] text-edgray">
-                                <span class="icon"><img src="assets/img/icon/user-group.svg" alt="icon"></span>
-                                <span class="txt">169 Students</span>
-                            </div>
-
-                            <div class="flex items-center gap-[8px] text-[14px] text-edgray">
-                                <span class="icon"><img src="assets/img/icon/lesson.svg" alt="icon"></span>
-                                <span class="txt">12 Lesson</span>
-                            </div>
-                        </div>
-
-                        <!-- course footer -->
-                        <div class="flex flex-wrap gap-x-[20px] gap-y-[15px] justify-between items-center border-t border-[#E5E5E5] pt-[24px] mt-[24px]">
-
-
-                            <!-- button to confirm exam start -->
-                            <button
-                                class="bg-edpurple text-white px-[10px] w-full py-[6px] rounded-[8px] hover:bg-[#5a35a5]"
-                                onclick="confirmExamStart(this)"
-
-                                data-route="{{ route('mathFirst') }}">
-                                ابدأ الاختبار
-                            </button>
-                        </div>
-                    </div>
-                    @endif
-                    @if (Auth::user() &&(Auth::user()->class_id == 3 || Auth::user()->class_id == 4 || Auth::user()->role == "teacher")  )
-
-                    <div class="ed-2-single-course mix personal-skill border border-[#e5e5e5] rounded-[10px] p-[20px] group">
-                        <!-- course image  -->
-                        <div class="relative overflow-hidden rounded-[10px] mb-[24px]">
-                            <img src="assets/img/الرياضيات.svg" alt="Course Image" class="w-full aspect-[330/223] h-auto object-contain group-hover:scale-110">
-
-                        </div>
-
-                        <!-- course infos -->
-                        <div class="flex justify-between items-center mb-[16px]">
-                            <span class="inline-flex items-center justify-center border border-[#e5e5e5] px-[10px] h-[33px] rounded-[6px] font-medium text-[#808080] text-[14px]">مبتدئ</span>
-                        </div>
-
-                        <!-- course title -->
-                        <h5 class="font-semibold text-[20px] text-edblue mb-[23px]">
-                            <a  class="hover:text-edpurple">امتحان رياضيات - الصف الثاني والثالث</a>
-                        </h5>
-
-                        <!-- course stats -->
-                        <div class="flex flex-wrap items-center gap-x-[30px] gap-y-[10px]">
-                            <div class="flex items-center gap-[8px] text-[14px] text-edgray">
-                                <span class="icon"><img src="assets/img/icon/user-group.svg" alt="icon"></span>
-                                <span class="txt">169 Students</span>
-                            </div>
-
-                            <div class="flex items-center gap-[8px] text-[14px] text-edgray">
-                                <span class="icon"><img src="assets/img/icon/lesson.svg" alt="icon"></span>
-                                <span class="txt">12 Lesson</span>
-                            </div>
-                        </div>
-
-                        <!-- course footer -->
-                        <div class="flex flex-wrap gap-x-[20px] gap-y-[15px] justify-between items-center border-t border-[#E5E5E5] pt-[24px] mt-[24px]">
-
-
-                            <!-- button to confirm exam start -->
-                            <button
-                                class="bg-edpurple text-white px-[10px] w-full py-[6px] rounded-[8px] hover:bg-[#5a35a5]"
-                                onclick="confirmExamStart(this)"
-                                data-route="{{ route('mathSecondAndThird') }}">
-                                ابدأ الاختبار
-                            </button>
-                        </div>
-                    </div>
-                    @endif
-                    @if (Auth::user() &&(Auth::user()->class_id == 1 || Auth::user()->class_id == 2 || Auth::user()->role == "teacher")  )
-
-                    <div class="ed-2-single-course mix personal-skill border border-[#e5e5e5] rounded-[10px] p-[20px] group">
-                        <!-- course image  -->
-                        <div class="relative overflow-hidden rounded-[10px] mb-[24px]">
-                            <img src="assets/img/download.svg" alt="Course Image" class="w-full aspect-[330/223] h-auto object-contain group-hover:scale-110">
-
-                        </div>
-
-                        <!-- course infos -->
-                        <div class="flex justify-between items-center mb-[16px]">
-                            <span class="inline-flex items-center justify-center border border-[#e5e5e5] px-[10px] h-[33px] rounded-[6px] font-medium text-[#808080] text-[14px]">مبتدئ</span>
-                        </div>
-
-                        <!-- course title -->
-                        <h5 class="font-semibold text-[20px] text-edblue mb-[23px]">
-                            <a href="course-details.html" class="hover:text-edpurple">امتحان عربي - روضة و الصف الاول</a>
-                        </h5>
-
-                        <!-- course stats -->
-                        <div class="flex flex-wrap items-center gap-x-[30px] gap-y-[10px]">
-                            <div class="flex items-center gap-[8px] text-[14px] text-edgray">
-                                <span class="icon"><img src="assets/img/icon/user-group.svg" alt="icon"></span>
-                                <span class="txt">169 Students</span>
-                            </div>
-
-                            <div class="flex items-center gap-[8px] text-[14px] text-edgray">
-                                <span class="icon"><img src="assets/img/icon/lesson.svg" alt="icon"></span>
-                                <span class="txt">12 Lesson</span>
-                            </div>
-                        </div>
-
-                        <!-- course footer -->
-                        <div class="flex flex-wrap gap-x-[20px] gap-y-[15px] justify-between items-center border-t border-[#E5E5E5] pt-[24px] mt-[24px]">
-
-
-                            <!-- button to confirm exam start -->
-                            <button
-                                class="bg-edpurple text-white px-[10px] w-full py-[6px] rounded-[8px] hover:bg-[#5a35a5]"
-                                onclick="confirmExamStart(this)"
-                                data-route="{{ route('arabicFirst') }}">
-                                ابدأ الاختبار
-                            </button>
-                        </div>
-                    </div>
-                    @endif
-                    @if (Auth::user() &&(Auth::user()->class_id == 3 || Auth::user()->class_id == 4 || Auth::user()->role == "teacher")  )
-
-                    <div class="ed-2-single-course mix personal-skill border border-[#e5e5e5] rounded-[10px] p-[20px] group">
-                        <!-- course image  -->
-                        <div class="relative overflow-hidden rounded-[10px] mb-[24px]">
-                            <img src="assets/img/download.svg" alt="Course Image" class="w-full aspect-[330/223] h-auto object-contain group-hover:scale-110">
-
-                        </div>
-
-                        <!-- course infos -->
-                        <div class="flex justify-between items-center mb-[16px]">
-                            <span class="inline-flex items-center justify-center border border-[#e5e5e5] px-[10px] h-[33px] rounded-[6px] font-medium text-[#808080] text-[14px]">مبتدئ</span>
-                        </div>
-
-                        <!-- course title -->
-                        <h5 class="font-semibold text-[20px] text-edblue mb-[23px]">
-                            <a href="course-details.html" class="hover:text-edpurple">امتحان عربي - الصف الثاني و الصف الثالث</a>
-                        </h5>
-
-                        <!-- course stats -->
-                        <div class="flex flex-wrap items-center gap-x-[30px] gap-y-[10px]">
-                            <div class="flex items-center gap-[8px] text-[14px] text-edgray">
-                                <span class="icon"><img src="assets/img/icon/user-group.svg" alt="icon"></span>
-                                <span class="txt">169 Students</span>
-                            </div>
-
-                            <div class="flex items-center gap-[8px] text-[14px] text-edgray">
-                                <span class="icon"><img src="assets/img/icon/lesson.svg" alt="icon"></span>
-                                <span class="txt">12 Lesson</span>
-                            </div>
-                        </div>
-
-                        <!-- course footer -->
-                        <div class="flex flex-wrap gap-x-[20px] gap-y-[15px] justify-between items-center border-t border-[#E5E5E5] pt-[24px] mt-[24px]">
-
-
-                            <!-- button to confirm exam start -->
-                            <button
-                                class="bg-edpurple text-white px-[10px] w-full py-[6px] rounded-[8px] hover:bg-[#5a35a5]"
-                                onclick="confirmExamStart(this)"
-                                data-route="{{ route('arabicSecondAndThird') }}">
-                                ابدأ الاختبار
-                            </button>
-                        </div>
-                    </div>
-                    @endif
-                    @if (!Auth::user())
-                    <div class="ed-2-single-course mix personal-skill border border-[#e5e5e5] rounded-[10px] p-[20px] group">
-                        <!-- course image  -->
-                        <div class="relative overflow-hidden rounded-[10px] mb-[24px]">
-                            <img src="assets/img/الرياضيات.svg" alt="Course Image" class="w-full aspect-[330/223] h-auto object-contain group-hover:scale-110">
-
-                        </div>
-
-                        <!-- course infos -->
-                        <div class="flex justify-between items-center mb-[16px]">
-                            <span class="inline-flex items-center justify-center border border-[#e5e5e5] px-[10px] h-[33px] rounded-[6px] font-medium text-[#808080] text-[14px]">مبتدئ</span>
-                        </div>
-
-                        <!-- course title -->
-                        <h5 class="font-semibold text-[20px] text-edblue mb-[23px]">
-                            <a  class="hover:text-edpurple">امتحان رياضيات - روضة و الصف الاول</a>
-                        </h5>
-
-                        <!-- course stats -->
-                        <div class="flex flex-wrap items-center gap-x-[30px] gap-y-[10px]">
-                            <div class="flex items-center gap-[8px] text-[14px] text-edgray">
-                                <span class="icon"><img src="assets/img/icon/user-group.svg" alt="icon"></span>
-                                <span class="txt">169 Students</span>
-                            </div>
-
-                            <div class="flex items-center gap-[8px] text-[14px] text-edgray">
-                                <span class="icon"><img src="assets/img/icon/lesson.svg" alt="icon"></span>
-                                <span class="txt">12 Lesson</span>
-                            </div>
-                        </div>
-
-                        <!-- course footer -->
-                        <div class="flex flex-wrap gap-x-[20px] gap-y-[15px] justify-between items-center border-t border-[#E5E5E5] pt-[24px] mt-[24px]">
-
-
-                            <!-- button to confirm exam start -->
-                            <button
-                                class="bg-edpurple text-white px-[10px] w-full py-[6px] rounded-[8px] hover:bg-[#5a35a5]"
-                                disabled
-                                style="background-color: grey;
-                                cursor :not-allowed"
-                                title="سجل الدخول لتقديم الاختبار "
-                                onclick="confirmExamStart(this)"
-                                data-route="{{ route('mathFirst') }}">
-                                ابدأ الاختبار
-                            </button>
-                        </div>
-                    </div>
-<div class="ed-2-single-course mix personal-skill border border-[#e5e5e5] rounded-[10px] p-[20px] group">
-                        <!-- course image  -->
-                        <div class="relative overflow-hidden rounded-[10px] mb-[24px]">
-                            <img src="assets/img/الرياضيات.svg" alt="Course Image" class="w-full aspect-[330/223] h-auto object-contain group-hover:scale-110">
-
-                        </div>
-
-                        <!-- course infos -->
-                        <div class="flex justify-between items-center mb-[16px]">
-                            <span class="inline-flex items-center justify-center border border-[#e5e5e5] px-[10px] h-[33px] rounded-[6px] font-medium text-[#808080] text-[14px]">مبتدئ</span>
-                        </div>
-
-                        <!-- course title -->
-                        <h5 class="font-semibold text-[20px] text-edblue mb-[23px]">
-                            <a  class="hover:text-edpurple">امتحان رياضيات - الصف الثاني والثالث</a>
-                        </h5>
-
-                        <!-- course stats -->
-                        <div class="flex flex-wrap items-center gap-x-[30px] gap-y-[10px]">
-                            <div class="flex items-center gap-[8px] text-[14px] text-edgray">
-                                <span class="icon"><img src="assets/img/icon/user-group.svg" alt="icon"></span>
-                                <span class="txt">169 Students</span>
-                            </div>
-
-                            <div class="flex items-center gap-[8px] text-[14px] text-edgray">
-                                <span class="icon"><img src="assets/img/icon/lesson.svg" alt="icon"></span>
-                                <span class="txt">12 Lesson</span>
-                            </div>
-                        </div>
-
-                        <!-- course footer -->
-                        <div class="flex flex-wrap gap-x-[20px] gap-y-[15px] justify-between items-center border-t border-[#E5E5E5] pt-[24px] mt-[24px]">
-
-
-                            <!-- button to confirm exam start -->
-                            <button
-                                class="bg-edpurple text-white px-[10px] w-full py-[6px] rounded-[8px] hover:bg-[#5a35a5]"
-                                disabled
-                                style="background-color: grey;
-                                cursor :not-allowed"
-                                title="سجل الدخول لتقديم الاختبار "
-                                onclick="confirmExamStart(this)"
-                                data-route="{{ route('mathSecondAndThird') }}">
-                                ابدأ الاختبار
-                            </button>
-                        </div>
-                    </div>
-<div class="ed-2-single-course mix personal-skill border border-[#e5e5e5] rounded-[10px] p-[20px] group">
-                        <!-- course image  -->
-                        <div class="relative overflow-hidden rounded-[10px] mb-[24px]">
-                            <img src="assets/img/download.svg" alt="Course Image" class="w-full aspect-[330/223] h-auto object-contain group-hover:scale-110">
-
-                        </div>
-
-                        <!-- course infos -->
-                        <div class="flex justify-between items-center mb-[16px]">
-                            <span class="inline-flex items-center justify-center border border-[#e5e5e5] px-[10px] h-[33px] rounded-[6px] font-medium text-[#808080] text-[14px]">مبتدئ</span>
-                        </div>
-
-                        <!-- course title -->
-                        <h5 class="font-semibold text-[20px] text-edblue mb-[23px]">
-                            <a href="course-details.html" class="hover:text-edpurple">امتحان عربي - روضة و الصف الاول</a>
-                        </h5>
-
-                        <!-- course stats -->
-                        <div class="flex flex-wrap items-center gap-x-[30px] gap-y-[10px]">
-                            <div class="flex items-center gap-[8px] text-[14px] text-edgray">
-                                <span class="icon"><img src="assets/img/icon/user-group.svg" alt="icon"></span>
-                                <span class="txt">169 Students</span>
-                            </div>
-
-                            <div class="flex items-center gap-[8px] text-[14px] text-edgray">
-                                <span class="icon"><img src="assets/img/icon/lesson.svg" alt="icon"></span>
-                                <span class="txt">12 Lesson</span>
-                            </div>
-                        </div>
-
-                        <!-- course footer -->
-                        <div class="flex flex-wrap gap-x-[20px] gap-y-[15px] justify-between items-center border-t border-[#E5E5E5] pt-[24px] mt-[24px]">
-
-
-                            <!-- button to confirm exam start -->
-                            <button
-                                class="bg-edpurple text-white px-[10px] w-full py-[6px] rounded-[8px] hover:bg-[#5a35a5]"
-                                disabled
-                                style="background-color: grey;
-                                cursor :not-allowed"
-                                title="سجل الدخول لتقديم الاختبار "
-                                onclick="confirmExamStart(this)"
-                                data-route="{{ route('arabicFirst') }}">
-                                ابدأ الاختبار
-                            </button>
-                        </div>
-                    </div>
-                    <div class="ed-2-single-course mix personal-skill border border-[#e5e5e5] rounded-[10px] p-[20px] group">
-                        <!-- course image  -->
-                        <div class="relative overflow-hidden rounded-[10px] mb-[24px]">
-                            <img src="assets/img/download.svg" alt="Course Image" class="w-full aspect-[330/223] h-auto object-contain group-hover:scale-110">
-
-                        </div>
-
-                        <!-- course infos -->
-                        <div class="flex justify-between items-center mb-[16px]">
-                            <span class="inline-flex items-center justify-center border border-[#e5e5e5] px-[10px] h-[33px] rounded-[6px] font-medium text-[#808080] text-[14px]">مبتدئ</span>
-                        </div>
-
-                        <!-- course title -->
-                        <h5 class="font-semibold text-[20px] text-edblue mb-[23px]">
-                            <a href="course-details.html" class="hover:text-edpurple">امتحان عربي - الصف الثاني و الصف الثالث</a>
-                        </h5>
-
-                        <!-- course stats -->
-                        <div class="flex flex-wrap items-center gap-x-[30px] gap-y-[10px]">
-                            <div class="flex items-center gap-[8px] text-[14px] text-edgray">
-                                <span class="icon"><img src="assets/img/icon/user-group.svg" alt="icon"></span>
-                                <span class="txt">169 Students</span>
-                            </div>
-
-                            <div class="flex items-center gap-[8px] text-[14px] text-edgray">
-                                <span class="icon"><img src="assets/img/icon/lesson.svg" alt="icon"></span>
-                                <span class="txt">12 Lesson</span>
-                            </div>
-                        </div>
-
-                        <!-- course footer -->
-                        <div class="flex flex-wrap gap-x-[20px] gap-y-[15px] justify-between items-center border-t border-[#E5E5E5] pt-[24px] mt-[24px]">
-
-
-                            <!-- button to confirm exam start -->
-                            <button
-                                class="bg-edpurple text-white px-[10px] w-full py-[6px] rounded-[8px] hover:bg-[#5a35a5]"
-                                disabled
-                                style="background-color: grey;
-                                cursor :not-allowed"
-                                title="سجل الدخول لتقديم الاختبار "
-                                onclick="confirmExamStart(this)"
-                                data-route="{{ route('arabicSecondAndThird') }}">
-                                ابدأ الاختبار
-                            </button>
-                        </div>
-                    </div>
-                    @endif
-                    <div class="ed-2-single-course mix personal-skill border border-[#e5e5e5] rounded-[10px] p-[20px] group">
-                        <!-- course image  -->
-                        <div class="relative overflow-hidden rounded-[10px] mb-[24px]">
-                            <img src="assets/img/العلوم.svg" alt="Course Image" class="w-full aspect-[330/223] h-auto object-contain group-hover:scale-110">
-
-                        </div>
-
-                        <!-- course infos -->
-                        <div class="flex justify-between items-center mb-[16px]">
-                            <span class="inline-flex items-center justify-center border border-[#e5e5e5] px-[10px] h-[33px] rounded-[6px] font-medium text-[#808080] text-[14px]">مبتدئ</span>
-                        </div>
-
-                        <!-- course title -->
-                        <h5 class="font-semibold text-[20px] text-edblue mb-[23px]">
-                            <a  class="hover:text-edpurple">امتحان علوم - جميع الصفوف</a>
-                        </h5>
-
-                        <!-- course stats -->
-                        <div class="flex flex-wrap items-center gap-x-[30px] gap-y-[10px]">
-                            <div class="flex items-center gap-[8px] text-[14px] text-edgray">
-                                <span class="icon"><img src="assets/img/icon/user-group.svg" alt="icon"></span>
-                                <span class="txt">169 Students</span>
-                            </div>
-
-                            <div class="flex items-center gap-[8px] text-[14px] text-edgray">
-                                <span class="icon"><img src="assets/img/icon/lesson.svg" alt="icon"></span>
-                                <span class="txt">12 Lesson</span>
-                            </div>
-                        </div>
-
-                        <!-- course footer -->
-                        <div class="flex flex-wrap gap-x-[20px] gap-y-[15px] justify-between items-center border-t border-[#E5E5E5] pt-[24px] mt-[24px]">
-
-
-                            <!-- button to confirm exam start -->
-                            <button
-                                class="bg-edpurple text-white px-[10px] w-full py-[6px] rounded-[8px] hover:bg-[#5a35a5]"
-                                @if (!Auth::user())
-                                disabled
-                                style="background-color: grey;
-                                cursor :not-allowed"
-                                title="سجل الدخول لتقديم الاختبار "
-                                @endif
-
-                                onclick="confirmExamStart(this)"
-                                data-route="{{ route('science') }}">
-                                ابدأ الاختبار
-                            </button>
-                        </div>
-                    </div>
-
-                </div>
-            </div>
         </section>
         <!-- COURSES SECTION END -->
 

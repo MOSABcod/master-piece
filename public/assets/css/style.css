@@ -71,6 +71,7 @@ p {
     display: inline-block;
     position: relative;
     margin-bottom: 10px;
+
     letter-spacing: 1.5px;
 }
 .ed-section-sub-title::before {
@@ -81,17 +82,18 @@ p {
     transform: translateY(-50%);
     height: 10px;
     width: 48px;
+
     background: linear-gradient(
         90deg,
-        rgb(91, 58, 238) 3px,
+        #27703b 3px,
         rgba(255, 255, 255, 0) 3px,
         rgba(255, 255, 255, 0) 8px,
-        rgb(91, 58, 238) 8px,
-        rgb(91, 58, 238) 13px,
+        #27703b 8px,
+        #27703b 13px,
         rgba(255, 255, 255, 0) 13px,
         rgba(255, 255, 255, 0) 18px,
         rgba(255, 255, 255, 0) 18px,
-        rgb(91, 58, 238) 0
+        #27703b 0
     );
 }
 .ed-section-sub-title--white {

@@ -87,6 +87,9 @@ Route::get('/result', function () {
 Route::get('/timeout', function () {
     return view('user.pages.timeout');
 })->name('timeout');
+Route::get('/profile', function () {
+    return view('user.pages.profileWithExams');
+})->name('profile');
 
 // apis
 Route::post('/saveAnswer', [MathFirstKgController::class, 'saveAnswers'])->name('save.math.first');

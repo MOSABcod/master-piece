@@ -3534,7 +3534,7 @@ video {
 
 .bg-edblue {
     --tw-bg-opacity: 1;
-    background-color:#27703b;
+    background-color: #27703b;
 }
 
 .bg-edoffwhite {
@@ -5611,7 +5611,8 @@ video {
 
 .before\:bg-edblue\/70::before {
     content: var(--tw-content);
-    background-color: rgb(36 20 66 / 0.7);
+    /* background-color: rgb(36 20 66 / 0.7); */
+    background-color: rgba(39, 112, 59, 0.6);
 }
 
 .before\:bg-edpurple::before {
@@ -5627,7 +5628,7 @@ video {
 
 .before\:bg-edpurple\/80::before {
     content: var(--tw-content);
-    background-color: rgb(91 58 238 / 0.8);
+    background-color: rgba(39, 112, 59, 0.8);
 }
 
 .before\:bg-edyellow::before {

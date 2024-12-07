@@ -33,32 +33,36 @@
         transform: translateY(-50%);
         height: 10px;
         width: 48px;
-        background: linear-gradient(90deg,
-                rgba(91, 58, 238, 1) 3px,
-                rgba(255, 255, 255, 0) 3px,
-                rgba(255, 255, 255, 0) 8px,
-                rgba(91, 58, 238, 1) 8px,
-                rgba(91, 58, 238, 1) 13px,
-                rgba(255, 255, 255, 0) 13px,
-                rgba(255, 255, 255, 0) 18px,
-                rgba(255, 255, 255, 0) 18px,
-                rgba(91, 58, 238, 1) 0);
+        background: linear-gradient(
+            90deg,
+            rgba(91, 58, 238, 1) 3px,
+            rgba(255, 255, 255, 0) 3px,
+            rgba(255, 255, 255, 0) 8px,
+            rgba(91, 58, 238, 1) 8px,
+            rgba(91, 58, 238, 1) 13px,
+            rgba(255, 255, 255, 0) 13px,
+            rgba(255, 255, 255, 0) 18px,
+            rgba(255, 255, 255, 0) 18px,
+            rgba(91, 58, 238, 1) 0
+        );
     }
 
     &--white {
         color: var(--white);
 
         &::before {
-            background: linear-gradient(90deg,
-                    rgba(255, 255, 255, 1) 3px,
-                    rgba(255, 255, 255, 0) 3px,
-                    rgba(255, 255, 255, 0) 8px,
-                    rgba(255, 255, 255, 1) 8px,
-                    rgba(255, 255, 255, 1) 13px,
-                    rgba(255, 255, 255, 0) 13px,
-                    rgba(255, 255, 255, 0) 18px,
-                    rgba(255, 255, 255, 0) 18px,
-                    rgba(255, 255, 255, 1) 0);
+            background: linear-gradient(
+                90deg,
+                rgba(255, 255, 255, 1) 3px,
+                rgba(255, 255, 255, 0) 3px,
+                rgba(255, 255, 255, 0) 8px,
+                rgba(255, 255, 255, 1) 8px,
+                rgba(255, 255, 255, 1) 13px,
+                rgba(255, 255, 255, 0) 13px,
+                rgba(255, 255, 255, 0) 18px,
+                rgba(255, 255, 255, 0) 18px,
+                rgba(255, 255, 255, 1) 0
+            );
         }
     }
 }
@@ -96,7 +100,6 @@
     transition: 0.4s ease;
 }
 
-
 .ed-single-accordion-item.open {
     .ed-single-accordion-item {
         &__header i {
@@ -114,7 +117,6 @@
         }
     }
 }
-
 
 .ed-single-accordion-item__header i {
     transition: transform 0.4s ease;
