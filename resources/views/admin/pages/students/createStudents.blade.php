@@ -1,4 +1,6 @@
-user
+@extends('admin.layout.mainlayout')
+@section('content')
+
 <style>
     /* Force labels to align to the right in RTL */
     .form-floating label {
@@ -47,11 +49,16 @@ user
                         <label for="age">العمر</label>
                     </div>
 
-                    <!-- Class ID -->
                     <div class="form-floating mb-3">
-                        <input type="number" class="form-control" id="class_id" name="class_id" placeholder="أدخل رقم الصف">
-                        <label for="class_id">رقم الصف</label>
+                        <select class="form-control" id="class_id" name="class_id">
+                            <option value="" disabled selected>اختر الصف</option>
+                            @foreach ($classes as $class)
+                                <option value="{{ $class->id }}">{{ $class->class_name  }}</option>
+                            @endforeach
+                        </select>
+                        <label for="class_id">اختر الصف</label>
                     </div>
+
 
                     {{-- <!-- File Upload (Optional) -->
                     <div class="mb-3">
@@ -60,7 +67,7 @@ user
                     </div> --}}
 
                     <!-- Submit Button -->
-                    <button type="submit" class="btn btn-primary">إرسال</button>
+                    <button type="submit" class="btn  " style="background-color: #27703b; color:white;">حفظ</button>
                 </form>
             </div>
         </div>

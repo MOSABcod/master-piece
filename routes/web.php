@@ -16,9 +16,7 @@ Route::get('/', function () {
 Route::get('/viewTeachers', function () {
     return view('admin.pages.teachers.manageTeachers');
 })->name('viewTeachers');
-Route::get('/createTeacher', function () {
-    return view('admin.pages.teachers.createTeacher');
-})->name('createTeacher');
+
 // teacher and student crud
 Route::get('/teachers', [UserController::class, 'teacher'])->name('viewTeachers');
 Route::get('/createTeacher', [UserController::class, 'create'])->name('teacher.create');
@@ -29,6 +27,7 @@ Route::delete('/teachers/{id}', [UserController::class, 'destroy'])->name('teach
 //
 Route::get('/students', [UserController::class, 'students'])->name('viewStudents');
 Route::get('/createStudent', [UserController::class, 'createStudent'])->name('student.create');
+Route::get('/showresult/{id}', [UserController::class, 'showresult'])->name('showresult');
 Route::post('/createStudent', [UserController::class, 'storeStudent'])->name('student.store');
 Route::delete('/students/{id}', [UserController::class, 'destroyStudent'])->name('student.destroy');
 // save answers

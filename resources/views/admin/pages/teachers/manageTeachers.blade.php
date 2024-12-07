@@ -105,7 +105,7 @@
                                                     </div>
 
                                                     <!-- Submit Button -->
-                                                    <button type="submit" class="btn btn-primary">حفظ التعديلات</button>
+                                                    <button type="submit" class="btn "style="background-color: #27703b; color:white;">حفظ التعديلات</button>
                                                 </form>
                                             </div>
                                         </div>

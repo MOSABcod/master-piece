@@ -123,10 +123,14 @@ class RoadmapService
         ];
 
         // Start building the HTML table
-        $table = '<h2>نتيجة امتحان الرياضيات للروضة والصف الأول</h2>';
-        $table .= '<table border="1" style="width:100%; text-align:center; border-collapse: collapse;">';
+        $table = '<h2 style="text-align:center; color:#27703b; font-size:24px; margin-bottom:20px;">نتيجة امتحان الرياضيات للروضة والصف الأول</h2>';
+        $table .= '<table border="1" style="width:100%; text-align:center; border-collapse: collapse; border:2px solid #27703b; font-family:Arial, sans-serif; font-size:16px;">';
         $table .= '<thead>';
-        $table .= '<tr><th>المهارة</th><th>النتيجة</th><th>التقييم</th></tr>';
+        $table .= '<tr style="background-color:#f4f4f4; color:#27703b;">';
+        $table .= '<th style="padding:10px; border:1px solid #27703b;">المهارة</th>';
+        $table .= '<th style="padding:10px; border:1px solid #27703b;">النتيجة</th>';
+        $table .= '<th style="padding:10px; border:1px solid #27703b;">التقييم</th>';
+        $table .= '</tr>';
         $table .= '</thead><tbody>';
 
         foreach ($skills as $skill => $totalQuestions) {
@@ -134,20 +138,23 @@ class RoadmapService
             $totalPossible = $studentPerformance[$skill]['total_possible'] ?? $totalQuestions;
             $percentage = $totalPossible > 0 ? ($totalScore / $totalPossible) * 100 : 0;
 
-            $table .= '<tr>';
-            $table .= "<td>{$skill}</td>";
-            $table .= "<td>{$totalScore} / {$totalPossible}</td>";
-            $table .= "<td>" . number_format($percentage, 2) . "%</td>";
+            $rowBackground = ($percentage >= 50) ? '#e6f4e6' : '#f9f9f9'; // Green for good performance, light gray otherwise
+
+            $table .= "<tr style='background-color:{$rowBackground};'>";
+            $table .= "<td style='padding:10px; border:1px solid #ddd;'>{$skill}</td>";
+            $table .= "<td style='padding:10px; border:1px solid #ddd;'>{$totalScore} / {$totalPossible}</td>";
+            $table .= "<td style='padding:10px; border:1px solid #ddd;'>" . number_format($percentage, 2) . "%</td>";
             $table .= '</tr>';
         }
 
         $table .= '</tbody>';
         $table .= '</table>';
 
-        $table .= "<p>النتيجة الإجمالية: " . number_format($percentageScore, 2) . "%</p>";
+        $table .= "<p style='text-align:center; margin-top:20px; font-size:18px; color:#27703b;'>النتيجة الإجمالية: <strong>" . number_format($percentageScore, 2) . "%</strong></p>";
 
         return $table;
     }
+
     // ==========================================================================
     // ==========================================================================
     // ==========================================================================
@@ -261,32 +268,42 @@ class RoadmapService
             'مهارات التلاعب بالأعداد' => 12,
             'مهارات حل المسائل' => 7,
         ];
+
         // Start building the HTML table
-        $table = '<h2>نتيجة امتحان الرياضيات للصف الثاني والصف الثالث</h2>';
-        $table .= '<table border="1" style="width:100%; text-align:center; border-collapse: collapse;">';
+        $table = '<h2 style="color:#27703b; text-align:center; font-size:24px; margin-bottom:20px;">نتيجة امتحان الرياضيات للصف الثاني والصف الثالث</h2>';
+        $table .= '<table border="1" style="width:100%; text-align:center; border-collapse: collapse; font-family: Arial, sans-serif; font-size:16px;">';
         $table .= '<thead>';
-        $table .= '<tr><th>المهارة</th><th>النتيجة</th><th>التقييم</th></tr>';
+        $table .= '<tr style="background-color:#f4f4f4; color:#27703b;">';
+        $table .= '<th style="padding:10px; border:1px solid #27703b;">المهارة</th>';
+        $table .= '<th style="padding:10px; border:1px solid #27703b;">النتيجة</th>';
+        $table .= '<th style="padding:10px; border:1px solid #27703b;">التقييم</th>';
+        $table .= '</tr>';
         $table .= '</thead><tbody>';
 
         foreach ($skills as $skill => $totalQuestions) {
             $totalScore = $studentPerformance[$skill]['total_score'] ?? 0;
             $totalPossible = $studentPerformance[$skill]['total_possible'] ?? $totalQuestions;
             $percentage = $totalPossible > 0 ? ($totalScore / $totalPossible) * 100 : 0;
+            $percentageFormatted = number_format($percentage, 2);
 
-            $table .= '<tr>';
-            $table .= "<td>{$skill}</td>";
-            $table .= "<td>{$totalScore} / {$totalPossible}</td>";
-            $table .= "<td>" . number_format($percentage, 2) . "%</td>";
+            // Alternate row background based on performance
+            $rowBackground = ($percentage >= 50) ? '#e6f4e6' : '#f9f9f9';
+
+            $table .= "<tr style='background-color:{$rowBackground};'>";
+            $table .= "<td style='padding:10px; border:1px solid #ddd;'>{$skill}</td>";
+            $table .= "<td style='padding:10px; border:1px solid #ddd;'>{$totalScore} / {$totalPossible}</td>";
+            $table .= "<td style='padding:10px; border:1px solid #ddd;'>{$percentageFormatted}%</td>";
             $table .= '</tr>';
         }
 
         $table .= '</tbody>';
         $table .= '</table>';
 
-        $table .= "<p>النتيجة الإجمالية: " . number_format($percentageScore, 2) . "%</p>";
+        $table .= "<p style='text-align:center; font-size:18px; margin-top:20px; color:#27703b;'>النتيجة الإجمالية: <strong>" . number_format($percentageScore, 2) . "%</strong></p>";
 
         return $table;
     }
+
     // ==========================================================================
     // ==========================================================================
     // ==========================================================================
@@ -400,32 +417,42 @@ class RoadmapService
             'قراءة أصوات الحروف' => 8,
             'الكتابة' => 4,
         ];
+
         // Start building the HTML table
-        $table = '<h2>نتيجة امتحان العربي  للروضة والصف الأول</h2>';
-        $table .= '<table border="1" style="width:100%; text-align:center; border-collapse: collapse;">';
+        $table = '<h2 style="color:#27703b; text-align:center; font-size:24px; margin-bottom:20px;">نتيجة امتحان العربي للروضة والصف الأول</h2>';
+        $table .= '<table border="1" style="width:100%; text-align:center; border-collapse: collapse; font-family: Arial, sans-serif; font-size:16px;">';
         $table .= '<thead>';
-        $table .= '<tr><th>المهارة</th><th>النتيجة</th><th>التقييم</th></tr>';
+        $table .= '<tr style="background-color:#f4f4f4; color:#27703b;">';
+        $table .= '<th style="padding:10px; border:1px solid #27703b;">المهارة</th>';
+        $table .= '<th style="padding:10px; border:1px solid #27703b;">النتيجة</th>';
+        $table .= '<th style="padding:10px; border:1px solid #27703b;">التقييم</th>';
+        $table .= '</tr>';
         $table .= '</thead><tbody>';
 
         foreach ($skills as $skill => $totalQuestions) {
             $totalScore = $studentPerformance[$skill]['total_score'] ?? 0;
             $totalPossible = $studentPerformance[$skill]['total_possible'] ?? $totalQuestions;
             $percentage = $totalPossible > 0 ? ($totalScore / $totalPossible) * 100 : 0;
+            $percentageFormatted = number_format($percentage, 2);
 
-            $table .= '<tr>';
-            $table .= "<td>{$skill}</td>";
-            $table .= "<td>{$totalScore} / {$totalPossible}</td>";
-            $table .= "<td>" . number_format($percentage, 2) . "%</td>";
+            // Alternate row background based on performance
+            $rowBackground = ($percentage >= 50) ? '#e6f4e6' : '#f9f9f9';
+
+            $table .= "<tr style='background-color:{$rowBackground};'>";
+            $table .= "<td style='padding:10px; border:1px solid #ddd;'>{$skill}</td>";
+            $table .= "<td style='padding:10px; border:1px solid #ddd;'>{$totalScore} / {$totalPossible}</td>";
+            $table .= "<td style='padding:10px; border:1px solid #ddd;'>{$percentageFormatted}%</td>";
             $table .= '</tr>';
         }
 
         $table .= '</tbody>';
         $table .= '</table>';
 
-        $table .= "<p>النتيجة الإجمالية: " . number_format($percentageScore, 2) . "%</p>";
+        $table .= "<p style='text-align:center; font-size:18px; margin-top:20px; color:#27703b;'>النتيجة الإجمالية: <strong>" . number_format($percentageScore, 2) . "%</strong></p>";
 
         return $table;
     }
+
     // ==========================================================================
     // ==========================================================================
     // ==========================================================================
@@ -543,32 +570,42 @@ class RoadmapService
             'الكتابة'            => 3,
             'الاستيعاب القرائي'  => 4,
         ];
+
         // Start building the HTML table
-        $table = '<h2>نتيجة امتحان العربي  الصف الثاني والصف الثالث</h2>';
-        $table .= '<table border="1" style="width:100%; text-align:center; border-collapse: collapse;">';
+        $table = '<h2 style="color:#27703b; text-align:center; font-size:24px; margin-bottom:20px;">نتيجة امتحان العربي للصف الثاني والصف الثالث</h2>';
+        $table .= '<table border="1" style="width:100%; text-align:center; border-collapse: collapse; font-family: Arial, sans-serif; font-size:16px;">';
         $table .= '<thead>';
-        $table .= '<tr><th>المهارة</th><th>النتيجة</th><th>التقييم</th></tr>';
+        $table .= '<tr style="background-color:#f4f4f4; color:#27703b;">';
+        $table .= '<th style="padding:10px; border:1px solid #27703b;">المهارة</th>';
+        $table .= '<th style="padding:10px; border:1px solid #27703b;">النتيجة</th>';
+        $table .= '<th style="padding:10px; border:1px solid #27703b;">التقييم</th>';
+        $table .= '</tr>';
         $table .= '</thead><tbody>';
 
         foreach ($skills as $skill => $totalQuestions) {
             $totalScore = $studentPerformance[$skill]['total_score'] ?? 0;
             $totalPossible = $studentPerformance[$skill]['total_possible'] ?? $totalQuestions;
             $percentage = $totalPossible > 0 ? ($totalScore / $totalPossible) * 100 : 0;
+            $percentageFormatted = number_format($percentage, 2);
 
-            $table .= '<tr>';
-            $table .= "<td>{$skill}</td>";
-            $table .= "<td>{$totalScore} / {$totalPossible}</td>";
-            $table .= "<td>" . number_format($percentage, 2) . "%</td>";
+            // Alternate row background based on performance
+            $rowBackground = ($percentage >= 50) ? '#e6f4e6' : '#f9f9f9';
+
+            $table .= "<tr style='background-color:{$rowBackground};'>";
+            $table .= "<td style='padding:10px; border:1px solid #ddd;'>{$skill}</td>";
+            $table .= "<td style='padding:10px; border:1px solid #ddd;'>{$totalScore} / {$totalPossible}</td>";
+            $table .= "<td style='padding:10px; border:1px solid #ddd;'>{$percentageFormatted}%</td>";
             $table .= '</tr>';
         }
 
         $table .= '</tbody>';
         $table .= '</table>';
 
-        $table .= "<p>النتيجة الإجمالية: " . number_format($percentageScore, 2) . "%</p>";
+        $table .= "<p style='text-align:center; font-size:18px; margin-top:20px; color:#27703b;'>النتيجة الإجمالية: <strong>" . number_format($percentageScore, 2) . "%</strong></p>";
 
         return $table;
     }
+
     // ==========================================================================
     // ==========================================================================
     // ==========================================================================
@@ -670,27 +707,34 @@ class RoadmapService
     public function generateHtmlTableScience(array $studentPerformance, float $percentageScore): string
     {
         // Start building the HTML table
-        $table = '<h2>نتيجة امتحان العلوم لجميع الصفوف</h2>';
-        $table .= '<table border="1" style="width:100%; text-align:center; border-collapse: collapse;">';
+        $table = '<h2 style="color:#27703b; text-align:center; font-size:24px; margin-bottom:20px;">نتيجة امتحان العلوم لجميع الصفوف</h2>';
+        $table .= '<table border="1" style="width:100%; text-align:center; border-collapse: collapse; font-family: Arial, sans-serif; font-size:16px;">';
         $table .= '<thead>';
-        $table .= '<tr><th>النتيجة</th><th>التقييم</th></tr>';
+        $table .= '<tr style="background-color:#f4f4f4; color:#27703b;">';
+        $table .= '<th style="padding:10px; border:1px solid #27703b;">النتيجة</th>';
+        $table .= '<th style="padding:10px; border:1px solid #27703b;">التقييم</th>';
+        $table .= '</tr>';
         $table .= '</thead><tbody>';
 
         foreach ($studentPerformance as $performance) {
             $totalScore = $performance['total_score'] ?? 0;
             $totalPossible = $performance['total_possible'] ?? 1; // Assuming 1 point per question
             $percentage = $totalPossible > 0 ? ($totalScore / $totalPossible) * 100 : 0;
+            $percentageFormatted = number_format($percentage, 2);
 
-            $table .= '<tr>';
-            $table .= "<td>{$totalScore} / {$totalPossible}</td>";
-            $table .= "<td>" . number_format($percentage, 2) . "%</td>";
+            // Alternate row background for better readability
+            $rowBackground = ($percentage >= 50) ? '#e6f4e6' : '#f9f9f9';
+
+            $table .= "<tr style='background-color:{$rowBackground};'>";
+            $table .= "<td style='padding:10px; border:1px solid #ddd;'>{$totalScore} / {$totalPossible}</td>";
+            $table .= "<td style='padding:10px; border:1px solid #ddd;'>{$percentageFormatted}%</td>";
             $table .= '</tr>';
         }
 
         $table .= '</tbody>';
         $table .= '</table>';
 
-        $table .= "<p>النتيجة الإجمالية: " . number_format($percentageScore, 2) . "%</p>";
+        $table .= "<p style='text-align:center; font-size:18px; margin-top:20px; color:#27703b;'>النتيجة الإجمالية: <strong>" . number_format($percentageScore, 2) . "%</strong></p>";
 
         return $table;
     }

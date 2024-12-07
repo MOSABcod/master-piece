@@ -34,7 +34,7 @@
 
                                     </p>
                                     <div class="flex items-center gap-[20px]">
-                                        <a href="#" class="ed-btn"> تعرف على رسالتنا</a>
+                                        <a href="homepage#ourMessage" class="ed-btn"> تعرف على رسالتنا</a>
                                     </div>
                                 </div>
                             </div>
@@ -53,7 +53,7 @@
                                         "معًا لنكتشف صعوبات التعلم ونبني مستقبلًا أفضل."
                                     </p>
                                     <div class="flex items-center gap-[20px]">
-                                        <a href="#" class="ed-btn">ابدأ التشخيص الآن</a>
+                                        {{-- <a href="#" class="ed-btn">ابدأ التشخيص الآن</a> --}}
                                     </div>
                                 </div>
                             </div>
@@ -71,7 +71,7 @@
                                         "يعمل من أجل تطوير قدرات الطلاب وتحقيق أهداف التعليم الشامل."
                                     </p>
                                     <div class="flex items-center gap-[20px]" >
-                                        <a href="#" class="ed-btn">تعرف على فريق العمل</a>
+                                        <a href="/homepage#teamwork" class="ed-btn">تعرف على فريق العمل</a>
                                     </div>
                                 </div>
                             </div>
@@ -91,7 +91,7 @@
             <div class="mx-[15.8%] xxxl:mx-[9.8%] xxl:mx-[3.5%] bg-white p-[40px] sm:p-[30px] xxs:p-[20px] rounded-[20px] shadow-[0_4px_25px_rgba(0,0,0,0.06)]">
                 <div class="grid grid-cols-3 md:grid-cols-2 xxs:grid-cols-1 gap-[20px]">
                     <!-- single category -->
-                    <a href="course-grid.html" class="border border-[#e5e5e5] rounded-[10px] py-[16px] px-[20px] flex sm:flex-col items-center sm:items-start gap-y-[15px] gap-x-[20px] hover:bg-[#F8B81F] hover:border-[#F8B81F] group">
+                    <a class="border border-[#e5e5e5] rounded-[10px] py-[16px] px-[20px] flex sm:flex-col items-center sm:items-start gap-y-[15px] gap-x-[20px] hover:bg-[#F8B81F] hover:border-[#F8B81F] group">
                         <!-- icon -->
                         <div class="bg-[#F8B81F] shrink-0 w-[84px] sm:w-[64px] aspect-square rounded-full p-[14px] duration-[400ms] flex items-center justify-center group-hover:bg-white">
                             <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -106,7 +106,7 @@
                     </a>
 
                     <!-- single category -->
-                    <a href="course-grid.html" class="border border-[#e5e5e5] rounded-[10px] py-[16px] px-[20px] flex sm:flex-col items-center sm:items-start gap-y-[15px] gap-x-[20px] hover:bg-[#39C0FA] hover:border-[#39C0FA] group">
+                    <a class="border border-[#e5e5e5] rounded-[10px] py-[16px] px-[20px] flex sm:flex-col items-center sm:items-start gap-y-[15px] gap-x-[20px] hover:bg-[#39C0FA] hover:border-[#39C0FA] group">
                         <!-- icon -->
                         <div class="bg-[#39C0FA] shrink-0 w-[84px] sm:w-[64px] aspect-square rounded-full p-[14px] duration-[400ms] flex items-center justify-center group-hover:bg-white">
                             <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -121,7 +121,7 @@
                     </a>
 
                     <!-- single category -->
-                    <a href="course-grid.html" class="border border-[#e5e5e5] rounded-[10px] py-[16px] px-[20px] flex sm:flex-col items-center sm:items-start gap-y-[15px] gap-x-[20px] hover:bg-[#F92596] hover:border-[#F92596] group">
+                    <a class="border border-[#e5e5e5] rounded-[10px] py-[16px] px-[20px] flex sm:flex-col items-center sm:items-start gap-y-[15px] gap-x-[20px] hover:bg-[#F92596] hover:border-[#F92596] group">
                         <!-- icon -->
                         <div class="bg-[#F92596] shrink-0 w-[84px] sm:w-[64px] aspect-square rounded-full p-[14px] duration-[400ms] flex items-center justify-center group-hover:bg-white">
                             <svg width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -149,7 +149,7 @@
                 <div class="flex md:flex-col justify-between items-center gap-x-[60px] xl:gap-x-[40px] gap-y-[40px]">
                     <!-- img -->
                     <div class="max-w-[50%] md:max-w-full grow relative">
-                        <img src="assets/img/about-img.png" alt="صورة عن المدرسة">
+                        <img src="{{ asset('assets/img/schoolpic.jpg') }}" height="536px" width="490px" style="border-radius: 10px" alt="صورة عن المدرسة">
                         <img src="assets/img/about-img-vector.svg" alt="رمز" class="absolute -top-[25px] left-[25px] -z-[1] w-[90%] max-w-[100%]">
                     </div>
 
@@ -166,7 +166,7 @@
                 </div>
             </div>
         </section>
-        <section class="bg-edoffwhite py-[120px] xl:py-[80px] md:py-[60px]" dir="rtl" style="margin-bottom: 10vh; margin-top:10vh">
+        <section class="bg-edoffwhite py-[120px] xl:py-[80px] md:py-[60px]" dir="rtl" style="margin-bottom: 10vh; margin-top:10vh" id="ourMessage">
 
             <div class="mx-[19.71%] xxxl:mx-[14.71%] xxl:mx-[9.71%] xl:mx-[5.71%] md:mx-[12px]">
                 <div class="flex flex-col justify-between items-center gap-y-[40px]">
@@ -207,7 +207,7 @@
 
 
 <!-- INSTRUCTORS SECTION START -->
-<section class="bg-edoffwhite py-[120px] xl:py-[80px] md:py-[60px] relative z-[1] overflow-hidden" dir="rtl">
+<section class="bg-edoffwhite py-[120px] xl:py-[80px] md:py-[60px] relative z-[1] overflow-hidden" dir="rtl" id="teamwork">
     <div class="mx-[19.7%] xxxl:mx-[14.7%] xxl:mx-[9.7%] xl:mx-[3.2%] md:mx-[15px]">
         <!-- heading -->
         <div class="text-center mb-[46px] lg:mb-[36px] md:mb-[26px]">

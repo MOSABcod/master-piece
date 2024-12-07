@@ -72,15 +72,33 @@ h6 {
                 <div class="grid grid-cols-3 gap-[20px] text-center md:text-right">
                     <div>
                         <h6 class="font-medium text-edgray text-[16px]">الاسم</h6>
-                        <p class="font-bold text-black text-[20px]">أحمد محمد الزعبي</p>
+                        <p class="font-bold text-black text-[20px]">{{ Auth::user()->name }}</p>
                     </div>
                     <div>
                         <h6 class="font-medium text-edgray text-[16px]">الرقم الوطني</h6>
-                        <p class="font-bold text-black text-[20px]">1234567890123</p>
+                        <p class="font-bold text-black text-[20px]">{{ Auth::user()->national_id  }}</p>
                     </div>
                     <div>
                         <h6 class="font-medium text-edgray text-[16px]">الصف</h6>
-                        <p class="font-bold text-black text-[20px]">الصف الثامن</p>
+                        <p class="font-bold text-black text-[20px]">
+                            @switch(Auth::user()->name)
+                                @case(1)
+                                        روضة
+                                    @break
+                                @case(2)
+                                    صف أول
+                                    @break
+                                @case(3)
+                                    صف ثاني
+                                    @break
+                                @case(4)
+                                    صف ثالث
+                                    @break
+                                @default
+
+                            @endswitch
+
+                        </p>
                     </div>
                 </div>
             </div>

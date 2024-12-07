@@ -19,8 +19,13 @@ class UserController extends Controller
     }
     public function students()
     {
-        $users = User::where('role', 'student')->get(); // Fetch only teachers
+        $users = User::with('roadmaps')->where('role', 'student')->get(); // Fetch only teachers
         return view('admin.pages.students.manageStudents', compact('users')); // Adjust the view path as needed
+    }
+    public function showresult(string $id)
+    {
+        $user = User::with('roadmaps')->where('id', $id)->first(); // Fetch only teachers
+        return view('admin.pages.students.studentResult', compact('user')); // Adjust the view path as needed
     }
 
     /**
@@ -28,11 +33,13 @@ class UserController extends Controller
      */
     public function create()
     {
-        return view('admin.pages.teachers.createTeacher'); // Ensure this matches your form view file
+        $classes = Classes::all();
+        return view('admin.pages.teachers.createTeacher', compact('classes')); // Ensure this matches your form view file
     }
     public function createStudent()
     {
-        return view('admin.pages.students.createStudents'); // Ensure this matches your form view file
+        $classes = Classes::all();
+        return view('admin.pages.students.createStudents', compact('classes')); // Ensure this matches your form view file
     }
 
     /**

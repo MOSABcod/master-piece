@@ -4,8 +4,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Edutics</title>
+    <title>مدرسة زبدا الثانوية</title>
     <link rel="shortcut icon" href="favicon.svg" type="image/x-icon">
+    <link rel="icon" type="image/png" href="{{ asset('assets/img/dashborad logo.png') }}">
+
     <base href="{{ url('/') }}/" target="_self">
 
     <!-- plugins & libraries css -->
@@ -70,7 +72,7 @@
             <!-- heading -->
             <div class="ed-sidebar-heading p-[20px] lg:p-[20px] border-b border-edgray/20">
                 <div class="logo flex justify-between items-center">
-                    <a href="index.html"><img src="assets/img/logo 05 (1).jpeg" alt="logo"></a>
+                    <a href="{{ route('homepage') }}"><img src="{{ asset('assets/img/dashborad logo.png') }}" alt="logo"></a>
 
                     <button type="button"
                         class="ed-sidebar-close-btn border border-edgray/20 w-[45px] aspect-square shrink-0 text-black text-[22px] rounded-full hover:text-edpurple"><i
@@ -87,7 +89,7 @@
     <header style="background-color: #27703b "
         class=" ed-header--2 relative z-[2] px-[7.9%] xxxxl:px-[6.5%] xxxl:px-[1%] lg:px-[15px] py-[25px] xxs:py-[16px] flex items-center justify-between">
         <div class="logo xxs:max-w-[60%] flex flex-row items-center" style="gap:20px">
-            <a href="index.html"><img src="assets/img/logo 05 (1).jpeg" style="height: 74px;" alt="logo"
+            <a href="{{ route('homepage') }}"><img src="assets/img/logo 05 (1).jpeg" style="height: 74px;" alt="logo"
                     class="logo">
             </a>
             <span style="display: flex; flex-wrap:wrap">
@@ -105,11 +107,13 @@
                 <!-- nav -->
                 <ul
                     class="to-go-to-sidebar-in-mobile ed-header-nav flex lg:flex-col gap-x-[43px] xxl:gap-x-[33px] font-kanit text-[17px] font-normal">
-                
 
-                    <li><a href="about.html">من نحن</a></li>
+                    @if (Auth::user() && Auth::user()->role == 'student')
 
-                    <li><a href="index.html">الرئيسيه</a></li>
+                    <li><a href="{{ route('profile') }}">صفحتي الشخصية</a></li>
+                    @endif
+
+                    <li><a href="{{ route('homepage') }}">الرئيسيه</a></li>
 
                 </ul>
             </div>

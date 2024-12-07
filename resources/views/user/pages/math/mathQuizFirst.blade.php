@@ -371,12 +371,18 @@ button:disabled {
                     <input type="number" name="answers[11]" class="answer" placeholder="أدخل الإجابة" value="{{ old('answers.11') }}">
                 </div>
 
-               c
+                  <!-- Question 12 -->
+                  <div class="question">
+                    <p>السؤال الثاني عشر</p>
+                    <label>اشترى محمد 4 دفاتر (📕) وأعطاه عمه 6 دفاتر (📕) أخرى، كم دفترًا أصبح مع محمد؟</label>
+                    <input type="number" name="answers[12]" class="answer" placeholder="أدخل الإجابة" value="{{ old('answers.12') }}">
+                </div>
 
                 <!-- Question 13 -->
                 <div class="question">
                     <p>السؤال الثالث عشر</p>
-                    <label>ما عدد النجوم (⭐)؟ ضع دائرة حول العدد المناسب.</label>
+                    <label>ما عدد النجوم ( <span class="stars">⭐⭐⭐⭐</span><br>
+                        <span class="stars" style="margin-right:29px">⭐⭐⭐⭐</span>)؟ ضع دائرة حول العدد المناسب.</label>
                     <div class="radio-group">
                         <label><input type="radio" name="answers[13]" value="22" {{ old('answers.13') == '22' ? 'checked' : '' }}> 22</label>
                         <label><input type="radio" name="answers[13]" value="21" {{ old('answers.13') == '21' ? 'checked' : '' }}> 21</label>

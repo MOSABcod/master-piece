@@ -1,7 +1,7 @@
-<div class="sidebar pe-4 pb-3">
-    <nav class="navbar bg-light navbar-light">
+<div class="sidebar pe-4 pb-3" style="    overflow: hidden;">
+    <nav class="navbar " >
         <a href="index.html" class="navbar-brand mx-4 mb-3">
-            <h3 class="text-primary"><i class="fa fa-hashtag me-2"></i>DASHMIN</h3>
+            <h3 class="text-primary"><img src="{{ asset('assets/img/dashborad logo.png') }}" alt=""></h3>
         </a>
         <div class="d-flex align-items-center ms-4 mb-4">
             <div class="position-relative">
@@ -17,7 +17,7 @@
                     @elseif (Auth::user()->role === 'teacher')
                         معلم/ة
                     @else
-                        {{ Auth::user()->role }}
+                        طالب/ة
                     @endif
                 </span>
             </div>
