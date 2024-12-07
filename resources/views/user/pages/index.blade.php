@@ -4,44 +4,70 @@
 @section('content')
 
     <main>
+        
         <!-- BANNER SECTION START -->
-        <section class="ed-2-banner bg-edoffwhite pt-[120px] pb-[190px] relative z-[1] overflow-hidden">
-            <div class="container max-w-[71.6%] xxxl:max-w-[86.5%] xxl:max-w-[90.6%] mx-auto">
-                <div class="flex md:flex-col gap-x-[112px] gap-y-[40px] items-center">
-                    <!-- banner text -->
-                    <div class="max-w-[49%] xxxl:max-w-[45.5%] md:max-w-full shrink-0">
-                        <h6 class="ed-section-sub-title !text-black before:!content-none">منصة <span class="text-edpurple">تعليمية</span> مبتكرة</h6>
-                        <h1 class="font-medium text-[clamp(35px,5.4vw,80px)] text-edblue tracking-tight leading-[1.12] mb-[25px]">اختبر مهاراتك مع <span class="font-bold"><span class="inline-block text-edpurple relative before:absolute before:left-0 before:top-[calc(100%-6px)] before:w-[240px] before:h-[21px] before:bg-[url('../assets/img/banner-2-title-vector.svg')]">المنصة</span> التعليمية المتطورة</span></h1>
-                        <p class="text-edgray font-medium mb-[41px]">منصة تعليمية مبتكرة تتيح للطلاب اختبار مهاراتهم ومعرفة نقاط قوتهم وضعفهم من خلال اختبارات مخصصة. كما توفر خارطة طريق  للمعلمين تساعدهم على تحسين مهاراتهم وتطوير أساليبهم التعليمية بطريقة تفاعلية وعصرية. هدفنا هو تحسين العملية التعليمية وتعزيز النجاح الأكاديمي لكل من الطلاب والمعلمين.</p>
-                        <div class="flex flex-wrap gap-[10px]">
-                            <a href="test-student.html" class="ed-btn !bg-transparent border border-edpurple !text-edpurple hover:!bg-edpurple hover:!text-white">ابدأ الاختبار</a>
-                            <a href="roadmap-teacher.html" class="ed-btn !bg-transparent border border-black !text-black hover:!bg-black hover:!text-white">اكتشف خارطة الطريق</a>
+        <section>
+            <div class="ed-banner-slider swiper relative">
+                <div class="swiper-wrapper">
+                    <!-- الشريحة الأولى -->
+                    <div class="swiper-slide">
+                        <div class="pt-[390px] md:pt-[300px] xs:pt-[280px] pb-[205px] bg-[url('../assets/img/banner-bg-1.jpg')] bg-no-repeat bg-center bg-cover relative z-[1] before:absolute before:-z-[1] before:inset-0 before:bg-edblue/70 before:pointer-events-none">
+                            <div class="mx-[10%] md:mx-[15px]">
+                                <div class="text-white w-[48%] xl:w-[60%] md:w-[70%] sm:w-[80%] xs:w-full">
+                                    <h2 class="font-bold text-[clamp(35px,4.57vw,80px)] leading-[1.13] mb-[15px]">
+                                        "مرحلة جديدة من التعليم تبدأ بفهم احتياجات طلابنا."
+                                    </h2>
+                                    <p class="leading-[1.75] mb-[41px]">
+                                        "معًا لنكتشف صعوبات التعلم ونبني مستقبلًا أفضل."
+                                    </p>
+                                    <div class="flex items-center gap-[20px]">
+                                        <a href="#" class="ed-btn">ابدأ التشخيص الآن</a>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
-
-
-                    <!-- banner image -->
-                    <div class="max-w-[51%] md:max-w-full">
-                        <div class="w-max relative z-[1] flex gap-[30px] items-center">
-                            <img src="assets/img/bannerright.jpg" alt="banner image" class="border-[10px] border-white rounded-[20px] max-w-[241px] aspect-[261/366]">
-                            <img src="assets/img/bannerleft (2).jpg" alt="banner image" style="height: 544px !important; width:415px!important" class="rounded-[20px] ">
-
-                            <!-- vectors -->
-                            <div>
-                                <div class="w-[242px] aspect-square rounded-full bg-edpurple opacity-80 blur-[110px] absolute -z-[1] bottom-0 left-[163px]"></div>
-                                <img src="assets/img/banner-2-img-vector-1.svg" alt="vector" class="pointer-events-none absolute -z[1] top-[30px] -left-[35px]">
-                                <img src="assets/img/banner-2-img-vector-2.svg" alt="vector" class="pointer-events-none absolute -z[1] -top-[50px] -right-[40px]">
+        
+                    <!-- الشريحة الثانية -->
+                    <div class="swiper-slide">
+                        <div class="pt-[390px] md:pt-[300px] xs:pt-[280px] pb-[205px] bg-[url('../assets/img/banner-bg-2.jpg')] bg-no-repeat bg-center bg-cover relative z-[1] before:absolute before:-z-[1] before:inset-0 before:bg-edblue/70 before:pointer-events-none">
+                            <div class="mx-[10%] md:mx-[15px]">
+                                <div class="text-white w-[48%] xl:w-[60%] md:w-[70%] sm:w-[80%] xs:w-full">
+                                    <h2 class="font-bold text-[clamp(35px,4.57vw,80px)] leading-[1.13] mb-[15px]">
+                                        "مدرسة زبدا الثانوية"
+                                    </h2>
+                                    <p class="leading-[1.75] mb-[41px]">
+                                        "رؤيتنا لبيئة تعليمية عادلة وصحية تلبي احتياجات الجميع."
+                                    </p>
+                                    <div class="flex items-center gap-[20px]">
+                                        <a href="#" class="ed-btn">تعرف على رسالتنا</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+        
+                    <!-- الشريحة الثالثة -->
+                    <div class="swiper-slide">
+                        <div class="pt-[390px] md:pt-[300px] xs:pt-[280px] pb-[205px] bg-[url('../assets/img/banner-bg-3.jpg')] bg-no-repeat bg-center bg-cover relative z-[1] before:absolute before:-z-[1] before:inset-0 before:bg-edblue/70 before:pointer-events-none">
+                            <div class="mx-[10%] md:mx-[15px]">
+                                <div class="text-white w-[48%] xl:w-[60%] md:w-[70%] sm:w-[80%] xs:w-full">
+                                    <h2 class="font-bold text-[clamp(35px,4.57vw,80px)] leading-[1.13] mb-[15px]">
+                                        "فريقنا المتخصص من المعلمات"
+                                    </h2>
+                                    <p class="leading-[1.75] mb-[41px]">
+                                        "يعمل من أجل تطوير قدرات الطلاب وتحقيق أهداف التعليم الشامل."
+                                    </p>
+                                    <div class="flex items-center gap-[20px]">
+                                        <a href="#" class="ed-btn">تعرف على فريق العمل</a>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
+        
 
-            <!-- vector -->
-            <div>
-                <img src="assets/img/banner-2-vector-1.svg" alt="vector" class="pointer-events-none absolute -z-[1] top-[135px] left-[38px] xxxl:hidden">
-                <img src="assets/img/banner-2-vector-2.svg" alt="vector" class="pointer-events-none absolute -z-[1] bottom-0 left-0">
-                <img src="assets/img/banner-2-vector-3.svg" alt="vector" class="pointer-events-none absolute -z-[1] -bottom-[8px] right-0">
             </div>
         </section>
         <!-- BANNER SECTION END -->

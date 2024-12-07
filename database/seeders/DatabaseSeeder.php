@@ -14,7 +14,7 @@ class DatabaseSeeder extends Seeder
     public function run(): void
     {
         $this->call([
-            // UsersTableSeeder::class,         // Seed users
+            UsersTableSeeder::class,         // Seed users
             ClassesTableSeeder::class,      // Seed classes
             ArabicFirstSeeder::class,       // Seed Arabic content for first grade
             MathFirstKgSeeder::class,       // Seed Math content for first KG
