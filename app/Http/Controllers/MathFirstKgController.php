@@ -100,7 +100,6 @@ class MathFirstKgController extends Controller
         if (in_array($user->role, ['teacher', 'manager'])) {
             return redirect()->route('homepage')->with('error', 'لا يُسمح للمعلمين أو المديرين بالتقديم.');
         }
-
         // Store the exam timer from the request input
         $remainingTime = $request->input('timer');
 
@@ -179,7 +178,6 @@ class MathFirstKgController extends Controller
             // Prepare student performance data
             $studentPerformance = $this->calculateStudentPerformance($userId);
             // Use RoadmapService to generate roadmap and HTML table
-            // dd($percentageScore);
             $roadmap = $this->roadmapService->generateRoadmap($studentPerformance, $percentageScore);
             $htmlTable = $this->roadmapService->generateHtmlTable($studentPerformance, $percentageScore);
             // Redirect with all necessary data
@@ -538,22 +536,16 @@ class MathFirstKgController extends Controller
         try {
             // Calculate the result and percentage score
 
-            $countOfQuestions = ArabicFirstKg::count();
+            $countOfQuestions = ArabicFirstKg::count(); // Dynamically count the total questions
 
-
-
-            // saving in database the answers
-
+            // Saving answers in database
             foreach ($answers as $questionId => $answer) {
-                // dd($request->all());
                 // Fetch the correct answer for the question
                 $question = ArabicFirstKg::where('id', $questionId)->first();
-                // dd($request->all());
 
                 if (!$question) {
                     continue; // Skip if question not found
                 }
-                // dd($request->all());
 
                 // Check if the user's answer is correct
                 $isCorrect = strtolower(trim($answer)) === strtolower(trim($question->correct_answer)) ? 1 : 0;
@@ -566,14 +558,17 @@ class MathFirstKgController extends Controller
                     'is_correct' => $isCorrect,
                 ]);
             }
+
             $result = ArabicAnswerFirstKg::where('user_id', $userId)->where('is_correct', 1)->count();
             $percentageScore = ($result / $countOfQuestions) * 100;
+
             // Prepare student performance data
             $studentPerformance = $this->calculateStudentPerformanceArabicFirst($userId);
+
             // Use RoadmapService to generate roadmap and HTML table
-            // dd($percentageScore);
             $roadmap = $this->roadmapService->generateRoadmapArabic($studentPerformance, $percentageScore);
             $htmlTable = $this->roadmapService->generateHtmlTableArabic($studentPerformance, $percentageScore);
+
             // Redirect with all necessary data
             return redirect()->route('result')->with([
                 'sweet_alert' => [
@@ -592,7 +587,6 @@ class MathFirstKgController extends Controller
             ])->with('result', $result);
         } catch (\Exception $e) {
             // Handle exceptions
-
             return redirect()->back()->with([
                 'sweet_alert' => [
                     'type' => 'error',
@@ -603,31 +597,23 @@ class MathFirstKgController extends Controller
             ]);
         }
     }
+
     /**
-     * Calculate student performance per skill.
-     *
-     * @param int $userId
-     * @return array
-     */
-    /**
-     * Calculate student performance per skill for the secondary math exam.
+     * Calculate student performance per skill for the Arabic first-grade exam.
      *
      * @param int $userId
      * @return array
      */
     private function calculateStudentPerformanceArabicFirst(int $userId): array
     {
-        // Define the mapping of question IDs to skills based on the updated structure
+        // Define the mapping of question IDs to skills
         $questionToSkillMap = [
-            // الوعي الصوتي (Phonemic Awareness) - 6 Questions
             1 => 'الوعي الصوتي',
             2 => 'الوعي الصوتي',
             3 => 'الوعي الصوتي',
             4 => 'الوعي الصوتي',
             5 => 'الوعي الصوتي',
             6 => 'الوعي الصوتي',
-
-            // قراءة أصوات الحروف (Letter Sound Reading) - 8 Questions
             7  => 'قراءة أصوات الحروف',
             8  => 'قراءة أصوات الحروف',
             9  => 'قراءة أصوات الحروف',
@@ -636,8 +622,6 @@ class MathFirstKgController extends Controller
             12 => 'قراءة أصوات الحروف',
             13 => 'قراءة أصوات الحروف',
             14 => 'قراءة أصوات الحروف',
-
-            // الكتابة (Writing) - 4 Questions
             15 => 'الكتابة',
             16 => 'الكتابة',
             17 => 'الكتابة',
@@ -657,6 +641,7 @@ class MathFirstKgController extends Controller
             $performance[$skill] = [
                 'total_score'     => 0,
                 'total_possible'  => $totalQuestions,
+                'percentage'      => 0,  // Store the calculated percentage
             ];
         }
 
@@ -670,15 +655,22 @@ class MathFirstKgController extends Controller
             $skill = $questionToSkillMap[$questionId] ?? null;
 
             if ($skill && array_key_exists($skill, $performance)) {
+                // Increment the total score for the correct answers
                 if ($answer->is_correct) {
-                    $performance[$skill]['total_score'] += 1; // Assuming each correct answer is 1 point
+                    $performance[$skill]['total_score'] += 1;
                 }
-                // 'total_possible' is already initialized based on the defined question counts
             }
+        }
+
+        // Calculate the percentage for each skill
+        foreach ($performance as $skill => $data) {
+            $performance[$skill]['percentage'] = ($data['total_score'] / $data['total_possible']) * 100;
         }
 
         return $performance;
     }
+
+
     //  ==========================================save sec===================================================
     //  =====================================================================================================
     //  =====================================================================================================
@@ -997,23 +989,63 @@ class MathFirstKgController extends Controller
     }
     private function calculateStudentPerformanceScience(int $userId): array
     {
-        // Define the total number of questions in the exam
-        $totalQuestions = 23; // Update this number based on the actual count of science questions
+        // Define the mapping of question IDs to skills based on the updated structure
+        $questionToSkillMap = [
+            // Earth Science (العلوم الأرضية) - 4 Questions
+            1 => 'العلوم الأرضية',
+            2 => 'العلوم الأرضية',
+            4 => 'العلوم الأرضية',
+            10 => 'العلوم الأرضية',
 
-        // Initialize performance metrics
-        $performance = [
-            'total_score'     => 0,
-            'total_possible'  => $totalQuestions,
+            // Environmental Science (العلوم البيئية) - 6 Questions
+            3 => 'العلوم البيئية',
+            5 => 'العلوم البيئية',
+            6 => 'العلوم البيئية',
+            7 => 'العلوم البيئية',
+            8 => 'العلوم البيئية',
+            9 => 'العلوم البيئية',
+
+            // Biology (علم الأحياء) - 3 Questions
+            11 => 'علم الأحياء',
         ];
 
-        // Retrieve all answers for the user related to the science exam
-        $answers = ScienceAnswer::where('user_id', $userId)->get(); // Replace `ScienceAnswer` with the correct model name if different
+        // Define the skills and their total questions
+        $skills = [
+            'العلوم الأرضية'        => 4,
+            'العلوم البيئية'        => 6,
+            'علم الأحياء'           => 3,
+        ];
 
-        // Calculate the total score
+        // Initialize performance array
+        $performance = [];
+        foreach ($skills as $skill => $totalQuestions) {
+            $performance[$skill] = [
+                'total_score'     => 0,
+                'total_possible'  => $totalQuestions,
+                'percentage'      => 0,  // Store the calculated percentage for each skill
+            ];
+        }
+
+        // Retrieve all answers for the user related to the science exam
+        $answers = ScienceAnswer::where('user_id', $userId)->get();
+
         foreach ($answers as $answer) {
-            if ($answer->is_correct) {
-                $performance['total_score'] += 1; // Assuming each correct answer is 1 point
+            $questionId = $answer->question_id;
+
+            // Determine the skill based on question ID
+            $skill = $questionToSkillMap[$questionId] ?? null;
+
+            if ($skill && array_key_exists($skill, $performance)) {
+                // Increment the total score for the correct answers
+                if ($answer->is_correct) {
+                    $performance[$skill]['total_score'] += 1;
+                }
             }
+        }
+
+        // Calculate the percentage for each skill (normalized to 100)
+        foreach ($performance as $skill => $data) {
+            $performance[$skill]['percentage'] = ($data['total_score'] / $data['total_possible']) * 100;
         }
 
         return $performance;

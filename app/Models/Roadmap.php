@@ -14,6 +14,8 @@ class Roadmap extends Model
         'generated_by',
         'response',
         'result',
+        'score',
+        'level',
     ];
 
 
