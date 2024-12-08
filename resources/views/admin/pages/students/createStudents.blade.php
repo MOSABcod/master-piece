@@ -36,6 +36,12 @@
                         <label for="password">كلمة المرور</label>
                     </div>
 
+                   <!-- Role -->
+                   <div class="form-floating mb-3">
+                    <input type="hidden" value="student" class="form-control" id="password" name="role" placeholder="أدخل كلمة المرور" required>
+
+                    <label for="role">الدور</label>
+                </div>
 
                     <!-- Age -->
                     <div class="form-floating mb-3">

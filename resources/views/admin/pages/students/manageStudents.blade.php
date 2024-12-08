@@ -99,10 +99,7 @@
                                                         <input type="number" pattern="\d{10}" class="form-control" id="national_id-{{ $user->id }}" name="national_id" value="{{ $user->national_id }}" required>
                                                     </div>
 
-                                                    <!-- Role -->
-                                                    <div class="mb-3">
-                                                        <input hidden class="form-select" id="role-{{ $user->id }}" name="role" required>
-                                                    </div>
+            
 
                                                     <!-- Age -->
                                                     <div class="mb-3">
