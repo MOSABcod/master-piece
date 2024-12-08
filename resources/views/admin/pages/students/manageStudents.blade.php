@@ -79,9 +79,9 @@
                                 <div class="modal fade" id="editModal-{{ $user->id }}" tabindex="-1" aria-labelledby="editModalLabel-{{ $user->id }}" aria-hidden="true">
                                     <div class="modal-dialog modal-dialog-scrollable">
                                         <div class="modal-content" style="direction: rtl; text-align: right;">
-                                            <div class="modal-header">
-                                                <h5 class="modal-title" id="editModalLabel-{{ $user->id }}">تعديل بيانات الطالب/ة</h5>
-                                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="إغلاق"></button>
+                                            <div class="modal-header" style="display: flex; justify-content: space-between; direction: rtl;">
+                                                <h5 class="modal-title" id="editModalLabel-{{ $user->id }}" style="margin-left: auto;">تعديل بيانات الطالب/ة</h5>
+                                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="إغلاق" style="margin: 0rem !important;"></button>
                                             </div>
                                             <div class="modal-body">
                                                 <form action="{{ route('teacher.update', $user->id) }}" method="POST">
@@ -101,12 +101,7 @@
 
                                                     <!-- Role -->
                                                     <div class="mb-3">
-                                                        <label for="role-{{ $user->id }}" class="form-label">الدور</label>
-                                                        <select class="form-select" id="role-{{ $user->id }}" name="role" required>
-                                                            <option value="student" {{ $user->role == 'student' ? 'selected' : '' }}>طالب</option>
-                                                            <option value="teacher" {{ $user->role == 'teacher' ? 'selected' : '' }}>معلم</option>
-                                                            <option value="manager" {{ $user->role == 'manager' ? 'selected' : '' }}>مدير</option>
-                                                        </select>
+                                                        <input hidden class="form-select" id="role-{{ $user->id }}" name="role" required>
                                                     </div>
 
                                                     <!-- Age -->
@@ -114,12 +109,25 @@
                                                         <label for="age-{{ $user->id }}" class="form-label">العمر</label>
                                                         <input type="number" class="form-control" id="age-{{ $user->id }}" name="age" value="{{ $user->age }}">
                                                     </div>
+                                                  
 
-                                                    <!-- Class ID -->
                                                     <div class="mb-3">
-                                                        <label for="class_id-{{ $user->id }}" class="form-label">رقم الصف</label>
-                                                        <input type="number" class="form-control" id="class_id-{{ $user->id }}" name="class_id" value="{{ $user->class_id }}">
+                                                        <label for="class_id" class="form-label">اختر الصف</label>
+                                                        <select class="form-select @error('class_id') is-invalid @enderror" id="class_id" name="class_id" required>
+                                                            <option value="" disabled {{ old('class_id', $user->class_id) ? '' : 'selected' }}>اختر الصف</option>
+                                                            @foreach ($classes as $class)
+                                                                <option value="{{ $class->id }}" @selected(old('class_id', $user->class_id) == $class->id)>
+                                                                    {{ $class->class_name }}
+                                                                </option>
+                                                            @endforeach
+                                                        </select>
+                                                        @error('class_id')
+                                                            <div class="invalid-feedback">
+                                                                {{ $message }}
+                                                            </div>
+                                                        @enderror
                                                     </div>
+
 
                                                     <!-- Submit Button -->
                                                     <button type="submit" class="btn " style="background-color: #27703b; color:white;">حفظ التعديلات</button>

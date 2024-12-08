@@ -106,8 +106,9 @@ class UserController extends Controller
             $user->passed_all_exams = $user->first_exam_completed > 0 || $user->second_exam_completed > 0 || $user->third_exam_completed > 0 || $user->fourth_exam_completed > 0 || $user->fifth_exam_completed > 0;
         }
 
+        $classes = Classes::all();
         // Pass all variables to the view using compact
-        return view('admin.pages.students.manageStudents', compact('users'));
+        return view('admin.pages.students.manageStudents', compact('users','classes'));
     }
 
 
@@ -286,7 +287,7 @@ class UserController extends Controller
                 [
                     'name' => 'required|string|max:50',
                     'national_id' => 'required|numeric|unique:users,national_id,' . $teacher->id,
-                    'role' => 'required|in:student,teacher,manager',
+
                     'age' => 'nullable|numeric|min:0',
                     'class_id' => 'nullable|numeric',
                 ],
