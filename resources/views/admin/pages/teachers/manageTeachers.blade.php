@@ -16,7 +16,7 @@
                                 <th scope="col" style="text-align: right;">#</th>
                                 <th scope="col" style="text-align: right;">اسم المستخدم</th>
                                 <th scope="col" style="text-align: right;">الرقم الوطني</th>
-                                <th scope="col" style="text-align: right;">الدور</th>
+                                {{-- <th scope="col" style="text-align: right;">الدور</th> --}}
                                 <th scope="col" style="text-align: right;">العمر</th>
                                 <th scope="col" style="text-align: right;">رقم الصف</th>
                                 <th scope="col" style="text-align: right;">الإجراءات</th>
@@ -28,7 +28,7 @@
                                     <td>{{ $user->id }}</td>
                                     <td>{{ $user->name }}</td>
                                     <td>{{ $user->national_id }}</td>
-                                    <td>
+                                    {{-- <td>
                                         @if ($user->role === 'manager')
                                             مدير/ة
                                         @elseif ($user->role === 'teacher')
@@ -38,7 +38,7 @@
                                         @else
                                             {{ $user->role }}
                                         @endif
-                                    </td>                                    <td>{{ $user->age ?? 'غير متوفر' }}</td>
+                                    </td>                                    <td>{{ $user->age ?? 'غير متوفر' }}</td> --}}
                                     <td>{{ $user->class_id ?? 'غير متوفر' }}</td>
                                     <td>
                                        <!-- Edit Button -->

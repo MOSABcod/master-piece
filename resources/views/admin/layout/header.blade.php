@@ -35,37 +35,40 @@
     <!-- Template Stylesheet -->
     <link href="admin/css/style.css" rel="stylesheet">
     <style>
-        .modal-header .btn-close {
-        padding: .5rem .5rem;
-        margin: 0 !important;
-    }
-    .dropdown-menu {
-        left: 0 !important;
-        right: auto !important; /* Ensure it's aligned to the left */
-    }
-    /* body, .container-xxl {
-    margin: 0;
-    padding: 0;
-    width: 100%;
-}
-.navbar {
-    margin: 0;
-    padding: 0;
-}
-.container-xxl {
-    display: flex;
-    flex: 1;
-    justify-content: space-between;
-}
+        /* Adjust Navbar to be closer to Sidebar */
+        .navbar {
+            margin-left: 0; /* Remove any left margin */
+            padding-left: 20px; /* Adjust the padding if needed */
+        }
 
-.content {
-    flex: 1;
-}
+        /* Adjust Sidebar width if necessary */
+        .sidebar {
+            width: 300px;
+        }
 
-.sidebar {
-    position: fixed;
-} */
+        /* Ensure content takes full space and aligns properly */
+        .content {
+            margin-left: 0; /* Remove left margin */
+            /* padding-left: 20px; Adjust content padding */
+            min-height: 100vh;
+            background: #ffffff;
+        }
 
+        /* Adding space between the burger menu and the sidebar */
+        .sidebar-toggler {
+            margin-left: 10px; /* Adjust this value to create more or less space */
+        }
+
+        /* Adjust sidebar for responsiveness */
+        @media (max-width: 768px) {
+            .sidebar {
+                width: 180px; /* Further reduce sidebar width for small screens */
+            }
+
+            .content {
+                margin-left: 180px; /* Adjust content margin to fit the sidebar */
+            }
+        }
     </style>
 </head>
 
@@ -77,13 +80,11 @@
                 <span class="sr-only">Loading...</span>
             </div>
         </div>
-
         <!-- Spinner End -->
 
         {{-- sidebar --}}
         @include('admin.layout.sidebar')
         {{-- sidebar end --}}
-
 
         <!-- Content Start -->
         <div class="content">
@@ -95,13 +96,8 @@
                 <a href="#" class="sidebar-toggler flex-shrink-0" style="padding:5px;">
                     <i class="fa fa-bars" style="color:#27703b ;"></i>
                 </a>
-                {{-- <form class="d-none d-md-flex ms-4">
-                    <input class="form-control border-0" type="search" placeholder="Search">
-                </form> --}}
                 <div class="navbar-nav align-items-center ms-auto">
-
                     <div class="nav-item dropdown">
-
                         <div class="dropdown-menu dropdown-menu-start bg-light border-0 rounded-0 rounded-bottom m-0">
                             <a href="#" class="dropdown-item">My Profile</a>
                             <a href="#" class="dropdown-item">Settings</a>
@@ -111,9 +107,6 @@
                             </form>
                         </div>
                     </div>
-
-
                 </div>
             </nav>
             <!-- Navbar End -->
-
