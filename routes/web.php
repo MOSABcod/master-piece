@@ -33,10 +33,9 @@ Route::delete('/students/{id}', [UserController::class, 'destroyStudent'])->name
 // save answers
 Route::post('/saveAnswer', [MathFirstKgController::class, 'saveAnswers'])->name('save.math.first');
 
-
-Route::get('/dashboard', function () {
-    return view('admin.pages.index');
-})->middleware(['auth', 'verified'])->name('dashboard');
+Route::get('/dashboard', [UserController::class, 'homeDash'])
+    ->middleware(['auth', 'verified'])
+    ->name('dashboard');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');

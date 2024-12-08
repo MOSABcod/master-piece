@@ -431,23 +431,14 @@
     </div>
 </section>
 <!-- BLOG SECTION END -->
-<!-- CTA 2 SECTION START -->
-<section class="mt-[120px] xl:mt-[80px] md:mt-[60px]" dir="rtl">
-    <div class="mx-[19.7%] xxxl:mx-[14.7%] xxl:mx-[9.7%] xl:mx-[3.2%] md:mx-[15px] bg-[url('../assets/img/cta-3-bg.jpg')] bg-no-repeat bg-cover bg-center rounded-[20px] overflow-hidden text-center py-[120px] xl:py-[80px] md:py-[60px] relative z-[1] before:absolute before:inset-0 before:bg-edpurple/80 before:-z-[1]">
-        <div class="max-w-[570px] mx-auto">
-            <h6 class="ed-section-sub-title ed-section-sub-title--white ml-[48px]">رسالتنا التعليمية</h6>
-            <h2 class="ed-section-title !text-white mb-[18px]">خلق بيئة تعليمية تفاعلية تشجع أولياء الأمور والمجتمع المحلي على المساهمة في بناء مستقبل طلابنا</h2>
-        </div>
-    </div>
-</section>
-<!-- CTA 2 SECTION END -->
+
 <!-- BLOG SECTION START -->
 <section class="py-[120px] xl:py-[80px] md:py-[60px] relative z-[1] overflow-hidden" dir="rtl">
     <div class="mx-[19.71%] xxxl:mx-[14.71%] xxl:mx-[9.71%] xl:mx-[5.71%] md:mx-[12px]">
         <!-- heading -->
         <div class="text-center mb-[46px] md:mb-[30px]">
-            <h6 class="ed-section-sub-title">خدمات الموقع</h6>
-            <h2 class="ed-section-title">أحدث استراتيجيات لدينا</h2>
+            <h6 class="ed-section-sub-title">ابداعات مدرستنا</h6>
+            <h2 class="ed-section-title">ابداعات مدرستنا</h2>
         </div>
 
         <!-- Container for the image gallery -->
@@ -519,6 +510,16 @@
     </div>
 </section>
 <!-- BLOG SECTION END -->
+<!-- CTA 2 SECTION START -->
+<section class="mt-[120px] xl:mt-[80px] md:mt-[60px]" dir="rtl">
+    <div class="mx-[19.7%] xxxl:mx-[14.7%] xxl:mx-[9.7%] xl:mx-[3.2%] md:mx-[15px] bg-[url('../assets/img/cta-3-bg.jpg')] bg-no-repeat bg-cover bg-center rounded-[20px] overflow-hidden text-center py-[120px] xl:py-[80px] md:py-[60px] relative z-[1] before:absolute before:inset-0 before:bg-edpurple/80 before:-z-[1]">
+        <div class="max-w-[570px] mx-auto">
+            <h6 class="ed-section-sub-title ed-section-sub-title--white ml-[48px]">رسالتنا التعليمية</h6>
+            <h2 class="ed-section-title !text-white mb-[18px]">خلق بيئة تعليمية تفاعلية تشجع أولياء الأمور والمجتمع المحلي على المساهمة في بناء مستقبل طلابنا</h2>
+        </div>
+    </div>
+</section>
+<!-- CTA 2 SECTION END -->
 
 <script>
 // Initialize slideIndex

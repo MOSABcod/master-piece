@@ -23,10 +23,16 @@ class UserController extends Controller
         $classes = Classes::all();
         return view('admin.pages.teachers.manageTeachers', compact('users', 'classes')); // Adjust the view path as needed
     }
+    public function homeDash()
+    {
+        $users = User::with('class')->where('role', 'student')->paginate(10); // Fetch only teachers
+        $classes = Classes::all();
+        return view('admin.pages.index', compact('users'));
+    }
     public function students()
     {
         // Get all students with their exam statuses and roadmaps
-        $users = User::with(['roadmaps' => function ($query) {
+        $users = User::with(['class', 'roadmaps' => function ($query) {
             $query->selectRaw('user_id, max(level) as max_level')->groupBy('user_id');
         }])
             ->where('role', 'student')

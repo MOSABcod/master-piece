@@ -102,7 +102,15 @@ class MathFirstKgController extends Controller
         }
         // Store the exam timer from the request input
         $remainingTime = $request->input('timer');
-
+        if($remainingTime)
+        eeturn redirect()->route('login')->with([
+            'sweet_alert' => [
+                'type' => 'error',
+                'title' => 'خطأ!',
+                'message' => 'يجب تسجيل الدخول لحفظ الإجابات.',
+            ],
+            'remaining_time' => $remainingTime,
+        ]);
         // Ensure the user is authenticated
         $userId = Auth::id(); // Get the authenticated user ID
         if (!$userId) {

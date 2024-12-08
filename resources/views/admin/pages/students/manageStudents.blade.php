@@ -48,7 +48,7 @@
                                         @endif
                                     </td> --}}
                                     <td>{{ $user->age ?? 'غير متوفر' }}</td>
-                                    <td>{{ $user->class_id ?? 'غير متوفر' }}</td>
+                                    <td>{{ $user->class->class_name ?? 'غير متوفر' }}</td>
                                     <td>
                                         @if ($user->roadmaps->isNotEmpty())
                                         {{ $user->roadmaps->first()->max_level }}

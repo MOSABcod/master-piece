@@ -108,12 +108,23 @@
                 <ul
                     class="to-go-to-sidebar-in-mobile ed-header-nav flex lg:flex-col gap-x-[43px] xxl:gap-x-[33px] font-kanit text-[17px] font-normal">
 
+                    <li><a style="color: white; font-size:24px; font-weight:bold"  href="{{ route('homepage') }}">الرئيسية</a></li>
                     @if (Auth::user() && Auth::user()->role == 'student')
 
                     <li><a style="color: white; font-size:24px; font-weight:bold"  href="{{ route('studentProfile') }}">صفحتي الشخصية</a></li>
                     @endif
+                    @if (Auth::user() )
 
-                    <li><a style="color: white; font-size:24px; font-weight:bold"  href="{{ route('homepage') }}">الرئيسية</a></li>
+                    <form action="{{ route('logout') }}" method="POST" class="nav-item nav-link p-0">
+                        @csrf
+                        <button type="submit"  class="btn btn-link text-decoration-none text-dark w-100 text-end">
+                            <li><a style="color: white; font-size:24px; font-weight:bold"  >تسجيل خروج</a></li>
+                        </button>
+                    </form>
+                    @else
+                    <li><a style="color: white; font-size:24px; font-weight:bold"  href="{{ route('login') }}">تسجيل دخول</a></li>
+
+                    @endif
 
                 </ul>
             </div>

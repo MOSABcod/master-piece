@@ -31,7 +31,16 @@ class AuthenticatedSessionController extends Controller
             // Authentication was successful
             $request->session()->regenerate();
 
-            return redirect()->intended(route('dashboard')); // Redirect to intended page after login
+            // Check user role and redirect accordingly
+            $user = Auth::user();
+
+            if ($user->role === 'student') {
+                // Redirect student to home page
+                return redirect()->route('homepage'); // Change this to the route name for the home page
+            }
+
+            // Redirect teacher or manager to dashboard
+            return redirect()->intended(route('dashboard'));
         }
 
         // If authentication fails
@@ -50,6 +59,6 @@ class AuthenticatedSessionController extends Controller
 
         $request->session()->regenerateToken();
 
-        return redirect('/');
+        return redirect('/homepage');
     }
 }
