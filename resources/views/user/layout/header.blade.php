@@ -27,8 +27,34 @@
             direction: rtl;
         }
 
+        /* Ensure mobile nav links are black */
+        .ed-header-nav-in-mobile ul li a {
+            color: black !important;
+        }
+
         .ed-sidebar {
             direction: ltr;
+        }
+
+        /* Always display nav links on larger screens */
+        @media (min-width: 1024px) {
+            .to-go-to-sidebar-in-mobile {
+                display: flex !important;
+                /* Ensure flex layout */
+                visibility: visible !important;
+                /* Ensure visibility */
+                opacity: 1 !important;
+                /* Remove any fading effects */
+                pointer-events: auto !important;
+                /* Allow interaction */
+            }
+
+            .ed-header-nav {
+                flex-direction: row;
+                /* Ensure horizontal layout */
+                gap: 30px;
+                /* Adjust spacing */
+            }
         }
 
         .ed-sidebar-heading .logo {
@@ -72,7 +98,8 @@
             <!-- heading -->
             <div class="ed-sidebar-heading p-[20px] lg:p-[20px] border-b border-edgray/20">
                 <div class="logo flex justify-between items-center">
-                    <a href="{{ route('homepage') }}"><img src="{{ asset('assets/img/dashborad logo.png') }}" alt="logo"></a>
+                    <a href="{{ route('homepage') }}"><img src="{{ asset('assets/img/dashborad logo.png') }}"
+                            alt="logo"></a>
 
                     <button type="button"
                         class="ed-sidebar-close-btn border border-edgray/20 w-[45px] aspect-square shrink-0 text-black text-[22px] rounded-full hover:text-edpurple"><i
@@ -89,12 +116,12 @@
     <header style="background-color: #27703b "
         class=" ed-header--2 relative z-[2] px-[7.9%] xxxxl:px-[6.5%] xxxl:px-[1%] lg:px-[15px] py-[25px] xxs:py-[16px] flex items-center justify-between">
         <div class="logo xxs:max-w-[60%] flex flex-row items-center" style="gap:20px">
-            <a href="{{ route('homepage') }}"><img src="assets/img/logo 05 (1).jpeg" style="height: 74px;" alt="logo"
-                    class="logo">
+            <a href="{{ route('homepage') }}"><img src="assets/img/logo 05 (1).jpeg" style="height: 74px;"
+                    alt="logo" class="logo">
             </a>
             <span style="display: flex; flex-wrap:wrap">
 
-                <p style="color: white; font-size:24px; font-weight:bold" >منصة زبدا لدعم التعليم المبكر </p>
+                <p style="color: white; font-size:24px; font-weight:bold">منصة زبدا لدعم التعليم المبكر </p>
                 {{-- <p  style="color: white; font-size:18px; font-weight:bold">مدرسة زبدا الثانوية</p> --}}
 
             </span>
@@ -108,22 +135,22 @@
                 <ul
                     class="to-go-to-sidebar-in-mobile ed-header-nav flex lg:flex-col gap-x-[43px] xxl:gap-x-[33px] font-kanit text-[17px] font-normal">
 
-                    <li><a style="color: white; font-size:24px; font-weight:bold"  href="{{ route('homepage') }}">الرئيسية</a></li>
+                    <li><a style="color: white; font-size:24px; font-weight:bold"
+                            href="{{ route('homepage') }}">الرئيسية</a></li>
                     @if (Auth::user() && Auth::user()->role == 'student')
-
-                    <li><a style="color: white; font-size:24px; font-weight:bold"  href="{{ route('studentProfile') }}">صفحتي الشخصية</a></li>
+                        <li><a style="color: white; font-size:24px; font-weight:bold"
+                                href="{{ route('studentProfile') }}">صفحتي الشخصية</a></li>
                     @endif
-                    @if (Auth::user() )
-
-                    <form action="{{ route('logout') }}" method="POST" class="nav-item nav-link p-0">
-                        @csrf
-                        <button type="submit"  class="btn btn-link text-decoration-none text-dark w-100 text-end">
-                            <li><a style="color: white; font-size:24px; font-weight:bold"  >تسجيل خروج</a></li>
-                        </button>
-                    </form>
+                    @if (Auth::user())
+                        <form action="{{ route('logout') }}" method="POST" class="nav-item nav-link p-0">
+                            @csrf
+                            <button type="submit" class="btn btn-link text-decoration-none text-dark w-100 text-end">
+                                <li><a style="color: white; font-size:24px; font-weight:bold">تسجيل خروج</a></li>
+                            </button>
+                        </form>
                     @else
-                    <li><a style="color: white; font-size:24px; font-weight:bold"  href="{{ route('login') }}">تسجيل دخول</a></li>
-
+                        <li><a style="color: white; font-size:24px; font-weight:bold" href="{{ route('login') }}">تسجيل
+                                دخول</a></li>
                     @endif
 
                 </ul>

@@ -9,9 +9,7 @@ use App\Http\Controllers\StudentController;
 
 Route::post('/upload-students', [StudentController::class, 'upload'])->name('students.upload');
 
-Route::get('/', function () {
-    return view('welcome');
-});
+
 
 Route::get('/viewTeachers', function () {
     return view('admin.pages.teachers.manageTeachers');
@@ -61,7 +59,7 @@ Route::get('/arabicFirst', [MathFirstKgController::class, 'checkApplyArabicFirst
 Route::get('/arabicSecondAndThird', [MathFirstKgController::class, 'checkApplyArabicSec'])->name('arabicSecondAndThird');
 Route::get('/science', [MathFirstKgController::class, 'checkApplyScience'])->name('science');
 
-Route::get('/homepage', function () {
+Route::get('/', function () {
     return view('user.pages.index');
 })->name('homepage');
 // Route::get('/mathFirst', function () {
