@@ -162,7 +162,4 @@
                     class="fa-solid fa-bars"></i></button>
         </div>
     </header>
-    <!-- HEADER SECTION END -->
-</body>
 
-</html>
