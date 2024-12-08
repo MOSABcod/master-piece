@@ -94,8 +94,8 @@
             </a>
             <span style="display: flex; flex-wrap:wrap">
 
-                <p style="color: white" >وزارة التربية والتعليم -</p>
-                <p  style="color: white">مدرسة زبدا الثانوية</p>
+                <p style="color: white; font-size:24px; font-weight:bold" >منصة زبدا لدعم التعليم المبكر </p>
+                {{-- <p  style="color: white; font-size:18px; font-weight:bold">مدرسة زبدا الثانوية</p> --}}
 
             </span>
 
@@ -110,10 +110,10 @@
 
                     @if (Auth::user() && Auth::user()->role == 'student')
 
-                    <li><a href="{{ route('studentProfile') }}">صفحتي الشخصية</a></li>
+                    <li><a style="color: white; font-size:24px; font-weight:bold"  href="{{ route('studentProfile') }}">صفحتي الشخصية</a></li>
                     @endif
 
-                    <li><a href="{{ route('homepage') }}">الرئيسيه</a></li>
+                    <li><a style="color: white; font-size:24px; font-weight:bold"  href="{{ route('homepage') }}">الرئيسية</a></li>
 
                 </ul>
             </div>

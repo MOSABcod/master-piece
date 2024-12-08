@@ -13,6 +13,7 @@
                         <button type="button" class="btn" style="background-color: #27703b; color:white;" data-bs-toggle="modal" data-bs-target="#uploadModal">
                             رفع ملف الطلاب
                         </button>
+
                     </div>
                 </div>
                 <div class="table-responsive">
@@ -129,6 +130,7 @@
                                 </div>
                                 <!-- End Edit Modal -->
 
+
                             @empty
                                 <tr>
                                     <td colspan="8" class="text-center">لا توجد بيانات لعرضها</td>
@@ -142,5 +144,26 @@
         </div>
     </div>
     <!-- Teachers Management End -->
-
+<!-- Modal for File Upload -->
+<div class="modal fade" id="uploadModal" tabindex="-1" aria-labelledby="uploadModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" style="direction: rtl; text-align: right;">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="uploadModalLabel">رفع ملف الطلاب</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="إغلاق"></button>
+            </div>
+            <div class="modal-body">
+                <form action="{{ route('students.upload') }}" method="POST" enctype="multipart/form-data">
+                    @csrf
+                    <div class="mb-3">
+                        <label for="file" class="form-label">اختر ملف Excel أو CSV</label>
+                        <input type="file" name="file" id="file" class="form-control" required>
+                    </div>
+                    <button type="submit" class="btn " style="background-color: #27703b; color:white;">رفع</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- End Modal -->
 @endsection

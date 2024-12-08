@@ -1,6 +1,6 @@
 <div class="sidebar pe-4 pb-3" style="    overflow: hidden;">
     <nav class="navbar " >
-        <a href="index.html" class="navbar-brand mx-4 mb-3">
+        <a href="{{ route('dashboard') }}" class="navbar-brand mx-4 mb-3">
             <h3 class="text-primary"><img src="{{ asset('assets/img/dashborad logo.png') }}" alt=""></h3>
         </a>
         <div class="d-flex align-items-center ms-4 mb-4">
@@ -28,9 +28,11 @@
                 <i class="fa fa-tachometer-alt me-2"></i>الصفحة الرئيسية
             </a>
 
-            <a href="{{ route('viewTeachers') }}" class="nav-item nav-link {{ Request::routeIs('viewTeachers') ? 'active' : '' }}">
-                <i class="fa fa-chalkboard-teacher me-2"></i>إدارة المعلمات
-            </a>
+           @if (Auth::user()->role == "manager")
+           <a href="{{ route('viewTeachers') }}" class="nav-item nav-link {{ Request::routeIs('viewTeachers') ? 'active' : '' }}">
+            <i class="fa fa-chalkboard-teacher me-2"></i>إدارة المعلمات
+        </a>
+           @endif
 
             <a href="{{ route('viewStudents') }}" class="nav-item nav-link {{ Request::routeIs('viewStudents') ? 'active' : '' }}">
                 <i class="fa fa-users me-2"></i>إدارة الطلاب

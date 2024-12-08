@@ -43,6 +43,29 @@
         left: 0 !important;
         right: auto !important; /* Ensure it's aligned to the left */
     }
+    /* body, .container-xxl {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+}
+.navbar {
+    margin: 0;
+    padding: 0;
+}
+.container-xxl {
+    display: flex;
+    flex: 1;
+    justify-content: space-between;
+}
+
+.content {
+    flex: 1;
+}
+
+.sidebar {
+    position: fixed;
+} */
+
     </style>
 </head>
 

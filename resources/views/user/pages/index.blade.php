@@ -29,7 +29,7 @@
                                         "مدرسة زبدا الثانوية"
 
                                     </h2>
-                                    <p class="leading-[1.75] mb-[41px]" style=" font-size: 20px !important;">
+                                    <p class="leading-[1.75] mb-[41px]" style=" font-size: 24px !important;">
                                         "رؤيتنا لبيئة تعليمية عادلة وصحية تلبي احتياجات الجميع."
 
                                     </p>
@@ -49,7 +49,7 @@
                                     <h2 class="font-bold text-[clamp(35px,4.57vw,80px)] leading-[1.13] mb-[15px]">
                                         "مرحلة جديدة من التعليم تبدأ بفهم احتياجات طلابنا."
                                     </h2>
-                                    <p class="leading-[1.75] mb-[41px]" style=" font-size: 20px !important;">
+                                    <p class="leading-[1.75] mb-[41px]" style=" font-size: 24px !important;">
                                         "معًا لنكتشف صعوبات التعلم ونبني مستقبلًا أفضل."
                                     </p>
                                     <div class="flex items-center gap-[20px]">
@@ -67,7 +67,7 @@
                                     <h2 class="font-bold text-[clamp(35px,4.57vw,80px)] leading-[1.13] mb-[15px]">
                                         "فريقنا المتخصص من المعلمات"
                                     </h2>
-                                    <p class="leading-[1.75] mb-[41px]"style=" font-size: 20px !important;">
+                                    <p class="leading-[1.75] mb-[41px]"style=" font-size: 24px !important;">
                                         "يعمل من أجل تطوير قدرات الطلاب وتحقيق أهداف التعليم الشامل."
                                     </p>
                                     <div class="flex items-center gap-[20px]" >
@@ -89,6 +89,8 @@
         <!-- CATEGORIES SECTION START -->
         <div class="ed-2-categories -mt-[98px] relative z-[2]">
             <div class="mx-[15.8%] xxxl:mx-[9.8%] xxl:mx-[3.5%] bg-white p-[40px] sm:p-[30px] xxs:p-[20px] rounded-[20px] shadow-[0_4px_25px_rgba(0,0,0,0.06)]">
+                <h6 class="ed-section-title" style="font-size:28px; text-align: center; margin-bottom: 30px">أختباراتنا التعليمية المبتكرة </h6>
+
                 <div class="grid grid-cols-3 md:grid-cols-2 xxs:grid-cols-1 gap-[20px]">
                     <!-- single category -->
                     <a class="border border-[#e5e5e5] rounded-[10px] py-[16px] px-[20px] flex sm:flex-col items-center sm:items-start gap-y-[15px] gap-x-[20px] hover:bg-[#F8B81F] hover:border-[#F8B81F] group">
@@ -158,7 +160,7 @@
 
                         <h6 class="ed-section-sub-title"   style="margin-right: 47px;">من نحن</h6>
                         <h2 class="ed-section-title mb-[9px]">مرحباً بكم في مدرسة زبدا الثانوية المختلطة</h2>
-                        <p class="text-edgray">مدرسة زبدا الثانوية المختلطة تسعى لتحقيق بيئة تعليمية عادلة وصحية، تعزز من إمكانيات جميع الطلاب وتراعي الفروق الفردية.</p>
+                        <p class="text-edgray" style="font-size: 20px">مدرسة زبدا الثانوية المختلطة تسعى جاهدة لتحقيق بيئة تعليمية شاملة وعادلة، تركز على تطوير الإمكانيات الأكاديمية والشخصية لجميع الطلاب. نحن نؤمن بأهمية مراعاة الفروق الفردية بين الطلاب، وتوفير فرص متساوية للجميع بغض النظر عن خلفياتهم أو قدراتهم. تسعى المدرسة إلى بناء بيئة صحية ومحفزة، تشجع على الابتكار والتفكير النقدي، وتوفر الدعم النفسي والاجتماعي لضمان نجاح كل طالب في تحقيق أهدافه التعليمية والشخصية. كما تعمل المدرسة على تعزيز القيم الإنسانية مثل الاحترام المتبادل، العمل الجماعي، والمسؤولية الاجتماعية، لتكون جزءًا من تربية جيل قادر على مواجهة تحديات المستقبل بثقة وعزيمة.</p>
 
 
 
@@ -185,7 +187,7 @@
                                 </div>
                                 <div>
                                     <h6 class="font-bold text-[30px] text-edblue mb-[10px] leading-[1.4]">رسالتنا</h6>
-                                    <p class="text-[24px] text-edgray leading-[1.8]">إعداد طلبة ناجحين من خلال استراتيجيات مبتكرة تواكب احتياجات التعليم الحديث.</p>
+                                    <p class="text-[24px] text-edgray leading-[1.8]">إعداد طلبة ناجحين من خلال استراتيجيات مبتكرة تواكب التعليم الحديث، مع تطوير مهارات التفكير النقدي والإبداعي، وتعزيز القدرة على حل المشكلات واتخاذ القرارات. تسعى المدرسة إلى دمج التكنولوجيا في التعليم وتوفير بيئة مرنة ومتنوعة تواكب التحديات العالمية.</p>
                                 </div>
                             </div>
 
@@ -196,7 +198,7 @@
                                 </div>
                                 <div>
                                     <h6 class="font-bold text-[30px] text-edblue mb-[10px] leading-[1.4]">رؤيتنا</h6>
-                                    <p class="text-[24px] text-edgray leading-[1.8]">تعزيز فرص التعليم الشامل والارتقاء بالمستوى التعليمي للمجتمع.</p>
+                                    <p class="text-[24px] text-edgray leading-[1.8]">تعزيز فرص التعليم الشامل والارتقاء بالمستوى التعليمي للمجتمع يتطلب توفير بيئة تعليمية متكاملة تضمن فرصًا متساوية لجميع الأفراد، مع تحديث المناهج وتدريب المعلمين على استراتيجيات مبتكرة. كما يتطلب التوعية بأهمية التعليم المستدام لبناء مجتمع قادر على مواجهة التحديات المستقبلية.</p>
                                 </div>
                             </div>
                         </div>
@@ -216,84 +218,88 @@
         </div>
 
         <!-- instructor cards -->
-<div class="grid grid-cols-3 sm:grid-cols-3 xs:grid-cols-2 xxs:grid-cols-1 gap-[30px] md:gap-[15px]">
-    <!-- single instructor -->
-    <div class="text-center group">
-        <!-- img -->
-        <div class="relative mb-[18px] overflow-hidden rounded-[12px]">
-            <img src="assets/img/fifth.jpeg" alt="هدى التركية" class="w-full aspect-[270/320] object-cover group-hover:scale-110">
-        </div>
+        <div class="grid grid-cols-3 sm:grid-cols-3 xs:grid-cols-2 xxs:grid-cols-1 gap-[30px] md:gap-[15px] justify-center">
 
-        <!-- txt -->
-        <div>
-            <h6 class="font-semibold text-[18px] text-edblue mb-[12px]">هدى التركية</h6>
-            <span class="text-edgray">معلمة المرحلة الأساسية (الصف الأول)</span>
-        </div>
-    </div>
-    <!-- single instructor -->
-    <div class="text-center group">
-        <!-- img -->
-        <div class="relative mb-[18px] overflow-hidden rounded-[12px]">
-            <img src="assets/img/first.jpeg" alt="نعايم الحويان" class="w-full aspect-[270/320] object-cover group-hover:scale-110">
-        </div>
+            <!-- single instructor -->
+            <div class="text-center group">
+                <!-- img -->
+                <div class="relative mb-[18px] overflow-hidden rounded-[12px]">
+                    <img src="assets/img/fifth.jpeg" alt="هدى التركية" class="w-full aspect-[270/320] object-cover group-hover:scale-110">
+                </div>
 
-        <!-- txt -->
-        <div>
-            <h6 class="font-semibold text-[18px] text-edblue mb-[12px]">نعايم الحويان</h6>
-            <span class="text-edgray">معلمة المرحلة الأساسية (الصف الأول)</span>
-        </div>
-    </div>
+                <!-- txt -->
+                <div>
+                    <h6 class="font-semibold text-[18px] text-edblue mb-[12px]">هدى التركية</h6>
+                    <span class="text-edgray">معلمة المرحلة الأساسية (الصف الأول)</span>
+                </div>
+            </div>
 
-    <!-- single instructor -->
-    <div class="text-center group">
-        <!-- img -->
-        <div class="relative mb-[18px] overflow-hidden rounded-[12px]">
-            <img src="assets/img/fourth.jpeg" alt="أسماء الجويفل" class="w-full aspect-[270/320] object-cover group-hover:scale-110">
-        </div>
 
-        <!-- txt -->
-        <div>
-            <h6 class="font-semibold text-[18px] text-edblue mb-[12px]">أسماء الجويفل</h6>
-            <span class="text-edgray">معلمة المرحلة الأساسية (الصف الثاني)</span>
-        </div>
+            <!-- single instructor -->
+            <div class="text-center group">
+                <!-- img -->
+                <div class="relative mb-[18px] overflow-hidden rounded-[12px]">
+                    <img src="assets/img/fourth.jpeg" alt="أسماء الجويفل" class="w-full aspect-[270/320] object-cover group-hover:scale-110">
+                </div>
+
+                <!-- txt -->
+                <div>
+                    <h6 class="font-semibold text-[18px] text-edblue mb-[12px]">أسماء الجويفل</h6>
+                    <span class="text-edgray">معلمة المرحلة الأساسية (الصف الثاني)</span>
+                </div>
+            </div>
+<!-- single instructor -->
+<div class="text-center group">
+    <!-- img -->
+    <div class="relative mb-[18px] overflow-hidden rounded-[12px]">
+        <img src="assets/img/first.jpeg" alt="نعايم الحويان" class="w-full aspect-[270/320] object-cover group-hover:scale-110">
     </div>
 
-    <!-- single instructor -->
-    <div class="text-center group">
-        <!-- img -->
-        <div class="relative mb-[18px] overflow-hidden rounded-[12px]">
-            <img src="assets/img/third.jpeg" alt="ياسمين الدعجة" class="w-full aspect-[270/320] object-cover group-hover:scale-110">
-        </div>
-
-        <!-- txt -->
-        <div>
-            <h6 class="font-semibold text-[18px] text-edblue mb-[12px]">ياسمين الدعجة</h6>
-            <span class="text-edgray">معلمة الفيزياء</span>
-        </div>
-    </div>
-
-    <!-- single instructor -->
-    <div class="text-center group">
-        <!-- img -->
-        <div class="relative mb-[18px] overflow-hidden rounded-[12px]">
-            <img src="assets/img/second.jpeg" alt="عبير السكارنة" class="w-full aspect-[270/320] object-cover group-hover:scale-110">
-        </div>
-
-        <!-- txt -->
-        <div>
-            <h6 class="font-semibold text-[18px] text-edblue mb-[12px]">عبير السكارنة</h6>
-            <span class="text-edgray">معلمة الرياضيات</span>
-        </div>
+    <!-- txt -->
+    <div>
+        <h6 class="font-semibold text-[18px] text-edblue mb-[12px]">نعايم الحويان</h6>
+        <span class="text-edgray">مديرة المدرسة</span>
     </div>
 </div>
+            <!-- single instructor -->
+            <div class="text-center group">
+                <!-- img -->
+                <div class="relative mb-[18px] overflow-hidden rounded-[12px]">
+                    <img src="assets/img/third.jpeg" alt="ياسمين الدعجة" class="w-full aspect-[270/320] object-cover group-hover:scale-110">
+                </div>
 
-<!-- vectors -->
-<div class="lg:hidden">
-    <div class="pointer-events-none w-[434px] aspect-square rounded-full bg-edpurple/15 absolute -z-[1] top-0 left-[56px] -translate-y-[50%]"></div>
-    <div class="pointer-events-none w-[694px] aspect-square rounded-full bg-edpurple/10 absolute -z-[1] bottom-0 right-[21px] translate-y-[50%]"></div>
-    <img src="assets/img/admission-vector-2.svg" alt="vector" class="absolute -z-[1] bottom-[154px] right-[58px]">
-    <img src="assets/img/instructor-vector.svg" alt="vector" class="absolute -z-[1] top-[120px] left-0">
-</div>
+                <!-- txt -->
+                <div>
+                    <h6 class="font-semibold text-[18px] text-edblue mb-[12px]">ياسمين الدعجة</h6>
+                    <span class="text-edgray">معلمة الفيزياء</span>
+                </div>
+            </div>
+
+            <!-- single instructor -->
+            <div class="text-center group">
+                <!-- img -->
+                <div class="relative mb-[18px] overflow-hidden rounded-[12px]">
+                    <img src="assets/img/second.jpeg" alt="عبير السكارنة" class="w-full aspect-[270/320] object-cover group-hover:scale-110">
+                </div>
+
+                <!-- txt -->
+                <div>
+                    <h6 class="font-semibold text-[18px] text-edblue mb-[12px]">عبير السكارنة</h6>
+                    <span class="text-edgray">معلمة الرياضيات</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- vectors -->
+        <div class="lg:hidden">
+            <div class="pointer-events-none w-[434px] aspect-square rounded-full bg-edpurple/15 absolute -z-[1] top-0 left-[56px] -translate-y-[50%]"></div>
+            <div class="pointer-events-none w-[694px] aspect-square rounded-full bg-edpurple/10 absolute -z-[1] bottom-0 right-[21px] translate-y-[50%]"></div>
+            <img src="assets/img/admission-vector-2.svg" alt="vector" class="absolute -z-[1] bottom-[154px] right-[58px]">
+            <img src="assets/img/instructor-vector.svg" alt="vector" class="absolute -z-[1] top-[120px] left-0">
+        </div>
+    </div>
+</section>
+<!-- INSTRUCTORS SECTION END -->
 
 <!-- BLOG SECTION START -->
 <section class="py-[120px] xl:py-[80px] md:py-[60px] relative z-[1] overflow-hidden" dir="rtl">
@@ -301,7 +307,7 @@
         <!-- heading -->
         <div class="text-center mb-[46px] md:mb-[30px]">
             <h6 class="ed-section-sub-title">خدمات الموقع</h6>
-            <h2 class="ed-section-title">أحدث الخدمات لدينا</h2>
+            <h2 class="ed-section-title">أحدث استراتيجيات لدينا</h2>
         </div>
 
         <!-- service cards -->
