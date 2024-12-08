@@ -83,7 +83,7 @@ class User extends Authenticatable
     }
     public function arabicAnswersFirstKg()
     {
-        return $this->hasMany(arabicAnswerFirstKg::class, 'user_id');
+        return $this->hasMany(ArabicAnswerSecondThird::class, 'user_id');
     }
     public function scienceAnswers()
     {
