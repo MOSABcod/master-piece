@@ -277,9 +277,9 @@ class UserController extends Controller
             $teacher = User::findOrFail($id);
 
             // Ensure the user is a teacher
-            if ($teacher->role !== 'teacher') {
-                return redirect()->route('teacher.index')->with('error', 'يمكنك فقط تحديث بيانات المعلمين.');
-            }
+            // if ($teacher->role !== 'teacher') {
+            //     return redirect()->route('teacher.index')->with('error', 'يمكنك فقط تحديث بيانات المعلمين.');
+            // }
 
             // Validate the incoming request data
             $validatedData = $request->validate(
@@ -297,10 +297,10 @@ class UserController extends Controller
             $teacher->update($validatedData);
 
             // Redirect back with a success message
-            return redirect()->route('teacher.index')->with('success', 'تم تحديث بيانات المعلم/ة بنجاح!');
+            return redirect()->back()->with('success', 'تم تحديث بيانات  بنجاح!');
         } catch (\Illuminate\Database\Eloquent\ModelNotFoundException $e) {
             // Handle case where the teacher ID does not exist
-            return redirect()->route('teacher.index')->with('error', 'لم يتم العثور على المعلم/ة.');
+            return redirect()->route('teacher.index')->with('error', 'لم يتم العثور على .');
         } catch (\Illuminate\Validation\ValidationException $e) {
             // Redirect back with validation errors
             return redirect()->back()->withErrors($e->validator)->withInput();
