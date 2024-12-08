@@ -222,12 +222,12 @@ h6 {
                             <button
                                 class="bg-edpurple text-white px-[10px] w-full py-[6px] rounded-[8px] hover:bg-[#5a35a5]"
                                 onclick="confirmExamStart(this)"
-                                @if ($first)
+                                @if ($second)
                                     disabled
                                     style="background-color: grey"
                                 @endif
                                 data-route="{{ route('mathSecondAndThird') }}">
-                                @if ($first)
+                                @if ($second)
                                                                     تم تقديم الاختبار
                                                                     @else
                                                                     ابدأ الاختبار
@@ -276,12 +276,12 @@ h6 {
                             <button
                                 class="bg-edpurple text-white px-[10px] w-full py-[6px] rounded-[8px] hover:bg-[#5a35a5]"
                                 onclick="confirmExamStart(this)"
-                                @if ($first)
+                                @if ($third)
                                     disabled
                                     style="background-color: grey"
                                 @endif
                                 data-route="{{ route('arabicFirst') }}">
-                                @if ($first)
+                                @if ($third)
                                                                     تم تقديم الاختبار
                                                                     @else
                                                                     ابدأ الاختبار
@@ -330,12 +330,12 @@ h6 {
                             <button
                                 class="bg-edpurple text-white px-[10px] w-full py-[6px] rounded-[8px] hover:bg-[#5a35a5]"
                                 onclick="confirmExamStart(this)"
-                                @if ($first)
+                                @if ($fourth)
                                     disabled
                                     style="background-color: grey"
                                 @endif
                                 data-route="{{ route('arabicSecondAndThird') }}">
-                                @if ($first)
+                                @if ($fourth)
                                                                     تم تقديم الاختبار
                                                                     @else
                                                                     ابدأ الاختبار
@@ -435,12 +435,12 @@ h6 {
                                 class="bg-edpurple text-white px-[10px] w-full py-[6px] rounded-[8px] hover:bg-[#5a35a5]"
 
                                 onclick="confirmExamStart(this)"
-                                @if ($first)
+                                @if ($second)
                                     disabled
                                     style="background-color: grey"
                                 @endif
                                 data-route="{{ route('mathSecondAndThird') }}">
-                                @if ($first)
+                                @if ($second)
                                                                     تم تقديم الاختبار
                                                                     @else
                                                                     ابدأ الاختبار
@@ -487,12 +487,12 @@ h6 {
                                 class="bg-edpurple text-white px-[10px] w-full py-[6px] rounded-[8px] hover:bg-[#5a35a5]"
 
                                 onclick="confirmExamStart(this)"
-                                @if ($first)
+                                @if ($third)
                                     disabled
                                     style="background-color: grey"
                                 @endif
                                 data-route="{{ route('arabicFirst') }}">
-                                @if ($first)
+                                @if ($third)
                                                                     تم تقديم الاختبار
                                                                     @else
                                                                     ابدأ الاختبار
@@ -539,12 +539,12 @@ h6 {
                                 class="bg-edpurple text-white px-[10px] w-full py-[6px] rounded-[8px] hover:bg-[#5a35a5]"
 
                                 onclick="confirmExamStart(this)"
-                                @if ($first)
+                                @if ($fourth)
                                     disabled
                                     style="background-color: grey"
                                 @endif
                                 data-route="{{ route('arabicSecondAndThird') }}">
-                                @if ($first)
+                                @if ($fourth)
                                                                     تم تقديم الاختبار
                                                                     @else
                                                                     ابدأ الاختبار
@@ -593,12 +593,12 @@ h6 {
 
 
                                 onclick="confirmExamStart(this)"
-                                @if ($first)
+                                @if ($fifth)
                                     disabled
                                     style="background-color: grey"
                                 @endif
                                 data-route="{{ route('science') }}">
-                                @if ($first)
+                                @if ($fifth)
                                                                     تم تقديم الاختبار
                                                                     @else
                                                                     ابدأ الاختبار

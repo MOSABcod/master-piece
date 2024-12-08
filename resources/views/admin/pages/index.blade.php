@@ -9,7 +9,7 @@
                             <i style="color: #27703b" class="fa fa-user-graduate fa-3x me-3"></i> <!-- Updated to a student-related icon -->
                             <div class="ms-3">
                                 <p class="mb-2">عدد الطلاب</p>
-                                <h6 class="mb-0">50</h6>
+                                <h6 class="mb-0">{{ $countStudents }}</h6>
                             </div>
                         </div>
                     </div>
@@ -18,7 +18,7 @@
                             <i style="color: #27703b" class="fa fa-chalkboard-teacher fa-3x"></i> <!-- Teacher icon -->
                             <div class="ms-3">
                                 <p class="mb-2">عدد المعلمات</p>
-                                <h6 class="mb-0">10</h6>
+                                <h6 class="mb-0">{{ $countTeachers }}</h6>
                             </div>
                         </div>
                     </div>
@@ -38,7 +38,7 @@
                             <i style="color: #27703b" class="fa fa-check-circle fa-3x"></i> <!-- Checkmark icon -->
                             <div class="ms-3">
                                 <p class="mb-2">تم الاختبار</p>
-                                <h6 class="mb-0">10</h6>
+                                <h6 class="mb-0">{{ $totalStudents }}</h6>
                             </div>
                         </div>
                     </div>

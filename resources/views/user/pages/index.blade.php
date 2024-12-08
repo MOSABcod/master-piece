@@ -119,7 +119,7 @@
 
                                     </p>
                                     <div class="flex items-center gap-[20px]">
-                                        <a href="homepage#ourMessage" class="ed-btn"> تعرف على رسالتنا</a>
+                                        <a href="homepage#ourMessage" class="ed-btn" style="background-color: #4c925e; color: #fff;">تعرف على رسالتنا</a>
                                     </div>
                                 </div>
                             </div>
@@ -156,7 +156,7 @@
                                         "يعمل من أجل تطوير قدرات الطلاب وتحقيق أهداف التعليم الشامل."
                                     </p>
                                     <div class="flex items-center gap-[20px]" >
-                                        <a href="/homepage#teamwork" class="ed-btn">تعرف على فريق العمل</a>
+                                        <a href="/homepage#teamwork" class="ed-btn" style="background-color: #4c925e; color: #fff;">تعرف على فريق العمل</a>
                                     </div>
                                 </div>
                             </div>
@@ -339,12 +339,12 @@
             <div class="text-center group">
                 <!-- img -->
                 <div class="relative mb-[18px] overflow-hidden rounded-[12px]">
-                    <img src="assets/img/fourth.jpeg" alt="أسماء الجويفل" class="w-full aspect-[270/320] object-cover group-hover:scale-110">
+                    <img src="assets/img/fourth.jpeg" alt="أسماء جويفل" class="w-full aspect-[270/320] object-cover group-hover:scale-110">
                 </div>
 
                 <!-- txt -->
                 <div>
-                    <h6 class="font-semibold text-[18px] text-edblue mb-[12px]">أسماء الجويفل</h6>
+                    <h6 class="font-semibold text-[18px] text-edblue mb-[12px]">أسماء جويفل</h6>
                     <span class="text-edgray">معلمة المرحلة الأساسية (الصف الثاني)</span>
                 </div>
             </div>

@@ -25,36 +25,81 @@ class UserController extends Controller
     }
     public function homeDash()
     {
-        $users = User::with('class')->where('role', 'student')->paginate(10); // Fetch only teachers
-        $classes = Classes::all();
-        return view('admin.pages.index', compact('users'));
+        if (Auth::user()->role == 'teacher') {
+
+            $users = User::with('class')->where('role', 'student')->where('class_id', Auth::user()->class_id)->paginate(10); // Fetch only teachers
+            $countStudents = User::where("role", "student")
+                ->where('class_id', Auth::user()->class_id)
+                ->count();
+        } else {
+            $users = User::with('class')->where('role', 'student')->paginate(10); // Fetch only teachers
+            $countStudents = User::where("role", "student")
+                ->count();
+        }
+        $countTeachers = User::where("role", "teacher")
+            ->count();
+        $uniqueUserIds = collect([
+            AnswersMathFirstKg::select('user_id')->distinct()->pluck('user_id'),
+            MathAnswerSecondThird::select('user_id')->distinct()->pluck('user_id'),
+            ArabicAnswerFirstKg::select('user_id')->distinct()->pluck('user_id'),
+            ArabicAnswerSecondThird::select('user_id')->distinct()->pluck('user_id'),
+            ScienceAnswer::select('user_id')->distinct()->pluck('user_id'),
+        ])->flatten()->unique();
+
+        // Total count of users who participated
+        $totalStudents = $uniqueUserIds->count();
+        return view('admin.pages.index', compact('users', 'countStudents', 'countTeachers', 'totalStudents'));
     }
     public function students()
     {
-        // Get all students with their exam statuses and roadmaps
-        $users = User::with(['class', 'roadmaps' => function ($query) {
-            $query->selectRaw('user_id, max(level) as max_level')->groupBy('user_id');
-        }])
-            ->where('role', 'student')
-            ->withCount([
-                'mathAnswersFirst as first_exam_completed' => function ($query) {
-                    $query->whereNotNull('user_id'); // Ensure the user has answered the Math First KG exam
-                },
-                'mathAnswersSecondThird as second_exam_completed' => function ($query) {
-                    $query->whereNotNull('user_id'); // Ensure the user has answered the Math Second/Third exam
-                },
-                'arabicAnswersFirstKg as third_exam_completed' => function ($query) {
-                    $query->whereNotNull('user_id'); // Ensure the user has answered the Arabic First KG exam
-                },
-                'arabicAnswersSecondThird as fourth_exam_completed' => function ($query) {
-                    $query->whereNotNull('user_id'); // Ensure the user has answered the Arabic Second/Third exam
-                },
-                'scienceAnswers as fifth_exam_completed' => function ($query) {
-                    $query->whereNotNull('user_id'); // Ensure the user has answered the Science exam
-                }
-            ])
-            ->get();
+        if (Auth::user()->role == 'manager') {
 
+            $users = User::with(['class', 'roadmaps' => function ($query) {
+                $query->selectRaw('user_id, max(level) as max_level')->groupBy('user_id');
+            }])
+                ->where('role', 'student')
+                ->withCount([
+                    'mathAnswersFirst as first_exam_completed' => function ($query) {
+                        $query->whereNotNull('user_id'); // Ensure the user has answered the Math First KG exam
+                    },
+                    'mathAnswersSecondThird as second_exam_completed' => function ($query) {
+                        $query->whereNotNull('user_id'); // Ensure the user has answered the Math Second/Third exam
+                    },
+                    'arabicAnswersFirstKg as third_exam_completed' => function ($query) {
+                        $query->whereNotNull('user_id'); // Ensure the user has answered the Arabic First KG exam
+                    },
+                    'arabicAnswersSecondThird as fourth_exam_completed' => function ($query) {
+                        $query->whereNotNull('user_id'); // Ensure the user has answered the Arabic Second/Third exam
+                    },
+                    'scienceAnswers as fifth_exam_completed' => function ($query) {
+                        $query->whereNotNull('user_id'); // Ensure the user has answered the Science exam
+                    }
+                ])
+                ->get();
+        } else {
+            $users = User::with(['class', 'roadmaps' => function ($query) {
+                $query->selectRaw('user_id, max(level) as max_level')->groupBy('user_id');
+            }])
+                ->where('role', 'student')
+                ->withCount([
+                    'mathAnswersFirst as first_exam_completed' => function ($query) {
+                        $query->whereNotNull('user_id'); // Ensure the user has answered the Math First KG exam
+                    },
+                    'mathAnswersSecondThird as second_exam_completed' => function ($query) {
+                        $query->whereNotNull('user_id'); // Ensure the user has answered the Math Second/Third exam
+                    },
+                    'arabicAnswersFirstKg as third_exam_completed' => function ($query) {
+                        $query->whereNotNull('user_id'); // Ensure the user has answered the Arabic First KG exam
+                    },
+                    'arabicAnswersSecondThird as fourth_exam_completed' => function ($query) {
+                        $query->whereNotNull('user_id'); // Ensure the user has answered the Arabic Second/Third exam
+                    },
+                    'scienceAnswers as fifth_exam_completed' => function ($query) {
+                        $query->whereNotNull('user_id'); // Ensure the user has answered the Science exam
+                    }
+                ])
+                ->where('class_id', Auth::user()->class_id)->get();
+        }
         // For each user, check if they have completed any of the exams and set a flag
         foreach ($users as $user) {
             // Check if the user has completed any of the exams
