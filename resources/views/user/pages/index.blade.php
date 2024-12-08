@@ -216,74 +216,85 @@
         </div>
 
         <!-- instructor cards -->
-        <div class="grid grid-cols-4 sm:grid-cols-3 xs:grid-cols-2 xxs:grid-cols-1 gap-[30px] md:gap-[15px]">
-            <!-- single instructor -->
-            <div class="text-center group">
-                <!-- img -->
-                <div class="relative mb-[18px] overflow-hidden rounded-[12px]">
-                    <img src="assets/img/instructor-1.jpg" alt="هدى التركية" class="w-full aspect-[270/320] object-cover group-hover:scale-110">
-                </div>
-
-                <!-- txt -->
-                <div>
-                    <h6 class="font-semibold text-[18px] text-edblue mb-[12px]">هدى التركية</h6>
-                    <span class="text-edgray">معلمة المرحلة الأساسية (الصف الأول)</span>
-                </div>
-            </div>
-
-            <!-- single instructor -->
-            <div class="text-center group">
-                <!-- img -->
-                <div class="relative mb-[18px] overflow-hidden rounded-[12px]">
-                    <img src="assets/img/instructor-2.jpg" alt="أسماء الجويفل" class="w-full aspect-[270/320] object-cover group-hover:scale-110">
-                </div>
-
-                <!-- txt -->
-                <div>
-                    <h6 class="font-semibold text-[18px] text-edblue mb-[12px]">أسماء الجويفل</h6>
-                    <span class="text-edgray">معلمة المرحلة الأساسية (الصف الثاني)</span>
-                </div>
-            </div>
-
-            <!-- single instructor -->
-            <div class="text-center group">
-                <!-- img -->
-                <div class="relative mb-[18px] overflow-hidden rounded-[12px]">
-                    <img src="assets/img/instructor-3.jpg" alt="ياسمين الدعجة" class="w-full aspect-[270/320] object-cover group-hover:scale-110">
-                </div>
-
-                <!-- txt -->
-                <div>
-                    <h6 class="font-semibold text-[18px] text-edblue mb-[12px]">ياسمين الدعجة</h6>
-                    <span class="text-edgray">معلمة الفيزياء</span>
-                </div>
-            </div>
-
-            <!-- single instructor -->
-            <div class="text-center group">
-                <!-- img -->
-                <div class="relative mb-[18px] overflow-hidden rounded-[12px]">
-                    <img src="assets/img/instructor-4.jpg" alt="عبير السكارنة" class="w-full aspect-[270/320] object-cover group-hover:scale-110">
-                </div>
-
-                <!-- txt -->
-                <div>
-                    <h6 class="font-semibold text-[18px] text-edblue mb-[12px]">عبير السكارنة</h6>
-                    <span class="text-edgray">معلمة الرياضيات</span>
-                </div>
-            </div>
+<div class="grid grid-cols-3 sm:grid-cols-3 xs:grid-cols-2 xxs:grid-cols-1 gap-[30px] md:gap-[15px]">
+    <!-- single instructor -->
+    <div class="text-center group">
+        <!-- img -->
+        <div class="relative mb-[18px] overflow-hidden rounded-[12px]">
+            <img src="assets/img/fifth.jpeg" alt="هدى التركية" class="w-full aspect-[270/320] object-cover group-hover:scale-110">
         </div>
 
-        <!-- vectors -->
-        <div class="lg:hidden">
-            <div class="pointer-events-none w-[434px] aspect-square rounded-full bg-edpurple/15 absolute -z-[1] top-0 left-[56px] -translate-y-[50%]"></div>
-            <div class="pointer-events-none w-[694px] aspect-square rounded-full bg-edpurple/10 absolute -z-[1] bottom-0 right-[21px] translate-y-[50%]"></div>
-            <img src="assets/img/admission-vector-2.svg" alt="vector" class="absolute -z-[1] bottom-[154px] right-[58px]">
-            <img src="assets/img/instructor-vector.svg" alt="vector" class="absolute -z-[1] top-[120px] left-0">
+        <!-- txt -->
+        <div>
+            <h6 class="font-semibold text-[18px] text-edblue mb-[12px]">هدى التركية</h6>
+            <span class="text-edgray">معلمة المرحلة الأساسية (الصف الأول)</span>
         </div>
     </div>
-</section>
-<!-- INSTRUCTORS SECTION END -->
+    <!-- single instructor -->
+    <div class="text-center group">
+        <!-- img -->
+        <div class="relative mb-[18px] overflow-hidden rounded-[12px]">
+            <img src="assets/img/first.jpeg" alt="نعايم الحويان" class="w-full aspect-[270/320] object-cover group-hover:scale-110">
+        </div>
+
+        <!-- txt -->
+        <div>
+            <h6 class="font-semibold text-[18px] text-edblue mb-[12px]">نعايم الحويان</h6>
+            <span class="text-edgray">معلمة المرحلة الأساسية (الصف الأول)</span>
+        </div>
+    </div>
+
+    <!-- single instructor -->
+    <div class="text-center group">
+        <!-- img -->
+        <div class="relative mb-[18px] overflow-hidden rounded-[12px]">
+            <img src="assets/img/fourth.jpeg" alt="أسماء الجويفل" class="w-full aspect-[270/320] object-cover group-hover:scale-110">
+        </div>
+
+        <!-- txt -->
+        <div>
+            <h6 class="font-semibold text-[18px] text-edblue mb-[12px]">أسماء الجويفل</h6>
+            <span class="text-edgray">معلمة المرحلة الأساسية (الصف الثاني)</span>
+        </div>
+    </div>
+
+    <!-- single instructor -->
+    <div class="text-center group">
+        <!-- img -->
+        <div class="relative mb-[18px] overflow-hidden rounded-[12px]">
+            <img src="assets/img/third.jpeg" alt="ياسمين الدعجة" class="w-full aspect-[270/320] object-cover group-hover:scale-110">
+        </div>
+
+        <!-- txt -->
+        <div>
+            <h6 class="font-semibold text-[18px] text-edblue mb-[12px]">ياسمين الدعجة</h6>
+            <span class="text-edgray">معلمة الفيزياء</span>
+        </div>
+    </div>
+
+    <!-- single instructor -->
+    <div class="text-center group">
+        <!-- img -->
+        <div class="relative mb-[18px] overflow-hidden rounded-[12px]">
+            <img src="assets/img/second.jpeg" alt="عبير السكارنة" class="w-full aspect-[270/320] object-cover group-hover:scale-110">
+        </div>
+
+        <!-- txt -->
+        <div>
+            <h6 class="font-semibold text-[18px] text-edblue mb-[12px]">عبير السكارنة</h6>
+            <span class="text-edgray">معلمة الرياضيات</span>
+        </div>
+    </div>
+</div>
+
+<!-- vectors -->
+<div class="lg:hidden">
+    <div class="pointer-events-none w-[434px] aspect-square rounded-full bg-edpurple/15 absolute -z-[1] top-0 left-[56px] -translate-y-[50%]"></div>
+    <div class="pointer-events-none w-[694px] aspect-square rounded-full bg-edpurple/10 absolute -z-[1] bottom-0 right-[21px] translate-y-[50%]"></div>
+    <img src="assets/img/admission-vector-2.svg" alt="vector" class="absolute -z-[1] bottom-[154px] right-[58px]">
+    <img src="assets/img/instructor-vector.svg" alt="vector" class="absolute -z-[1] top-[120px] left-0">
+</div>
+
 <!-- BLOG SECTION START -->
 <section class="py-[120px] xl:py-[80px] md:py-[60px] relative z-[1] overflow-hidden" dir="rtl">
     <div class="mx-[19.71%] xxxl:mx-[14.71%] xxl:mx-[9.71%] xl:mx-[5.71%] md:mx-[12px]">

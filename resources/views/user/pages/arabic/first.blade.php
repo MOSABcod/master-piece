@@ -1,13 +1,7 @@
 @extends('user.layout.mainlayout')
 
 @section('content')
-<!DOCTYPE html>
-<html lang="ar" dir="rtl">
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Worksheet</title>
     <style>
         .radio-group {
     display: flex;
@@ -227,7 +221,7 @@ button:disabled {
 }
 
 .exit-link:hover {
-    background-color: #dc2626; /* Darker red for hover effect */
+    background-color: #dc2626;
 }
     </style>
 </head>
@@ -237,7 +231,7 @@ button:disabled {
         <div class="container">
             <div id="timer" class="timer">15:00</div>
 
-            <h1>ورقة عمل</h1>
+            <h1>اختبار عربي</h1>
             <form id="questions-form" method="POST" action="{{ route('save.ar.first') }}">
                 @csrf
  <!-- السؤال الأول -->

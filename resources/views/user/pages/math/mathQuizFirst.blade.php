@@ -242,7 +242,7 @@ button:disabled {
                     <input type="hidden" name="mathFirstTimer" id="mathFirstTimer" value="{{ old('mathFirstTimer', session('exam_timer', 900)) }}">
                 @endif
 
-                <h1>ورقة عمل الرياضيات</h1>
+                <h1>اختبار الرياضيات</h1>
 
                 <!-- Question 1 -->
                 <div class="question active">
@@ -381,14 +381,15 @@ button:disabled {
                 <!-- Question 13 -->
                 <div class="question">
                     <p>السؤال الثالث عشر</p>
-                    <label>ما عدد النجوم ( <span class="stars">⭐⭐⭐⭐</span><br>
-                        <span class="stars" style="margin-right:29px">⭐⭐⭐⭐</span>)؟ ضع دائرة حول العدد المناسب.</label>
+                    <label>ما عدد النجوم  <span class="stars">⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐</span><br>
+                        <span class="stars" style="margin-right:29px">⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐ <br></span> ضع دائرة حول العدد المناسب.</label>
                     <div class="radio-group">
                         <label><input type="radio" name="answers[13]" value="22" {{ old('answers.13') == '22' ? 'checked' : '' }}> 22</label>
                         <label><input type="radio" name="answers[13]" value="21" {{ old('answers.13') == '21' ? 'checked' : '' }}> 21</label>
                         <label><input type="radio" name="answers[13]" value="15" {{ old('answers.13') == '15' ? 'checked' : '' }}> 15</label>
                     </div>
                 </div>
+
 
                 <!-- Question 14 -->
                 <div class="question">

@@ -1,42 +1,38 @@
 @extends('user.layout.mainlayout')
 
 @section('content')
-<!DOCTYPE html>
-<html lang="ar" dir="rtl">
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ورقة عمل</title>
-    <style>
-        /* Existing CSS Styles */
-
+        <style>
         .radio-group {
-            display: flex;
-            flex-direction: column;
-            gap: 10px;
-        }
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding: 10px;
+    border: 1px solid #d1d5db;
+    border-radius: 10px;
+    background-color: #f8f9fa;
+}
 
-        .radio-item {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            font-size: 1.2rem;
-            color: #374151;
-            cursor: pointer;
-        }
+.radio-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 1.2rem;
+    color: #374151;
+    cursor: pointer;
+}
 
-        .radio-item input[type="radio"] {
-            accent-color: #3b82f6;
-            margin: 0;
-            width: 18px;
-            height: 18px;
-        }
+.radio-item input[type="radio"] {
+    accent-color: #3b82f6;
+    margin: 0;
+    width: 18px;
+    height: 18px;
+}
 
-        .stars {
-            font-size: 1.5rem;
-            color: #ffcc00;
-        }
+.stars {
+    font-size: 1.5rem;
+    color: #ffcc00;
+}
 
         .wrapper {
             display: flex;
@@ -48,7 +44,7 @@
 
         .container {
             width: 100%;
-            max-width: 800px; /* Increased width for more questions */
+            max-width: 700px;
             background-color: #ffffff;
             border: 1px solid #e5e7eb;
             border-radius: 15px;
@@ -110,26 +106,34 @@
             box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.25);
         }
 
+        .radio-group {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .radio-group input[type="radio"] {
+            margin-right: 8px;
+            accent-color: #3b82f6;
+        }
+
+        .radio-group label {
+            font-size: 1.1rem;
+            color: #4b5563;
+        }
+
         .navigation-buttons {
             display: flex;
             justify-content: space-between;
             margin-top: 20px;
         }
 
-        .left-buttons {
-            display: flex;
-            gap: 10px; /* Space between the button and the link */
-        }
-
-        button,
-        a {
-            /* padding: 12px 20px; */
+        button {
+            padding: 12px 20px;
             font-size: 1rem;
             font-weight: bold;
             border: none;
             border-radius: 8px;
-            text-decoration: none; /* Ensure the link looks like a button */
-            text-align: center;
             cursor: pointer;
             transition: background-color 0.3s ease, transform 0.2s ease;
         }
@@ -157,50 +161,69 @@
             color: #9ca3af;
             cursor: not-allowed;
         }
+        /*  */
+        .navigation-buttons {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+}
 
-        .exit-link {
-            background-color: #ef4444; /* Red background */
-            color: white; /* White text */
-            text-decoration: none; /* Remove underline */
-            padding: 12px 20px; /* Button-like padding */
-            font-size: 1rem;
-            font-weight: bold;
-            border-radius: 8px;
-            text-align: center;
-            cursor: pointer;
-            transition: background-color 0.3s ease, transform 0.2s ease;
-        }
+.left-buttons {
+    display: flex;
+    gap: 10px; /* Space between the button and the link */
+}
 
-        .exit-link:hover {
-            background-color: #dc2626; /* Darker red for hover effect */
-        }
+button, a {
+    /*  */
+    font-size: 1rem;
+    font-weight: bold;
+    border: none;
+    border-radius: 8px;
+    text-decoration: none; /* Ensure the link looks like a button */
+    text-align: center;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
 
-        /* Timer Styles */
-        .timer {
-            font-size: 1.5rem;
-            font-weight: bold;
-            text-align: center;
-            margin-bottom: 20px;
-            padding: 10px 20px;
-            border-radius: 5px;
-            background-color: #10b981; /* Green */
-            color: white;
-        }
+.prev {
+    background-color: #d1d5db;
+    color: #374151;
+}
 
-        .timer.danger {
-            background-color: #ef4444; /* Red */
-        }
+.prev:hover {
+    background-color: #9ca3af;
+}
+/*  */
+.next {
+    background-color: #3b82f6;
+    color: white;
+}
 
-        .timer.warning {
-            background-color: #f59e0b; /* Orange */
-        }
+.next:hover {
+    background-color: #2563eb;
+}
 
-        /* Equation Box Styles */
-        .equation-box {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
+button:disabled {
+    background-color: #e5e7eb;
+    color: #9ca3af;
+    cursor: not-allowed;
+}
+.exit-link {
+    background-color: #ef4444; /* Red background */
+    color: white; /* White text */
+    text-decoration: none; /* Remove underline */
+    padding: 12px 20px; /* Button-like padding */
+    font-size: 1rem;
+    font-weight: bold;
+    border-radius: 8px;
+    text-align: center;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.exit-link:hover {
+    background-color: #dc2626; /* Darker red for hover effect */
+}
     </style>
 </head>
 
@@ -209,7 +232,7 @@
         <div class="container">
             <div id="timer" class="timer">15:00</div>
 
-            <h1>ورقة عمل الرياضيات</h1>
+            <h1>اختبار الرياضيات</h1>
 
             <!-- Form Start -->
             <form id="questions-form" method="POST" action="{{ route('save.math.Sec') }}">

@@ -110,7 +110,7 @@
 
                     @if (Auth::user() && Auth::user()->role == 'student')
 
-                    <li><a href="{{ route('profile') }}">صفحتي الشخصية</a></li>
+                    <li><a href="{{ route('studentProfile') }}">صفحتي الشخصية</a></li>
                     @endif
 
                     <li><a href="{{ route('homepage') }}">الرئيسيه</a></li>

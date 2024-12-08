@@ -79,14 +79,14 @@ class User extends Authenticatable
     }
     public function arabicAnswersSecondThird()
     {
-        return $this->hasMany(ArabicAnswersSecondThird::class, 'user_id');
+        return $this->hasMany(ArabicAnswerSecondThird::class, 'user_id');
     }
     public function arabicAnswersFirstKg()
     {
-        return $this->hasMany(ArabicAnswersFirstKg::class, 'user_id');
+        return $this->hasMany(arabicAnswerFirstKg::class, 'user_id');
     }
     public function scienceAnswers()
     {
-        return $this->hasMany(ScienceAnswers::class, 'user_id');
+        return $this->hasMany(ScienceAnswer::class, 'user_id');
     }
 }

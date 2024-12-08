@@ -235,7 +235,7 @@ button:disabled {
 <body>
     <div class="wrapper">
         <div class="container">
-            <h1>ورقة عمل</h1>
+            <h1>اختبار العلوم</h1>
             <div id="timer" class="timer">15:00</div>
 
             <!-- Questions -->

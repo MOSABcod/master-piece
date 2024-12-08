@@ -1,4 +1,5 @@
 @extends('admin.layout.mainlayout')
+
 @section('content')
 
     <!-- Teachers Management Start -->
@@ -8,8 +9,8 @@
                 <div class="d-flex align-items-center justify-content-between mb-4">
                     <h6 class="mb-0">قائمة الطلاب</h6>
                     <div>
-                        <a href="{{ route('student.create') }}" class="btn me-2"  style="background-color: #27703b; color:white;">إضافة طالب/ة</a>
-                        <button type="button" class="btn " style="background-color: #27703b; color:white;" data-bs-toggle="modal" data-bs-target="#uploadModal">
+                        <a href="{{ route('student.create') }}" class="btn me-2" style="background-color: #27703b; color:white;">إضافة طالب/ة</a>
+                        <button type="button" class="btn" style="background-color: #27703b; color:white;" data-bs-toggle="modal" data-bs-target="#uploadModal">
                             رفع ملف الطلاب
                         </button>
                     </div>
@@ -24,6 +25,7 @@
                                 <th scope="col" style="text-align: right;">الدور</th>
                                 <th scope="col" style="text-align: right;">العمر</th>
                                 <th scope="col" style="text-align: right;">رقم الصف</th>
+                                <th scope="col" style="text-align: right;">أعلى مستوى</th> <!-- Added Max Level -->
                                 <th scope="col" style="text-align: right;">الإجراءات</th>
                             </tr>
                         </thead>
@@ -47,11 +49,18 @@
                                     <td>{{ $user->age ?? 'غير متوفر' }}</td>
                                     <td>{{ $user->class_id ?? 'غير متوفر' }}</td>
                                     <td>
+                                        @if ($user->roadmaps->isNotEmpty())
+                                        {{ $user->roadmaps->first()->max_level }}
+                                    @else
+                                    {{ $user->passed_all_exams ? 'تم اجتياز جميع الاختبارات' : 'لا توجد نتائج' }}
+                                    @endif
+                                    </td>
+                                    <td>
                                         <!-- Edit Button -->
                                         <button class="btn btn-sm btn-transparent" data-bs-toggle="modal" data-bs-target="#editModal-{{ $user->id }}">
                                             <i class="fas fa-edit"></i> تعديل
                                         </button>
-                                        <a href="{{ route('showresult', $user->id) }}" class="btn btn-sm btn-transparent" >
+                                        <a href="{{ route('showresult', $user->id) }}" class="btn btn-sm btn-transparent">
                                             عرض النتيجة
                                         </a>
                                         <!-- Delete Button -->
@@ -119,73 +128,13 @@
                                     </div>
                                 </div>
                                 <!-- End Edit Modal -->
-                                 <!-- Hello Modal for Each Student -->
-                            <div class="modal fade" id="helloModal-{{ $user->id }}" tabindex="-1" aria-labelledby="helloModalLabel-{{ $user->id }}" aria-hidden="true">
-                                <div class="modal-dialog modal-dialog-centered" style="direction: rtl; text-align: right;">
-                                    <div class="modal-content">
-                                        <div class="modal-header">
-                                            <h5 class="modal-title" id="helloModalLabel-{{ $user->id }}">مرحباً، {{ $user->name }}!</h5>
-                                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="إغلاق"></button>
-                                        </div>
-                                        <div class="modal-body">
-                                            @foreach ($user->roadmaps  as $roadmap)
-                                            {{-- {!! $roadmap->result !!} --}}
-                                           <pre> {!! $roadmap->response !!}</pre>
-                                            @endforeach
-                                        </div>
-                                        <div class="modal-footer">
-                                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">إغلاق</button>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- End Hello Modal -->
+
                             @empty
                                 <tr>
-                                    <td colspan="7" class="text-center">لا توجد بيانات لعرضها</td>
+                                    <td colspan="8" class="text-center">لا توجد بيانات لعرضها</td>
                                 </tr>
                             @endforelse
 
-                           <!-- Modal for File Upload -->
-<div class="modal fade" id="uploadModal" tabindex="-1" aria-labelledby="uploadModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered" style="direction: rtl; text-align: right;">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="uploadModalLabel">رفع ملف الطلاب</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="إغلاق" ></button>
-            </div>
-            <div class="modal-body">
-                <form action="{{ route('students.upload') }}" method="POST" enctype="multipart/form-data">
-                    @csrf
-                    <div class="mb-3">
-                        <label for="file" class="form-label">اختر ملف Excel أو CSV</label>
-                        <input type="file" name="file" id="file" class="form-control" required>
-                    </div>
-                    <button type="submit" class="btn " style="background-color: #27703b; color:white;"  >رفع</button>
-                </form>
-            </div>
-        </div>
-    </div>
-</div>
-<!-- End Modal -->
-  <!-- Hello Modal -->
-  <div class="modal fade" id="helloModal" tabindex="-1" aria-labelledby="helloModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered" style="direction: rtl; text-align: right;">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="helloModalLabel">مرحباً!</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="إغلاق"></button>
-            </div>
-            <div class="modal-body">
-                <p>مرحباً بك في نظام إدارة الطلاب. نتمنى لك يوماً سعيداً!</p>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">إغلاق</button>
-            </div>
-        </div>
-    </div>
-</div>
-<!-- End Hello Modal -->
                         </tbody>
                     </table>
                 </div>
@@ -193,4 +142,5 @@
         </div>
     </div>
     <!-- Teachers Management End -->
+
 @endsection

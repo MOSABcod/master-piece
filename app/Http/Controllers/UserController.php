@@ -2,9 +2,15 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\AnswersMathFirstKg;
+use App\Models\ArabicAnswerFirstKg;
+use App\Models\ArabicAnswerSecondThird;
 use App\Models\Classes;
+use App\Models\MathAnswerSecondThird;
+use App\Models\ScienceAnswer;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class UserController extends Controller
 {
@@ -19,9 +25,54 @@ class UserController extends Controller
     }
     public function students()
     {
-        $users = User::with('roadmaps')->where('role', 'student')->get(); // Fetch only teachers
-        return view('admin.pages.students.manageStudents', compact('users')); // Adjust the view path as needed
+        // Get all students with their exam statuses and roadmaps
+        $users = User::with(['roadmaps' => function ($query) {
+            $query->selectRaw('user_id, max(level) as max_level')->groupBy('user_id');
+        }])
+            ->where('role', 'student')
+            ->withCount([
+                'mathAnswersFirst as first_exam_completed' => function ($query) {
+                    $query->whereNotNull('user_id'); // Ensure the user has answered the Math First KG exam
+                },
+                'mathAnswersSecondThird as second_exam_completed' => function ($query) {
+                    $query->whereNotNull('user_id'); // Ensure the user has answered the Math Second/Third exam
+                },
+                'arabicAnswersFirstKg as third_exam_completed' => function ($query) {
+                    $query->whereNotNull('user_id'); // Ensure the user has answered the Arabic First KG exam
+                },
+                'arabicAnswersSecondThird as fourth_exam_completed' => function ($query) {
+                    $query->whereNotNull('user_id'); // Ensure the user has answered the Arabic Second/Third exam
+                },
+                'scienceAnswers as fifth_exam_completed' => function ($query) {
+                    $query->whereNotNull('user_id'); // Ensure the user has answered the Science exam
+                }
+            ])
+            ->get();
+
+        // For each user, check if they have completed any of the exams and set a flag
+        foreach ($users as $user) {
+            // Check if the user has completed any of the exams
+            $user->passed_all_exams = $user->first_exam_completed > 0 || $user->second_exam_completed > 0 || $user->third_exam_completed > 0 || $user->fourth_exam_completed > 0 || $user->fifth_exam_completed > 0;
+        }
+
+        // Pass all variables to the view using compact
+        return view('admin.pages.students.manageStudents', compact('users'));
     }
+
+
+    public function showProfile()
+    {
+        // Check if the user has answers for each of the exams
+        $first = AnswersMathFirstKg::with('question')->where('user_id', Auth::user()->id)->exists();
+        $second = MathAnswerSecondThird::with('question')->where('user_id', Auth::user()->id)->exists();
+        $third = ArabicAnswerFirstKg::with('question')->where('user_id', Auth::user()->id)->exists();
+        $fourth = ArabicAnswerSecondThird::with('question')->where('user_id', Auth::user()->id)->exists();
+        $fifth = ScienceAnswer::with('question')->where('user_id', Auth::user()->id)->exists();
+
+        // Pass the results to the view using compact
+        return view('user.pages.profileWithExams', compact('first', 'second', 'third', 'fourth', 'fifth'));
+    }
+
     public function showresult(string $id)
     {
         $user = User::with('roadmaps')->where('id', $id)->first(); // Fetch only teachers

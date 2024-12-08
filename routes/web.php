@@ -86,11 +86,12 @@ Route::get('/result', function () {
 Route::get('/timeout', function () {
     return view('user.pages.timeout');
 })->name('timeout');
-Route::get('/profile', function () {
-    return view('user.pages.profileWithExams');
-})->name('profile');
+// Route::get('/profile', function () {
+//     return view('user.pages.profileWithExams');
+// })->name('profile');
 
 // apis
+Route::get('/studentProfile', [UserController::class, 'showProfile'])->name('studentProfile');
 Route::post('/saveAnswer', [MathFirstKgController::class, 'saveAnswers'])->name('save.math.first');
 Route::post('/saveAnswerSec', [MathFirstKgController::class, 'saveAnswersSecMath'])->name('save.math.Sec');
 Route::post('/saveAnswerAR', [MathFirstKgController::class, 'saveAnswersFirstAr'])->name('save.ar.first');

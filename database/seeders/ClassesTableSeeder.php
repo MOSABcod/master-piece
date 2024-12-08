@@ -12,7 +12,10 @@ class ClassesTableSeeder extends Seeder
      */
     public function run()
     {
-        // Create 10 classes with Arabic names
-        Classes::factory()->count(6)->create();
+        // Insert only the 4 specified classes
+        Classes::create(['name' => 'روضة']);
+        Classes::create(['name' => 'الصف الأول']);
+        Classes::create(['name' => 'الصف الثاني']);
+        Classes::create(['name' => 'الصف الثالث']);
     }
 }

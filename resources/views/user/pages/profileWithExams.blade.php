@@ -81,7 +81,7 @@ h6 {
                     <div>
                         <h6 class="font-medium text-edgray text-[16px]">الصف</h6>
                         <p class="font-bold text-black text-[20px]">
-                            @switch(Auth::user()->name)
+                            @switch(Auth::user()->class_id)
                                 @case(1)
                                         روضة
                                     @break
@@ -168,14 +168,21 @@ h6 {
                             <button
                                 class="bg-edpurple text-white px-[10px] w-full py-[6px] rounded-[8px] hover:bg-[#5a35a5]"
                                 onclick="confirmExamStart(this)"
-
+                                @if ($first)
+                                    disabled
+                                    style="background-color: grey"
+                                @endif
                                 data-route="{{ route('mathFirst') }}">
-                                ابدأ الاختبار
+                                @if ($first)
+                                    تم تقديم الاختبار
+                                    @else
+                                    ابدأ الاختبار
+                                    @endif
                             </button>
                         </div>
                     </div>
                     @endif
-                    @if (Auth::user() &&(Auth::user()->class_id == 3 || Auth::user()->class_id == 4 || Auth::user()->role == "teacher")  )
+                    @if (Auth::user() &&(Auth::user()->class_id == 3 || Auth::user()->class_id == 4 || Auth::user()->role == "teacher" || Auth::user()->role == "manager")  )
 
                     <div class="ed-2-single-course mix personal-skill border border-[#e5e5e5] rounded-[10px] p-[20px] group">
                         <!-- course image  -->
@@ -215,8 +222,16 @@ h6 {
                             <button
                                 class="bg-edpurple text-white px-[10px] w-full py-[6px] rounded-[8px] hover:bg-[#5a35a5]"
                                 onclick="confirmExamStart(this)"
+                                @if ($first)
+                                    disabled
+                                    style="background-color: grey"
+                                @endif
                                 data-route="{{ route('mathSecondAndThird') }}">
-                                ابدأ الاختبار
+                                @if ($first)
+                                                                    تم تقديم الاختبار
+                                                                    @else
+                                                                    ابدأ الاختبار
+                                                                    @endif
                             </button>
                         </div>
                     </div>
@@ -261,13 +276,21 @@ h6 {
                             <button
                                 class="bg-edpurple text-white px-[10px] w-full py-[6px] rounded-[8px] hover:bg-[#5a35a5]"
                                 onclick="confirmExamStart(this)"
+                                @if ($first)
+                                    disabled
+                                    style="background-color: grey"
+                                @endif
                                 data-route="{{ route('arabicFirst') }}">
-                                ابدأ الاختبار
+                                @if ($first)
+                                                                    تم تقديم الاختبار
+                                                                    @else
+                                                                    ابدأ الاختبار
+                                                                    @endif
                             </button>
                         </div>
                     </div>
                     @endif
-                    @if (Auth::user() &&(Auth::user()->class_id == 3 || Auth::user()->class_id == 4 || Auth::user()->role == "teacher")  )
+                    @if (Auth::user() &&(Auth::user()->class_id == 3 || Auth::user()->class_id == 4 || Auth::user()->role == "teacher" || Auth::user()->role == "manager")  )
 
                     <div class="ed-2-single-course mix personal-skill border border-[#e5e5e5] rounded-[10px] p-[20px] group">
                         <!-- course image  -->
@@ -307,8 +330,16 @@ h6 {
                             <button
                                 class="bg-edpurple text-white px-[10px] w-full py-[6px] rounded-[8px] hover:bg-[#5a35a5]"
                                 onclick="confirmExamStart(this)"
+                                @if ($first)
+                                    disabled
+                                    style="background-color: grey"
+                                @endif
                                 data-route="{{ route('arabicSecondAndThird') }}">
-                                ابدأ الاختبار
+                                @if ($first)
+                                                                    تم تقديم الاختبار
+                                                                    @else
+                                                                    ابدأ الاختبار
+                                                                    @endif
                             </button>
                         </div>
                     </div>
@@ -351,10 +382,17 @@ h6 {
                             <!-- button to confirm exam start -->
                             <button
                                 class="bg-edpurple text-white px-[10px] w-full py-[6px] rounded-[8px] hover:bg-[#5a35a5]"
-
-                                onclick="confirmExamStart(this)"
-                                data-route="{{ route('mathFirst') }}">
-                                ابدأ الاختبار
+                                @if ($first)
+                                disabled
+                                style="background-color: grey"
+                            @endif
+                            onclick="confirmExamStart(this)"
+                            data-route="{{ route('mathFirst') }}">
+                            @if ($first)
+                                                            تم تقديم الاختبار
+                                                            @else
+                                                            ابدأ الاختبار
+                                                            @endif
                             </button>
                         </div>
                     </div>
@@ -397,8 +435,16 @@ h6 {
                                 class="bg-edpurple text-white px-[10px] w-full py-[6px] rounded-[8px] hover:bg-[#5a35a5]"
 
                                 onclick="confirmExamStart(this)"
+                                @if ($first)
+                                    disabled
+                                    style="background-color: grey"
+                                @endif
                                 data-route="{{ route('mathSecondAndThird') }}">
-                                ابدأ الاختبار
+                                @if ($first)
+                                                                    تم تقديم الاختبار
+                                                                    @else
+                                                                    ابدأ الاختبار
+                                                                    @endif
                             </button>
                         </div>
                     </div>
@@ -441,8 +487,16 @@ h6 {
                                 class="bg-edpurple text-white px-[10px] w-full py-[6px] rounded-[8px] hover:bg-[#5a35a5]"
 
                                 onclick="confirmExamStart(this)"
+                                @if ($first)
+                                    disabled
+                                    style="background-color: grey"
+                                @endif
                                 data-route="{{ route('arabicFirst') }}">
-                                ابدأ الاختبار
+                                @if ($first)
+                                                                    تم تقديم الاختبار
+                                                                    @else
+                                                                    ابدأ الاختبار
+                                                                    @endif
                             </button>
                         </div>
                     </div>
@@ -485,8 +539,16 @@ h6 {
                                 class="bg-edpurple text-white px-[10px] w-full py-[6px] rounded-[8px] hover:bg-[#5a35a5]"
 
                                 onclick="confirmExamStart(this)"
+                                @if ($first)
+                                    disabled
+                                    style="background-color: grey"
+                                @endif
                                 data-route="{{ route('arabicSecondAndThird') }}">
-                                ابدأ الاختبار
+                                @if ($first)
+                                                                    تم تقديم الاختبار
+                                                                    @else
+                                                                    ابدأ الاختبار
+                                                                    @endif
                             </button>
                         </div>
                     </div>
@@ -531,8 +593,16 @@ h6 {
 
 
                                 onclick="confirmExamStart(this)"
+                                @if ($first)
+                                    disabled
+                                    style="background-color: grey"
+                                @endif
                                 data-route="{{ route('science') }}">
-                                ابدأ الاختبار
+                                @if ($first)
+                                                                    تم تقديم الاختبار
+                                                                    @else
+                                                                    ابدأ الاختبار
+                                                                    @endif
                             </button>
                         </div>
                     </div>

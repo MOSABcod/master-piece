@@ -237,7 +237,7 @@ button:disabled {
         <div class="container">
             <div id="timer" class="timer">15:00</div>
 
-            <h1>ورقة عمل</h1>
+            <h1>اختبار عربي</h1>
             <form id="questions-form" method="POST" action="{{ route('save.ar.sec') }}">
                 @csrf
 <!-- Hidden input to store the remaining time -->
