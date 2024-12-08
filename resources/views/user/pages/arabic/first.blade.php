@@ -375,7 +375,7 @@ button:disabled {
 <div class="question">
     <p>السؤال السابع</p>
     <label class="mb-4 block text-lg font-semibold text-gray-700">
-        ضع دائرة حول المقطع الصوتي (ُم) مما يأتي:
+        ضع دائرة حول المقطع الصوتي (مُ) مما يأتي:
     </label>
     <div class="radio-group flex justify-between items-center px-4 py-3 border border-gray-300 rounded-md bg-gray-100">
         <label class="radio-item flex items-center gap-2">
