@@ -149,7 +149,7 @@ h6 {
 
                         <!-- course stats -->
                         <div class="flex flex-wrap items-center gap-x-[30px] gap-y-[10px]">
-                            <div class="flex items-center gap-[8px] text-[14px] text-edgray">
+                            {{-- <div class="flex items-center gap-[8px] text-[14px] text-edgray">
                                 <span class="icon"><img src="assets/img/icon/user-group.svg" alt="icon"></span>
                                 <span class="txt">169 Students</span>
                             </div>
@@ -157,7 +157,7 @@ h6 {
                             <div class="flex items-center gap-[8px] text-[14px] text-edgray">
                                 <span class="icon"><img src="assets/img/icon/lesson.svg" alt="icon"></span>
                                 <span class="txt">12 Lesson</span>
-                            </div>
+                            </div> --}}
                         </div>
 
                         <!-- course footer -->
@@ -203,7 +203,7 @@ h6 {
 
                         <!-- course stats -->
                         <div class="flex flex-wrap items-center gap-x-[30px] gap-y-[10px]">
-                            <div class="flex items-center gap-[8px] text-[14px] text-edgray">
+                            {{-- <div class="flex items-center gap-[8px] text-[14px] text-edgray">
                                 <span class="icon"><img src="assets/img/icon/user-group.svg" alt="icon"></span>
                                 <span class="txt">169 Students</span>
                             </div>
@@ -211,7 +211,7 @@ h6 {
                             <div class="flex items-center gap-[8px] text-[14px] text-edgray">
                                 <span class="icon"><img src="assets/img/icon/lesson.svg" alt="icon"></span>
                                 <span class="txt">12 Lesson</span>
-                            </div>
+                            </div> --}}
                         </div>
 
                         <!-- course footer -->
@@ -257,7 +257,7 @@ h6 {
 
                         <!-- course stats -->
                         <div class="flex flex-wrap items-center gap-x-[30px] gap-y-[10px]">
-                            <div class="flex items-center gap-[8px] text-[14px] text-edgray">
+                            {{-- <div class="flex items-center gap-[8px] text-[14px] text-edgray">
                                 <span class="icon"><img src="assets/img/icon/user-group.svg" alt="icon"></span>
                                 <span class="txt">169 Students</span>
                             </div>
@@ -265,7 +265,7 @@ h6 {
                             <div class="flex items-center gap-[8px] text-[14px] text-edgray">
                                 <span class="icon"><img src="assets/img/icon/lesson.svg" alt="icon"></span>
                                 <span class="txt">12 Lesson</span>
-                            </div>
+                            </div> --}}
                         </div>
 
                         <!-- course footer -->
@@ -311,7 +311,7 @@ h6 {
 
                         <!-- course stats -->
                         <div class="flex flex-wrap items-center gap-x-[30px] gap-y-[10px]">
-                            <div class="flex items-center gap-[8px] text-[14px] text-edgray">
+                            {{-- <div class="flex items-center gap-[8px] text-[14px] text-edgray">
                                 <span class="icon"><img src="assets/img/icon/user-group.svg" alt="icon"></span>
                                 <span class="txt">169 Students</span>
                             </div>
@@ -319,7 +319,7 @@ h6 {
                             <div class="flex items-center gap-[8px] text-[14px] text-edgray">
                                 <span class="icon"><img src="assets/img/icon/lesson.svg" alt="icon"></span>
                                 <span class="txt">12 Lesson</span>
-                            </div>
+                            </div> --}}
                         </div>
 
                         <!-- course footer -->
@@ -364,7 +364,7 @@ h6 {
 
                         <!-- course stats -->
                         <div class="flex flex-wrap items-center gap-x-[30px] gap-y-[10px]">
-                            <div class="flex items-center gap-[8px] text-[14px] text-edgray">
+                            {{-- <div class="flex items-center gap-[8px] text-[14px] text-edgray">
                                 <span class="icon"><img src="assets/img/icon/user-group.svg" alt="icon"></span>
                                 <span class="txt">169 Students</span>
                             </div>
@@ -372,7 +372,7 @@ h6 {
                             <div class="flex items-center gap-[8px] text-[14px] text-edgray">
                                 <span class="icon"><img src="assets/img/icon/lesson.svg" alt="icon"></span>
                                 <span class="txt">12 Lesson</span>
-                            </div>
+                            </div> --}}
                         </div>
 
                         <!-- course footer -->
@@ -415,7 +415,7 @@ h6 {
 
                         <!-- course stats -->
                         <div class="flex flex-wrap items-center gap-x-[30px] gap-y-[10px]">
-                            <div class="flex items-center gap-[8px] text-[14px] text-edgray">
+                            {{-- <div class="flex items-center gap-[8px] text-[14px] text-edgray">
                                 <span class="icon"><img src="assets/img/icon/user-group.svg" alt="icon"></span>
                                 <span class="txt">169 Students</span>
                             </div>
@@ -423,7 +423,7 @@ h6 {
                             <div class="flex items-center gap-[8px] text-[14px] text-edgray">
                                 <span class="icon"><img src="assets/img/icon/lesson.svg" alt="icon"></span>
                                 <span class="txt">12 Lesson</span>
-                            </div>
+                            </div> --}}
                         </div>
 
                         <!-- course footer -->
@@ -467,7 +467,7 @@ h6 {
 
                         <!-- course stats -->
                         <div class="flex flex-wrap items-center gap-x-[30px] gap-y-[10px]">
-                            <div class="flex items-center gap-[8px] text-[14px] text-edgray">
+                            {{-- <div class="flex items-center gap-[8px] text-[14px] text-edgray">
                                 <span class="icon"><img src="assets/img/icon/user-group.svg" alt="icon"></span>
                                 <span class="txt">169 Students</span>
                             </div>
@@ -475,7 +475,7 @@ h6 {
                             <div class="flex items-center gap-[8px] text-[14px] text-edgray">
                                 <span class="icon"><img src="assets/img/icon/lesson.svg" alt="icon"></span>
                                 <span class="txt">12 Lesson</span>
-                            </div>
+                            </div> --}}
                         </div>
 
                         <!-- course footer -->
@@ -519,7 +519,7 @@ h6 {
 
                         <!-- course stats -->
                         <div class="flex flex-wrap items-center gap-x-[30px] gap-y-[10px]">
-                            <div class="flex items-center gap-[8px] text-[14px] text-edgray">
+                            {{-- <div class="flex items-center gap-[8px] text-[14px] text-edgray">
                                 <span class="icon"><img src="assets/img/icon/user-group.svg" alt="icon"></span>
                                 <span class="txt">169 Students</span>
                             </div>
@@ -527,7 +527,7 @@ h6 {
                             <div class="flex items-center gap-[8px] text-[14px] text-edgray">
                                 <span class="icon"><img src="assets/img/icon/lesson.svg" alt="icon"></span>
                                 <span class="txt">12 Lesson</span>
-                            </div>
+                            </div> --}}
                         </div>
 
                         <!-- course footer -->
@@ -572,7 +572,7 @@ h6 {
 
                         <!-- course stats -->
                         <div class="flex flex-wrap items-center gap-x-[30px] gap-y-[10px]">
-                            <div class="flex items-center gap-[8px] text-[14px] text-edgray">
+                            {{-- <div class="flex items-center gap-[8px] text-[14px] text-edgray">
                                 <span class="icon"><img src="assets/img/icon/user-group.svg" alt="icon"></span>
                                 <span class="txt">169 Students</span>
                             </div>
@@ -580,7 +580,7 @@ h6 {
                             <div class="flex items-center gap-[8px] text-[14px] text-edgray">
                                 <span class="icon"><img src="assets/img/icon/lesson.svg" alt="icon"></span>
                                 <span class="txt">12 Lesson</span>
-                            </div>
+                            </div> --}}
                         </div>
 
                         <!-- course footer -->

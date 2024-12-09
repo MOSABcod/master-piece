@@ -102,13 +102,25 @@ class UserController extends Controller
         }
         // For each user, check if they have completed any of the exams and set a flag
         foreach ($users as $user) {
-            // Check if the user has completed any of the exams
-            $user->passed_all_exams = $user->first_exam_completed > 0 || $user->second_exam_completed > 0 || $user->third_exam_completed > 0 || $user->fourth_exam_completed > 0 || $user->fifth_exam_completed > 0;
+            $user->firstMath = AnswersMathFirstKg::with('question')->where('user_id', $user->id)->exists();
+            $user->secondMath = MathAnswerSecondThird::with('question')->where('user_id', $user->id)->exists();
+            $user->thirdArabic = ArabicAnswerFirstKg::with('question')->where('user_id', $user->id)->exists();
+            $user->fourthArabic = ArabicAnswerSecondThird::with('question')->where('user_id', $user->id)->exists();
+            $user->fifthScience = ScienceAnswer::with('question')->where('user_id', $user->id)->exists();
         }
 
+        // dd($firstMath);
         $classes = Classes::all();
         // Pass all variables to the view using compact
-        return view('admin.pages.students.manageStudents', compact('users','classes'));
+        return view('admin.pages.students.manageStudents', compact(
+            'users',
+            'classes',
+            // 'firstMath',
+            // 'secondMath',
+            // 'thirdArabic',
+            // 'fourthArabic',
+            // 'fifthScience'
+        ));
     }
 
 

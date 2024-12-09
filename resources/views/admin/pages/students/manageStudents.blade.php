@@ -53,8 +53,21 @@
                                         @if ($user->roadmaps->isNotEmpty())
                                         {{ $user->roadmaps->first()->max_level }}
                                     @else
-                                    {{ $user->passed_all_exams ? 'تم اجتياز جميع الاختبارات' : 'لا توجد نتائج' }}
+                                        @if($user->fifthScience)
+                                            3
+                                        @elseif ($user->thirdArabic)
+                                            1.2
+                                        @elseif ($user->firstMath)
+                                            1.1
+                                        @elseif ($user->fourthArabic)
+                                            2.2
+                                        @elseif ($user->secondMath)
+                                            2.1
+                                        @else
+                                            لا يوجد نتائج
+                                        @endif
                                     @endif
+
                                     </td>
                                     <td>
                                         <!-- Edit Button -->
@@ -99,14 +112,14 @@
                                                         <input type="number" pattern="\d{10}" class="form-control" id="national_id-{{ $user->id }}" name="national_id" value="{{ $user->national_id }}" required>
                                                     </div>
 
-            
+
 
                                                     <!-- Age -->
                                                     <div class="mb-3">
                                                         <label for="age-{{ $user->id }}" class="form-label">العمر</label>
                                                         <input type="number" class="form-control" id="age-{{ $user->id }}" name="age" value="{{ $user->age }}">
                                                     </div>
-                                                  
+
 
                                                     <div class="mb-3">
                                                         <label for="class_id" class="form-label">اختر الصف</label>

@@ -24,7 +24,7 @@
                         <tbody>
                             @forelse ($users as $user)
                                 <tr>
-                                    <td>{{ $user->id }}</td>
+                                    <td>{{ $loop->iteration }}</td>
                                     <td>{{ $user->name }}</td>
                                     <td>{{ $user->national_id }}</td>
                                     {{-- <td>
@@ -73,7 +73,7 @@
                                                 </button>
                                             </div>
 
-    
+
 
                                             <div class="modal-body">
                                                 <form action="{{ route('teacher.update', $user->id) }}" method="POST">
@@ -97,7 +97,7 @@
                                                             value="{{ $user->national_id }}" required>
                                                     </div>
 
-                                      
+
                                                     <!-- Age -->
                                                     <div class="mb-3">
                                                         <label for="age-{{ $user->id }}"

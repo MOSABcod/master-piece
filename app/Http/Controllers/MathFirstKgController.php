@@ -147,8 +147,7 @@ class MathFirstKgController extends Controller
 
             $countOfQuestions = MathFirstKg::count();
 
-
-
+            // dd($countOfQuestions);
             // saving in database the answers
 
             foreach ($answers as $questionId => $answer) {
