@@ -1,185 +1,53 @@
 @extends('user.layout.mainlayout')
 
-@section('content')
+@section('content') 
     <main>
-        <style>
-            .swiper-slide {
-                height: 125vh;
-                /* Ensures all slides take up the full viewport height */
-            }
+    <!-- Header Start -->
+<div class="container-fluid bg-primary px-0 px-md-5 mb-5">
+    <div class="row align-items-center px-3">
+        <div class="col-lg-6 text-center text-lg-left">
+            <h4 class="text-white mb-4 mt-5 mt-lg-0">مدرسة التميز النموذجية</h4>
+            <h3 class="display-3 font-weight-bold text-white">نحو تعليم متكامل يراعي الفروق الفرديه ويدعم كل طالب نحو التميز</h3>
+            <p class="text-white mb-4">"مرحبًا بكم في الموقع الرسمي لمدرستنا التميز، حيث نقدم بيئة تعليمية داعمة ومبتكرة تركز على قياس مستويات الطلاب وتحديد صعوبات التعلم لمساعدتهم على تحقيق أفضل النتائج. نؤمن بأن كل طالب لديه قدرات فريدة، وهدفنا هو اكتشافها وتطويرها."</p>
+            <a href="" class="btn btn-secondary mt-1 py-3 px-5">قراءة المزيد</a>
+        </div>
+        <div class="col-lg-6 text-center text-lg-right">
+            <img class="img-fluid mt-5" src="{{asset('assets1/img/header.png')}}" alt="">
+        </div>
+    </div>
+</div>
+<!-- Header End -->
+    
+    <!-- ABOUT SECTION START -->
+    <section class="py-[120px] xl:py-[80px] md:py-[60px]" dir="rtl">
+        <div class="mx-[19.71%] xxxl:mx-[14.71%] xxl:mx-[9.71%] xl:mx-[5.71%] md:mx-[12px]">
+            <div class="flex md:flex-col justify-between items-center gap-x-[60px] xl:gap-x-[40px] gap-y-[40px]">
+                {{-- <!-- img -->
+                <div class="max-w-[50%] md:max-w-full grow relative">
+                    <img src="{{ asset('assets/img/schoolpic.jpg') }}" height="536px" width="490px"
+                        style="border-radius: 10px" alt="صورة عن المدرسة">
+                    <img src="assets/img/about-img-vector.svg" alt="رمز"
+                        class="absolute -top-[25px] left-[25px] -z-[1] w-[90%] max-w-[100%]">
+                </div> --}}
 
-            .your-class {
-                background-repeat: no-repeat;
-                /* Ensures the background does not repeat */
-                background-position: center;
-                /* Centers the background image */
-                background-size: cover;
-                /* Ensures the background image covers the entire container */
-            }
-
-            * {
-                box-sizing: border-box;
-            }
-
-            /* Position the image container (needed to position the left and right arrows) */
-            .container {
-                position: relative;
-            }
-
-            /* Hide the images by default */
-            .mySlides {
-                display: none;
-            }
-
-            /* Add a pointer when hovering over the thumbnail images */
-            .cursor {
-                cursor: pointer;
-            }
-
-            /* Next & previous buttons */
-            .prev,
-            .next {
-                cursor: pointer;
-                position: absolute;
-                top: 40%;
-                width: auto;
-                padding: 16px;
-                margin-top: -50px;
-                color: white;
-                font-weight: bold;
-                font-size: 20px;
-                border-radius: 0 3px 3px 0;
-                user-select: none;
-                -webkit-user-select: none;
-            }
-
-            /* Position the "next button" to the right */
-            .next {
-                right: 0;
-                border-radius: 3px 0 0 3px;
-            }
-
-            /* On hover, add a black background color with a little bit see-through */
-            .prev:hover,
-            .next:hover {
-                background-color: rgba(0, 0, 0, 0.8);
-            }
-
-            /* Number text (1/3 etc) */
-            .numbertext {
-                color: #f2f2f2;
-                font-size: 12px;
-                padding: 8px 12px;
-                position: absolute;
-                top: 0;
-            }
-
-            /* Container for image text */
-            .caption-container {
-                text-align: center;
-                background-color: #222;
-                padding: 2px 16px;
-                color: white;
-            }
-
-            .row:after {
-                content: "";
-                display: table;
-                clear: both;
-            }
-
-            /* Six columns side by side */
-            .column {
-                float: left;
-                width: 16.66%;
-            }
-
-            /* Add a transparency effect for thumnbail images */
-            .demo {
-                opacity: 0.6;
-            }
-
-            .active,
-            .demo:hover {
-                opacity: 1;
-            }
-        </style>
-        <!-- BANNER SECTION START -->
-        <section>
-            <div class="ed-banner-slider swiper relative">
-                <div class="swiper-wrapper">
-                    <!-- الشريحة الأولى -->
-                    <div class="swiper-slide">
-                        <div style=" height: 125vh !important;"
-                            class="pt-[390px] md:pt-[300px] xs:pt-[280px] pb-[205px] bg-[url('../assets/img/banner-bg-1.jpg')] bg-no-repeat bg-center bg-cover relative z-[1] before:absolute before:-z-[1] before:inset-0 before:bg-edblue/70 before:pointer-events-none">
-                            <div class="mx-[10%] md:mx-[15px]">
-                                <div class="text-white w-[48%] xl:w-[60%] md:w-[70%] sm:w-[80%] xs:w-full">
-                                    <h2 class="font-bold text-[clamp(35px,4.57vw,80px)] leading-[1.13] mb-[15px]">
-                                        "مدرسة زبدا الثانوية"
-
-                                    </h2>
-                                    <p class="leading-[1.75] mb-[41px]" style=" font-size: 24px !important;">
-                                        "رؤيتنا لبيئة تعليمية عادلة وصحية تلبي احتياجات الجميع."
-
-                                    </p>
-                                    <div class="flex items-center gap-[20px]">
-                                        <a href="homepage#ourMessage" class="ed-btn"
-                                            style="background-color: #fff; color: #4c925e;">تعرف على رسالتنا</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- الشريحة الثانية -->
-                    <div class="swiper-slide">
-                        <div style=" height: 125vh !important;"
-                            class="pt-[390px] md:pt-[300px] xs:pt-[280px] pb-[205px] bg-[url('../assets/img/banner-bg-2.jpg')] bg-no-repeat bg-center bg-cover relative z-[1] before:absolute before:-z-[1] before:inset-0 before:bg-edblue/70 before:pointer-events-none">
-                            <div class="mx-[10%] md:mx-[15px]">
-                                <div class="text-white w-[48%] xl:w-[60%] md:w-[70%] sm:w-[80%] xs:w-full">
-                                    <h2 class="font-bold text-[clamp(35px,4.57vw,80px)] leading-[1.13] mb-[15px]">
-                                        "مرحلة جديدة من التعليم تبدأ بفهم احتياجات طلابنا."
-                                    </h2>
-                                    <p class="leading-[1.75] mb-[41px]" style=" font-size: 24px !important;">
-                                        "معًا لنكتشف صعوبات التعلم ونبني مستقبلًا أفضل."
-                                    </p>
-                                    <div class="flex items-center gap-[20px]">
-                                        {{-- <a href="#" class="ed-btn">ابدأ التشخيص الآن</a> --}}
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- الشريحة الثالثة -->
-                    <div class="swiper-slide">
-                        <div style="height: 125vh !important; background: url('../assets/img/banner-bg-3.jpg')!important;background-repeat: no-repeat !important ;   background-size: cover !important; background-position: center !important;"
-                            class="pt-[390px] md:pt-[300px] xs:pt-[280px] pb-[205px] bg-[url('../assets/img/banner-bg-3.jpg')] bg-no-repeat bg-center bg-cover relative z-[1] before:absolute before:-z-[1] before:inset-0 before:bg-edblue/70 before:pointer-events-none">
-                            <div class="mx-[10%] md:mx-[15px]">
-                                <div class="text-white w-[48%] xl:w-[60%] md:w-[70%] sm:w-[80%] xs:w-full">
-                                    <h2 class="font-bold text-[clamp(35px,4.57vw,80px)] leading-[1.13] mb-[15px]">
-                                        "فريقنا المتخصص من المعلمات"
-                                    </h2>
-                                    <p class="leading-[1.75] mb-[41px]"style=" font-size: 24px !important;">
-                                        "يعمل من أجل تطوير قدرات الطلاب وتحقيق أهداف التعليم الشامل."
-                                    </p>
-                                    <div class="flex items-center gap-[20px]">
-                                        <a href="/homepage#teamwork" class="ed-btn"
-                                            style="background-color: #fff; color: #4c925e;">تعرف على فريق العمل</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                <!-- txt -->
+                <div class="max-w-[50%] md:max-w-full shrink-0 grow">
+                    <h6 class="ed-section-sub-title" style="margin-right: 47px;">من نحن</h6>
+                    <h2 class="ed-section-title mb-[9px]">مرحباً بكم في مدرسة التميز النموذجية</h2>
+                    <p class="text-edgray" style="font-size: 20px">مدرسة التميز النموذجية تسعى جاهدة لتحقيق بيئة
+                        تعليمية شاملة وعادلة، تركز على تطوير الإمكانيات الأكاديمية والشخصية لجميع الطلاب. نحن نؤمن
+                        بأهمية مراعاة الفروق الفردية بين الطلاب، وتوفير فرص متساوية للجميع بغض النظر عن خلفياتهم أو
+                        قدراتهم. تسعى المدرسة إلى بناء بيئة صحية ومحفزة، تشجع على الابتكار والتفكير النقدي، وتوفر الدعم
+                        النفسي والاجتماعي لضمان نجاح كل طالب في تحقيق أهدافه التعليمية والشخصية. كما تعمل المدرسة على
+                        تعزيز القيم الإنسانية مثل الاحترام المتبادل، العمل الجماعي، والمسؤولية الاجتماعية، لتكون جزءًا
+                        من تربية جيل قادر على مواجهة تحديات المستقبل بثقة وعزيمة.</p>
                 </div>
-
-
             </div>
-        </section>
-        <!-- BANNER SECTION END -->
+        </div>
+    </section>
 
 
-
-        <!-- CATEGORIES SECTION START -->
+        {{-- <!-- CATEGORIES SECTION START -->
         <div class="ed-2-categories -mt-[98px] relative z-[2]">
             <div
                 class="mx-[15.8%] xxxl:mx-[9.8%] xxl:mx-[3.5%] bg-white p-[40px] sm:p-[30px] xxs:p-[20px] rounded-[20px] shadow-[0_4px_25px_rgba(0,0,0,0.06)]">
@@ -259,46 +127,248 @@
 
             </div>
         </div>
-        <!-- CATEGORIES SECTION END -->
-        <!-- ABOUT SECTION START -->
-        <section class="py-[120px] xl:py-[80px] md:py-[60px]" dir="rtl">
-            <div class="mx-[19.71%] xxxl:mx-[14.71%] xxl:mx-[9.71%] xl:mx-[5.71%] md:mx-[12px]">
-                <div class="flex md:flex-col justify-between items-center gap-x-[60px] xl:gap-x-[40px] gap-y-[40px]">
-                    <!-- img -->
-                    <div class="max-w-[50%] md:max-w-full grow relative">
-                        <img src="{{ asset('assets/img/schoolpic.jpg') }}" height="536px" width="490px"
-                            style="border-radius: 10px" alt="صورة عن المدرسة">
-                        <img src="assets/img/about-img-vector.svg" alt="رمز"
-                            class="absolute -top-[25px] left-[25px] -z-[1] w-[90%] max-w-[100%]">
+        <!-- CATEGORIES SECTION END --> --}}
+
+        <!-- INNOVATIVE TESTS SECTION START -->
+<section class="ed-innovative-tests py-16 relative">
+    <!-- Decorative background elements -->
+    <div class="absolute -top-20 left-0 w-full h-[150px] bg-gradient-to-b from-[#f8f9fa] to-transparent z-0"></div>
+    
+    <div class="container mx-auto px-4 sm:px-6 relative z-10">
+        <!-- Section Header -->
+        <div class="text-center mb-16">
+            <span class="inline-block text-[#F8B81F] text-lg font-medium mb-3">اختبارات تفاعلية</span>
+            <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4">اكتشف اختباراتنا التعليمية المبتكرة</h2>
+            <p class="text-gray-600 max-w-2xl mx-auto text-lg">اختبر معرفتك وتعلم بطريقة ممتعة مع مجموعة متنوعة من الاختبارات التفاعلية</p>
+        </div>
+
+        <!-- Tests Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <!-- Math Test Card -->
+            <div class="bg-white rounded-xl shadow-lg overflow-hidden transition-all duration-300 hover:shadow-xl hover:-translate-y-2 border border-transparent hover:border-[#F8B81F]">
+                <div class="p-6 flex flex-col h-full">
+                    <div class="mb-6 self-start">
+                        <div class="w-20 h-20 rounded-full bg-[#F8B81F]/10 flex items-center justify-center">
+                            <svg width="36" height="36" viewBox="0 0 32 32" class="text-[#F8B81F]">
+                                <path fill="currentColor" d="M4 2C2.9 2 2 2.9 2 4V28C2 29.1 2.9 30 4 30H28C29.1 30 30 29.1 30 28V4C30 2.9 29.1 2 28 2H4ZM8 6H24V10H8V6ZM8 14H12V18H8V14ZM14 14H18V18H14V14ZM20 14H24V18H20V14ZM8 20H12V24H8V20ZM14 20H18V24H14V20ZM20 20H24V24H20V20Z"/>
+                            </svg>
+                        </div>
                     </div>
+                    <h3 class="text-xl font-bold text-gray-800 mb-3">اختبار الرياضيات</h3>
+                    <p class="text-gray-600 mb-6 flex-grow">اختبر مهاراتك في الرياضيات مع أسئلة تغطي جميع المستويات من الأساسيات إلى المتقدم</p>
+                    <a href="#" class="mt-auto inline-flex items-center text-[#F8B81F] font-medium group">
+                        ابدأ الاختبار الآن
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2 group-hover:translate-x-1 transition-transform" viewBox="0 0 20 20" fill="currentColor">
+                            <path fill-rule="evenodd" d="M10.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L12.586 11H5a1 1 0 110-2h7.586l-2.293-2.293a1 1 0 010-1.414z" clip-rule="evenodd" />
+                        </svg>
+                    </a>
+                </div>
+            </div>
 
-                    <!-- txt -->
-                    <div class="max-w-[50%] md:max-w-full shrink-0 grow">
+            <!-- Arabic Test Card -->
+            <div class="bg-white rounded-xl shadow-lg overflow-hidden transition-all duration-300 hover:shadow-xl hover:-translate-y-2 border border-transparent hover:border-[#39C0FA]">
+                <div class="p-6 flex flex-col h-full">
+                    <div class="mb-6 self-start">
+                        <div class="w-20 h-20 rounded-full bg-[#39C0FA]/10 flex items-center justify-center">
+                            <svg width="36" height="36" viewBox="0 0 32 32" class="text-[#39C0FA]">
+                                <path fill="currentColor" d="M16 0C7.16344 0 0 7.16344 0 16C0 24.8366 7.16344 32 16 32C24.8366 32 32 24.8366 32 16C32 15.4469 31.977 14.8994 31.9314 14.3588C30.712 14.7788 29.4112 15 28 15C21.3726 15 16 9.62742 16 3C16 1.5888 16.2212 0.287952 16.6412 -0.931432C16.1006 -0.977027 15.5531 -1 15 -1C6.16344 -1 0 6.16344 0 15C0 23.8366 6.16344 31 15 31C23.8366 31 31 24.8366 31 16C31 14.8974 30.9296 13.8356 30.8882 14.0306C29.6798 14.4456 28.3901 14.6538 27.0583 14.6538C21.1145 14.6538 16.3462 9.88551 16.3462 3.94166C16.3462 2.60988 16.5544 1.32021 16.9694 0.11184C16.3214 0.0384167 15.669 0 15 0Z"/>
+                            </svg>
+                        </div>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-800 mb-3">اختبار اللغة العربية</h3>
+                    <p class="text-gray-600 mb-6 flex-grow">طور مهاراتك اللغوية مع اختبارات في النحو والصرف والأدب العربي</p>
+                    <a href="#" class="mt-auto inline-flex items-center text-[#39C0FA] font-medium group">
+                        ابدأ الاختبار الآن
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2 group-hover:translate-x-1 transition-transform" viewBox="0 0 20 20" fill="currentColor">
+                            <path fill-rule="evenodd" d="M10.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L12.586 11H5a1 1 0 110-2h7.586l-2.293-2.293a1 1 0 010-1.414z" clip-rule="evenodd" />
+                        </svg>
+                    </a>
+                </div>
+            </div>
 
-                        <h6 class="ed-section-sub-title" style="margin-right: 47px;">من نحن</h6>
-                        <h2 class="ed-section-title mb-[9px]">مرحباً بكم في مدرسة زبدا الثانوية المختلطة</h2>
-                        <p class="text-edgray" style="font-size: 20px">مدرسة زبدا الثانوية المختلطة تسعى جاهدة لتحقيق بيئة
-                            تعليمية شاملة وعادلة، تركز على تطوير الإمكانيات الأكاديمية والشخصية لجميع الطلاب. نحن نؤمن
-                            بأهمية مراعاة الفروق الفردية بين الطلاب، وتوفير فرص متساوية للجميع بغض النظر عن خلفياتهم أو
-                            قدراتهم. تسعى المدرسة إلى بناء بيئة صحية ومحفزة، تشجع على الابتكار والتفكير النقدي، وتوفر الدعم
-                            النفسي والاجتماعي لضمان نجاح كل طالب في تحقيق أهدافه التعليمية والشخصية. كما تعمل المدرسة على
-                            تعزيز القيم الإنسانية مثل الاحترام المتبادل، العمل الجماعي، والمسؤولية الاجتماعية، لتكون جزءًا
-                            من تربية جيل قادر على مواجهة تحديات المستقبل بثقة وعزيمة.</p>
+            <!-- Science Test Card -->
+            <div class="bg-white rounded-xl shadow-lg overflow-hidden transition-all duration-300 hover:shadow-xl hover:-translate-y-2 border border-transparent hover:border-[#F92596]">
+                <div class="p-6 flex flex-col h-full">
+                    <div class="mb-6 self-start">
+                        <div class="w-20 h-20 rounded-full bg-[#F92596]/10 flex items-center justify-center">
+                            <svg width="36" height="36" viewBox="0 0 36 36" class="text-[#F92596]">
+                                <g fill="currentColor">
+                                    <path d="M16.5 2C15.6716 2 15 2.67157 15 3.5V18H12C11.4477 18 11 18.4477 11 19V22H25V19C25 18.4477 24.5523 18 24 18H21V3.5C21 2.67157 20.3284 2 19.5 2H16.5Z"/>
+                                    <path d="M8 23H28C28.5523 23 29 23.4477 29 24V26H7V24C7 23.4477 7.44772 23 8 23Z"/>
+                                    <circle cx="18" cy="29" r="4"/>
+                                </g>
+                            </svg>
+                        </div>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-800 mb-3">اختبار العلوم</h3>
+                    <p class="text-gray-600 mb-6 flex-grow">استكشف عالم العلوم مع اختبارات في الفيزياء والكيمياء والأحياء</p>
+                    <a href="#" class="mt-auto inline-flex items-center text-[#F92596] font-medium group">
+                        ابدأ الاختبار الآن
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2 group-hover:translate-x-1 transition-transform" viewBox="0 0 20 20" fill="currentColor">
+                            <path fill-rule="evenodd" d="M10.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L12.586 11H5a1 1 0 110-2h7.586l-2.293-2.293a1 1 0 010-1.414z" clip-rule="evenodd" />
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- CTA Button -->
+        <div class="text-center mt-16">
+            <a href="#" class="inline-flex items-center px-8 py-3 bg-gradient-to-r from-[#F8B81F] to-[#F92596] text-white font-medium rounded-full shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105">
+                تصفح جميع الاختبارات
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" viewBox="0 0 20 20" fill="currentColor">
+                    <path fill-rule="evenodd" d="M10.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L12.586 11H5a1 1 0 110-2h7.586l-2.293-2.293a1 1 0 010-1.414z" clip-rule="evenodd" />
+                </svg>
+            </a>
+        </div>
+    </div>
+</section>
+<!-- INNOVATIVE TESTS SECTION END -->
 
 
 
+
+<!-- Facilities Start -->
+<div class="container-fluid pt-5">
+    <div class="container pb-3">
+        <div class="row">
+            <div class="col-lg-4 col-md-6 pb-1">
+                <div class="d-flex bg-light shadow-sm border-top rounded mb-4" style="padding: 30px;">
+                    <i class="flaticon-050-fence h1 font-weight-normal text-primary mb-3"></i>
+                    <div class="pl-4">
+                        <h4>ساحة اللعب</h4>
+                        <p class="m-0">Kasd labore kasd et dolor est rebum dolor ut, clita dolor vero lorem amet elitr vero...</p>
                     </div>
                 </div>
             </div>
+            <div class="col-lg-4 col-md-6 pb-1">
+                <div class="d-flex bg-light shadow-sm border-top rounded mb-4" style="padding: 30px;">
+                    <i class="flaticon-022-drum h1 font-weight-normal text-primary mb-3"></i>
+                    <div class="pl-4">
+                        <h4>Music and Dance</h4>
+                        <p class="m-0">Kasd labore kasd et dolor est rebum dolor ut, clita dolor vero lorem amet elitr vero...</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6 pb-1">
+                <div class="d-flex bg-light shadow-sm border-top rounded mb-4" style="padding: 30px;">
+                    <i class="flaticon-030-crayons h1 font-weight-normal text-primary mb-3"></i>
+                    <div class="pl-4">
+                        <h4>Arts and Crafts</h4>
+                        <p class="m-0">Kasd labore kasd et dolor est rebum dolor ut, clita dolor vero lorem amet elitr vero...</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6 pb-1">
+                <div class="d-flex bg-light shadow-sm border-top rounded mb-4" style="padding: 30px;">
+                    <i class="flaticon-017-toy-car h1 font-weight-normal text-primary mb-3"></i>
+                    <div class="pl-4">
+                        <h4>Safe Transportation</h4>
+                        <p class="m-0">Kasd labore kasd et dolor est rebum dolor ut, clita dolor vero lorem amet elitr vero...</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6 pb-1">
+                <div class="d-flex bg-light shadow-sm border-top rounded mb-4" style="padding: 30px;">
+                    <i class="flaticon-025-sandwich h1 font-weight-normal text-primary mb-3"></i>
+                    <div class="pl-4">
+                        <h4>Healthy food</h4>
+                        <p class="m-0">Kasd labore kasd et dolor est rebum dolor ut, clita dolor vero lorem amet elitr vero...</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6 pb-1">
+                <div class="d-flex bg-light shadow-sm border-top rounded mb-4" style="padding: 30px;">
+                    <i class="flaticon-047-backpack h1 font-weight-normal text-primary mb-3"></i>
+                    <div class="pl-4">
+                        <h4>Educational Tour</h4>
+                        <p class="m-0">Kasd labore kasd et dolor est rebum dolor ut, clita dolor vero lorem amet elitr vero...</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+        {{-- <section>
+            <!-- About Start -->
+    <div class="container-fluid py-5">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-5">
+                    <img class="img-fluid rounded mb-5 mb-lg-0" src="{{asset('assets1/img/woman-teaching-classroom.jpg')}}" alt="">
+                </div>
+                <div class="col-lg-7">
+                    <p class="section-title pr-5"><span class="pr-2">Learn About Us</span></p>
+                    <h1 class="mb-4">Best School For Your Kids</h1>
+                    <p>Invidunt lorem justo sanctus clita. Erat lorem labore ea, justo dolor lorem ipsum ut sed eos,
+                        ipsum et dolor kasd sit ea justo. Erat justo sed sed diam. Ea et erat ut sed diam sea ipsum est
+                        dolor</p>
+                    <div class="row pt-2 pb-4">
+                        <div class="col-6 col-md-4">
+                            <img class="img-fluid rounded" src="{{asset('assets1/img/about-2.jp')}}g" alt="">
+                        </div>
+                        <div class="col-6 col-md-8">
+                            <ul class="list-inline m-0">
+                                <li class="py-2 border-top border-bottom"><i class="fa fa-check text-primary mr-3"></i>Labore eos amet dolor amet diam</li>
+                                <li class="py-2 border-bottom"><i class="fa fa-check text-primary mr-3"></i>Etsea et sit dolor amet ipsum</li>
+                                <li class="py-2 border-bottom"><i class="fa fa-check text-primary mr-3"></i>Diam dolor diam elitripsum vero.</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <a href="" class="btn btn-primary mt-2 py-2 px-4">Learn More</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- About End -->
+        </section> --}}
+
+        <section>
+            <!-- About Start -->
+            <div class="container-fluid py-5">
+                <div class="container">
+                    <div class="row align-items-center">
+                        <div class="col-lg-5">
+                            <img class="img-fluid rounded mb-5 mb-lg-0" src="{{asset('assets1/img/woman-teaching-classroom.jpg')}}" alt="معلمة تشرح للطلاب في الفصل">
+                        </div>
+                        <div class="col-lg-7">
+                            <p class="section-title pr-5"><span class="pr-2">تعرف على مدرستنا</span></p>
+                            <h1 class="mb-4">أفضل مدرسة لأطفالكم</h1>
+                            <p>نقدم بيئة تعليمية محفزة تركز على تنمية المهارات الأكاديمية والاجتماعية، مع اهتمام خاص بذوي صعوبات التعلم. نؤمن بأن كل طفل لديه طريقة فريدة في التعلم، ونسعى لاكتشافها وتطويرها.</p>
+                            <div class="row pt-2 pb-4">
+                                <div class="col-6 col-md-4">
+                                    <img class="img-fluid rounded" src="{{asset('assets1/img/about-2.jpg')}}" alt="طلاب يدرسون في المكتبة">
+                                </div>
+                                <div class="col-6 col-md-8">
+                                    <ul class="list-inline m-0">
+                                        <li class="py-2 border-top border-bottom"><i class="fa fa-check text-primary mr-3"></i>اختبارات تشخيصية دقيقة لمستوى الطلاب</li>
+                                        <li class="py-2 border-bottom"><i class="fa fa-check text-primary mr-3"></i>برامج دعم مخصصة لصعوبات التعلم</li>
+                                        <li class="py-2 border-bottom"><i class="fa fa-check text-primary mr-3"></i>كادر تعليمي مؤهل ومدرب على أحدث الأساليب</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <a href="" class="btn btn-primary mt-2 py-2 px-4">المزيد عنا</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- About End -->
         </section>
+
+
         <section class="bg-edoffwhite py-[120px] xl:py-[80px] md:py-[60px]" dir="rtl"
             style="margin-bottom: 10vh; margin-top:10vh" id="ourMessage">
 
             <div class="mx-[19.71%] xxxl:mx-[14.71%] xxl:mx-[9.71%] xl:mx-[5.71%] md:mx-[12px]">
                 <div class="flex flex-col justify-between items-center gap-y-[40px]">
                     <div class="text-center mb-[46px] lg:mb-[36px] md:mb-[26px]">
-                        <h2 class="ed-section-sub-title">رسالتنا ورؤيتنا </h2>
-                        <h6 class="ed-section-title">رسالتنا ورؤيتنا</h6>
+                        <h2 class="ed-section-sub-title" style="font-size: 50px">رسالتنا ورؤيتنا </h2>
+                        <h6 class="ed-section-title" style="font-size: 30px">رسالتنا ورؤيتنا</h6>
                     </div>
                     <!-- Text Section -->
                     <div class="w-full ">
@@ -309,11 +379,11 @@
                             <div class="flex flex-col items-center text-center gap-[15px] max-w-[45%]">
                                 <div
                                     class="shrink-0 bg-edpurple h-[100px] aspect-square rounded-[8px] flex items-center justify-center">
-                                    <img src="assets/img/icon/target.svg" alt="هدفنا" class="w-[50%]">
+                                    <img src="{{asset('assets1/img/school-3980940_1280.jpg')}}" alt="هدفنا" class="w-[50%]">
                                 </div>
                                 <div>
-                                    <h6 class="font-bold text-[30px] text-edblue mb-[10px] leading-[1.4]">رسالتنا</h6>
-                                    <p class="text-[24px] text-edgray leading-[1.8]">إعداد طلبة ناجحين من خلال استراتيجيات
+                                    <h6 class="font-bold text-[30px] text-edblue mb-[10px] leading-[1.4]" style="font-size: 30px">رسالتنا</h6>
+                                    <p class="text-[24px] text-edgray leading-[1.8]" style="font-size: 24px">إعداد طلبة ناجحين من خلال استراتيجيات
                                         مبتكرة تواكب التعليم الحديث، مع تطوير مهارات التفكير النقدي والإبداعي، وتعزيز القدرة
                                         على حل المشكلات واتخاذ القرارات. تسعى المدرسة إلى دمج التكنولوجيا في التعليم وتوفير
                                         بيئة مرنة ومتنوعة تواكب التحديات العالمية.</p>
@@ -324,11 +394,11 @@
                             <div class="flex flex-col items-center text-center gap-[15px] max-w-[45%]">
                                 <div
                                     class="shrink-0 bg-edpurple h-[100px] aspect-square rounded-[8px] flex items-center justify-center">
-                                    <img src="assets/img/icon/book-light.svg" alt="رؤيتنا" class="w-[50%]">
+                                    <img src="{{asset('assets1\img\to-learn-3701963_1280.jpg')}}" alt="رؤيتنا" class="w-[50%]">
                                 </div>
                                 <div>
-                                    <h6 class="font-bold text-[30px] text-edblue mb-[10px] leading-[1.4]">رؤيتنا</h6>
-                                    <p class="text-[24px] text-edgray leading-[1.8]">تعزيز فرص التعليم الشامل والارتقاء
+                                    <h6 class="font-bold text-[30px] text-edblue mb-[10px] leading-[1.4]" style="font-size: 30px">رؤيتنا</h6>
+                                    <p class="text-[24px] text-edgray leading-[1.8]" style="font-size: 24px">تعزيز فرص التعليم الشامل والارتقاء
                                         بالمستوى التعليمي للمجتمع يتطلب توفير بيئة تعليمية متكاملة تضمن فرصًا متساوية لجميع
                                         الأفراد، مع تحديث المناهج وتدريب المعلمين على استراتيجيات مبتكرة. كما يتطلب التوعية
                                         بأهمية التعليم المستدام لبناء مجتمع قادر على مواجهة التحديات المستقبلية.</p>
@@ -341,7 +411,7 @@
         </section>
 
 
-        <!-- INSTRUCTORS SECTION START -->
+        {{-- <!-- INSTRUCTORS SECTION START -->
         <section class="bg-edoffwhite py-[120px] xl:py-[80px] md:py-[60px] relative z-[1] overflow-hidden" dir="rtl"
             id="teamwork">
             <div class="mx-[19.7%] xxxl:mx-[14.7%] xxl:mx-[9.7%] xl:mx-[3.2%] md:mx-[15px]">
@@ -449,14 +519,174 @@
                 </div>
             </div>
         </section>
-        <!-- INSTRUCTORS SECTION END -->
+        <!-- INSTRUCTORS SECTION END --> --}}
+
+
+        <section>
+            <!-- Team Start -->
+            <div class="container-fluid pt-5">
+                <div class="container">
+                    <div class="text-center pb-2">
+                        <p class="section-title px-5"><span class="px-2">كادرنا التعليمي</span></p>
+                        <h1 class="mb-4">تعرف على معلمينا المتميزين</h1>
+                    </div>
+                    <div class="row">
+                        <!-- المعلم الأول -->
+                        <div class="col-md-6 col-lg-3 text-center team mb-5">
+                            <div class="position-relative overflow-hidden mb-4" style="border-radius: 100%;">
+                                <img class="img-fluid w-100" src="{{asset('assets1/img/half-length-shot-attractive-confident-muslim-college-student-holds-notebooks-paper-documents-prepares-project-work-lesson-wears-pink-hijab-round-spectacles-jean-clothes-studying-concept.jpg')}}" alt="المعلمة سارة أحمد">
+                                <div class="team-social d-flex align-items-center justify-content-center w-100 h-100 position-absolute">
+                                    <a class="btn btn-outline-light text-center mr-2 px-0" style="width: 38px; height: 38px;" href="#"><i class="fab fa-twitter"></i></a>
+                                    <a class="btn btn-outline-light text-center mr-2 px-0" style="width: 38px; height: 38px;" href="#"><i class="fab fa-facebook-f"></i></a>
+                                    <a class="btn btn-outline-light text-center px-0" style="width: 38px; height: 38px;" href="#"><i class="fab fa-linkedin-in"></i></a>
+                                </div>
+                            </div>
+                            <h4>سارة أحمد</h4>
+                            <i>معلمة صعوبات تعلم</i>
+                            <p class="mt-2 text-muted">خبيرة في استراتيجيات دعم صعوبات القراءة (الديسلكسيا)</p>
+                        </div>
+                        
+                        <!-- المعلم الثاني -->
+                        <div class="col-md-6 col-lg-3 text-center team mb-5">
+                            <div class="position-relative overflow-hidden mb-4" style="border-radius: 100%;">
+                                <img class="img-fluid w-100" src="{{asset('assets1/img/smiling-young-bald-call-center-man-holding-folders-looking-straight-pointing-side-isolated-green-wall.jpg')}}" alt="المعلم محمد خالد">
+                                <div class="team-social d-flex align-items-center justify-content-center w-100 h-100 position-absolute">
+                                    <a class="btn btn-outline-light text-center mr-2 px-0" style="width: 38px; height: 38px;" href="#"><i class="fab fa-twitter"></i></a>
+                                    <a class="btn btn-outline-light text-center mr-2 px-0" style="width: 38px; height: 38px;" href="#"><i class="fab fa-facebook-f"></i></a>
+                                    <a class="btn btn-outline-light text-center px-0" style="width: 38px; height: 38px;" href="#"><i class="fab fa-linkedin-in"></i></a>
+                                </div>
+                            </div>
+                            <h4>محمد خالد</h4>
+                            <i>أخصائي نطق ولغة</i>
+                            <p class="mt-2 text-muted">متخصص في اضطرابات التواصل والتوحد</p>
+                        </div>
+                        
+                        <!-- المعلم الثالث -->
+                        <div class="col-md-6 col-lg-3 text-center team mb-5">
+                            <div class="position-relative overflow-hidden mb-4" style="border-radius: 100%;">
+                                <img class="img-fluid w-100" src="{{asset('assets1/img/front-view-young-saleswoman-holding-skipping-rope-green-surface.jpg')}}" alt="المعلمة رنا عبدالله">
+                                <div class="team-social d-flex align-items-center justify-content-center w-100 h-100 position-absolute">
+                                    <a class="btn btn-outline-light text-center mr-2 px-0" style="width: 38px; height: 38px;" href="#"><i class="fab fa-twitter"></i></a>
+                                    <a class="btn btn-outline-light text-center mr-2 px-0" style="width: 38px; height: 38px;" href="#"><i class="fab fa-facebook-f"></i></a>
+                                    <a class="btn btn-outline-light text-center px-0" style="width: 38px; height: 38px;" href="#"><i class="fab fa-linkedin-in"></i></a>
+                                </div>
+                            </div>
+                            <h4>رنا عبدالله</h4>
+                            <i>معلمة تربية خاصة</i>
+                            <p class="mt-2 text-muted">خبيرة في تعديل السلوك والتدخل المبكر</p>
+                        </div>
+                        
+                        <!-- المعلم الرابع -->
+                        <div class="col-md-6 col-lg-3 text-center team mb-5">
+                            <div class="position-relative overflow-hidden mb-4" style="border-radius: 100%;">
+                                <img class="img-fluid w-100" src="{{asset('assets1/img/young-bearded-man-blue-shirt-holding-folder-blank-pages-displeased.jpg')}}" alt="المعلم يوسف محمود">
+                                <div class="team-social d-flex align-items-center justify-content-center w-100 h-100 position-absolute">
+                                    <a class="btn btn-outline-light text-center mr-2 px-0" style="width: 38px; height: 38px;" href="#"><i class="fab fa-twitter"></i></a>
+                                    <a class="btn btn-outline-light text-center mr-2 px-0" style="width: 38px; height: 38px;" href="#"><i class="fab fa-facebook-f"></i></a>
+                                    <a class="btn btn-outline-light text-center px-0" style="width: 38px; height: 38px;" href="#"><i class="fab fa-linkedin-in"></i></a>
+                                </div>
+                            </div>
+                            <h4>يوسف محمود</h4>
+                            <i>أخصائي نفسي تربوي</i>
+                            <p class="mt-2 text-muted">متخصص في تقييم القدرات العقلية وصعوبات التعلم</p>
+                        </div>
+                    </div>
+                    
+                    <!-- قسم إضافي يمكن إضافته -->
+                    <div class="text-center mt-4">
+                        <p class="lead">فريقنا مؤلف من <strong>خبراء متخصصين</strong> في التعامل مع صعوبات التعلم بمختلف أنواعها</p>
+                        <a href="#" class="btn btn-primary px-4 mt-3">تعرف أكثر على منهجيتنا</a>
+                    </div>
+                </div>
+            </div>
+            <!-- Team End -->
+        </section>
+
+        {{-- <section>
+             <!-- Team Start -->
+    <div class="container-fluid pt-5">
+        <div class="container">
+            <div class="text-center pb-2">
+                <p class="section-title px-5"><span class="px-2">Our Teachers</span></p>
+                <h1 class="mb-4">Meet Our Teachers</h1>
+            </div>
+            <div class="row">
+                <div class="col-md-6 col-lg-3 text-center team mb-5">
+                    <div class="position-relative overflow-hidden mb-4" style="border-radius: 100%;">
+                        <img class="img-fluid w-100" src="{{asset('assets1/img/half-length-shot-attractive-confident-muslim-college-student-holds-notebooks-paper-documents-prepares-project-work-lesson-wears-pink-hijab-round-spectacles-jean-clothes-studying-concept.jpg')}}" alt="" >
+                        <div
+                            class="team-social d-flex align-items-center justify-content-center w-100 h-100 position-absolute">
+                            <a class="btn btn-outline-light text-center mr-2 px-0" style="width: 38px; height: 38px;"
+                                href="#"><i class="fab fa-twitter"></i></a>
+                            <a class="btn btn-outline-light text-center mr-2 px-0" style="width: 38px; height: 38px;"
+                                href="#"><i class="fab fa-facebook-f"></i></a>
+                            <a class="btn btn-outline-light text-center px-0" style="width: 38px; height: 38px;"
+                                href="#"><i class="fab fa-linkedin-in"></i></a>
+                        </div>
+                    </div>
+                    <h4>Julia Smith</h4>
+                    <i>Music Teacher</i>
+                </div>
+                <div class="col-md-6 col-lg-3 text-center team mb-5">
+                    <div class="position-relative overflow-hidden mb-4" style="border-radius: 100%;">
+                        <img class="img-fluid w-100" src="{{asset('assets1/img/smiling-young-bald-call-center-man-holding-folders-looking-straight-pointing-side-isolated-green-wall.jpg')}}" alt="" >
+                        <div
+                            class="team-social d-flex align-items-center justify-content-center w-100 h-100 position-absolute">
+                            <a class="btn btn-outline-light text-center mr-2 px-0" style="width: 38px; height: 38px;"
+                                href="#"><i class="fab fa-twitter"></i></a>
+                            <a class="btn btn-outline-light text-center mr-2 px-0" style="width: 38px; height: 38px;"
+                                href="#"><i class="fab fa-facebook-f"></i></a>
+                            <a class="btn btn-outline-light text-center px-0" style="width: 38px; height: 38px;"
+                                href="#"><i class="fab fa-linkedin-in"></i></a>
+                        </div>
+                    </div>
+                    <h4>Jhon Doe</h4>
+                    <i>Language Teacher</i>
+                </div>
+                <div class="col-md-6 col-lg-3 text-center team mb-5">
+                    <div class="position-relative overflow-hidden mb-4" style="border-radius: 100%;">
+                        <img class="img-fluid w-100" src="{{asset('assets1/img/front-view-young-saleswoman-holding-skipping-rope-green-surface.jpg')}}" alt="" >
+                        <div
+                            class="team-social d-flex align-items-center justify-content-center w-100 h-100 position-absolute">
+                            <a class="btn btn-outline-light text-center mr-2 px-0" style="width: 38px; height: 38px;"
+                                href="#"><i class="fab fa-twitter"></i></a>
+                            <a class="btn btn-outline-light text-center mr-2 px-0" style="width: 38px; height: 38px;"
+                                href="#"><i class="fab fa-facebook-f"></i></a>
+                            <a class="btn btn-outline-light text-center px-0" style="width: 38px; height: 38px;"
+                                href="#"><i class="fab fa-linkedin-in"></i></a>
+                        </div>
+                    </div>
+                    <h4>Mollie Ross</h4>
+                    <i>Dance Teacher</i>
+                </div>
+                <div class="col-md-6 col-lg-3 text-center team mb-5">
+                    <div class="position-relative overflow-hidden mb-4" style="border-radius: 100%;">
+                        <img class="img-fluid w-100" src="{{asset('assets1/img/young-bearded-man-blue-shirt-holding-folder-blank-pages-displeased.jpg')}}" alt="" >
+                        <div
+                            class="team-social d-flex align-items-center justify-content-center w-100 h-100 position-absolute">
+                            <a class="btn btn-outline-light text-center mr-2 px-0" style="width: 38px; height: 38px;"
+                                href="#"><i class="fab fa-twitter"></i></a>
+                            <a class="btn btn-outline-light text-center mr-2 px-0" style="width: 38px; height: 38px;"
+                                href="#"><i class="fab fa-facebook-f"></i></a>
+                            <a class="btn btn-outline-light text-center px-0" style="width: 38px; height: 38px;"
+                                href="#"><i class="fab fa-linkedin-in"></i></a>
+                        </div>
+                    </div>
+                    <h4>Donald John</h4>
+                    <i>Art Teacher</i>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Team End -->
+        </section> --}}
 
         <!-- BLOG SECTION START -->
         <section class="py-[120px] xl:py-[80px] md:py-[60px] relative z-[1] overflow-hidden" dir="rtl">
             <div class="mx-[19.71%] xxxl:mx-[14.71%] xxl:mx-[9.71%] xl:mx-[5.71%] md:mx-[12px]">
                 <!-- heading -->
                 <div class="text-center mb-[46px] md:mb-[30px]">
-                    <h6 class="ed-section-sub-title">خدمات الموقع</h6>
+                    <h6 class="ed-section-sub-title" style="font-size: 24px">خدمات الموقع</h6>
                     <h2 class="ed-section-title">أحدث استراتيجيات لدينا</h2>
                 </div>
 
@@ -504,108 +734,13 @@
         </section>
         <!-- BLOG SECTION END -->
 
-        <!-- BLOG SECTION START -->
-        <section class="py-[120px] xl:py-[80px] md:py-[60px] relative z-[1] overflow-hidden" dir="rtl">
-            <div class="mx-[19.71%] xxxl:mx-[14.71%] xxl:mx-[9.71%] xl:mx-[5.71%] md:mx-[12px]">
-                <!-- heading -->
-                <div class="text-center mb-[46px] md:mb-[30px]">
-                    <h6 class="ed-section-sub-title">ابداعات مدرستنا</h6>
-                    <h2 class="ed-section-title">ابداعات مدرستنا</h2>
-                </div>
-
-                <!-- Container for the image gallery -->
-                <div class="container">
-
-                    <!-- Full-width images with number text -->
-                    <div class="mySlides">
-                        <div class="numbertext">1 / 6</div>
-                        <img src="{{ asset('assets/img/1.jpeg') }}"
-                            style="width:100%; max-height: 70vh; object-fit: cover;">
-                    </div>
-
-                    <div class="mySlides">
-                        <div class="numbertext">2 / 6</div>
-                        <img src="{{ asset('assets/img/2.jpeg') }}"
-                            style="width:100%; max-height: 70vh; object-fit: cover;">
-                    </div>
-
-                    <div class="mySlides">
-                        <div class="numbertext">3 / 6</div>
-                        <img src="{{ asset('assets/img/3.jpeg') }}"
-                            style="width:100%; max-height: 70vh; object-fit: cover;">
-                    </div>
-
-                    <div class="mySlides">
-                        <div class="numbertext">4 / 6</div>
-                        <img src="{{ asset('assets/img/4.jpeg') }}"
-                            style="width:100%; max-height: 70vh; object-fit: cover;">
-                    </div>
-
-                    <div class="mySlides">
-                        <div class="numbertext">5 / 6</div>
-                        <img src="{{ asset('assets/img/5.jpeg') }}"
-                            style="width:100%; max-height: 70vh; object-fit: cover;">
-                    </div>
-
-                    <div class="mySlides">
-                        <div class="numbertext">6 / 6</div>
-                        <img src="{{ asset('assets/img/6.jpeg') }}"
-                            style="width:100%; max-height: 70vh; object-fit: cover;">
-                    </div>
-
-                    <!-- Next and previous buttons -->
-                    {{-- <a class="prev" onclick="plusSlides(-1)" style="position: absolute; top: 50%; right: 0; transform: translateY(-50%);">&#10094;</a>
-            <a class="next" onclick="plusSlides(1)" style="position: absolute; top: 50%; left: 0; transform: translateY(-50%);">&#10095;</a> --}}
-
-                    <!-- Image text -->
-                    <div class="caption-container">
-                        <p id="caption"></p>
-                    </div>
-
-                    <!-- Thumbnail images -->
-
-                    <div class="row">
-                        <div class="column">
-                            <img class="demo cursor" src="{{ asset('assets/img/1.jpeg') }}"
-                                style="width:100%; max-height: 70vh; object-fit: cover;" onclick="currentSlide(1)"
-                                alt="مدرسة زبدا الثانوية">
-                        </div>
-                        <div class="column">
-                            <img class="demo cursor" src="{{ asset('assets/img/2.jpeg') }}"
-                                style="width:100%; max-height: 70vh; object-fit: cover;" onclick="currentSlide(2)"
-                                alt="مدرسة زبدا الثانوية">
-                        </div>
-                        <div class="column">
-                            <img class="demo cursor" src="{{ asset('assets/img/3.jpeg') }}"
-                                style="width:100%; max-height: 70vh; object-fit: cover;" onclick="currentSlide(3)"
-                                alt="مدرسة زبدا الثانوية">
-                        </div>
-                        <div class="column">
-                            <img class="demo cursor" src="{{ asset('assets/img/4.jpeg') }}"
-                                style="width:100%; max-height: 70vh; object-fit: cover;" onclick="currentSlide(4)"
-                                alt="مدرسة زبدا الثانوية">
-                        </div>
-                        <div class="column">
-                            <img class="demo cursor" src="{{ asset('assets/img/5.jpeg') }}"
-                                style="width:100%; max-height: 70vh; object-fit: cover;" onclick="currentSlide(5)"
-                                alt="مدرسة زبدا الثانوية">
-                        </div>
-                        <div class="column">
-                            <img class="demo cursor" src="{{ asset('assets/img/6.jpeg') }}"
-                                style="width:100%; max-height: 70vh; object-fit: cover;" onclick="currentSlide(6)"
-                                alt="مدرسة زبدا الثانوية">
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-        <!-- BLOG SECTION END -->
+        
         <!-- CTA 2 SECTION START -->
         <section class="mt-[120px] xl:mt-[80px] md:mt-[60px]" dir="rtl">
             <div
                 class="mx-[19.7%] xxxl:mx-[14.7%] xxl:mx-[9.7%] xl:mx-[3.2%] md:mx-[15px] bg-[url('../assets/img/cta-3-bg.jpg')] bg-no-repeat bg-cover bg-center rounded-[20px] overflow-hidden text-center py-[120px] xl:py-[80px] md:py-[60px] relative z-[1] before:absolute before:inset-0 before:bg-edpurple/80 before:-z-[1]">
                 <div class="max-w-[570px] mx-auto">
-                    <h6 class="ed-section-sub-title ed-section-sub-title--white ml-[48px]">رسالتنا التعليمية</h6>
+                    <h6 class="ed-section-sub-title ed-section-sub-title--white ml-[48px]" style="font-size: 24px">رسالتنا التعليمية</h6>
                     <h2 class="ed-section-title !text-white mb-[18px]">خلق بيئة تعليمية تفاعلية تشجع أولياء الأمور والمجتمع
                         المحلي على المساهمة في بناء مستقبل طلابنا</h2>
                 </div>
@@ -684,4 +819,5 @@
             });
         </script>
     @endif
+
 @endsection

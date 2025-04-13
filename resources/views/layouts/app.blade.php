@@ -1,6 +1,8 @@
 <!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+{{-- {{ str_replace('_', '-', app()->getLocale()) }} --}}
+<html lang="ar" dir ="rlt">   
     <head>
+        
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="csrf-token" content="{{ csrf_token() }}">
@@ -10,13 +12,18 @@
         <!-- Fonts -->
         <link rel="preconnect" href="https://fonts.bunny.net">
         <link href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" rel="stylesheet" />
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700&display=swap" rel="stylesheet">
 
         <!-- Scripts -->
         @vite(['resources/css/app.css', 'resources/js/app.js'])
+        
+        @yield('styles')
     </head>
     <body class="font-sans antialiased">
+        @INCLUDE('user.layout.header')
         <div class="min-h-screen bg-gray-100">
-            @include('layouts.navigation')
 
             <!-- Page Heading -->
             @isset($header)
@@ -29,8 +36,9 @@
 
             <!-- Page Content -->
             <main>
-                {{ $slot }}
+               @yield('content')
             </main>
         </div>
+        @INCLUDE('user.layout.footer')
     </body>
 </html>

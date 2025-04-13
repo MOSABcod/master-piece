@@ -1,129 +1,183 @@
-    <style>
-        /* Body Styling */
-body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    background-image: url('/path-to-your-background-image.jpg');
-    background-size: cover;
-    background-position: center;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    color: #333;
-}
 
-/* Main Login Box */
-.login-container {
-    background-color: white;
-    border-radius: 10px;
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
-    width: 100%;
-    max-width: 400px;
-    padding: 20px 30px;
-    text-align: center;
-}
 
-/* Logo */
-.login-container img {
-    width: 60px;
-    height: 60px;
-    margin-bottom: 15px;
-}
+<!-- resources/views/auth/login.blade.php -->
+@extends('layouts.app')
 
-/* Heading */
-.login-container h2 {
-    font-size: 1.5rem;
-    color: #27703b;
-    margin-bottom: 20px;
-}
+@section('content')
 
-/* Form Inputs */
-.login-container input,
-.login-container select {
-    width: 100%;
-    padding: 10px;
-    margin: 10px 0;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    font-size: 14px;
-}
-
-.login-container input:focus,
-.login-container select:focus {
-    border-color: #27703b;
-    outline: none;
-    box-shadow: 0 0 5px rgba(39, 112, 59, 0.5);
-}
-
-/* Buttons */
-.login-container button {
-    width: 100%;
-    background-color: #27703b;
-    color: white;
-    padding: 10px;
-    border: none;
-    border-radius: 5px;
-    font-size: 16px;
-    cursor: pointer;
-    margin-top: 10px;
-}
-
-.login-container button:hover {
-    background-color: #1e5b34;
-}
-
-/* Links */
-.login-container a {
-    font-size: 12px;
-    color: #27703b;
-    text-decoration: none;
-    margin: 0 5px;
-}
-
-.login-container a:hover {
-    text-decoration: underline;
-}
-
-/* Footer Links */
-.login-container .footer-links {
-    margin-top: 20px;
-    font-size: 14px;
-    color: #666;
-}
-
-    </style>
-   <!DOCTYPE html>
-   <html lang="ar" dir="rtl">
-   <head>
-       <meta charset="UTF-8">
-       <meta name="viewport" content="width=device-width, initial-scale=1.0">
-       <title>تسجيل دخول</title>
-       <link rel="stylesheet" href="path-to-your-styles.css">
-       <link rel="icon" type="image/png" href="{{ asset('assets/img/dashborad logo.png') }}">
-
-   </head>
-   <body style="background: url({{ asset('assets/img/loginBack.jpg') }}); background-repeat: no-repeat !important ;   background-size: cover !important; background-position: center !important;">
-       <div class="login-container">
-           <img src="{{ asset('assets/img/dashborad logo.png') }}" alt="Logo">
-           <h2>
-            مدرسة زبدا الثانوية</h2>
-           <form method="POST" action="/login">
-            @csrf
-               <input type="text" name="national_id" placeholder="اسم المستخدم" required>
-               <input type="password" name="password" placeholder="كلمة المرور" required>
-               {{-- <select name="language">
-                   <option value="arabic">العربية</option>
-                   <option value="english">English</option>
-               </select> --}}
-               <button type="submit">الدخول</button>
-           </form>
-           {{-- <div class="footer-links">
-               <a href="/forgot-password">Forgot password?</a> |
-               <a href="/forgot-username">Forgot username?</a>
-           </div> --}}
-       </div>
-   </body>
-   </html>
-
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="login-container">
+                <div class="login-header">
+                    <h2>!أهلا بعودتك</h2>
+                    <p>Please login to your account</p>
+                </div>
+                
+                <form method="POST" action="{{ route('login') }}">
+                    @csrf
+                    
+                    <div class="form-group">
+                        <label style="direction:rtl" for="email">البريد الإلكتروني</label>
+                        <input  id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus placeholder="البريد الإلكتروني" style="direction:rtl; text-align:right;">
+                        @error('email')
+                            <span class="invalid-feedback" role="alert">
+                                <strong>{{ $message }}</strong>
+                            </span>
+                        @enderror
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="password" style="direction:rtl">Password</label>
+                        <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="current-password" placeholder="Enter your password">
+                        @error('password')
+                            <span class="invalid-feedback" role="alert">
+                                <strong>{{ $message }}</strong>
+                            </span>
+                        @enderror
+                    </div>
+                    
+                    <div class="remember-me">
+                        <input type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
+                        <label for="remember">Remember me</label>
+                    </div>
+                    
+                    <button type="submit" class="btn btn-primary btnn-primary">Login</button>
+                </form>
+                
+                <div class="separator">
+                    <span>or</span>
+                </div>
+                
+                <div class="footer-link">
+                    @if (Route::has('password.request'))
+                        <a href="{{ route('password.request') }}">Forgot Password?</a>
+                    @endif
+                </div>
+                
+                <div class="footer-link">
+                    <p>Don't have an account? <a href="{{ route('register') }}">Sign Up</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+@endsection
+@section('styles')
+<style>
+    body {
+    
+        direction: rtl
+    }
+    .login-container {
+        background-color: #fff;
+        border-radius: 10px;
+        box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+        padding: 40px;
+        width: 100%;
+        margin: 40px 0;
+    }
+    
+    .login-header {
+        text-align: center;
+        margin-bottom: 30px;
+    }
+    
+    .login-header h2 {
+        color: #17a2b8;
+        font-weight: 700;
+        margin-bottom: 10px;
+    }
+    
+    .form-group {
+        margin-bottom: 20px;
+    }
+    
+    .form-control {
+        padding: 12px 15px;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        font-family: "Nunito", sans-serif;
+        font-size: 1rem;
+        transition: border-color 0.3s;
+    }
+    
+    .form-control:focus {
+        border-color: #17a2b8;
+        outline: none;
+        box-shadow: none;
+    }
+    
+    .invalid-feedback {
+        display: block;
+        width: 100%;
+        margin-top: 0.25rem;
+        font-size: 80%;
+        color: #dc3545;
+    }
+    
+    .btn {
+        font-weight: 600;
+        padding: 12px 30px;
+        font-size: 1rem;
+        line-height: 1.5;
+        border-radius: 5px;
+        transition: all 0.2s;
+    }
+    
+    .btnn-primary {
+        color: #fff;
+        background-color: #17a2b8;
+        border-color: #17a2b8;
+        width: 100%;
+    }
+    
+    .btn-primary:hover {
+        background-color: #138496;
+        border-color: #117a8b;
+    }
+    
+    .separator {
+        display: flex;
+        align-items: center;
+        text-align: center;
+        margin: 20px 0;
+    }
+    
+    .separator::before,
+    .separator::after {
+        content: '';
+        flex: 1;
+        border-bottom: 1px solid #ddd;
+    }
+    
+    .separator span {
+        padding: 0 10px;
+        color: #888;
+    }
+    
+    .footer-link {
+        text-align: center;
+        margin-top: 20px;
+    }
+    
+    .footer-link a {
+        color: #17a2b8;
+        text-decoration: none;
+    }
+    
+    .footer-link a:hover {
+        text-decoration: underline;
+    }
+    
+    .remember-me {
+        display: flex;
+        align-items: center;
+        margin-bottom: 20px;
+    }
+    
+    .remember-me input {
+        margin-right: 8px;
+    }
+</style>
+@endsection

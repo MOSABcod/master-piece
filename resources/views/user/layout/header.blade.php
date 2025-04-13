@@ -1,4 +1,94 @@
 <!DOCTYPE html>
+<html lang="ar" dir ="rtl">
+
+<head>
+    <meta charset="utf-8">
+    <title>مدرسةالتميز النموذجية</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="Free HTML Templates" name="keywords">
+    <meta content="Free HTML Templates" name="description">
+    <link rel ="icon" herf="{{ asset('assets1/img/dashborad logo.png')}}" type="image/png">
+    <base href="{{ url('/') }}/" target="_self">
+
+    <!-- Favicon -->
+    <link href="img/favicon.ico" rel="icon">
+
+    <!-- Google Web Fonts -->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Handlee&family=Nunito&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+    
+
+    <!-- Flaticon Font -->
+    <link href="{{asset('assets1/lib/flaticon/font/flaticon.css')}}" rel="stylesheet">
+
+
+    <!-- Libraries Stylesheet -->
+    <link href="{{ asset('assets1/lib/owlcarousel/assets/owl.carousel.min.css')}}" rel="stylesheet">
+    <link href="{{ asset('assets1/lib/lightbox/css/lightbox.min.css')}}" rel="stylesheet">
+
+    <!-- Customized Bootstrap Stylesheet -->
+    <link href="{{ asset('assets1/css/style.css')}}" rel="stylesheet">
+</head>
+<body>
+    <!-- Navbar Start -->
+    <div class="container-fluid bg-light position-relative shadow">
+        <nav class="navbar navbar-expand-lg bg-light navbar-light py-3 py-lg-0 px-0 px-lg-5">
+            <a href="" class="navbar-brand font-weight-bold text-secondary" style="font-size: 50px;">
+                <i class="flaticon-043-teddy-bear"></i>
+                <span class="text-primary">التميز النموذجية</span>
+            </a>
+            <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
+                <div class="navbar-nav font-weight-bold mx-auto py-0 ">
+                    
+                    {{-- <a href="about.html" class="nav-item nav-link active">أختباراتنا</a>
+                    <a href="class.html" class="nav-item nav-link">مدرستنا</a>
+                    <a href="team.html" class="nav-item nav-link">معلمونا</a> --}}
+                    {{-- <a href="gallery.html" class="nav-item nav-link">Gallery</a>
+                    <div class="nav-item dropdown">
+                        <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Pages</a>
+                        <div class="dropdown-menu rounded-0 m-0">
+                            <a href="blog.html" class="dropdown-item">Blog Grid</a>
+                            <a href="single.html" class="dropdown-item">Blog Detail</a>
+                        </div>
+                    </div> --}}
+                    {{-- <a href="contact.html" class="nav-item nav-link">Contact</a> --}}
+                </div>
+                <a href="index.html" class="btn btn-primary px-4 mx-3">الرئيسية</a>
+                <a href="" class="btn btn-primary px-4 ">تسجيل دخول</a>
+            </div>
+        </nav>
+    </div>
+    <!-- Navbar End -->
+
+    <!-- Back to Top -->
+    <a href="#" class="btn btn-primary p-3 back-to-top"><i class="fa fa-angle-double-up"></i></a>
+
+
+    <!-- JavaScript Libraries -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
+    <script src="{{ asset('assets1/lib/easing/easing.min.js')}}"></script>
+    <script src="{{ asset('assets1/lib/owlcarousel/owl.carousel.min.js')}}"></script>
+    <script src="{{ asset('assets1/lib/isotope/isotope.pkgd.min.js')}}"></script>
+    <script src="{{asset('assets1/lib/lightbox/js/lightbox.min.js')}}"></script>
+
+    <!-- Contact Javascript File -->
+    <script src="{{asset('assets1/mail/jqBootstrapValidation.min.js')}}"></script>
+    <script src="{{asset('assets1/mail/contact.js')}}"></script>
+
+    <!-- Template Javascript -->
+    <script src="{{ asset('assets1/js/main.js')}}"></script>
+</body>
+
+</html>
+
+{{-- <!DOCTYPE html>
 <html lang="en" dir="rtl">
 
 <head>
@@ -85,6 +175,8 @@
 </head>
 
 <body>
+
+
     <div class="ed-overlay group">
         <div
             class="fixed inset-0 z-[100] group-[.active]:bg-edblue/80 duration-[400ms] pointer-events-none group-[.active]:pointer-events-auto">
@@ -124,7 +216,7 @@
                 <p style="color: white; font-size:24px; font-weight:bold">منصة زبدا لدعم التعليم المبكر </p>
                 {{-- <p  style="color: white; font-size:18px; font-weight:bold">مدرسة زبدا الثانوية</p> --}}
 
-            </span>
+            {{-- </span>
 
         </div>
 
@@ -162,4 +254,4 @@
                     class="fa-solid fa-bars"></i></button>
         </div>
     </header>
-
+ --}}

@@ -13,9 +13,9 @@ class ClassesTableSeeder extends Seeder
     public function run()
     {
         // Insert only the 4 specified classes
-        Classes::create(['name' => 'روضة']);
-        Classes::create(['name' => 'الصف الأول']);
-        Classes::create(['name' => 'الصف الثاني']);
-        Classes::create(['name' => 'الصف الثالث']);
+        Classes::create(['class_name' => 'روضة']);
+        Classes::create(['class_name' => 'الصف الأول']);
+        Classes::create(['class_name' => 'الصف الثاني']);
+        Classes::create(['class_name' => 'الصف الثالث']);
     }
 }

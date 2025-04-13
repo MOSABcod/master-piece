@@ -94,3 +94,5 @@ Route::post('/saveAnswerSec', [MathFirstKgController::class, 'saveAnswersSecMath
 Route::post('/saveAnswerAR', [MathFirstKgController::class, 'saveAnswersFirstAr'])->name('save.ar.first');
 Route::post('/saveAnswerARSec', [MathFirstKgController::class, 'saveAnswersSecAr'])->name('save.ar.sec');
 Route::post('/saveAnswerScience', [MathFirstKgController::class, 'saveAnswersScience'])->name('save.ar.Science');
+
+
