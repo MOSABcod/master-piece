@@ -6,7 +6,7 @@
                 <div class="row g-4">
                     <div class="col-sm-6 col-xl-3">
                         <div class="bg-light rounded d-flex align-items-center justify-content-between p-4">
-                            <i style="color: #27703b" class="fa fa-user-graduate fa-3x me-3"></i> <!-- Updated to a student-related icon -->
+                            <i style="color: #17a2b8" class="fa fa-user-graduate fa-3x me-3"></i> <!-- Updated to a student-related icon -->
                             <div class="ms-3">
                                 <p class="mb-2">عدد الطلاب</p>
                                 <h6 class="mb-0">{{ $countStudents }}</h6>
@@ -15,7 +15,7 @@
                     </div>
                     <div class="col-sm-6 col-xl-3">
                         <div class="bg-light rounded d-flex align-items-center justify-content-between p-4">
-                            <i style="color: #27703b" class="fa fa-chalkboard-teacher fa-3x"></i> <!-- Teacher icon -->
+                            <i style="color: #17a2b8" class="fa fa-chalkboard-teacher fa-3x"></i> <!-- Teacher icon -->
                             <div class="ms-3">
                                 <p class="mb-2">عدد المعلمات</p>
                                 <h6 class="mb-0">{{ $countTeachers }}</h6>
@@ -25,7 +25,7 @@
 
                     <div class="col-sm-6 col-xl-3">
                         <div class="bg-light rounded d-flex align-items-center justify-content-between p-4">
-                            <i style="color: #27703b" class="fa fa-clipboard-list fa-3x"></i> <!-- Exam icon -->
+                            <i style="color: #17a2b8" class="fa fa-clipboard-list fa-3x"></i> <!-- Exam icon -->
                             <div class="ms-3">
                                 <p class="mb-2">عدد الامتحانات</p>
                                 <h6 class="mb-0">5</h6>
@@ -35,7 +35,7 @@
 
                     <div class="col-sm-6 col-xl-3">
                         <div class="bg-light rounded d-flex align-items-center justify-content-between p-4">
-                            <i style="color: #27703b" class="fa fa-check-circle fa-3x"></i> <!-- Checkmark icon -->
+                            <i style="color: #17a2b8" class="fa fa-check-circle fa-3x"></i> <!-- Checkmark icon -->
                             <div class="ms-3">
                                 <p class="mb-2">تم الاختبار</p>
                                 <h6 class="mb-0">{{ $totalStudents }}</h6>
@@ -51,7 +51,7 @@
                     <div class="bg-light text-center rounded p-4">
                         <div class="d-flex align-items-center justify-content-between mb-4">
                             <h6 class="mb-0">قائمة الطلاب</h6>
-                            <a href="{{ route('viewStudents') }}" class="btn btn-success">عرض جميع الطلاب</a>
+                            <a href="{{ route('viewStudents') }}" class="btn " style="background-color: #17a2b8; color:white">عرض جميع الطلاب</a>
                         </div>
                         <div class="table-responsive">
                             <table class="table table-bordered table-hover mb-0" style="text-align: right;">

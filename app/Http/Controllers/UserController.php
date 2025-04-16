@@ -298,7 +298,7 @@ class UserController extends Controller
             $validatedData = $request->validate(
                 [
                     'name' => 'required|string|max:50',
-                    'national_id' => 'required|numeric|unique:users,national_id,' . $teacher->id,
+                    'national_id' => 'required|numeric|unique:users,national_id' . $teacher->id,
 
                     'age' => 'nullable|numeric|min:0',
                     'class_id' => 'nullable|numeric',

@@ -90,17 +90,17 @@
         <div class="col-md-8">
             <div class="register-container">
                 <div class="register-header">
-                    <h2>Create an Account</h2>
-                    <p>Fill in the form below to get started</p>
+                    <h2>إنشاء حساب جديد</h2>
+                    <p style="font-family: 'Tajawal'">املأ النموذج  أدناه للبدء</p>
                 </div>
                 
-                <form method="POST" action="{{ route('register') }}">
-                    @csrf
+                <form method="POST" action="{{ route('register') }}" novalidate>
+                    @csrf   
                     
                     <div class="form-row">
                         <div class="form-group">
-                            <label for="name">First Name</label>
-                            <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus placeholder="Enter first name">
+                            <label style="text-align: right; display: block;" for="name">الأسم الكامل</label>
+                            <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus placeholder="أدخل أسمك الكامل"style="direction:rtl">
                             @error('name')
                                 <span class="invalid-feedback" role="alert">
                                     <strong>{{ $message }}</strong>
@@ -108,21 +108,12 @@
                             @enderror
                         </div>
                         
-                        <div class="form-group">
-                            <label for="last_name">Last Name</label>
-                            <input id="last_name" type="text" class="form-control @error('last_name') is-invalid @enderror" name="last_name" value="{{ old('last_name') }}" required autocomplete="last_name" placeholder="Enter last name">
-                            @error('last_name')
-                                <span class="invalid-feedback" role="alert">
-                                    <strong>{{ $message }}</strong>
-                                </span>
-                            @enderror
-                        </div>
                     </div>
                     
                     <div class="form-group">
-                        <label for="email">Email Address</label>
-                        <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" placeholder="Enter your email">
-                        @error('email')
+                        <label style="text-align: right; display: block;" for="national_id">الرقم الوطني</label>
+                        <input  id="national_id" type="number" class="form-control @error('national_id') is-invalid @enderror" name="national_id" value="{{ old('national_id') }}" required autocomplete="national_id" placeholder=" أدخل رقمك الوطني"style="direction:rtl">
+                        @error('national_id')
                             <span class="invalid-feedback" role="alert">
                                 <strong>{{ $message }}</strong>
                             </span>
@@ -130,8 +121,8 @@
                     </div>
                     
                     <div class="form-group">
-                        <label for="password">Password</label>
-                        <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="new-password" placeholder="Choose a password">
+                        <label style="text-align: right; display: block;" for="password">كلمة المرور</label>
+                        <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="new-password" placeholder="أختر كلمة المرور"style="direction:rtl">
                         @error('password')
                             <span class="invalid-feedback" role="alert">
                                 <strong>{{ $message }}</strong>
@@ -140,23 +131,38 @@
                     </div>
                     
                     <div class="form-group">
-                        <label for="password-confirm">Confirm Password</label>
-                        <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password" placeholder="Confirm your password">
+                        <label style="text-align: right; display: block;" for="password-confirm">تأكيد كلمة المرور</label>
+                        <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password" placeholder="أعد كتابة كلمة المرور"style="direction:rtl">
                     </div>
                     
-                    <button type="submit" class="btn btn-primary btnn-primary">Register</button>
+                    <div class="form-group">
+                        <label style="text-align: right; display: block;" for="role">الدور</label>
+                        <select id="role" class="form-control @error('role') is-invalid @enderror" name="role" required style="direction: rtl">
+                            <option value="" disabled selected>اختر دورك</option>
+                            <option value="student" {{ old('role') == 'student' ? 'selected' : '' }}>طالب</option>
+                            <option value="teacher" {{ old('role') == 'teacher' ? 'selected' : '' }}>استاذ</option>
+                            <option value="manager" {{ old('role') == 'manager' ? 'selected' : '' }}>مدير</option>
+                        </select>
+                        @error('role')
+                            <span class="invalid-feedback" role="alert" style="display: block; text-align: right;">
+                                <strong>{{ $message }}</strong>
+                            </span>
+                        @enderror
+                    </div>
+                    
+                    <button type="submit" class="btn btn-primary btnn-primary">تسجيل</button>
                     
                     <div class="terms">
-                        By registering, you agree to our <a href="#">Terms of Service</a> and <a href="#">Privacy Policy</a>
+                        بمجرد التسجيل، فإنك توافق على <a href="#">شروط الخدمة</a> و <a href="#">سياسة الخصوصية</a>
                     </div>
                 </form>
                 
                 <div class="separator">
-                    <span>or</span>
+                    <span>أو</span>
                 </div>
                 
                 <div class="footer-link">
-                    <p>Already have an account? <a href="{{ route('login') }}">Sign In</a></p>
+                    <p>لديك حساب بالفعل؟ <a href="{{ route('login') }}">تسجيل الدخول</a></p>
                 </div>
             </div>
         </div>
@@ -166,6 +172,10 @@
 
 @section('styles')
 <style>
+
+    body {
+        direction: rtl;
+    }
     .register-container {
         background-color: #fff;
         border-radius: 10px;
@@ -221,6 +231,11 @@
         font-size: 80%;
         color: #dc3545;
     }
+
+    .is-invalid {
+    border-color: #dc3545 !important;
+}
+
     
     .btn {
         font-weight: 600;

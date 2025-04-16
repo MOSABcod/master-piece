@@ -1,16 +1,20 @@
 @extends('user.layout.mainlayout')
 
 @section('content') 
-    <main>
+    <main >
     <!-- Header Start -->
-<div class="container-fluid bg-primary px-0 px-md-5 mb-5">
+<div class="container-fluid bg-primary px-0 px-md-5 mb-5"style="text-align: right; display: block;">
     <div class="row align-items-center px-3">
-        <div class="col-lg-6 text-center text-lg-left">
+        <div class="col-lg-6 text-end">
             <h4 class="text-white mb-4 mt-5 mt-lg-0">مدرسة التميز النموذجية</h4>
             <h3 class="display-3 font-weight-bold text-white">نحو تعليم متكامل يراعي الفروق الفرديه ويدعم كل طالب نحو التميز</h3>
-            <p class="text-white mb-4">"مرحبًا بكم في الموقع الرسمي لمدرستنا التميز، حيث نقدم بيئة تعليمية داعمة ومبتكرة تركز على قياس مستويات الطلاب وتحديد صعوبات التعلم لمساعدتهم على تحقيق أفضل النتائج. نؤمن بأن كل طالب لديه قدرات فريدة، وهدفنا هو اكتشافها وتطويرها."</p>
-            <a href="" class="btn btn-secondary mt-1 py-3 px-5">قراءة المزيد</a>
+            <p class="text-white mb-4" style="font-family: 'Tajawal', sans-serif; font-size:22px">
+                مرحبًا بكم في الموقع الرسمي لمدرستنا التميز، حيث نقدم بيئة تعليمية داعمة ومبتكرة تركز على قياس مستويات الطلاب وتحديد صعوبات التعلم لمساعدتهم على تحقيق أفضل النتائج.
+                نؤمن بأن كل طالب لديه قدرات فريدة، وهدفنا هو اكتشافها وتطويرها.
+            </p>
+            <a href="#" class="btn btn-secondary mt-1 py-3 px-5"style="font-family: 'Tajawal'">قراءة المزيد</a>
         </div>
+        
         <div class="col-lg-6 text-center text-lg-right">
             <img class="img-fluid mt-5" src="{{asset('assets1/img/header.png')}}" alt="">
         </div>
@@ -31,10 +35,10 @@
                 </div> --}}
 
                 <!-- txt -->
-                <div class="max-w-[50%] md:max-w-full shrink-0 grow">
-                    <h6 class="ed-section-sub-title" style="margin-right: 47px;">من نحن</h6>
-                    <h2 class="ed-section-title mb-[9px]">مرحباً بكم في مدرسة التميز النموذجية</h2>
-                    <p class="text-edgray" style="font-size: 20px">مدرسة التميز النموذجية تسعى جاهدة لتحقيق بيئة
+                <div class="max-w-[50%] md:max-w-full shrink-0 grow"style="text-align: right; display: block;">
+                    <h6 class="ed-section-sub-title" style="margin-right: 47px; font-size: 30px;">من نحن</h6>
+                    <h2 class="ed-section-title mb-[9px]" style="margin-right: 40px">مرحباً بكم في مدرسة التميز النموذجية</h2>
+                    <p class="text-edgray" style="font-size: 20px; margin-right: 35px; font-family: 'Cairo', sans-serif; ">مدرسة التميز النموذجية تسعى جاهدة لتحقيق بيئة
                         تعليمية شاملة وعادلة، تركز على تطوير الإمكانيات الأكاديمية والشخصية لجميع الطلاب. نحن نؤمن
                         بأهمية مراعاة الفروق الفردية بين الطلاب، وتوفير فرص متساوية للجميع بغض النظر عن خلفياتهم أو
                         قدراتهم. تسعى المدرسة إلى بناء بيئة صحية ومحفزة، تشجع على الابتكار والتفكير النقدي، وتوفر الدعم
@@ -46,243 +50,65 @@
         </div>
     </section>
 
-
-        {{-- <!-- CATEGORIES SECTION START -->
-        <div class="ed-2-categories -mt-[98px] relative z-[2]">
-            <div
-                class="mx-[15.8%] xxxl:mx-[9.8%] xxl:mx-[3.5%] bg-white p-[40px] sm:p-[30px] xxs:p-[20px] rounded-[20px] shadow-[0_4px_25px_rgba(0,0,0,0.06)]">
-                <h6 class="ed-section-title" style="font-size:28px; text-align: center; margin-bottom: 30px">أختباراتنا
-                    التعليمية المبتكرة </h6>
-
-                <div class="grid grid-cols-3 md:grid-cols-2 xxs:grid-cols-1 gap-[20px]">
-                    <!-- single category -->
-                    <a
-                        class="border border-[#e5e5e5] rounded-[10px] py-[16px] px-[20px] flex sm:flex-col items-center sm:items-start gap-y-[15px] gap-x-[20px] hover:bg-[#F8B81F] hover:border-[#F8B81F] group">
-                        <!-- icon -->
-                        <div
-                            class="bg-[#F8B81F] shrink-0 w-[84px] sm:w-[64px] aspect-square rounded-full p-[14px] duration-[400ms] flex items-center justify-center group-hover:bg-white">
-                            <svg width="32" height="32" viewBox="0 0 32 32" fill="none"
-                                xmlns="http://www.w3.org/2000/svg">
-                                <path
-                                    d="M4 2C2.9 2 2 2.9 2 4V28C2 29.1 2.9 30 4 30H28C29.1 30 30 29.1 30 28V4C30 2.9 29.1 2 28 2H4ZM8 6H24V10H8V6ZM8 14H12V18H8V14ZM14 14H18V18H14V14ZM20 14H24V18H20V14ZM8 20H12V24H8V20ZM14 20H18V24H14V20ZM20 20H24V24H20V20Z"
-                                    class="fill-white group-hover:fill-[#F8B81F]" />
-                            </svg>
-                        </div>
-
-                        <!-- text -->
-                        <div>
-                            <h5 class="font-semibold text-[20px] text-edblue duration-[400ms] group-hover:text-white">
-                                رياضيات</h5>
-                        </div>
-                    </a>
-
-                    <!-- single category -->
-                    <a
-                        class="border border-[#e5e5e5] rounded-[10px] py-[16px] px-[20px] flex sm:flex-col items-center sm:items-start gap-y-[15px] gap-x-[20px] hover:bg-[#39C0FA] hover:border-[#39C0FA] group">
-                        <!-- icon -->
-                        <div
-                            class="bg-[#39C0FA] shrink-0 w-[84px] sm:w-[64px] aspect-square rounded-full p-[14px] duration-[400ms] flex items-center justify-center group-hover:bg-white">
-                            <svg width="32" height="32" viewBox="0 0 32 32" fill="none"
-                                xmlns="http://www.w3.org/2000/svg">
-                                <path
-                                    d="M16 0C7.16344 0 0 7.16344 0 16C0 24.8366 7.16344 32 16 32C24.8366 32 32 24.8366 32 16C32 15.4469 31.977 14.8994 31.9314 14.3588C30.712 14.7788 29.4112 15 28 15C21.3726 15 16 9.62742 16 3C16 1.5888 16.2212 0.287952 16.6412 -0.931432C16.1006 -0.977027 15.5531 -1 15 -1C6.16344 -1 0 6.16344 0 15C0 23.8366 6.16344 31 15 31C23.8366 31 31 24.8366 31 16C31 14.8974 30.9296 13.8356 30.8882 14.0306C29.6798 14.4456 28.3901 14.6538 27.0583 14.6538C21.1145 14.6538 16.3462 9.88551 16.3462 3.94166C16.3462 2.60988 16.5544 1.32021 16.9694 0.11184C16.3214 0.0384167 15.669 0 15 0Z"
-                                    class="group-hover:fill-[#39c0fa] fill-white" />
-                            </svg>
-                        </div>
-
-                        <!-- text -->
-                        <div>
-                            <h5 class="font-semibold text-[20px] text-edblue duration-[400ms] group-hover:text-white">عربي
-                            </h5>
-                        </div>
-                    </a>
-
-                    <!-- single category -->
-                    <a
-                        class="border border-[#e5e5e5] rounded-[10px] py-[16px] px-[20px] flex sm:flex-col items-center sm:items-start gap-y-[15px] gap-x-[20px] hover:bg-[#F92596] hover:border-[#F92596] group">
-                        <!-- icon -->
-                        <div
-                            class="bg-[#F92596] shrink-0 w-[84px] sm:w-[64px] aspect-square rounded-full p-[14px] duration-[400ms] flex items-center justify-center group-hover:bg-white">
-                            <svg width="36" height="36" viewBox="0 0 36 36" fill="none"
-                                xmlns="http://www.w3.org/2000/svg">
-                                <g>
-                                    <path
-                                        d="M16.5 2C15.6716 2 15 2.67157 15 3.5V18H12C11.4477 18 11 18.4477 11 19V22H25V19C25 18.4477 24.5523 18 24 18H21V3.5C21 2.67157 20.3284 2 19.5 2H16.5Z"
-                                        class="fill-white group-hover:fill-[#f92596]" />
-                                    <path d="M8 23H28C28.5523 23 29 23.4477 29 24V26H7V24C7 23.4477 7.44772 23 8 23Z"
-                                        class="fill-white group-hover:fill-[#f92596]" />
-                                    <circle cx="18" cy="29" r="4"
-                                        class="fill-white group-hover:fill-[#f92596]" />
-                                </g>
-                            </svg>
-                        </div>
-
-                        <!-- text -->
-                        <div>
-                            <h5 class="font-semibold text-[20px] text-edblue duration-[400ms] group-hover:text-white">علوم
-                            </h5>
-                        </div>
-                    </a>
-                </div>
-
-            </div>
-        </div>
-        <!-- CATEGORIES SECTION END --> --}}
-
-        <!-- INNOVATIVE TESTS SECTION START -->
-<section class="ed-innovative-tests py-16 relative">
-    <!-- Decorative background elements -->
-    <div class="absolute -top-20 left-0 w-full h-[150px] bg-gradient-to-b from-[#f8f9fa] to-transparent z-0"></div>
-    
-    <div class="container mx-auto px-4 sm:px-6 relative z-10">
-        <!-- Section Header -->
-        <div class="text-center mb-16">
-            <span class="inline-block text-[#F8B81F] text-lg font-medium mb-3">اختبارات تفاعلية</span>
-            <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4">اكتشف اختباراتنا التعليمية المبتكرة</h2>
-            <p class="text-gray-600 max-w-2xl mx-auto text-lg">اختبر معرفتك وتعلم بطريقة ممتعة مع مجموعة متنوعة من الاختبارات التفاعلية</p>
-        </div>
-
-        <!-- Tests Grid -->
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            <!-- Math Test Card -->
-            <div class="bg-white rounded-xl shadow-lg overflow-hidden transition-all duration-300 hover:shadow-xl hover:-translate-y-2 border border-transparent hover:border-[#F8B81F]">
-                <div class="p-6 flex flex-col h-full">
-                    <div class="mb-6 self-start">
-                        <div class="w-20 h-20 rounded-full bg-[#F8B81F]/10 flex items-center justify-center">
-                            <svg width="36" height="36" viewBox="0 0 32 32" class="text-[#F8B81F]">
-                                <path fill="currentColor" d="M4 2C2.9 2 2 2.9 2 4V28C2 29.1 2.9 30 4 30H28C29.1 30 30 29.1 30 28V4C30 2.9 29.1 2 28 2H4ZM8 6H24V10H8V6ZM8 14H12V18H8V14ZM14 14H18V18H14V14ZM20 14H24V18H20V14ZM8 20H12V24H8V20ZM14 20H18V24H14V20ZM20 20H24V24H20V20Z"/>
-                            </svg>
-                        </div>
-                    </div>
-                    <h3 class="text-xl font-bold text-gray-800 mb-3">اختبار الرياضيات</h3>
-                    <p class="text-gray-600 mb-6 flex-grow">اختبر مهاراتك في الرياضيات مع أسئلة تغطي جميع المستويات من الأساسيات إلى المتقدم</p>
-                    <a href="#" class="mt-auto inline-flex items-center text-[#F8B81F] font-medium group">
-                        ابدأ الاختبار الآن
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2 group-hover:translate-x-1 transition-transform" viewBox="0 0 20 20" fill="currentColor">
-                            <path fill-rule="evenodd" d="M10.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L12.586 11H5a1 1 0 110-2h7.586l-2.293-2.293a1 1 0 010-1.414z" clip-rule="evenodd" />
-                        </svg>
-                    </a>
-                </div>
-            </div>
-
-            <!-- Arabic Test Card -->
-            <div class="bg-white rounded-xl shadow-lg overflow-hidden transition-all duration-300 hover:shadow-xl hover:-translate-y-2 border border-transparent hover:border-[#39C0FA]">
-                <div class="p-6 flex flex-col h-full">
-                    <div class="mb-6 self-start">
-                        <div class="w-20 h-20 rounded-full bg-[#39C0FA]/10 flex items-center justify-center">
-                            <svg width="36" height="36" viewBox="0 0 32 32" class="text-[#39C0FA]">
-                                <path fill="currentColor" d="M16 0C7.16344 0 0 7.16344 0 16C0 24.8366 7.16344 32 16 32C24.8366 32 32 24.8366 32 16C32 15.4469 31.977 14.8994 31.9314 14.3588C30.712 14.7788 29.4112 15 28 15C21.3726 15 16 9.62742 16 3C16 1.5888 16.2212 0.287952 16.6412 -0.931432C16.1006 -0.977027 15.5531 -1 15 -1C6.16344 -1 0 6.16344 0 15C0 23.8366 6.16344 31 15 31C23.8366 31 31 24.8366 31 16C31 14.8974 30.9296 13.8356 30.8882 14.0306C29.6798 14.4456 28.3901 14.6538 27.0583 14.6538C21.1145 14.6538 16.3462 9.88551 16.3462 3.94166C16.3462 2.60988 16.5544 1.32021 16.9694 0.11184C16.3214 0.0384167 15.669 0 15 0Z"/>
-                            </svg>
-                        </div>
-                    </div>
-                    <h3 class="text-xl font-bold text-gray-800 mb-3">اختبار اللغة العربية</h3>
-                    <p class="text-gray-600 mb-6 flex-grow">طور مهاراتك اللغوية مع اختبارات في النحو والصرف والأدب العربي</p>
-                    <a href="#" class="mt-auto inline-flex items-center text-[#39C0FA] font-medium group">
-                        ابدأ الاختبار الآن
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2 group-hover:translate-x-1 transition-transform" viewBox="0 0 20 20" fill="currentColor">
-                            <path fill-rule="evenodd" d="M10.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L12.586 11H5a1 1 0 110-2h7.586l-2.293-2.293a1 1 0 010-1.414z" clip-rule="evenodd" />
-                        </svg>
-                    </a>
-                </div>
-            </div>
-
-            <!-- Science Test Card -->
-            <div class="bg-white rounded-xl shadow-lg overflow-hidden transition-all duration-300 hover:shadow-xl hover:-translate-y-2 border border-transparent hover:border-[#F92596]">
-                <div class="p-6 flex flex-col h-full">
-                    <div class="mb-6 self-start">
-                        <div class="w-20 h-20 rounded-full bg-[#F92596]/10 flex items-center justify-center">
-                            <svg width="36" height="36" viewBox="0 0 36 36" class="text-[#F92596]">
-                                <g fill="currentColor">
-                                    <path d="M16.5 2C15.6716 2 15 2.67157 15 3.5V18H12C11.4477 18 11 18.4477 11 19V22H25V19C25 18.4477 24.5523 18 24 18H21V3.5C21 2.67157 20.3284 2 19.5 2H16.5Z"/>
-                                    <path d="M8 23H28C28.5523 23 29 23.4477 29 24V26H7V24C7 23.4477 7.44772 23 8 23Z"/>
-                                    <circle cx="18" cy="29" r="4"/>
-                                </g>
-                            </svg>
-                        </div>
-                    </div>
-                    <h3 class="text-xl font-bold text-gray-800 mb-3">اختبار العلوم</h3>
-                    <p class="text-gray-600 mb-6 flex-grow">استكشف عالم العلوم مع اختبارات في الفيزياء والكيمياء والأحياء</p>
-                    <a href="#" class="mt-auto inline-flex items-center text-[#F92596] font-medium group">
-                        ابدأ الاختبار الآن
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2 group-hover:translate-x-1 transition-transform" viewBox="0 0 20 20" fill="currentColor">
-                            <path fill-rule="evenodd" d="M10.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L12.586 11H5a1 1 0 110-2h7.586l-2.293-2.293a1 1 0 010-1.414z" clip-rule="evenodd" />
-                        </svg>
-                    </a>
-                </div>
-            </div>
-        </div>
-
-        <!-- CTA Button -->
-        <div class="text-center mt-16">
-            <a href="#" class="inline-flex items-center px-8 py-3 bg-gradient-to-r from-[#F8B81F] to-[#F92596] text-white font-medium rounded-full shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105">
-                تصفح جميع الاختبارات
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" viewBox="0 0 20 20" fill="currentColor">
-                    <path fill-rule="evenodd" d="M10.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L12.586 11H5a1 1 0 110-2h7.586l-2.293-2.293a1 1 0 010-1.414z" clip-rule="evenodd" />
-                </svg>
-            </a>
-        </div>
-    </div>
-</section>
-<!-- INNOVATIVE TESTS SECTION END -->
-
-
-
-
 <!-- Facilities Start -->
-<div class="container-fluid pt-5">
+<div class="container-fluid pt-5"style="text-align: right; display: block;">
     <div class="container pb-3">
+        <div class="text-center mb-16">
+            <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4">اختباراتنا التعليمية المبتكرة</h2>
+            <p class="text-gray-600 max-w-2xl mx-auto text-lg" style="font-family: 'Handlee', cursive, font-size: 20px">اختبر معرفتك وتعلم بطريقة تفاعلية ممتعة</p>
+        </div>
         <div class="row">
             <div class="col-lg-4 col-md-6 pb-1">
                 <div class="d-flex bg-light shadow-sm border-top rounded mb-4" style="padding: 30px;">
                     <i class="flaticon-050-fence h1 font-weight-normal text-primary mb-3"></i>
-                    <div class="pl-4">
-                        <h4>ساحة اللعب</h4>
-                        <p class="m-0">Kasd labore kasd et dolor est rebum dolor ut, clita dolor vero lorem amet elitr vero...</p>
+                    <div class="pr-4">
+                        <h4>اختبار الرياضيات</h4>
+                        <p class="m-0"style="font-family: 'Tajawal', sans-serif">اختبر مهاراتك في الرياضيات مع أسئلة تغطي الجبر والهندسة والإحصاء لجميع المستويات</p>
                     </div>
                 </div>
             </div>
             <div class="col-lg-4 col-md-6 pb-1">
                 <div class="d-flex bg-light shadow-sm border-top rounded mb-4" style="padding: 30px;">
                     <i class="flaticon-022-drum h1 font-weight-normal text-primary mb-3"></i>
-                    <div class="pl-4">
-                        <h4>Music and Dance</h4>
-                        <p class="m-0">Kasd labore kasd et dolor est rebum dolor ut, clita dolor vero lorem amet elitr vero...</p>
+                    <div class="pr-4">
+                        <h4>اختبار اللغة العربية</h4>
+                        <p class="m-0"style="font-family: 'Tajawal', sans-serif;">طور مهاراتك اللغوية في النحو والصرف والأدب العربي مع تمارين متنوعة</p>
                     </div>
                 </div>
             </div>
             <div class="col-lg-4 col-md-6 pb-1">
                 <div class="d-flex bg-light shadow-sm border-top rounded mb-4" style="padding: 30px;">
                     <i class="flaticon-030-crayons h1 font-weight-normal text-primary mb-3"></i>
-                    <div class="pl-4">
-                        <h4>Arts and Crafts</h4>
-                        <p class="m-0">Kasd labore kasd et dolor est rebum dolor ut, clita dolor vero lorem amet elitr vero...</p>
+                    <div class="pr-4">
+                        <h4>اختبار العلوم</h4>
+                        <p class="m-0"style="font-family: 'Tajawal', sans-serif;">استكشف عالم العلوم مع اختبارات في الفيزياء والكيمياء والأحياء للمراحل المختلفة</p>
                     </div>
                 </div>
             </div>
             <div class="col-lg-4 col-md-6 pb-1">
                 <div class="d-flex bg-light shadow-sm border-top rounded mb-4" style="padding: 30px;">
                     <i class="flaticon-017-toy-car h1 font-weight-normal text-primary mb-3"></i>
-                    <div class="pl-4">
-                        <h4>Safe Transportation</h4>
-                        <p class="m-0">Kasd labore kasd et dolor est rebum dolor ut, clita dolor vero lorem amet elitr vero...</p>
+                    <div class="pr-4">
+                        <h4>اختبار اللغة الإنجليزية</h4>
+                        <p class="m-0"style="font-family: 'Tajawal', sans-serif;">تحسين مهارات القواعد والمفردات والقراءة والكتابة باللغة الإنجليزية</p>
                     </div>
                 </div>
             </div>
             <div class="col-lg-4 col-md-6 pb-1">
                 <div class="d-flex bg-light shadow-sm border-top rounded mb-4" style="padding: 30px;">
                     <i class="flaticon-025-sandwich h1 font-weight-normal text-primary mb-3"></i>
-                    <div class="pl-4">
-                        <h4>Healthy food</h4>
-                        <p class="m-0">Kasd labore kasd et dolor est rebum dolor ut, clita dolor vero lorem amet elitr vero...</p>
+                    <div class="pr-4">
+                        <h4>اختبار التاريخ</h4>
+                        <p class="m-0"style="font-family: 'Tajawal', sans-serif;">اكتشف أحداث وشخصيات تاريخية مهمة من خلال اختبارات في التاريخ القديم والحديث</p>
                     </div>
                 </div>
             </div>
             <div class="col-lg-4 col-md-6 pb-1">
                 <div class="d-flex bg-light shadow-sm border-top rounded mb-4" style="padding: 30px;">
                     <i class="flaticon-047-backpack h1 font-weight-normal text-primary mb-3"></i>
-                    <div class="pl-4">
-                        <h4>Educational Tour</h4>
-                        <p class="m-0">Kasd labore kasd et dolor est rebum dolor ut, clita dolor vero lorem amet elitr vero...</p>
+                    <div class="pr-4">
+                        <h4>اختبار الجغرافيا</h4>
+                        <p class="m-0"style="font-family: 'Tajawal', sans-serif;">تعرف على بلدان العالم والتضاريس والظواهر الطبيعية من خلال اختبارات متنوعة</p>
                     </div>
                 </div>
             </div>
@@ -330,25 +156,25 @@
 
         <section>
             <!-- About Start -->
-            <div class="container-fluid py-5">
+            <div class="container-fluid py-5"style="text-align: right; display: block;">
                 <div class="container">
                     <div class="row align-items-center">
                         <div class="col-lg-5">
                             <img class="img-fluid rounded mb-5 mb-lg-0" src="{{asset('assets1/img/woman-teaching-classroom.jpg')}}" alt="معلمة تشرح للطلاب في الفصل">
                         </div>
                         <div class="col-lg-7">
-                            <p class="section-title pr-5"><span class="pr-2">تعرف على مدرستنا</span></p>
+                            <p class="section-title pr-5"style="font-family: 'Tajawal';font-size:20px"><span class="pr-2">تعرف على مدرستنا</span></p>
                             <h1 class="mb-4">أفضل مدرسة لأطفالكم</h1>
-                            <p>نقدم بيئة تعليمية محفزة تركز على تنمية المهارات الأكاديمية والاجتماعية، مع اهتمام خاص بذوي صعوبات التعلم. نؤمن بأن كل طفل لديه طريقة فريدة في التعلم، ونسعى لاكتشافها وتطويرها.</p>
+                            <p style="font-family: 'Tajawal';font-size:20px">نقدم بيئة تعليمية محفزة تركز على تنمية المهارات الأكاديمية والاجتماعية، مع اهتمام خاص بذوي صعوبات التعلم. نؤمن بأن كل طفل لديه طريقة فريدة في التعلم، ونسعى لاكتشافها وتطويرها.</p>
                             <div class="row pt-2 pb-4">
                                 <div class="col-6 col-md-4">
                                     <img class="img-fluid rounded" src="{{asset('assets1/img/about-2.jpg')}}" alt="طلاب يدرسون في المكتبة">
                                 </div>
                                 <div class="col-6 col-md-8">
                                     <ul class="list-inline m-0">
-                                        <li class="py-2 border-top border-bottom"><i class="fa fa-check text-primary mr-3"></i>اختبارات تشخيصية دقيقة لمستوى الطلاب</li>
-                                        <li class="py-2 border-bottom"><i class="fa fa-check text-primary mr-3"></i>برامج دعم مخصصة لصعوبات التعلم</li>
-                                        <li class="py-2 border-bottom"><i class="fa fa-check text-primary mr-3"></i>كادر تعليمي مؤهل ومدرب على أحدث الأساليب</li>
+                                        <li class="py-2 border-top border-bottom"style="font-family: 'Tajawal'"><i class="fa fa-check text-primary mr-3"></i>اختبارات تشخيصية دقيقة لمستوى الطلاب</li>
+                                        <li class="py-2 border-bottom"style="font-family: 'Tajawal'"><i class="fa fa-check text-primary mr-3"></i>برامج دعم مخصصة لصعوبات التعلم</li>
+                                        <li class="py-2 border-bottom"style="font-family: 'Tajawal'"><i class="fa fa-check text-primary mr-3"></i>كادر تعليمي مؤهل ومدرب على أحدث الأساليب</li>
                                     </ul>
                                 </div>
                             </div>
@@ -383,7 +209,7 @@
                                 </div>
                                 <div>
                                     <h6 class="font-bold text-[30px] text-edblue mb-[10px] leading-[1.4]" style="font-size: 30px">رسالتنا</h6>
-                                    <p class="text-[24px] text-edgray leading-[1.8]" style="font-size: 24px">إعداد طلبة ناجحين من خلال استراتيجيات
+                                    <p class="text-[24px] text-edgray leading-[1.8]" style="font-family: 'Cairo', sans-serif; font-size: 24px">إعداد طلبة ناجحين من خلال استراتيجيات
                                         مبتكرة تواكب التعليم الحديث، مع تطوير مهارات التفكير النقدي والإبداعي، وتعزيز القدرة
                                         على حل المشكلات واتخاذ القرارات. تسعى المدرسة إلى دمج التكنولوجيا في التعليم وتوفير
                                         بيئة مرنة ومتنوعة تواكب التحديات العالمية.</p>
@@ -398,7 +224,7 @@
                                 </div>
                                 <div>
                                     <h6 class="font-bold text-[30px] text-edblue mb-[10px] leading-[1.4]" style="font-size: 30px">رؤيتنا</h6>
-                                    <p class="text-[24px] text-edgray leading-[1.8]" style="font-size: 24px">تعزيز فرص التعليم الشامل والارتقاء
+                                    <p class="text-[24px] text-edgray leading-[1.8]" style="font-family: 'Cairo', sans-serif; font-size: 24px">تعزيز فرص التعليم الشامل والارتقاء
                                         بالمستوى التعليمي للمجتمع يتطلب توفير بيئة تعليمية متكاملة تضمن فرصًا متساوية لجميع
                                         الأفراد، مع تحديث المناهج وتدريب المعلمين على استراتيجيات مبتكرة. كما يتطلب التوعية
                                         بأهمية التعليم المستدام لبناء مجتمع قادر على مواجهة التحديات المستقبلية.</p>
@@ -536,9 +362,9 @@
                             <div class="position-relative overflow-hidden mb-4" style="border-radius: 100%;">
                                 <img class="img-fluid w-100" src="{{asset('assets1/img/half-length-shot-attractive-confident-muslim-college-student-holds-notebooks-paper-documents-prepares-project-work-lesson-wears-pink-hijab-round-spectacles-jean-clothes-studying-concept.jpg')}}" alt="المعلمة سارة أحمد">
                                 <div class="team-social d-flex align-items-center justify-content-center w-100 h-100 position-absolute">
-                                    <a class="btn btn-outline-light text-center mr-2 px-0" style="width: 38px; height: 38px;" href="#"><i class="fab fa-twitter"></i></a>
-                                    <a class="btn btn-outline-light text-center mr-2 px-0" style="width: 38px; height: 38px;" href="#"><i class="fab fa-facebook-f"></i></a>
-                                    <a class="btn btn-outline-light text-center px-0" style="width: 38px; height: 38px;" href="#"><i class="fab fa-linkedin-in"></i></a>
+                                    <a class="btn btn-outline-light text-center mr-2 px-0" style="width: 38px; height: 38px;" href="https://x.com/YourUsername"><i class="fab fa-x-twitter"></i></a>
+                                    <a class="btn btn-outline-light text-center mr-2 px-0" style="width: 38px; height: 38px;" href="https://facebook.com/YourPage"><i class="fab fa-facebook-f"></i></a>
+                                    <a class="btn btn-outline-light text-center px-0" style="width: 38px; height: 38px;" href="https://linkedin.com/in/YourProfile"><i class="fab fa-linkedin-in"></i></a>
                                 </div>
                             </div>
                             <h4>سارة أحمد</h4>
@@ -594,7 +420,7 @@
                     
                     <!-- قسم إضافي يمكن إضافته -->
                     <div class="text-center mt-4">
-                        <p class="lead">فريقنا مؤلف من <strong>خبراء متخصصين</strong> في التعامل مع صعوبات التعلم بمختلف أنواعها</p>
+                        <p class="lead"style="font-family: 'Tajawal', sans-serif;">فريقنا مؤلف من <strong>خبراء متخصصين</strong> في التعامل مع صعوبات التعلم بمختلف أنواعها</p>
                         <a href="#" class="btn btn-primary px-4 mt-3">تعرف أكثر على منهجيتنا</a>
                     </div>
                 </div>
@@ -682,55 +508,82 @@
         </section> --}}
 
         <!-- BLOG SECTION START -->
-        <section class="py-[120px] xl:py-[80px] md:py-[60px] relative z-[1] overflow-hidden" dir="rtl">
-            <div class="mx-[19.71%] xxxl:mx-[14.71%] xxl:mx-[9.71%] xl:mx-[5.71%] md:mx-[12px]">
+        <section  style="margin-top:100px">
+            <div style="text-align: center;">
                 <!-- heading -->
-                <div class="text-center mb-[46px] md:mb-[30px]">
+                <div >
                     <h6 class="ed-section-sub-title" style="font-size: 24px">خدمات الموقع</h6>
                     <h2 class="ed-section-title">أحدث استراتيجيات لدينا</h2>
                 </div>
 
                 <!-- service cards -->
-                <div
-                    class="grid grid-cols-3 md:grid-cols-2 xs:grid-cols-1 xs:max-w-[65%] xxs:max-w-full xs:mx-auto gap-[30px] lg:gap-[20px] sm:gap-[15px]">
                     <!-- single service -->
-                    <div
-                        class="et-service bg-white border border-[#E5E5E5] rounded-[8px] p-[24px] lg:p-[20px] sm:p-[18px] relative group">
-                        <div class="et-service__txt">
-                            <h4 class="et-service__title text-[20px] sm:text-[18px] font-semibold leading-[1.6] mb-[20px]">
-                                تشخيص صعوبات التعلم في القراءة والحساب</h4>
-                            <p class="text-edgray text-[16px]">تقديم تشخيص دقيق ومبني على أسس علمية لتحديد صعوبات التعلم في
-                                مهارات القراءة والحساب الأساسية.</p>
+                    <div class="et-service__txt" style="text-align: center; margin-top:50px;">
+                        <h4 class="et-service__title text-20px sm:text-18px font-semibold ">
+                            تشخيص صعوبات التعلم في القراءة والحساب
+                        </h4>
+                    
+                        <!-- الصور جنب بعض باستخدام inline styles -->
+                        <div style="width: 100%; display: flex; justify-content: center; gap: 10px; margin-bottom: 20px;">
+                            <div style="width: 33%; height: 300px; overflow: hidden; border-radius: 10px;">
+                                <img style="width: 100%; height: 100%; object-fit: cover;" src="{{asset('assets1/img/pexels-moktader-billah-3562307-20754865.jpg')}}" alt="">
+                            </div>
+                            <div style="width: 33%; height: 300px; overflow: hidden; border-radius: 10px;">
+                                <img style="width: 100%; height: 100%; object-fit: cover;" src="{{asset('assets1/img/pexels-mikhail-nilov-8923081.jpg')}}" alt="">
+                            </div>
+                            <div style="width: 33%; height: 300px; overflow: hidden; border-radius: 10px;">
+                                <img style="width: 100%; height: 100%; object-fit: cover;" src="{{asset('assets1/img/pexels-school-projects-749994697-18650478.jpg')}}" alt="">
+                            </div>
                         </div>
                     </div>
-
-                    <!-- single service -->
-                    <div
-                        class="et-service bg-white border border-[#E5E5E5] rounded-[8px] p-[24px] lg:p-[20px] sm:p-[18px] relative group">
-                        <div class="et-service__txt">
-                            <h4 class="et-service__title text-[20px] sm:text-[18px] font-semibold leading-[1.6] mb-[20px]">
-                                تقارير تفصيلية للطلاب لتحديد الاحتياجات التعليمية</h4>
+                    
+            </div>
+        </section>
+        <section> 
+                    
+                     <div class="et-service__txt" style="margin-top:50px ;text-align: center;">
+                        <h4 class="et-service__title text-[20px] sm:text-[18px] font-semibold leading-[1.6] mb-[20px]">
+                            تقارير تفصيلية للطلاب لتحديد الاحتياجات التعليمية</h4>
                             <p class="text-edgray text-[16px]">إعداد تقارير شاملة لكل طالب تحتوي على توصيات تعليمية تساعد
                                 على تحقيق أهداف التعلم.</p>
+                    
+                        <!-- الصور جنب بعض باستخدام inline styles -->
+                        <div style="width: 100%; display: flex; justify-content: center; gap: 10px; margin-bottom: 20px;">
+                            <div style="width: 33%; height: 300px; overflow: hidden; border-radius: 10px;">
+                                <img style="width: 100%; height: 100%; object-fit: cover;" src="{{asset('assets1/img/pexels-moktader-billah-3562307-20754865.jpg')}}" alt="">
+                            </div>
+                            <div style="width: 33%; height: 300px; overflow: hidden; border-radius: 10px;">
+                                <img style="width: 100%; height: 100%; object-fit: cover;" src="{{asset('assets1/img/pexels-mikhail-nilov-8923081.jpg')}}" alt="">
+                            </div>
+                            <div style="width: 33%; height: 300px; overflow: hidden; border-radius: 10px;">
+                                <img style="width: 100%; height: 100%; object-fit: cover;" src="{{asset('assets1/img/pexels-school-projects-749994697-18650478.jpg')}}" alt="">
+                            </div>
                         </div>
                     </div>
 
-                    <!-- single service -->
-                    <div
-                        class="et-service bg-white border border-[#E5E5E5] rounded-[8px] p-[24px] lg:p-[20px] sm:p-[18px] relative group">
-                        <div class="et-service__txt">
-                            <h4 class="et-service__title text-[20px] sm:text-[18px] font-semibold leading-[1.6] mb-[20px]">
-                                استراتيجيات دعم خاصة مصممة لكل طالب</h4>
-                            <p class="text-edgray text-[16px]">تصميم خطط دعم فردية وفقًا لاحتياجات الطالب لضمان تحقيق أقصى
-                                قدر من التحصيل الدراسي.</p>
+                    <div class="et-service__txt" style="margin-top:50px ;text-align: center;">
+                        <h4 class="et-service__title text-[20px] sm:text-[18px] font-semibold leading-[1.6] mb-[20px]">
+                            استراتيجيات دعم خاصة مصممة لكل طالب</h4>
+                        <p class="text-edgray text-[16px]">تصميم خطط دعم فردية وفقًا لاحتياجات الطالب لضمان تحقيق أقصى
+                            قدر من التحصيل الدراسي.</p>
+                    
+                        <!-- الصور جنب بعض باستخدام inline styles -->
+                        <div style="width: 100%; display: flex; justify-content: center; gap: 10px; margin-bottom: 20px;">
+                            <div style="width: 33%; height: 300px; overflow: hidden; border-radius: 10px;">
+                                <img style="width: 100%; height: 100%; object-fit: cover;" src="{{asset('assets1/img/pexels-moktader-billah-3562307-20754865.jpg')}}" alt="">
+                            </div>
+                            <div style="width: 33%; height: 300px; overflow: hidden; border-radius: 10px;">
+                                <img style="width: 100%; height: 100%; object-fit: cover;" src="{{asset('assets1/img/pexels-mikhail-nilov-8923081.jpg')}}" alt="">
+                            </div>
+                            <div style="width: 33%; height: 300px; overflow: hidden; border-radius: 10px;">
+                                <img style="width: 100%; height: 100%; object-fit: cover;" src="{{asset('assets1/img/pexels-school-projects-749994697-18650478.jpg')}}" alt="">
+                            </div>
                         </div>
                     </div>
                 </div>
-
-
-
-
             </div>
+
+
         </section>
         <!-- BLOG SECTION END -->
 

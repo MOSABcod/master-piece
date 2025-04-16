@@ -69,6 +69,10 @@
                 margin-left: 180px; /* Adjust content margin to fit the sidebar */
             }
         }
+        a:hover{
+        background-color: #f8f9fa;
+        color: #17a2b8 ;
+    }
     </style>
 </head>
 
@@ -76,7 +80,7 @@
     <div class="container-xxl position-relative bg-white d-flex p-0">
         <!-- Spinner Start -->
         <div id="spinner" class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
-            <div class="spinner-border" style="width: 3rem; height: 3rem; color: #27703b;" role="status">
+            <div class="spinner-border" style="width: 3rem; height: 3rem; color: #17a2b8;" role="status">
                 <span class="sr-only">Loading...</span>
             </div>
         </div>
@@ -94,7 +98,7 @@
                     <h2 class="text-primary mb-0"><img src="{{ asset('assets/img/dashborad logo.png') }}" alt="" width="44px"></h2>
                 </a>
                 <a href="#" class="sidebar-toggler flex-shrink-0" style="padding:5px;">
-                    <i class="fa fa-bars" style="color:#27703b ;"></i>
+                    <i class="fa fa-bars" style="color:#17a2b8 ;"></i>
                 </a>
                 <div class="navbar-nav align-items-center ms-auto">
                     <div class="nav-item dropdown">

@@ -16,13 +16,19 @@
     <!-- Google Web Fonts -->
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Handlee&family=Nunito&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo&family=Tajawal&family=Reem+Kufi&display=swap" rel="stylesheet">
+
 
     <!-- Font Awesome -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+    <!-- أحدث نسخة من Font Awesome -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
     
 
     <!-- Flaticon Font -->
     <link href="{{asset('assets1/lib/flaticon/font/flaticon.css')}}" rel="stylesheet">
+    
 
 
     <!-- Libraries Stylesheet -->
@@ -32,7 +38,7 @@
     <!-- Customized Bootstrap Stylesheet -->
     <link href="{{ asset('assets1/css/style.css')}}" rel="stylesheet">
 </head>
-<body>
+<body >
     <!-- Navbar Start -->
     <div class="container-fluid bg-light position-relative shadow">
         <nav class="navbar navbar-expand-lg bg-light navbar-light py-3 py-lg-0 px-0 px-lg-5">
@@ -59,8 +65,8 @@
                     </div> --}}
                     {{-- <a href="contact.html" class="nav-item nav-link">Contact</a> --}}
                 </div>
-                <a href="index.html" class="btn btn-primary px-4 mx-3">الرئيسية</a>
-                <a href="" class="btn btn-primary px-4 ">تسجيل دخول</a>
+                <a href="index.html" class="btn btn-primary px-4 mx-3"style="font-family: 'Tajawal'">الرئيسية</a>
+                <a href="/login" class="btn btn-primary px-4 "style="font-family: 'Tajawal'">تسجيل دخول</a>
             </div>
         </nav>
     </div>

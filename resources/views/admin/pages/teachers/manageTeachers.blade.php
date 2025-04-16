@@ -6,7 +6,7 @@
             <div class="bg-light text-center rounded p-4">
                 <div class="d-flex align-items-center justify-content-between mb-4">
                     <h6 class="mb-0">قائمة المعلمات</h6>
-                    <a href="{{ route('teacher.create') }}" class="btn btn-success">إضافة معلم/ة</a>
+                    <a href="{{ route('teacher.create') }}" class="btn " style="background-color: #17a2b8; color:white">إضافة معلم/ة</a>
                 </div>
                 <div class="table-responsive">
                     <table class="table table-bordered table-hover mb-0" style="text-align: right;">

@@ -9,8 +9,8 @@
                 <div class="d-flex align-items-center justify-content-between mb-4">
                     <h6 class="mb-0">قائمة الطلاب</h6>
                     <div>
-                        <a href="{{ route('student.create') }}" class="btn me-2" style="background-color: #27703b; color:white;">إضافة طالب/ة</a>
-                        <button type="button" class="btn" style="background-color: #27703b; color:white;" data-bs-toggle="modal" data-bs-target="#uploadModal">
+                        <a href="{{ route('student.create') }}" class="btn me-2" style="background-color: #17a2b8; color:white;">إضافة طالب/ة</a>
+                        <button type="button" class="btn" style="background-color: #17a2b8; color:white;" data-bs-toggle="modal" data-bs-target="#uploadModal">
                             رفع ملف الطلاب
                         </button>
 
@@ -140,7 +140,7 @@
 
 
                                                     <!-- Submit Button -->
-                                                    <button type="submit" class="btn " style="background-color: #27703b; color:white;">حفظ التعديلات</button>
+                                                    <button type="submit" class="btn " style="background-color: #17a2b8; color:white;">حفظ التعديلات</button>
                                                 </form>
                                             </div>
                                         </div>
@@ -177,7 +177,7 @@
                         <label for="file" class="form-label">اختر ملف Excel أو CSV</label>
                         <input type="file" name="file" id="file" class="form-control" required>
                     </div>
-                    <button type="submit" class="btn " style="background-color: #27703b; color:white;">رفع</button>
+                    <button type="submit" class="btn " style="background-color: #17a2b8; color:white;">رفع</button>
                 </form>
             </div>
         </div>

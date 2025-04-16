@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 {{-- {{ str_replace('_', '-', app()->getLocale()) }} --}}
-<html lang="ar" dir ="rlt">   
-    <head>
+<html lang="ar" dir="rtl">    <head>
         
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">

@@ -10,17 +10,17 @@
         <div class="col-md-6">
             <div class="login-container">
                 <div class="login-header">
-                    <h2>!أهلا بعودتك</h2>
-                    <p>Please login to your account</p>
+                    <h2>أهلا بعودتك</h2>
+                    <p>الرجاء تسجيل الدخول الى حسابك</p>
                 </div>
                 
                 <form method="POST" action="{{ route('login') }}">
                     @csrf
                     
                     <div class="form-group">
-                        <label style="direction:rtl" for="email">البريد الإلكتروني</label>
-                        <input  id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus placeholder="البريد الإلكتروني" style="direction:rtl; text-align:right;">
-                        @error('email')
+                        <label for="national_id" style="text-align: right; display: block;">الرقم الوطني</label>
+                                                <input  id="national_id" type="number" class="form-control @error('national_id') is-invalid @enderror" name="national_id" value="{{ old('national_id') }}" required autocomplete="national_id" autofocus placeholder="الرقم الوطني" style="direction:rtl; text-align:right;">
+                        @error('national_id')
                             <span class="invalid-feedback" role="alert">
                                 <strong>{{ $message }}</strong>
                             </span>
@@ -28,8 +28,8 @@
                     </div>
                     
                     <div class="form-group">
-                        <label for="password" style="direction:rtl">Password</label>
-                        <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="current-password" placeholder="Enter your password">
+                        <label for="password" style="text-align: right; display: block;">كلمة المرور</label>
+                        <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="current-password" placeholder="أدخل كلمة المرور" style="direction:rtl; text-align:right;">
                         @error('password')
                             <span class="invalid-feedback" role="alert">
                                 <strong>{{ $message }}</strong>
@@ -39,24 +39,24 @@
                     
                     <div class="remember-me">
                         <input type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
-                        <label for="remember">Remember me</label>
+                        <label class="mx-2" for="remember">تذكرني  </label>
                     </div>
                     
-                    <button type="submit" class="btn btn-primary btnn-primary">Login</button>
+                    <button type="submit" class="btn btn-primary btnn-primary">تسجيل الدخول</button>
                 </form>
                 
                 <div class="separator">
-                    <span>or</span>
+                    <span>أو</span>
                 </div>
                 
                 <div class="footer-link">
                     @if (Route::has('password.request'))
-                        <a href="{{ route('password.request') }}">Forgot Password?</a>
+                        <a href="{{ route('password.request') }}">نسيت كلمة المرور؟</a>
                     @endif
                 </div>
                 
                 <div class="footer-link">
-                    <p>Don't have an account? <a href="{{ route('register') }}">Sign Up</a></p>
+                    <p>ليس لديك حساب؟ <a href="{{ route('register') }}">سجل الآن</a></p>
                 </div>
             </div>
         </div>
