@@ -55,9 +55,9 @@
                     @endif
                 </div>
                 
-                <div class="footer-link">
+                {{-- <div class="footer-link">
                     <p>ليس لديك حساب؟ <a href="{{ route('register') }}">سجل الآن</a></p>
-                </div>
+                </div> --}}
             </div>
         </div>
     </div>

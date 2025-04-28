@@ -233,7 +233,7 @@ button:disabled {
 </head>
 
 <body>
-    <div class="wrapper">
+    <div class="wrapper mt-4 mb-4" style="text-align: right; display: block;">
         <div class="container">
             <div id="timer" class="timer">15:00</div>
 

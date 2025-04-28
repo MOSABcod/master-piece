@@ -52,6 +52,8 @@ class UserController extends Controller
     }
     public function students()
     {
+
+        
         if (Auth::user()->role == 'manager') {
 
             $users = User::with(['class', 'roadmaps' => function ($query) {

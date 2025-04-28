@@ -228,7 +228,7 @@ button:disabled {
 </head>
 
 <body>
-    <div class="wrapper">
+    <div class="wrapper mt-4 mb-4" style="text-align: right; display: block;">
         <div class="container">
             <div id="timer" class="timer">15:00</div>
 
@@ -426,16 +426,16 @@ button:disabled {
                     <input type="number" name="answers[18]" class="answer" placeholder="أدخل الإجابة" value="{{ old('answers.18') }}">
                 </div>
 
-                  <!-- Navigation Buttons -->
-  <div class="navigation-buttons">
-    <div class="left-buttons">
-        <button id="prev" class="prev" type="button" disabled>السابق</button>
-        <a href="{{ route('homepage') }}" class="exit-link">الخروج من الامتحان</a>
-    </div>
-    <button id="next" class="next" type="button">التالي</button>
-    <button id="submit-btn" class="next" type="submit" style="display: none;">إرسال</button>
+                    <!-- Navigation Buttons -->
+                    <div class="navigation-buttons">
+                        <div class="left-buttons">
+                            <button id="prev" class="prev" type="button" disabled>السابق</button>
+                                <a href="{{ route('homepage') }}" class="exit-link">الخروج من الامتحان</a>
+                            </div>
+                            <button id="next" class="next" type="button">التالي</button>
+                            <button id="submit-btn" class="next" type="submit" style="display: none;">إرسال</button>
 
-</div>
+                        </div>
 
             </form>
             <!-- Form End -->

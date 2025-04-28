@@ -227,8 +227,8 @@ button:disabled {
     </style>
 </head>
 
-<body>
-    <div class="wrapper">
+<body dir="rtl" >
+    <div class="wrapper mt-4 mb-4" style="text-align: right; display: block;">
         <div class="container">
             <div id="timer" class="timer">15:00</div>
 
@@ -241,7 +241,7 @@ button:disabled {
                 <input type="hidden" name="timer" id="mathSecTimer" > <!-- 15 minutes in seconds -->
 
                 <!-- Question 1 -->
-                <div class="question active">
+                <div class="question active" >
                     <p>السؤال الأول</p>
                     <label>اختر العدد (خمسة).</label>
                     <div class="radio-group">

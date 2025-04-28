@@ -50,23 +50,28 @@
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
-                <div class="navbar-nav font-weight-bold mx-auto py-0 ">
-                    
-                    {{-- <a href="about.html" class="nav-item nav-link active">أختباراتنا</a>
-                    <a href="class.html" class="nav-item nav-link">مدرستنا</a>
-                    <a href="team.html" class="nav-item nav-link">معلمونا</a> --}}
-                    {{-- <a href="gallery.html" class="nav-item nav-link">Gallery</a>
-                    <div class="nav-item dropdown">
-                        <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Pages</a>
-                        <div class="dropdown-menu rounded-0 m-0">
-                            <a href="blog.html" class="dropdown-item">Blog Grid</a>
-                            <a href="single.html" class="dropdown-item">Blog Detail</a>
-                        </div>
-                    </div> --}}
-                    {{-- <a href="contact.html" class="nav-item nav-link">Contact</a> --}}
+                <div class="navbar-nav font-weight-bold mr-4">
+                    <a href="/" class="btn btn-primary px-4 mx-3"style="font-family: 'Tajawal'">الرئيسية</a>
+                    <a href="#exams"class="btn btn-primary px-4 mx-3"style="font-family: 'Tajawal'">أختباراتنا</a>
+                    <a href="#about" class="btn btn-primary px-4 mx-3"style="font-family: 'Tajawal'">مدرستنا</a>
+                    <a href="#strategies"  class="btn btn-primary px-4 mx-3"style="font-family: 'Tajawal'">الأسترتيجيات</a>
+                    <a href="#teachers" class="btn btn-primary px-4 mx-3"style="font-family: 'Tajawal'">معلمونا</a>
                 </div>
-                <a href="index.html" class="btn btn-primary px-4 mx-3"style="font-family: 'Tajawal'">الرئيسية</a>
+                
+                @if (Auth::user())
+                
+
+                    <a href="{{ route('studentProfile') }}" class="btn btn-primary px-4 mx-3"style="font-family: 'Tajawal'">صفحتي الشخصية</a>
+                    <form action="{{ route('logout') }}" method="POST" class="nav-item nav-link p-0">
+                        @csrf
+                        <button type="submit" style="margin-right: 8px;margin-top: 15px !important;font-family: 'Tajawal' " class="btn btn-primary px-4 mx-3">
+                            <i class="fa fa-sign-out-alt me-2" style="margin-left: 6px"></i>تسجيل خروج
+                        </button>
+                    </form>
+
+                @else
                 <a href="/login" class="btn btn-primary px-4 "style="font-family: 'Tajawal'">تسجيل دخول</a>
+                @endif
             </div>
         </nav>
     </div>

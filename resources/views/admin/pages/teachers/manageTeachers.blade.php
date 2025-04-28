@@ -5,7 +5,7 @@
         <div class="container-fluid pt-4 px-4">
             <div class="bg-light text-center rounded p-4">
                 <div class="d-flex align-items-center justify-content-between mb-4">
-                    <h6 class="mb-0">قائمة المعلمات</h6>
+                    <h6 class="mb-0">قائمة المعلمين</h6>
                     <a href="{{ route('teacher.create') }}" class="btn " style="background-color: #17a2b8; color:white">إضافة معلم/ة</a>
                 </div>
                 <div class="table-responsive">

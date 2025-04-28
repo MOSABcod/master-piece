@@ -34,7 +34,7 @@ class AuthenticatedSessionController extends Controller
             // Check user role and redirect accordingly
             $user = Auth::user();
 
-            if ($user->role === 'student') {
+            if ($user->role == 'student') {
                 // Redirect student to home page
                 return redirect()->route('homepage'); // Change this to the route name for the home page
             }

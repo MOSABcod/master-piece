@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ExamController;
 use App\Http\Controllers\MathFirstKgController;
 use App\Http\Controllers\OpenAIController;
 use App\Http\Controllers\ProfileController;
@@ -53,11 +54,11 @@ Route::fallback(function () {
 // home page
 
 
-Route::get('/mathFirst', [MathFirstKgController::class, 'checkApplyMathFirst'])->name('mathFirst');
-Route::get('/mathSecondAndThird', [MathFirstKgController::class, 'checkApplyMathSec'])->name('mathSecondAndThird');
-Route::get('/arabicFirst', [MathFirstKgController::class, 'checkApplyArabicFirst'])->name('arabicFirst');
-Route::get('/arabicSecondAndThird', [MathFirstKgController::class, 'checkApplyArabicSec'])->name('arabicSecondAndThird');
-Route::get('/science', [MathFirstKgController::class, 'checkApplyScience'])->name('science');
+Route::get('/mathFirst', [ExamController::class, 'checkApplyMathFirst'])->name('mathFirst');
+Route::get('/mathSecondAndThird', [ExamController::class, 'checkApplyMathSec'])->name('mathSecondAndThird');
+Route::get('/arabicFirst', [ExamController::class, 'checkApplyArabicFirst'])->name('arabicFirst');
+Route::get('/arabicSecondAndThird', [ExamController::class, 'checkApplyArabicSec'])->name('arabicSecondAndThird');
+Route::get('/science', [ExamController::class, 'checkApplyScience'])->name('science');
 
 Route::get('/', function () {
     return view('user.pages.index');

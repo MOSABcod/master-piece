@@ -9,7 +9,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Worksheet</title>
     <style>
-        .radio-group {
+       .radio-group {
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
@@ -167,6 +167,7 @@
             color: #9ca3af;
             cursor: not-allowed;
         }
+        /*  */
         .navigation-buttons {
     display: flex;
     justify-content: space-between;
@@ -179,7 +180,7 @@
 }
 
 button, a {
-    /* padding: 12px 20px; */
+    /*  */
     font-size: 1rem;
     font-weight: bold;
     border: none;
@@ -198,7 +199,7 @@ button, a {
 .prev:hover {
     background-color: #9ca3af;
 }
-
+/*  */
 .next {
     background-color: #3b82f6;
     color: white;
@@ -232,8 +233,8 @@ button:disabled {
     </style>
 </head>
 
-<body>
-    <div class="wrapper">
+<body dir="rtl">
+    <div class="wrapper mt-4 mb-4" style="text-align: right; display: block;">
         <div class="container">
             <h1>اختبار العلوم</h1>
             <div id="timer" class="timer">15:00</div>
@@ -242,8 +243,11 @@ button:disabled {
             <form id="questions-form" method="POST" action="{{ route('save.ar.Science') }}">
                 @csrf
                 <!-- Hidden input to store the remaining time -->
-                <input type="hidden" name="timer" id="scienceTimer">
-
+                @if(session('resetTimer'))
+                <input type="hidden" name="scienceTimer" id="scienceTimer" value="900"> <!-- 15 minutes in seconds -->
+            @else
+                <input type="hidden" name="scienceTimer" id="scienceTimer" value="{{ old('scienceTimer', session('exam_timer', 900)) }}">
+            @endif
                 <!-- السؤال الاول -->
                 <div class="question active">
                     <p>السؤال الأول</p>
@@ -281,8 +285,8 @@ button:disabled {
                         ] as $name => $label)
                             <label class="radio-item flex items-center justify-center gap-2 bg-blue-500 text-white p-4 rounded-lg">
                                 <input type="radio" name="answers[2]" value="{{ explode('.', $name)[2] }}"
-                                    {{ old('answers.2') == explode('.', $name)[2] ? 'checked' : '' }}>
-                                <span>{{ $label }}</span>
+                                    {{ old('answers.2') == explode('.', $name)[2] ? 'checked' : '' }} >
+                                <span style="color:#4b5563">{{ $label }}</span>
                             </label>
                         @endforeach
                     </div>
@@ -304,7 +308,7 @@ button:disabled {
                             <label class="radio-item flex items-center justify-center gap-2 bg-teal-500 text-white p-4 rounded-lg">
                                 <input type="radio" name="answers[3]" value="{{ explode('.', $name)[2] }}"
                                     {{ old('answers.3') == explode('.', $name)[2] ? 'checked' : '' }}>
-                                <span>{{ $label }}</span>
+                                <span style="color:#4b5563">{{ $label }}</span>
                             </label>
                         @endforeach
                     </div>
@@ -325,7 +329,7 @@ button:disabled {
                             <label class="radio-item flex items-center justify-start gap-2 bg-orange-500 text-white p-4 rounded-lg">
                                 <input type="radio" name="answers[4]" value="{{ explode('.', $name)[2] }}"
                                     {{ old('answers.4') == explode('.', $name)[2] ? 'checked' : '' }}>
-                                <span>{{ $label }}</span>
+                                <span style="color:#4b5563">{{ $label }}</span>
                             </label>
                         @endforeach
                     </div>
@@ -347,7 +351,7 @@ button:disabled {
                             <label class="radio-item flex items-center justify-start gap-2 bg-pink-500 text-white p-4 rounded-lg">
                                 <input type="radio" name="answers[5]" value="{{ explode('.', $name)[2] }}"
                                     {{ old('answers.5') == explode('.', $name)[2] ? 'checked' : '' }}>
-                                <span>{{ $label }}</span>
+                                <span style="color:#4b5563">{{ $label }}</span>
                             </label>
                         @endforeach
                     </div>
@@ -368,7 +372,7 @@ button:disabled {
                             <label class="radio-item flex items-center justify-start gap-2 bg-blue-500 text-white p-4 rounded-lg">
                                 <input type="radio" name="answers[6]" value="{{ explode('.', $name)[2] }}"
                                     {{ old('answers.6') == explode('.', $name)[2] ? 'checked' : '' }}>
-                                <span>{{ $label }}</span>
+                                <span style="color:#4b5563">{{ $label }}</span>
                             </label>
                         @endforeach
                     </div>
@@ -388,7 +392,7 @@ button:disabled {
                             <label class="radio-item flex items-center justify-start gap-2 bg-blue-500 text-white p-4 rounded-lg">
                                 <input type="radio" name="answers[7]" value="{{ explode('.', $name)[2] }}"
                                     {{ old('answers.7') == explode('.', $name)[2] ? 'checked' : '' }}>
-                                <span>{{ $label }}</span>
+                                <span style="color:#4b5563">{{ $label }}</span>
                             </label>
                         @endforeach
                     </div>
@@ -410,7 +414,7 @@ button:disabled {
                             <label class="radio-item flex items-center justify-start gap-2 bg-teal-500 text-white p-4 rounded-lg">
                                 <input type="radio" name="answers[8]" value="{{ explode('.', $name)[2] }}"
                                     {{ old('answers.8') == explode('.', $name)[2] ? 'checked' : '' }}>
-                                <span>{{ $label }}</span>
+                                <span style="color:#4b5563">{{ $label }}</span>
                             </label>
                         @endforeach
                     </div>
@@ -431,7 +435,7 @@ button:disabled {
                             <label class="radio-item flex items-center justify-start gap-2 bg-orange-500 text-white p-4 rounded-lg">
                                 <input type="radio" name="answers[9]" value="{{ explode('.', $name)[2] }}"
                                     {{ old('answers.9') == explode('.', $name)[2] ? 'checked' : '' }}>
-                                <span>{{ $label }}</span>
+                                <span style="color:#4b5563">{{ $label }}</span>
                             </label>
                         @endforeach
                     </div>
@@ -452,7 +456,7 @@ button:disabled {
                             <label class="radio-item flex items-center justify-start gap-2 bg-blue-500 text-white p-4 rounded-lg">
                                 <input type="radio" name="answers[10]" value="{{ explode('.', $name)[2] }}"
                                     {{ old('answers.10') == explode('.', $name)[2] ? 'checked' : '' }}>
-                                <span>{{ $label }}</span>
+                                <span style="color:#4b5563">{{ $label }}</span>
                             </label>
                         @endforeach
                     </div>
@@ -472,7 +476,7 @@ button:disabled {
                             <label class="radio-item flex items-center justify-start gap-2 bg-blue-500 text-white p-4 rounded-lg">
                                 <input type="radio" name="answers[11]" value="{{ explode('.', $name)[2] }}"
                                     {{ old('answers.11') == explode('.', $name)[2] ? 'checked' : '' }}>
-                                <span>{{ $label }}</span>
+                                <span style="color:#4b5563">{{ $label }}</span>
                             </label>
                         @endforeach
                     </div>
@@ -505,16 +509,13 @@ button:disabled {
             timerElement.textContent = `${minutes}:${seconds}`;
 
             // Change timer color based on remaining time
-            if (timeRemaining <= 3.75 * 60) { // Last 25%
-                timerElement.classList.add('danger');
-                timerElement.classList.remove('warning', 'green');
-            } else if (timeRemaining <= 7.5 * 60) { // Last 50%
-                timerElement.classList.add('warning');
-                timerElement.classList.remove('danger', 'green');
-            } else {
-                timerElement.classList.remove('danger', 'warning');
-                timerElement.classList.add('green');
-            }
+            if (timeRemaining <= 3.75 * 60) { // Danger color for last 25%
+        timerElement.style.backgroundColor = '#ef4444'; // Red
+    } else if (timeRemaining <= 7.5 * 60) { // Warning color for half time
+        timerElement.style.backgroundColor = '#f59e0b'; // Orange
+    } else {
+        timerElement.style.backgroundColor = '#10b981'; // Green
+    }
 
             // Save the remaining time to localStorage
             localStorage.setItem('timeRemainingScience', timeRemaining);

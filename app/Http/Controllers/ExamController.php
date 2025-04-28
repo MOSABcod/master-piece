@@ -3,62 +3,87 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\ScienceAnswer;
+use App\Models\AnswersMathFirstKg;
+use App\Models\ArabicAnswerFirstKg;
+use Illuminate\Support\Facades\Auth;
+use App\Models\MathAnswerSecondThird;
+use App\Models\ArabicAnswerSecondThird;
 
 class ExamController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
-    public function index()
+    
+    public function checkApplyMathFirst(Request $request)
     {
-        //
+        if (!Auth::check()) {
+            return redirect()->route('login')->with('error', 'يجب تسجيل الدخول للتقديم.');
+        }
+
+        if (AnswersMathFirstKg::with('question')->where('user_id', Auth::user()->id)->exists()) {
+            return redirect()->back()->with('error', 'لا يمكنك التقديم مرة أخرى.');
+        }
+
+        return view('user.pages.math.mathQuizFirst');
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
+    
+    public function checkApplyMathSec(Request $request)
     {
-        //
+        if (!Auth::check()) {
+            return redirect()->route('login')->with('error', 'يجب تسجيل الدخول للتقديم.');
+        }
+
+        if (MathAnswerSecondThird::with('question')->where('user_id', Auth::user()->id)->exists()) {
+            return redirect()->back()->with('error', 'لا يمكنك التقديم مرة أخرى.');
+        }
+
+        return view('user.pages.math.mathQuizSecAndThird');
     }
 
-    /**
-     * Store a newly created resource in storage.
-     */
-    public function store(Request $request)
+
+    public function checkApplyArabicFirst(Request $request)
     {
-        //
+        if (!Auth::check()) {
+            return redirect()->route('login')->with('error', 'يجب تسجيل الدخول للتقديم.');
+        }
+
+        if (ArabicAnswerFirstKg::with('question')->where('user_id', Auth::user()->id)->exists()) {
+            return redirect()->back()->with('error', 'لا يمكنك التقديم مرة أخرى.');
+        }
+
+        return view('user.pages.arabic.first');
     }
 
-    /**
-     * Display the specified resource.
-     */
-    public function show(string $id)
+
+    public function checkApplyArabicSec(Request $request)
     {
-        //
+        if (!Auth::check()) {
+            return redirect()->route('login')->with('error', 'يجب تسجيل الدخول للتقديم.');
+        }
+
+        if (ArabicAnswerSecondThird::with('question')->where('user_id', Auth::user()->id)->exists()) {
+            return redirect()->back()->with('error', 'لا يمكنك التقديم مرة أخرى.');
+        }
+
+        return view('user.pages.arabic.secondAndThird');
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(string $id)
+
+    public function checkApplyScience(Request $request)
     {
-        //
+        if (!Auth::check()) {
+            return redirect()->route('login')->with('error', 'يجب تسجيل الدخول للتقديم.');
+        }
+
+        if (ScienceAnswer::with('question')->where('user_id', Auth::user()->id)->exists()) {
+            return redirect()->back()->with('error', 'لا يمكنك التقديم مرة أخرى.');
+        }
+
+        return view('user.pages.science.science');
     }
 
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, string $id)
-    {
-        //
-    }
 
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(string $id)
-    {
-        //
-    }
+
+    
+
 }

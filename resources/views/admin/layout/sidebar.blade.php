@@ -23,7 +23,7 @@
 <div class="sidebar pe-4 pb-3" style="    overflow: hidden;">
     <nav class="navbar " >
         <a href="{{ route('dashboard') }}" class="navbar-brand mx-4 mb-3">
-            <h3 class="text-primary"><img src="{{ asset('assets/img/dashborad logo.png') }}" alt=""></h3>
+            <h3 class="text-primary"><img src="{{ asset('assets1/img/Screenshot 2025-04-17 234629.png') }}" alt=""></h3>
         </a>
         <div class="d-flex align-items-center ms-4 mb-4">
             <div class="position-relative">
@@ -46,17 +46,17 @@
         </div>
         <div class="navbar-nav w-100">
             <!-- Highlight the active link dynamically -->
-            <a href="{{ route('dashboard') }}" onmousedown="this.style.color = '17a2b8'" class="nav-item nav-link {{ Request::routeIs('dashboard') ? 'active' : '' }}">
+            <a href="{{ route('dashboard') }}" onmousedown="this.style.color = '17a2b8'" class="nav-item nav-link {{ Request::routeIs('dashboard') ? 'active' : '' }} mb-2" style="color: #17a2b8 ,border-color: #17a2b8">
                 <i class="fa fa-tachometer-alt me-2"></i>الصفحة الرئيسية
             </a>
 
            @if (Auth::user()->role == "manager")
-           <a href="{{ route('viewTeachers') }}" class="nav-item nav-link {{ Request::routeIs('viewTeachers') ? 'active' : '' }}">
-            <i class="fa fa-chalkboard-teacher me-2"></i>إدارة المعلمات
+           <a href="{{ route('viewTeachers') }}" class="nav-item nav-link {{ Request::routeIs('viewTeachers') ? 'active' : '' }} mb-2">
+            <i class="fa fa-chalkboard-teacher me-2"></i>إدارة المعلمين
         </a>
            @endif
 
-            <a href="{{ route('viewStudents') }}" class="nav-item nav-link {{ Request::routeIs('viewStudents') ? 'active' : '' }}">
+            <a href="{{ route('viewStudents') }}" class="nav-item nav-link {{ Request::routeIs('viewStudents') ? 'active' : '' }} mb-2">
                 <i class="fa fa-users me-2"></i>إدارة الطلاب
             </a>
 

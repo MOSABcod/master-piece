@@ -79,7 +79,7 @@
     }
 </style>
 
-<div class="result-wrapper">
+<div class="result-wrapper" >
     <div class="result-container">
         <h1 class="result-heading">🎉 تهانينا على إتمام الاختبار! 🎉</h1>
         <p class="result-description">نشكرك على جهودك وإتمامك للاختبار. نتمنى لك المزيد من النجاح والتقدم في المستقبل.</p>

@@ -28,13 +28,13 @@
 
 .profile-image img {
     border-radius: 50%;
-    border: 4px solid #27703b;
+    border: 4px solid #17a2b8 ;
 }
 
 /* Typography */
 h6 {
     font-size: 16px;
-    color: #808080;
+    color: #111111;
     margin-bottom: 5px;
 }
 
@@ -59,7 +59,7 @@ h6 {
 
 
 </style>
-<section class="student-profile bg-edoffwhite pt-[80px] pb-[80px]">
+<section class="student-profile bg-edoffwhite pt-80px pb-80px mt-5 ml-5 mr-5">
     <div class="container mx-auto px-[5%]">
         <!-- Profile Card -->
         <div class="profile-card bg-white rounded-[20px] shadow-lg p-[40px] flex items-center gap-[30px]">
@@ -71,15 +71,15 @@ h6 {
             <div class="flex-grow">
                 <div class="grid grid-cols-3 gap-[20px] text-center md:text-right">
                     <div>
-                        <h6 class="font-medium text-edgray text-[16px]">الاسم</h6>
+                        <h4 class="font-medium text-edgray text-[16px]">الاسم</h4>
                         <p class="font-bold text-black text-[20px]">{{ Auth::user()->name }}</p>
                     </div>
                     <div>
-                        <h6 class="font-medium text-edgray text-[16px]">الرقم الوطني</h6>
+                        <h4 class="font-medium text-edgray text-[16px]">الرقم الوطني</h4>
                         <p class="font-bold text-black text-[20px]">{{ Auth::user()->national_id  }}</p>
                     </div>
                     <div>
-                        <h6 class="font-medium text-edgray text-[16px]">الصف</h6>
+                        <h4 class="font-medium text-edgray text-[16px]">الصف</h4>
                         <p class="font-bold text-black text-[20px]">
                             @switch(Auth::user()->class_id)
                                 @case(1)
@@ -108,11 +108,11 @@ h6 {
 
 
          <!-- COURSES SECTION START -->
-         <section class="ed-2-courses py-[120px] xl:py-[80px] md:py-[60px]">
-            <div class="mx-[9.2%] xxxl:mx-[8.2%] xxl:mx-[3%]">
+         <section class="ed-2-courses py-120px xl:py-80px md:py-60px mt-5" style="text-align: right; display: block;">
+            <div class="mx-9.2% xxxl:mx-8.2% xxl:mx-3% mr-4 ml-4">
                 <!-- section heading -->
                 <div class="text-center mb-[21px]">
-                    <h6 class="ed-section-sub-title">الامتحانات</h6>
+                    {{-- <h6 class="ed-section-sub-title">الامتحانات</h6> --}}
                     <h2 class="ed-section-title">الامتحانات</h2>
                 </div>
 
@@ -130,7 +130,7 @@ h6 {
                     @if (Auth::user() &&( Auth::user()->class_id == 1 || Auth::user()->class_id == 2 || Auth::user()->role == "teacher")  )
 
 
-                    <div class="ed-2-single-course mix personal-skill border border-[#e5e5e5] rounded-[10px] p-[20px] group">
+                    <div class="ed-2-single-course mix personal-skill border border-[#e5e5e5] rounded-[10px] p-[20px] group mb-3" style="text-align: center">
                         <!-- course image  -->
                         <div class="relative overflow-hidden rounded-[10px] mb-[24px]">
                             <img src="assets/img/الرياضيات.svg" alt="Course Image" class="w-full aspect-[330/223] h-auto object-contain group-hover:scale-110">
@@ -138,9 +138,9 @@ h6 {
                         </div>
 
                         <!-- course infos -->
-                        <div class="flex justify-between items-center mb-[16px]">
+                        {{-- <div class="flex justify-between items-center mb-[16px]">
                             <span class="inline-flex items-center justify-center border border-[#e5e5e5] px-[10px] h-[33px] rounded-[6px] font-medium text-[#808080] text-[14px]">مبتدئ</span>
-                        </div>
+                        </div> --}}
 
                         <!-- course title -->
                         <h5 class="font-semibold text-[20px] text-edblue mb-[23px]">
@@ -166,7 +166,7 @@ h6 {
 
                             <!-- button to confirm exam start -->
                             <button
-                                class="bg-edpurple text-white px-[10px] w-full py-[6px] rounded-[8px] hover:bg-[#5a35a5]"
+                                class="bg-edpurple text-white px-[10px] w-full py-[6px] rounded-[8px] hover:bg-[#5a35a5] mt-5 mb-5"
                                 onclick="confirmExamStart(this)"
                                 @if ($first)
                                     disabled
@@ -184,7 +184,7 @@ h6 {
                     @endif
                     @if (Auth::user() &&(Auth::user()->class_id == 3 || Auth::user()->class_id == 4 || Auth::user()->role == "teacher" || Auth::user()->role == "manager")  )
 
-                    <div class="ed-2-single-course mix personal-skill border border-[#e5e5e5] rounded-[10px] p-[20px] group">
+                    <div class="ed-2-single-course mix personal-skill border border-[#e5e5e5] rounded-[10px] p-[20px] group mb-3" style="text-align: center">
                         <!-- course image  -->
                         <div class="relative overflow-hidden rounded-[10px] mb-[24px]">
                             <img src="assets/img/الرياضيات.svg" alt="Course Image" class="w-full aspect-[330/223] h-auto object-contain group-hover:scale-110">
@@ -192,9 +192,9 @@ h6 {
                         </div>
 
                         <!-- course infos -->
-                        <div class="flex justify-between items-center mb-[16px]">
+                        {{-- <div class="flex justify-between items-center mb-[16px]">
                             <span class="inline-flex items-center justify-center border border-[#e5e5e5] px-[10px] h-[33px] rounded-[6px] font-medium text-[#808080] text-[14px]">مبتدئ</span>
-                        </div>
+                        </div> --}}
 
                         <!-- course title -->
                         <h5 class="font-semibold text-[20px] text-edblue mb-[23px]">
@@ -220,7 +220,7 @@ h6 {
 
                             <!-- button to confirm exam start -->
                             <button
-                                class="bg-edpurple text-white px-[10px] w-full py-[6px] rounded-[8px] hover:bg-[#5a35a5]"
+                                class="bg-edpurple text-white px-[10px] w-full py-[6px] rounded-[8px] hover:bg-[#5a35a5] mt-5 mb-5"
                                 onclick="confirmExamStart(this)"
                                 @if ($second)
                                     disabled
@@ -238,7 +238,7 @@ h6 {
                     @endif
                     @if (Auth::user() &&(Auth::user()->class_id == 1 || Auth::user()->class_id == 2 || Auth::user()->role == "teacher")  )
 
-                    <div class="ed-2-single-course mix personal-skill border border-[#e5e5e5] rounded-[10px] p-[20px] group">
+                    <div class="ed-2-single-course mix personal-skill border border-[#e5e5e5] rounded-[10px] p-[20px] group mb-3" style="text-align: center">
                         <!-- course image  -->
                         <div class="relative overflow-hidden rounded-[10px] mb-[24px]">
                             <img src="assets/img/download.svg" alt="Course Image" class="w-full aspect-[330/223] h-auto object-contain group-hover:scale-110">
@@ -246,9 +246,9 @@ h6 {
                         </div>
 
                         <!-- course infos -->
-                        <div class="flex justify-between items-center mb-[16px]">
+                        {{-- <div class="flex justify-between items-center mb-[16px]">
                             <span class="inline-flex items-center justify-center border border-[#e5e5e5] px-[10px] h-[33px] rounded-[6px] font-medium text-[#808080] text-[14px]">مبتدئ</span>
-                        </div>
+                        </div> --}}
 
                         <!-- course title -->
                         <h5 class="font-semibold text-[20px] text-edblue mb-[23px]">
@@ -274,7 +274,7 @@ h6 {
 
                             <!-- button to confirm exam start -->
                             <button
-                                class="bg-edpurple text-white px-[10px] w-full py-[6px] rounded-[8px] hover:bg-[#5a35a5]"
+                                class="bg-edpurple text-white px-[10px] w-full py-[6px] rounded-[8px] hover:bg-[#5a35a5] mt-5 mb-5"
                                 onclick="confirmExamStart(this)"
                                 @if ($third)
                                     disabled
@@ -292,7 +292,7 @@ h6 {
                     @endif
                     @if (Auth::user() &&(Auth::user()->class_id == 3 || Auth::user()->class_id == 4 || Auth::user()->role == "teacher" || Auth::user()->role == "manager")  )
 
-                    <div class="ed-2-single-course mix personal-skill border border-[#e5e5e5] rounded-[10px] p-[20px] group">
+                    <div class="ed-2-single-course mix personal-skill border border-[#e5e5e5] rounded-[10px] p-[20px] group mb-3" style="text-align: center">
                         <!-- course image  -->
                         <div class="relative overflow-hidden rounded-[10px] mb-[24px]">
                             <img src="assets/img/download.svg" alt="Course Image" class="w-full aspect-[330/223] h-auto object-contain group-hover:scale-110">
@@ -300,9 +300,9 @@ h6 {
                         </div>
 
                         <!-- course infos -->
-                        <div class="flex justify-between items-center mb-[16px]">
+                        {{-- <div class="flex justify-between items-center mb-[16px]">
                             <span class="inline-flex items-center justify-center border border-[#e5e5e5] px-[10px] h-[33px] rounded-[6px] font-medium text-[#808080] text-[14px]">مبتدئ</span>
-                        </div>
+                        </div> --}}
 
                         <!-- course title -->
                         <h5 class="font-semibold text-[20px] text-edblue mb-[23px]">
@@ -328,7 +328,7 @@ h6 {
 
                             <!-- button to confirm exam start -->
                             <button
-                                class="bg-edpurple text-white px-[10px] w-full py-[6px] rounded-[8px] hover:bg-[#5a35a5]"
+                                class="bg-edpurple text-white px-[10px] w-full py-[6px] rounded-[8px] hover:bg-[#5a35a5] mt-5 mb-5"
                                 onclick="confirmExamStart(this)"
                                 @if ($fourth)
                                     disabled
@@ -345,7 +345,7 @@ h6 {
                     </div>
                     @endif
                     @if (!Auth::user())
-                    <div class="ed-2-single-course mix personal-skill border border-[#e5e5e5] rounded-[10px] p-[20px] group">
+                    <div class="ed-2-single-course mix personal-skill border border-[#e5e5e5] rounded-[10px] p-[20px] group mb-3" style="text-align: center">
                         <!-- course image  -->
                         <div class="relative overflow-hidden rounded-[10px] mb-[24px]">
                             <img src="assets/img/الرياضيات.svg" alt="Course Image" class="w-full aspect-[330/223] h-auto object-contain group-hover:scale-110">
@@ -353,9 +353,9 @@ h6 {
                         </div>
 
                         <!-- course infos -->
-                        <div class="flex justify-between items-center mb-[16px]">
+                        {{-- <div class="flex justify-between items-center mb-[16px]">
                             <span class="inline-flex items-center justify-center border border-[#e5e5e5] px-[10px] h-[33px] rounded-[6px] font-medium text-[#808080] text-[14px]">مبتدئ</span>
-                        </div>
+                        </div> --}}
 
                         <!-- course title -->
                         <h5 class="font-semibold text-[20px] text-edblue mb-[23px]">
@@ -381,7 +381,7 @@ h6 {
 
                             <!-- button to confirm exam start -->
                             <button
-                                class="bg-edpurple text-white px-[10px] w-full py-[6px] rounded-[8px] hover:bg-[#5a35a5]"
+                                class="bg-edpurple text-white px-[10px] w-full py-[6px] rounded-[8px] hover:bg-[#5a35a5] mt-5 mb-5"
                                 @if ($first)
                                 disabled
                                 style="background-color: grey"
@@ -396,7 +396,7 @@ h6 {
                             </button>
                         </div>
                     </div>
-<div class="ed-2-single-course mix personal-skill border border-[#e5e5e5] rounded-[10px] p-[20px] group">
+        <div class="ed-2-single-course mix personal-skill border border-[#e5e5e5] rounded-[10px] p-[20px] group mb-3" style="text-align: center">
                         <!-- course image  -->
                         <div class="relative overflow-hidden rounded-[10px] mb-[24px]">
                             <img src="assets/img/الرياضيات.svg" alt="Course Image" class="w-full aspect-[330/223] h-auto object-contain group-hover:scale-110">
@@ -404,9 +404,9 @@ h6 {
                         </div>
 
                         <!-- course infos -->
-                        <div class="flex justify-between items-center mb-[16px]">
+                        {{-- <div class="flex justify-between items-center mb-[16px]">
                             <span class="inline-flex items-center justify-center border border-[#e5e5e5] px-[10px] h-[33px] rounded-[6px] font-medium text-[#808080] text-[14px]">مبتدئ</span>
-                        </div>
+                        </div> --}}
 
                         <!-- course title -->
                         <h5 class="font-semibold text-[20px] text-edblue mb-[23px]">
@@ -432,7 +432,7 @@ h6 {
 
                             <!-- button to confirm exam start -->
                             <button
-                                class="bg-edpurple text-white px-[10px] w-full py-[6px] rounded-[8px] hover:bg-[#5a35a5]"
+                                class="bg-edpurple text-white px-[10px] w-full py-[6px] rounded-[8px] hover:bg-[#5a35a5] mt-5 mb-5"
 
                                 onclick="confirmExamStart(this)"
                                 @if ($second)
@@ -448,7 +448,7 @@ h6 {
                             </button>
                         </div>
                     </div>
-<div class="ed-2-single-course mix personal-skill border border-[#e5e5e5] rounded-[10px] p-[20px] group">
+        <div class="ed-2-single-course mix personal-skill border border-[#e5e5e5] rounded-[10px] p-[20px] group mb-3" style="text-align: center">
                         <!-- course image  -->
                         <div class="relative overflow-hidden rounded-[10px] mb-[24px]">
                             <img src="assets/img/download.svg" alt="Course Image" class="w-full aspect-[330/223] h-auto object-contain group-hover:scale-110">
@@ -456,9 +456,9 @@ h6 {
                         </div>
 
                         <!-- course infos -->
-                        <div class="flex justify-between items-center mb-[16px]">
+                        {{-- <div class="flex justify-between items-center mb-[16px]">
                             <span class="inline-flex items-center justify-center border border-[#e5e5e5] px-[10px] h-[33px] rounded-[6px] font-medium text-[#808080] text-[14px]">مبتدئ</span>
-                        </div>
+                        </div> --}}
 
                         <!-- course title -->
                         <h5 class="font-semibold text-[20px] text-edblue mb-[23px]">
@@ -484,7 +484,7 @@ h6 {
 
                             <!-- button to confirm exam start -->
                             <button
-                                class="bg-edpurple text-white px-[10px] w-full py-[6px] rounded-[8px] hover:bg-[#5a35a5]"
+                                class="bg-edpurple text-white px-[10px] w-full py-[6px] rounded-[8px] hover:bg-[#5a35a5] mt-5 mb-5"
 
                                 onclick="confirmExamStart(this)"
                                 @if ($third)
@@ -500,7 +500,7 @@ h6 {
                             </button>
                         </div>
                     </div>
-                    <div class="ed-2-single-course mix personal-skill border border-[#e5e5e5] rounded-[10px] p-[20px] group">
+                    <div class="ed-2-single-course mix personal-skill border border-[#e5e5e5] rounded-[10px] p-[20px] group mb-3" style="text-align: center">
                         <!-- course image  -->
                         <div class="relative overflow-hidden rounded-[10px] mb-[24px]">
                             <img src="assets/img/download.svg" alt="Course Image" class="w-full aspect-[330/223] h-auto object-contain group-hover:scale-110">
@@ -508,9 +508,9 @@ h6 {
                         </div>
 
                         <!-- course infos -->
-                        <div class="flex justify-between items-center mb-[16px]">
+                        {{-- <div class="flex justify-between items-center mb-[16px]">
                             <span class="inline-flex items-center justify-center border border-[#e5e5e5] px-[10px] h-[33px] rounded-[6px] font-medium text-[#808080] text-[14px]">مبتدئ</span>
-                        </div>
+                        </div> --}}
 
                         <!-- course title -->
                         <h5 class="font-semibold text-[20px] text-edblue mb-[23px]">
@@ -536,7 +536,7 @@ h6 {
 
                             <!-- button to confirm exam start -->
                             <button
-                                class="bg-edpurple text-white px-[10px] w-full py-[6px] rounded-[8px] hover:bg-[#5a35a5]"
+                                class="bg-edpurple text-white px-[10px] w-full py-[6px] rounded-[8px] hover:bg-[#5a35a5] mt-5 mb-5"
 
                                 onclick="confirmExamStart(this)"
                                 @if ($fourth)
@@ -553,7 +553,7 @@ h6 {
                         </div>
                     </div>
                     @endif
-                    <div class="ed-2-single-course mix personal-skill border border-[#e5e5e5] rounded-[10px] p-[20px] group">
+                    <div class="ed-2-single-course mix personal-skill border border-[#e5e5e5] rounded-[10px] p-[20px] group mb-3" style="text-align: center">
                         <!-- course image  -->
                         <div class="relative overflow-hidden rounded-[10px] mb-[24px]">
                             <img src="assets/img/العلوم.svg" alt="Course Image" class="w-full aspect-[330/223] h-auto object-contain group-hover:scale-110">
@@ -561,13 +561,13 @@ h6 {
                         </div>
 
                         <!-- course infos -->
-                        <div class="flex justify-between items-center mb-[16px]">
+                        {{-- <div class="flex justify-between items-center mb-[16px]">
                             <span class="inline-flex items-center justify-center border border-[#e5e5e5] px-[10px] h-[33px] rounded-[6px] font-medium text-[#808080] text-[14px]">مبتدئ</span>
-                        </div>
+                        </div> --}}
 
                         <!-- course title -->
                         <h5 class="font-semibold text-[20px] text-edblue mb-[23px]">
-                            <a  class="hover:text-edpurple">امتحان علوم - جميع الصفوف</a>
+                            <a href="{{route('science')}}"  class="hover:text-edpurple">امتحان علوم - جميع الصفوف</a>
                         </h5>
 
                         <!-- course stats -->
@@ -589,7 +589,7 @@ h6 {
 
                             <!-- button to confirm exam start -->
                             <button
-                                class="bg-edpurple text-white px-[10px] w-full py-[6px] rounded-[8px] hover:bg-[#5a35a5]"
+                                class="bg-edpurple text-white px-[10px] w-full py-[6px] rounded-[8px] hover:bg-[#5a35a5] mt-5 mb-5"
 
 
                                 onclick="confirmExamStart(this)"
@@ -613,6 +613,46 @@ h6 {
         <!-- COURSES SECTION END -->
 
 
-
+        <style>
+            /* General Styles */
+            .ed-section-title {
+                font-size: 2rem;
+                color: #333;
+                margin-bottom: 20px;
+            }
+            
+            /* Course Card Styling */
+            .ed-2-single-course {
+                background: #ffffff;
+                box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+                transition: transform 0.3s ease, box-shadow 0.3s ease;
+            }
+            .ed-2-single-course:hover {
+                transform: translateY(-5px);
+                box-shadow: 0 8px 15px rgba(0, 0, 0, 0.15);
+            }
+            
+            /* Button Styling */
+            .bg-edpurple {
+                background: #6c63ff;
+                border: none;
+                transition: background 0.3s ease, transform 0.3s ease;
+            }
+            .bg-edpurple:hover {
+                background: #5a35a5;
+                transform: scale(1.05);
+            }
+            .bg-edpurple:disabled {
+                background: #cccccc;
+                cursor: not-allowed;
+            }
+            
+            /* Responsive Design */
+            @media (max-width: 768px) {
+                .ed-2-courses-container {
+                    grid-template-columns: 1fr;
+                }
+            }
+            </style>
 
 @endsection

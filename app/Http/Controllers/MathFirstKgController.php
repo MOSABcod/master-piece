@@ -24,71 +24,6 @@ class MathFirstKgController extends Controller
 {
     protected $roadmapService;
 
-    public function checkApplyMathFirst(Request $request)
-    {
-        if (!Auth::check()) {
-            return redirect()->route('login')->with('error', 'يجب تسجيل الدخول للتقديم.');
-        }
-
-        if (AnswersMathFirstKg::with('question')->where('user_id', Auth::user()->id)->exists()) {
-            return redirect()->back()->with('error', 'لا يمكنك التقديم مرة أخرى.');
-        }
-
-        return view('user.pages.math.mathQuizFirst');
-    }
-
-    public function checkApplyMathSec(Request $request)
-    {
-        if (!Auth::check()) {
-            return redirect()->route('login')->with('error', 'يجب تسجيل الدخول للتقديم.');
-        }
-
-        if (MathAnswerSecondThird::with('question')->where('user_id', Auth::user()->id)->exists()) {
-            return redirect()->back()->with('error', 'لا يمكنك التقديم مرة أخرى.');
-        }
-
-        return view('user.pages.math.mathQuizSecAndThird');
-    }
-
-    public function checkApplyArabicFirst(Request $request)
-    {
-        if (!Auth::check()) {
-            return redirect()->route('login')->with('error', 'يجب تسجيل الدخول للتقديم.');
-        }
-
-        if (ArabicAnswerFirstKg::with('question')->where('user_id', Auth::user()->id)->exists()) {
-            return redirect()->back()->with('error', 'لا يمكنك التقديم مرة أخرى.');
-        }
-
-        return view('user.pages.arabic.first');
-    }
-
-    public function checkApplyArabicSec(Request $request)
-    {
-        if (!Auth::check()) {
-            return redirect()->route('login')->with('error', 'يجب تسجيل الدخول للتقديم.');
-        }
-
-        if (ArabicAnswerSecondThird::with('question')->where('user_id', Auth::user()->id)->exists()) {
-            return redirect()->back()->with('error', 'لا يمكنك التقديم مرة أخرى.');
-        }
-
-        return view('user.pages.arabic.secondAndThird');
-    }
-
-    public function checkApplyScience(Request $request)
-    {
-        if (!Auth::check()) {
-            return redirect()->route('login')->with('error', 'يجب تسجيل الدخول للتقديم.');
-        }
-
-        if (ScienceAnswer::with('question')->where('user_id', Auth::user()->id)->exists()) {
-            return redirect()->back()->with('error', 'لا يمكنك التقديم مرة أخرى.');
-        }
-
-        return view('user.pages.science.science');
-    }
-
     public function __construct(RoadmapService $roadmapService)
     {
         $this->roadmapService = $roadmapService;
@@ -106,14 +41,8 @@ class MathFirstKgController extends Controller
         // Ensure the user is authenticated
         $userId = Auth::id(); // Get the authenticated user ID
         if (!$userId) {
-            return redirect()->route('login')->with([
-                'sweet_alert' => [
-                    'type' => 'error',
-                    'title' => 'خطأ!',
-                    'message' => 'يجب تسجيل الدخول لحفظ الإجابات.',
-                ],
-                'remaining_time' => $remainingTime,
-            ]);
+            return redirect()->route('login')->with(
+                    'error' , 'يجب تسجيل الدخول لحفظ الإجابات.');
         }
 
         // Validation
@@ -132,34 +61,26 @@ class MathFirstKgController extends Controller
             // Calculate the number of unanswered questions
             $missingCount = count($missingAnswers);
             $missingList = implode(', ', $missingAnswers); // List the unanswered question IDs
-            return redirect()->back()->with([
-                'sweet_alert' => [
-                    'type' => 'error',
-                    'title' => 'خطأ!',
-                    'message' => "لم يتم الإجابة على $missingCount سؤال/أسئلة: $missingList.",
-                ],
-                'remaining_time' => $remainingTime,
-            ])->withInput();
+            return redirect()->back()->with(
+    
+                    'error' , "لم يتم الإجابة على $missingCount سؤال/أسئلة: $missingList."
+            )->withInput();
         }
 
         try {
-            // Calculate the result and percentage score
+
 
             $countOfQuestions = MathFirstKg::count();
 
-            // dd($countOfQuestions);
-            // saving in database the answers
 
             foreach ($answers as $questionId => $answer) {
-                // dd($request->all());
+
                 // Fetch the correct answer for the question
                 $question = MathFirstKg::where('id', $questionId)->first();
-                // dd($request->all());
 
                 if (!$question) {
                     continue; // Skip if question not found
                 }
-                // dd($request->all());
 
                 // Check if the user's answer is correct
                 $isCorrect = strtolower(trim($answer)) === strtolower(trim($question->correct_answer)) ? 1 : 0;
@@ -181,11 +102,7 @@ class MathFirstKgController extends Controller
             $htmlTable = $this->roadmapService->generateHtmlTable($studentPerformance, $percentageScore);
             // Redirect with all necessary data
             return redirect()->route('result')->with([
-                'sweet_alert' => [
-                    'type' => 'success',
-                    'title' => 'نجاح!',
-                    'message' => 'تم حفظ الإجابات بنجاح!',
-                ],
+                    'success' => 'تم حفظ الإجابات بنجاح!',
                 'remaining_time' => $remainingTime,
                 'countofqus' => $countOfQuestions,
                 'resetTimer' => true,
@@ -198,23 +115,10 @@ class MathFirstKgController extends Controller
         } catch (\Exception $e) {
             // Handle exceptions
 
-            return redirect()->back()->with([
-                'sweet_alert' => [
-                    'type' => 'error',
-                    'title' => 'خطأ!',
-                    'message' => 'حدث خطأ أثناء حفظ الإجابات. يرجى المحاولة مرة أخرى.',
-                ],
-                'remaining_time' => $remainingTime,
-            ]);
+            return redirect()->back()->with('error' , 'حدث خطأ أثناء حفظ الإجابات. يرجى المحاولة مرة أخرى.');
         }
     }
 
-    /**
-     * Calculate student performance per skill.
-     *
-     * @param int $userId
-     * @return array
-     */
     private function calculateStudentPerformance(int $userId): array
     {
         // Define the mapping of question IDs to skills
@@ -280,6 +184,7 @@ class MathFirstKgController extends Controller
     //  =====================================================================================================
     public function saveAnswersSecMath(Request $request)
     {
+       
         $user = Auth::user();
         if (in_array($user->role, ['teacher', 'manager'])) {
             return redirect()->route('homepage')->with('error', 'لا يُسمح للمعلمين أو المديرين بالتقديم.');
@@ -291,14 +196,8 @@ class MathFirstKgController extends Controller
         // Ensure the user is authenticated
         $userId = Auth::id(); // Get the authenticated user ID
         if (!$userId) {
-            return redirect()->route('login')->with([
-                'sweet_alert' => [
-                    'type' => 'error',
-                    'title' => 'خطأ!',
-                    'message' => 'يجب تسجيل الدخول لحفظ الإجابات.',
-                ],
-                'remaining_time' => $remainingTime,
-            ]);
+            return redirect()->route('login')->with(
+                    'error' , 'يجب تسجيل الدخول لحفظ الإجابات.');
         }
 
         // Validation
@@ -318,12 +217,7 @@ class MathFirstKgController extends Controller
             $missingCount = count($missingAnswers);
             $missingList = implode(', ', $missingAnswers); // List the unanswered question IDs
             return redirect()->back()->with([
-                'sweet_alert' => [
-                    'type' => 'error',
-                    'title' => 'خطأ!',
-                    'message' => "لم يتم الإجابة على $missingCount سؤال/أسئلة: $missingList.",
-                ],
-                'remaining_time' => $remainingTime,
+                    'error' => "لم يتم الإجابة على $missingCount سؤال/أسئلة: $missingList."
             ])->withInput();
         }
 
@@ -351,12 +245,12 @@ class MathFirstKgController extends Controller
                 $isCorrect = strtolower(trim($answer)) === strtolower(trim($question->correct_answer)) ? 1 : 0;
 
                 // Save the user's answer to the database
-                MathAnswerSecondThird::create([
-                    'question_id' => $questionId,
-                    'user_id' => $userId,
-                    'answer' => $answer,
-                    'is_correct' => $isCorrect,
-                ]);
+                // MathAnswerSecondThird::create([
+                //     'question_id' => $questionId,
+                //     'user_id' => $userId,
+                //     'answer' => $answer,
+                //     'is_correct' => $isCorrect,
+                // ]);
             }
             $result = MathAnswerSecondThird::where('user_id', $userId)->where('is_correct', 1)->count();
             $percentageScore = ($result / $countOfQuestions) * 100;
@@ -368,11 +262,6 @@ class MathFirstKgController extends Controller
             $htmlTable = $this->roadmapService->generateHtmlTableMathSec($studentPerformance, $percentageScore);
             // Redirect with all necessary data
             return redirect()->route('result')->with([
-                'sweet_alert' => [
-                    'type' => 'success',
-                    'title' => 'نجاح!',
-                    'message' => 'تم حفظ الإجابات بنجاح!',
-                ],
                 'remaining_time' => $remainingTime,
                 'countofqus' => $countOfQuestions,
                 'resetTimer' => true,
@@ -385,14 +274,10 @@ class MathFirstKgController extends Controller
         } catch (\Exception $e) {
             // Handle exceptions
 
-            return redirect()->back()->with([
-                'sweet_alert' => [
-                    'type' => 'error',
-                    'title' => 'خطأ!',
-                    'message' => 'حدث خطأ أثناء حفظ الإجابات. يرجى المحاولة مرة أخرى.',
-                ],
-                'remaining_time' => $remainingTime,
-            ]);
+            return redirect()->back()->with(
+
+                    'error' ,'حدث خطأ أثناء حفظ الإجابات. يرجى المحاولة مرة أخرى.'
+            );
         }
     }
 
@@ -496,14 +381,10 @@ class MathFirstKgController extends Controller
         // Ensure the user is authenticated
         $userId = Auth::id(); // Get the authenticated user ID
         if (!$userId) {
-            return redirect()->route('login')->with([
-                'sweet_alert' => [
-                    'type' => 'error',
-                    'title' => 'خطأ!',
-                    'message' => 'يجب تسجيل الدخول لحفظ الإجابات.',
-                ],
-                'remaining_time' => $remainingTime,
-            ]);
+            return redirect()->route('login')->with(
+                    'error' , 'يجب تسجيل الدخول لحفظ الإجابات.'
+             
+            );
         }
 
         // Validation
@@ -522,14 +403,8 @@ class MathFirstKgController extends Controller
             // Calculate the number of unanswered questions
             $missingCount = count($missingAnswers);
             $missingList = implode(', ', $missingAnswers); // List the unanswered question IDs
-            return redirect()->back()->with([
-                'sweet_alert' => [
-                    'type' => 'error',
-                    'title' => 'خطأ!',
-                    'message' => "لم يتم الإجابة على $missingCount سؤال/أسئلة: $missingList.",
-                ],
-                'remaining_time' => $remainingTime,
-            ])->withInput();
+            return redirect()->back()->with(
+                    'error' , "لم يتم الإجابة على $missingCount سؤال/أسئلة: $missingList.")->withInput();
         }
 
         try {
@@ -570,12 +445,8 @@ class MathFirstKgController extends Controller
 
             // Redirect with all necessary data
             return redirect()->route('result')->with([
-                'sweet_alert' => [
-                    'type' => 'success',
-                    'title' => 'نجاح!',
-                    'message' => 'تم حفظ الإجابات بنجاح!',
-                ],
-                'remaining_time' => $remainingTime,
+                    'success' => 'تم حفظ الإجابات بنجاح!',
+                 'remaining_time' => $remainingTime,
                 'countofqus' => $countOfQuestions,
                 'resetTimer' => true,
                 'result' => $result,
@@ -586,14 +457,8 @@ class MathFirstKgController extends Controller
             ])->with('result', $result);
         } catch (\Exception $e) {
             // Handle exceptions
-            return redirect()->back()->with([
-                'sweet_alert' => [
-                    'type' => 'error',
-                    'title' => 'خطأ!',
-                    'message' => 'حدث خطأ أثناء حفظ الإجابات. يرجى المحاولة مرة أخرى.',
-                ],
-                'remaining_time' => $remainingTime,
-            ]);
+            return redirect()->back()->with(
+                    'error' , 'حدث خطأ أثناء حفظ الإجابات. يرجى المحاولة مرة أخرى.');
         }
     }
 
@@ -676,6 +541,7 @@ class MathFirstKgController extends Controller
     //  =====================================================================================================
     public function saveAnswersSecAr(Request $request)
     {
+        
         $user = Auth::user();
         if (in_array($user->role, ['teacher', 'manager'])) {
             return redirect()->route('homepage')->with('error', 'لا يُسمح للمعلمين أو المديرين بالتقديم.');
@@ -687,14 +553,9 @@ class MathFirstKgController extends Controller
         // Ensure the user is authenticated
         $userId = Auth::id(); // Get the authenticated user ID
         if (!$userId) {
-            return redirect()->route('login')->with([
-                'sweet_alert' => [
-                    'type' => 'error',
-                    'title' => 'خطأ!',
-                    'message' => 'يجب تسجيل الدخول لحفظ الإجابات.',
-                ],
-                'remaining_time' => $remainingTime,
-            ]);
+            return redirect()->route('login')->with(
+
+                    'error' , 'يجب تسجيل الدخول لحفظ الإجابات.');
         }
 
         // Validation
@@ -704,37 +565,32 @@ class MathFirstKgController extends Controller
 
         // Check for missing answers
         foreach (range(1, $totalQuestions) as $questionId) {
+            
             if (!isset($answers[$questionId]) || trim($answers[$questionId]) === '') {
                 $missingAnswers[] = $questionId;
             }
         }
-
+        
         if (count($missingAnswers) > 0) {
             // Calculate the number of unanswered questions
             $missingCount = count($missingAnswers);
             $missingList = implode(', ', $missingAnswers); // List the unanswered question IDs
-            return redirect()->back()->with([
-                'sweet_alert' => [
-                    'type' => 'error',
-                    'title' => 'خطأ!',
-                    'message' => "لم يتم الإجابة على $missingCount سؤال/أسئلة: $missingList.",
-                ],
-                'remaining_time' => $remainingTime,
-            ])->withInput();
+            return redirect()->back()->with(
+                    'error' , "لم يتم الإجابة على $missingCount سؤال/أسئلة: $missingList.")->withInput();
         }
 
         try {
+            
             // Calculate the result and percentage score
 
             $countOfQuestions = ArabicSecondThird::count();
-
+       
 
 
             // saving in database the answers
 
             foreach ($answers as $questionId => $answer) {
-                // dd($request->all());
-                // Fetch the correct answer for the question
+
                 $question = ArabicSecondThird::where('id', $questionId)->first();
                 // dd($request->all());
 
@@ -745,7 +601,7 @@ class MathFirstKgController extends Controller
 
                 // Check if the user's answer is correct
                 $isCorrect = strtolower(trim($answer)) === strtolower(trim($question->correct_answer)) ? 1 : 0;
-
+            
                 // Save the user's answer to the database
                 ArabicAnswerSecondThird::create([
                     'question_id' => $questionId,
@@ -755,20 +611,18 @@ class MathFirstKgController extends Controller
                 ]);
             }
             $result = ArabicAnswerSecondThird::where('user_id', $userId)->where('is_correct', 1)->count();
+
             $percentageScore = ($result / $countOfQuestions) * 100;
             // Prepare student performance data
             $studentPerformance = $this->calculateStudentPerformanceArabicSec($userId);
+            dd($studentPerformance);
             // Use RoadmapService to generate roadmap and HTML table
             // dd($percentageScore);
             $roadmap = $this->roadmapService->generateRoadmapArabicSec($studentPerformance, $percentageScore);
             $htmlTable = $this->roadmapService->generateHtmlTableArabicSec($studentPerformance, $percentageScore);
             // Redirect with all necessary data
             return redirect()->route('result')->with([
-                'sweet_alert' => [
-                    'type' => 'success',
-                    'title' => 'نجاح!',
-                    'message' => 'تم حفظ الإجابات بنجاح!',
-                ],
+                'success' => 'تم حفظ الإجابات بنجاح!',
                 'remaining_time' => $remainingTime,
                 'countofqus' => $countOfQuestions,
                 'resetTimer' => true,
@@ -781,14 +635,10 @@ class MathFirstKgController extends Controller
         } catch (\Exception $e) {
             // Handle exceptions
 
-            return redirect()->back()->with([
-                'sweet_alert' => [
-                    'type' => 'error',
-                    'title' => 'خطأ!',
-                    'message' => 'حدث خطأ أثناء حفظ الإجابات. يرجى المحاولة مرة أخرى.',
-                ],
-                'remaining_time' => $remainingTime,
-            ]);
+            return redirect()->back()->with(
+                    'error' ,'حدث خطأ أثناء حفظ الإجابات. يرجى المحاولة مرة أخرى.'
+
+            );
         }
     }
     private function calculateStudentPerformanceArabicSec(int $userId): array
@@ -882,14 +732,8 @@ class MathFirstKgController extends Controller
         // Ensure the user is authenticated
         $userId = Auth::id(); // Get the authenticated user ID
         if (!$userId) {
-            return redirect()->route('login')->with([
-                'sweet_alert' => [
-                    'type' => 'error',
-                    'title' => 'خطأ!',
-                    'message' => 'يجب تسجيل الدخول لحفظ الإجابات.',
-                ],
-                'remaining_time' => $remainingTime,
-            ]);
+            return redirect()->route('login')->with(
+                    'error' ,'يجب تسجيل الدخول لحفظ الإجابات.');
         }
 
         // Validation
@@ -908,14 +752,10 @@ class MathFirstKgController extends Controller
             // Calculate the number of unanswered questions
             $missingCount = count($missingAnswers);
             $missingList = implode(', ', $missingAnswers); // List the unanswered question IDs
-            return redirect()->back()->with([
-                'sweet_alert' => [
-                    'type' => 'error',
-                    'title' => 'خطأ!',
-                    'message' => "لم يتم الإجابة على $missingCount سؤال/أسئلة: $missingList.",
-                ],
-                'remaining_time' => $remainingTime,
-            ])->withInput();
+            return redirect()->back()->with(
+
+                    'error' ,"لم يتم الإجابة على $missingCount سؤال/أسئلة: $missingList."
+    )->withInput();
         }
 
         try {
@@ -959,11 +799,7 @@ class MathFirstKgController extends Controller
             $htmlTable = $this->roadmapService->generateHtmlTableScience($studentPerformance, $percentageScore);
             // Redirect with all necessary data
             return redirect()->route('result')->with([
-                'sweet_alert' => [
-                    'type' => 'success',
-                    'title' => 'نجاح!',
-                    'message' => 'تم حفظ الإجابات بنجاح!',
-                ],
+                    'success' => 'تم حفظ الإجابات بنجاح!',
                 'remaining_time' => $remainingTime,
                 'countofqus' => $countOfQuestions,
                 'resetTimer' => true,
@@ -976,14 +812,8 @@ class MathFirstKgController extends Controller
         } catch (\Exception $e) {
             // Handle exceptions
 
-            return redirect()->back()->with([
-                'sweet_alert' => [
-                    'type' => 'error',
-                    'title' => 'خطأ!',
-                    'message' => 'حدث خطأ أثناء حفظ الإجابات. يرجى المحاولة مرة أخرى.',
-                ],
-                'remaining_time' => $remainingTime,
-            ]);
+            return redirect()->back()->with(
+                    'error' , 'حدث خطأ أثناء حفظ الإجابات. يرجى المحاولة مرة أخرى.');
         }
     }
     private function calculateStudentPerformanceScience(int $userId): array

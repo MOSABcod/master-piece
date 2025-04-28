@@ -17,7 +17,7 @@
                         <div class="bg-light rounded d-flex align-items-center justify-content-between p-4">
                             <i style="color: #17a2b8" class="fa fa-chalkboard-teacher fa-3x"></i> <!-- Teacher icon -->
                             <div class="ms-3">
-                                <p class="mb-2">عدد المعلمات</p>
+                                <p class="mb-2">عدد المعلمين</p>
                                 <h6 class="mb-0">{{ $countTeachers }}</h6>
                             </div>
                         </div>
