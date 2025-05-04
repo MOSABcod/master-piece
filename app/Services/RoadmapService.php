@@ -125,13 +125,13 @@ class RoadmapService
         ];
 
         // Start building the HTML table
-        $table = '<h2 style="text-align:center; color:#27703b; font-size:24px; margin-bottom:20px;">نتيجة امتحان الرياضيات للروضة والصف الأول</h2>';
-        $table .= '<table border="1" style="width:100%; text-align:center; border-collapse: collapse; border:2px solid #27703b; font-family:Arial, sans-serif; font-size:16px;">';
+        $table = '<h2 style="text-align:center; color:#17a2b8; font-size:24px; margin-bottom:20px;">نتيجة امتحان الرياضيات للروضة والصف الأول</h2>';
+        $table .= '<table border="1" style="width:100%; text-align:center; border-collapse: collapse; border:2px solid #17a2b8; font-family:Arial, sans-serif; font-size:16px;">';
         $table .= '<thead>';
-        $table .= '<tr style="background-color:#f4f4f4; color:#27703b;">';
-        $table .= '<th style="padding:10px; border:1px solid #27703b;">المهارة</th>';
-        $table .= '<th style="padding:10px; border:1px solid #27703b;">النتيجة</th>';
-        $table .= '<th style="padding:10px; border:1px solid #27703b;">التقييم</th>';
+        $table .= '<tr style="background-color:#f4f4f4; color:#17a2b8;">';
+        $table .= '<th style="padding:10px; border:1px solid #17a2b8;">المهارة</th>';
+        $table .= '<th style="padding:10px; border:1px solid #17a2b8;">النتيجة</th>';
+        $table .= '<th style="padding:10px; border:1px solid #17a2b8;">التقييم</th>';
         $table .= '</tr>';
         $table .= '</thead><tbody>';
 
@@ -152,7 +152,7 @@ class RoadmapService
         $table .= '</tbody>';
         $table .= '</table>';
 
-        $table .= "<p style='text-align:center; margin-top:20px; font-size:18px; color:#27703b;'>النتيجة الإجمالية: <strong>" . number_format($percentageScore, 2) . "%</strong></p>";
+        $table .= "<p style='text-align:center; margin-top:20px; font-size:18px; color:#17a2b8;'>النتيجة الإجمالية: <strong>" . number_format($percentageScore, 2) . "%</strong></p>";
 
         return $table;
     }
@@ -274,13 +274,13 @@ class RoadmapService
         ];
 
         // Start building the HTML table
-        $table = '<h2 style="color:#27703b; text-align:center; font-size:24px; margin-bottom:20px;">نتيجة امتحان الرياضيات للصف الثاني والصف الثالث</h2>';
+        $table = '<h2 style="color:#17a2b8; text-align:center; font-size:24px; margin-bottom:20px;">نتيجة امتحان الرياضيات للصف الثاني والصف الثالث</h2>';
         $table .= '<table border="1" style="width:100%; text-align:center; border-collapse: collapse; font-family: Arial, sans-serif; font-size:16px;">';
         $table .= '<thead>';
-        $table .= '<tr style="background-color:#f4f4f4; color:#27703b;">';
-        $table .= '<th style="padding:10px; border:1px solid #27703b;">المهارة</th>';
-        $table .= '<th style="padding:10px; border:1px solid #27703b;">النتيجة</th>';
-        $table .= '<th style="padding:10px; border:1px solid #27703b;">التقييم</th>';
+        $table .= '<tr style="background-color:#f4f4f4; color:#17a2b8;">';
+        $table .= '<th style="padding:10px; border:1px solid #17a2b8;">المهارة</th>';
+        $table .= '<th style="padding:10px; border:1px solid #17a2b8;">النتيجة</th>';
+        $table .= '<th style="padding:10px; border:1px solid #17a2b8;">التقييم</th>';
         $table .= '</tr>';
         $table .= '</thead><tbody>';
 
@@ -303,7 +303,7 @@ class RoadmapService
         $table .= '</tbody>';
         $table .= '</table>';
 
-        $table .= "<p style='text-align:center; font-size:18px; margin-top:20px; color:#27703b;'>النتيجة الإجمالية: <strong>" . number_format($percentageScore, 2) . "%</strong></p>";
+        $table .= "<p style='text-align:center; font-size:18px; margin-top:20px; color:#17a2b8;'>النتيجة الإجمالية: <strong>" . number_format($percentageScore, 2) . "%</strong></p>";
 
         return $table;
     }
@@ -425,13 +425,13 @@ class RoadmapService
         ];
 
         // Start building the HTML table
-        $table = '<h2 style="color:#27703b; text-align:center; font-size:24px; margin-bottom:20px;">نتيجة امتحان العربي للصف الأول</h2>';
+        $table = '<h2 style="color:#17a2b8; text-align:center; font-size:24px; margin-bottom:20px;">نتيجة امتحان العربي للصف الأول</h2>';
         $table .= '<table border="1" style="width:100%; text-align:center; border-collapse: collapse; font-family: Arial, sans-serif; font-size:16px;">';
         $table .= '<thead>';
-        $table .= '<tr style="background-color:#f4f4f4; color:#27703b;">';
-        $table .= '<th style="padding:10px; border:1px solid #27703b;">المهارة</th>';
-        $table .= '<th style="padding:10px; border:1px solid #27703b;">النتيجة</th>';
-        $table .= '<th style="padding:10px; border:1px solid #27703b;">التقييم</th>';
+        $table .= '<tr style="background-color:#f4f4f4; color:#17a2b8;">';
+        $table .= '<th style="padding:10px; border:1px solid #17a2b8;">المهارة</th>';
+        $table .= '<th style="padding:10px; border:1px solid #17a2b8;">النتيجة</th>';
+        $table .= '<th style="padding:10px; border:1px solid #17a2b8;">التقييم</th>';
         $table .= '</tr>';
         $table .= '</thead><tbody>';
 
@@ -454,7 +454,7 @@ class RoadmapService
         $table .= '</tbody>';
         $table .= '</table>';
 
-        $table .= "<p style='text-align:center; font-size:18px; margin-top:20px; color:#27703b;'>النتيجة الإجمالية: <strong>" . number_format($percentageScore, 2) . "%</strong></p>";
+        $table .= "<p style='text-align:center; font-size:18px; margin-top:20px; color:#17a2b8;'>النتيجة الإجمالية: <strong>" . number_format($percentageScore, 2) . "%</strong></p>";
 
         return $table;
     }
@@ -581,13 +581,13 @@ class RoadmapService
         ];
 
         // Start building the HTML table
-        $table = '<h2 style="color:#27703b; text-align:center; font-size:24px; margin-bottom:20px;">نتيجة امتحان العربي للصف الثاني والصف الثالث</h2>';
+        $table = '<h2 style="color:#17a2b8; text-align:center; font-size:24px; margin-bottom:20px;">نتيجة امتحان العربي للصف الثاني والصف الثالث</h2>';
         $table .= '<table border="1" style="width:100%; text-align:center; border-collapse: collapse; font-family: Arial, sans-serif; font-size:16px;">';
         $table .= '<thead>';
-        $table .= '<tr style="background-color:#f4f4f4; color:#27703b;">';
-        $table .= '<th style="padding:10px; border:1px solid #27703b;">المهارة</th>';
-        $table .= '<th style="padding:10px; border:1px solid #27703b;">النتيجة</th>';
-        $table .= '<th style="padding:10px; border:1px solid #27703b;">التقييم</th>';
+        $table .= '<tr style="background-color:#f4f4f4; color:#17a2b8;">';
+        $table .= '<th style="padding:10px; border:1px solid #17a2b8;">المهارة</th>';
+        $table .= '<th style="padding:10px; border:1px solid #17a2b8;">النتيجة</th>';
+        $table .= '<th style="padding:10px; border:1px solid #17a2b8;">التقييم</th>';
         $table .= '</tr>';
         $table .= '</thead><tbody>';
 
@@ -610,7 +610,7 @@ class RoadmapService
         $table .= '</tbody>';
         $table .= '</table>';
 
-        $table .= "<p style='text-align:center; font-size:18px; margin-top:20px; color:#27703b;'>النتيجة الإجمالية: <strong>" . number_format($percentageScore, 2) . "%</strong></p>";
+        $table .= "<p style='text-align:center; font-size:18px; margin-top:20px; color:#17a2b8;'>النتيجة الإجمالية: <strong>" . number_format($percentageScore, 2) . "%</strong></p>";
 
         return $table;
     }
@@ -733,13 +733,13 @@ class RoadmapService
         ];
 
         // Start building the HTML table
-        $table = '<h2 style="color:#27703b; text-align:center; font-size:24px; margin-bottom:20px;">نتيجة امتحان العلوم</h2>';
+        $table = '<h2 style="color:#17a2b8; text-align:center; font-size:24px; margin-bottom:20px;">نتيجة امتحان العلوم</h2>';
         $table .= '<table border="1" style="width:100%; text-align:center; border-collapse: collapse; font-family: Arial, sans-serif; font-size:16px;">';
         $table .= '<thead>';
-        $table .= '<tr style="background-color:#f4f4f4; color:#27703b;">';
-        $table .= '<th style="padding:10px; border:1px solid #27703b;">المهارة</th>';
-        $table .= '<th style="padding:10px; border:1px solid #27703b;">النتيجة</th>';
-        $table .= '<th style="padding:10px; border:1px solid #27703b;">التقييم</th>';
+        $table .= '<tr style="background-color:#f4f4f4; color:#17a2b8;">';
+        $table .= '<th style="padding:10px; border:1px solid #17a2b8;">المهارة</th>';
+        $table .= '<th style="padding:10px; border:1px solid #17a2b8;">النتيجة</th>';
+        $table .= '<th style="padding:10px; border:1px solid #17a2b8;">التقييم</th>';
         $table .= '</tr>';
         $table .= '</thead><tbody>';
 
@@ -762,7 +762,7 @@ class RoadmapService
         $table .= '</tbody>';
         $table .= '</table>';
 
-        $table .= "<p style='text-align:center; font-size:18px; margin-top:20px; color:#27703b;'>النتيجة الإجمالية: <strong>" . number_format($percentageScore, 2) . "%</strong></p>";
+        $table .= "<p style='text-align:center; font-size:18px; margin-top:20px; color:#17a2b8;'>النتيجة الإجمالية: <strong>" . number_format($percentageScore, 2) . "%</strong></p>";
 
         return $table;
     }

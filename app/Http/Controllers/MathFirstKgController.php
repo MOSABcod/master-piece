@@ -615,7 +615,7 @@ class MathFirstKgController extends Controller
             $percentageScore = ($result / $countOfQuestions) * 100;
             // Prepare student performance data
             $studentPerformance = $this->calculateStudentPerformanceArabicSec($userId);
-            dd($studentPerformance);
+            // dd($studentPerformance);
             // Use RoadmapService to generate roadmap and HTML table
             // dd($percentageScore);
             $roadmap = $this->roadmapService->generateRoadmapArabicSec($studentPerformance, $percentageScore);

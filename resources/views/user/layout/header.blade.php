@@ -216,7 +216,7 @@
     </div>
 
     <!-- HEADER SECTION START -->
-    <header style="background-color: #27703b "
+    <header style="background-color: #17a2b8"
         class=" ed-header--2 relative z-[2] px-[7.9%] xxxxl:px-[6.5%] xxxl:px-[1%] lg:px-[15px] py-[25px] xxs:py-[16px] flex items-center justify-between">
         <div class="logo xxs:max-w-[60%] flex flex-row items-center" style="gap:20px">
             <a href="{{ route('homepage') }}"><img src="assets/img/logo 05 (1).jpeg" style="height: 74px;"
