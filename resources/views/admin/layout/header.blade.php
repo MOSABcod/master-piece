@@ -7,7 +7,7 @@
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <meta content="" name="keywords">
     <meta content="" name="description">
-    <link rel="icon" type="image/png" href="{{ asset('assets/img/dashborad logo.png') }}">
+    <link rel="icon" type="image/png" href="{{ asset('assets1/img/teddy-bear.png') }}">
 
     <base href="{{ url('/') }}/" target="_self">
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>

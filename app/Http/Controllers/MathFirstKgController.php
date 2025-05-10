@@ -184,7 +184,6 @@ class MathFirstKgController extends Controller
     //  =====================================================================================================
     public function saveAnswersSecMath(Request $request)
     {
-       
         $user = Auth::user();
         if (in_array($user->role, ['teacher', 'manager'])) {
             return redirect()->route('homepage')->with('error', 'لا يُسمح للمعلمين أو المديرين بالتقديم.');
@@ -211,7 +210,7 @@ class MathFirstKgController extends Controller
                 $missingAnswers[] = $questionId;
             }
         }
-
+        
         if (count($missingAnswers) > 0) {
             // Calculate the number of unanswered questions
             $missingCount = count($missingAnswers);
@@ -220,6 +219,7 @@ class MathFirstKgController extends Controller
                     'error' => "لم يتم الإجابة على $missingCount سؤال/أسئلة: $missingList."
             ])->withInput();
         }
+
 
         try {
             // Calculate the result and percentage score
@@ -245,12 +245,12 @@ class MathFirstKgController extends Controller
                 $isCorrect = strtolower(trim($answer)) === strtolower(trim($question->correct_answer)) ? 1 : 0;
 
                 // Save the user's answer to the database
-                // MathAnswerSecondThird::create([
-                //     'question_id' => $questionId,
-                //     'user_id' => $userId,
-                //     'answer' => $answer,
-                //     'is_correct' => $isCorrect,
-                // ]);
+                MathAnswerSecondThird::create([
+                    'question_id' => $questionId,
+                    'user_id' => $userId,
+                    'answer' => $answer,
+                    'is_correct' => $isCorrect,
+                ]);
             }
             $result = MathAnswerSecondThird::where('user_id', $userId)->where('is_correct', 1)->count();
             $percentageScore = ($result / $countOfQuestions) * 100;
@@ -541,6 +541,7 @@ class MathFirstKgController extends Controller
     //  =====================================================================================================
     public function saveAnswersSecAr(Request $request)
     {
+      
         
         $user = Auth::user();
         if (in_array($user->role, ['teacher', 'manager'])) {
@@ -590,6 +591,7 @@ class MathFirstKgController extends Controller
             // saving in database the answers
 
             foreach ($answers as $questionId => $answer) {
+               
 
                 $question = ArabicSecondThird::where('id', $questionId)->first();
                 // dd($request->all());

@@ -144,7 +144,7 @@ h6 {
 
                         <!-- course title -->
                         <h5 class="font-semibold text-[20px] text-edblue mb-[23px]">
-                            <a  class="hover:text-edpurple">امتحان رياضيات - روضة و الصف الاول</a>
+                            <a href="{{route('mathFirst')}}"  class="hover:text-edpurple">امتحان رياضيات - روضة و الصف الاول</a>
                         </h5>
 
                         <!-- course stats -->
@@ -198,7 +198,7 @@ h6 {
 
                         <!-- course title -->
                         <h5 class="font-semibold text-[20px] text-edblue mb-[23px]">
-                            <a  class="hover:text-edpurple">امتحان رياضيات - الصف الثاني والثالث</a>
+                            <a href="{{route('mathSecondAndThird')}}"  class="hover:text-edpurple">امتحان رياضيات - الصف الثاني والثالث</a>
                         </h5>
 
                         <!-- course stats -->
@@ -252,7 +252,7 @@ h6 {
 
                         <!-- course title -->
                         <h5 class="font-semibold text-[20px] text-edblue mb-[23px]">
-                            <a href="course-details.html" class="hover:text-edpurple">امتحان عربي - روضة و الصف الاول</a>
+                            <a href="{{route('arabicFirst')}}" class="hover:text-edpurple">امتحان عربي - روضة و الصف الاول</a>
                         </h5>
 
                         <!-- course stats -->
@@ -306,7 +306,7 @@ h6 {
 
                         <!-- course title -->
                         <h5 class="font-semibold text-[20px] text-edblue mb-[23px]">
-                            <a href="course-details.html" class="hover:text-edpurple">امتحان عربي - الصف الثاني و الصف الثالث</a>
+                            <a href="{{route('arabicSecondAndThird')}}" class="hover:text-edpurple">امتحان عربي - الصف الثاني و الصف الثالث</a>
                         </h5>
 
                         <!-- course stats -->
@@ -359,7 +359,7 @@ h6 {
 
                         <!-- course title -->
                         <h5 class="font-semibold text-[20px] text-edblue mb-[23px]">
-                            <a  class="hover:text-edpurple">امتحان رياضيات - روضة و الصف الاول</a>
+                            <a href="{{route('mathFirst')}}" class="hover:text-edpurple">امتحان رياضيات - روضة و الصف الاول</a>
                         </h5>
 
                         <!-- course stats -->
@@ -410,7 +410,7 @@ h6 {
 
                         <!-- course title -->
                         <h5 class="font-semibold text-[20px] text-edblue mb-[23px]">
-                            <a  class="hover:text-edpurple">امتحان رياضيات - الصف الثاني والثالث</a>
+                            <a href="{{route('mathSecondAndThird')}}" class="hover:text-edpurple">امتحان رياضيات - الصف الثاني والثالث</a>
                         </h5>
 
                         <!-- course stats -->
@@ -462,7 +462,7 @@ h6 {
 
                         <!-- course title -->
                         <h5 class="font-semibold text-[20px] text-edblue mb-[23px]">
-                            <a href="course-details.html" class="hover:text-edpurple">امتحان عربي - روضة و الصف الاول</a>
+                            <a href="{{route('arabicFirst')}}" class="hover:text-edpurple">امتحان عربي - روضة و الصف الاول</a>
                         </h5>
 
                         <!-- course stats -->
@@ -514,7 +514,7 @@ h6 {
 
                         <!-- course title -->
                         <h5 class="font-semibold text-[20px] text-edblue mb-[23px]">
-                            <a href="course-details.html" class="hover:text-edpurple">امتحان عربي - الصف الثاني و الصف الثالث</a>
+                            <a href="{{route('arabicSecondAndThird')}}" class="hover:text-edpurple">امتحان عربي - الصف الثاني و الصف الثالث</a>
                         </h5>
 
                         <!-- course stats -->
@@ -634,12 +634,12 @@ h6 {
             
             /* Button Styling */
             .bg-edpurple {
-                background: #6c63ff;
+                background: #17a2b8;
                 border: none;
                 transition: background 0.3s ease, transform 0.3s ease;
             }
             .bg-edpurple:hover {
-                background: #5a35a5;
+                background: #09c9e6;
                 transform: scale(1.05);
             }
             .bg-edpurple:disabled {
@@ -654,5 +654,32 @@ h6 {
                 }
             }
             </style>
+        
+            <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    
+<script>
+    function confirmExamStart(button) {
+        Swal.fire({
+            title: 'هل أنت متأكد؟',
+            text: "بمجرد البدء لا يمكنك إعادة الامتحان!",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#6C5DD3',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'نعم، ابدأ الآن',
+            cancelButtonText: 'إلغاء'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                const route = button.getAttribute('data-route');
+                window.location.href = route;
+            }
+        });
+    }
+</script>
+
+
+
+        
+        
 
 @endsection

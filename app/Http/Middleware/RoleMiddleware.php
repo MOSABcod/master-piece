@@ -8,7 +8,7 @@ use Illuminate\Support\Facades\Auth;
 
 class RoleMiddleware
 {
-    public function handle(Request $request, Closure $next, $role)
+    public function handle(Request $request, Closure $next, ...$roles)
     {
         // Check if the user is authenticated
         if (!Auth::check()) {
@@ -19,8 +19,8 @@ class RoleMiddleware
         $userRole = Auth::user()->role;
 
         // Check if the user's role matches the required role
-        if ($userRole !== $role) {
-            abort(403, 'Unauthorized access');
+        if ($userRole !== $roles) {
+            return redirect()->back()->with('error', 'You do not have permission to access this page.');
         }
 
         return $next($request);

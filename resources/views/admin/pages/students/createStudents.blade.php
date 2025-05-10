@@ -20,32 +20,32 @@
                     @csrf
                     <!-- Name -->
                     <div class="form-floating mb-3">
-                        <input type="text" class="form-control" id="name" name="name" placeholder="أدخل الاسم" required>
+                        <input type="text" class="form-control" id="name" name="name" placeholder="أدخل الاسم" required value="{{ old('name')}}">
                         <label for="name">الاسم</label>
                     </div>
 
                     <!-- National ID -->
                     <div class="form-floating mb-3">
-                        <input type="number" pattern="\d{10}" class="form-control" id="national_id" name="national_id" placeholder="أدخل الرقم الوطني" >
+                        <input type="number" pattern="\d{10}" class="form-control" id="national_id" name="national_id" placeholder="أدخل الرقم الوطني" required value="{{old('national_id')}}" >
                         <label for="national_id">الرقم الوطني</label>
                     </div>
 
                     <!-- Password -->
                     <div class="form-floating mb-3">
-                        <input type="password" class="form-control" id="password" name="password" placeholder="أدخل كلمة المرور" required>
+                        <input type="password" class="form-control"  id="password" name="password" placeholder="أدخل كلمة المرور" required >
                         <label for="password">كلمة المرور</label>
                     </div>
 
                    <!-- Role -->
                    <div class="form-floating mb-3">
-                    <input type="hidden" value="student" class="form-control" id="password" name="role" placeholder="أدخل كلمة المرور" required>
+                    <input type="hidden" value="student" class="form-control" id="password"  name="role" placeholder="أدخل كلمة المرور" required>
 
                     <label for="role">الدور</label>
                 </div>
 
                     <!-- Age -->
                     <div class="form-floating mb-3">
-                        <input type="number" class="form-control" id="age" name="age" placeholder="أدخل العمر">
+                        <input type="number" class="form-control" value="{{old('age')}}" id="age" name="age" placeholder="أدخل العمر">
                         <label for="age">العمر</label>
                     </div>
 

@@ -636,27 +636,25 @@ button:disabled {
 
     <script>
         // Timer Functionality with localStorage
+        
         const timerElement = document.getElementById('timer');
         const timerInput = document.getElementById('mathSecTimer');
 
-        let timeRemaining = parseInt(localStorage.getItem('timeRemainingMathSec')) || 25 * 60; // 15 minutes in seconds
+        let timeRemaining = 15 * 60; // 15 minutes in seconds
 
         const updateTimer = () => {
-            const minutes = Math.floor(timeRemaining / 60).toString().padStart(2, '0');
-            const seconds = (timeRemaining % 60).toString().padStart(2, '0');
-            timerElement.textContent = `${minutes}:${seconds}`;
+    const minutes = Math.floor(timeRemaining / 60).toString().padStart(2, '0');
+    const seconds = (timeRemaining % 60).toString().padStart(2, '0');
+    timerElement.textContent = `${minutes}:${seconds}`;
 
-            // Change timer color based on remaining time
-            if (timeRemaining <= 3.75 * 60) { // Last 25%
-                timerElement.classList.add('danger');
-                timerElement.classList.remove('warning', 'green');
-            } else if (timeRemaining <= 7.5 * 60) { // Last 50%
-                timerElement.classList.add('warning');
-                timerElement.classList.remove('danger', 'green');
-            } else {
-                timerElement.classList.remove('danger', 'warning');
-                timerElement.classList.add('green');
-            }
+    // Change timer color based on remaining time
+    if (timeRemaining <= 3.75 * 60) { // Danger color for last 25%
+        timerElement.style.backgroundColor = '#ef4444'; // Red
+    } else if (timeRemaining <= 7.5 * 60) { // Warning color for half time
+        timerElement.style.backgroundColor = '#f59e0b'; // Orange
+    } else {
+        timerElement.style.backgroundColor = '#10b981'; // Green
+    }
 
             // Save the remaining time to localStorage
             localStorage.setItem('timeRemainingMathSec', timeRemaining);

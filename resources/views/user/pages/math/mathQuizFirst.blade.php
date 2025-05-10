@@ -448,7 +448,7 @@ const timerElement = document.getElementById('timer');
 const timerInput = document.getElementById('mathFirstTimer');
 
 
-let timeRemaining = parseInt(localStorage.getItem('timeRemaining')) || 15 * 60;
+let timeRemaining =  15 * 60;
 
 const updateTimer = () => {
     const minutes = Math.floor(timeRemaining / 60).toString().padStart(2, '0');

@@ -12,6 +12,16 @@
             });
         </script>
     @endif
+       @if(session('error'))
+        <script>
+            Swal.fire({
+                icon: 'error',
+                title: 'خطأ',
+                text: '{{ session('error') }}',
+                confirmButtonText: 'حسنًا'
+            });
+        </script>
+    @endif
 
     <!-- Error Messages -->
     @if ($errors->any())
@@ -86,12 +96,17 @@
             </div>
             <div class="col-lg-3 col-md-6 mb-5">
                 <h3 class="text-primary mb-4">تواصل معنا</h3>
-                <form action="">
+                <form action="{{route('contact')}}" method="POST">
+                    @csrf
                     <div class="form-group">
                         <input type="text" class="form-control border-0 py-4" placeholder="الأسم" required="required" style="direction:rtl ;text-align:right " />
                     </div>
                     <div class="form-group">
-                        <input type="email" class="form-control border-0 py-4" placeholder="البريد الألكتروني"
+                        <input type="email" name="email" class="form-control border-0 py-4" placeholder="البريد الألكتروني"
+                            required="required" />
+                    </div>
+                     <div class="form-group">
+                        <input type="text" name="message" class="form-control border-0 py-4" placeholder="اكتب رسالتك"
                             required="required" />
                     </div>
                     <div>

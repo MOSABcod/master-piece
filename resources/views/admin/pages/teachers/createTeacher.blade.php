@@ -20,13 +20,13 @@
                     @csrf
                     <!-- Name -->
                     <div class="form-floating mb-3">
-                        <input type="text" class="form-control" id="name" name="name" placeholder="أدخل الاسم" required>
+                        <input type="text" class="form-control" id="name" name="name" placeholder="أدخل الاسم" required value="{{old('name')}}">
                         <label for="name">الاسم</label>
                     </div>
 
                     <!-- National ID -->
                     <div class="form-floating mb-3">
-                        <input type="number" pattern="\d{10}" class="form-control" id="national_id" name="national_id" placeholder="أدخل الرقم الوطني" >
+                        <input type="number" pattern="\d{10}" class="form-control" id="national_id" name="national_id" placeholder="أدخل الرقم الوطني" required value="{{old('national_id')}}" >
                         <label for="national_id">الرقم الوطني</label>
                     </div>
 

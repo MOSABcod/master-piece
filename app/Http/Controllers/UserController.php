@@ -209,7 +209,7 @@ class UserController extends Controller
                 'max:50',
                 'regex:/^[\p{L}]+\s[\p{L}]+$/u' // Ensure the name has two words separated by a space
             ],
-            'national_id' => 'required|numeric|unique:users,national_id', // Ensure national_id is unique in users table
+            'national_id' => 'required|numeric|unique:users,national_id|size:10', // Ensure national_id is unique in users table
             'password' => [
                 'required',
                 'string',

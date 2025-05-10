@@ -1,12 +1,14 @@
 <?php
 
-use App\Http\Controllers\ExamController;
-use App\Http\Controllers\MathFirstKgController;
-use App\Http\Controllers\OpenAIController;
-use App\Http\Controllers\ProfileController;
-use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Middleware\RoleMiddleware;
+use App\Http\Controllers\ExamController;
+use App\Http\Controllers\UserController;
+use App\Http\Controllers\OpenAIController;
+use App\Http\Controllers\ResultController;
+use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\StudentController;
+use App\Http\Controllers\MathFirstKgController;
 
 Route::post('/upload-students', [StudentController::class, 'upload'])->name('students.upload');
 
@@ -49,7 +51,7 @@ Route::fallback(function () {
 });
 
 
-
+Route::post('contact', [ResultController::class, 'contact'])->name('contact');
 
 // home page
 
@@ -95,5 +97,6 @@ Route::post('/saveAnswerSec', [MathFirstKgController::class, 'saveAnswersSecMath
 Route::post('/saveAnswerAR', [MathFirstKgController::class, 'saveAnswersFirstAr'])->name('save.ar.first');
 Route::post('/saveAnswerARSec', [MathFirstKgController::class, 'saveAnswersSecAr'])->name('save.ar.sec');
 Route::post('/saveAnswerScience', [MathFirstKgController::class, 'saveAnswersScience'])->name('save.ar.Science');
+
 
 

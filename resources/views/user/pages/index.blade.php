@@ -22,7 +22,7 @@
 <!-- Header End -->
     
     <!-- ABOUT SECTION START -->
-    <section class="py-[120px] xl:py-[80px] md:py-[60px]" dir="rtl">
+    <section class="py-[120px] xl:py-[80px] md:py-[60px] container" dir="rtl">
         <div class="mx-[19.71%] xxxl:mx-[14.71%] xxl:mx-[9.71%] xl:mx-[5.71%] md:mx-[12px]">
             <div class="flex md:flex-col justify-between items-center gap-x-[60px] xl:gap-x-[40px] gap-y-[40px]">
                 
@@ -30,8 +30,8 @@
                 <!-- txt -->
                 <div class="max-w-[50%] md:max-w-full shrink-0 grow"style="text-align: right; display: block;">
                     {{-- <h6 class="ed-section-sub-title" style="margin-right: 47px; font-size: 30px;">من نحن</h6> --}}
-                    <h2 class="ed-section-title mb-[9px]" style="margin-right: 40%">مرحباً بكم في مدرسة التميز النموذجية</h2>
-                    <p class="text-edgray" style="font-size: 20px; margin-right: 35px; font-family: 'Cairo', sans-serif; ">مدرسة التميز النموذجية تسعى جاهدة لتحقيق بيئة
+                    <h2 class="ed-section-title mb-[9px]" style="text-align:center">مرحباً بكم في مدرسة التميز النموذجية</h2>
+                    <p class="text-edgray" style="font-size: 20px;  font-family: 'Cairo', sans-serif; ">مدرسة التميز النموذجية تسعى جاهدة لتحقيق بيئة
                         تعليمية شاملة وعادلة، تركز على تطوير الإمكانيات الأكاديمية والشخصية لجميع الطلاب. نحن نؤمن
                         بأهمية مراعاة الفروق الفردية بين الطلاب، وتوفير فرص متساوية للجميع بغض النظر عن خلفياتهم أو
                         قدراتهم. تسعى المدرسة إلى بناء بيئة صحية ومحفزة، تشجع على الابتكار والتفكير النقدي، وتوفر الدعم
@@ -61,15 +61,28 @@
                             <h4>اختبار الرياضيات</h4>
                             <p class="m-0" style="font-family: 'Tajawal', sans-serif">اختبر مهاراتك في الرياضيات مع أسئلة تغطي الجبر والهندسة والإحصاء لجميع المستويات</p>
                             <div class="mt-3">
+                                @auth
+                                    
                                 <div class="dropdown">
                                     <button class="btn btn-primary dropdown-toggle" type="button" id="mathDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                         اختر المستوى
                                     </button>
                                     <div class="dropdown-menu" aria-labelledby="mathDropdown">
+                                        @if(auth()->user()->class_id ==1 || auth()->user()->class_id == 2)
                                         <a class="dropdown-item" href="{{ route('mathFirst') }}">المستوى الأول</a>
+                                        @endif
+                                        @if(auth()->user()->class_id ==3 || auth()->user()->class_id == 4)
                                         <a class="dropdown-item" href="{{ route('mathSecondAndThird') }}">المستوى الثاني والثالث</a>
+                                        @endif
                                     </div>
                                 </div>
+                                @endauth
+                                @guest
+                                <button class="btn btn-primary" onclick="window.location.href='{{ route('login') }}'" type="button" >
+                                   سجل الدخول لتقديم الامتحان
+                                </button>
+                                @endguest
+
                             </div>
                         </div>
                     </div>
@@ -83,15 +96,26 @@
                             <h4>اختبار اللغة العربية</h4>
                             <p class="m-0" style="font-family: 'Tajawal', sans-serif;">طور مهاراتك اللغوية في النحو والصرف والأدب العربي مع تمارين متنوعة</p>
                             <div class="mt-3">
+                                @auth
                                 <div class="dropdown">
                                     <button class="btn btn-primary dropdown-toggle" type="button" id="arabicDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                         اختر المستوى
                                     </button>
                                     <div class="dropdown-menu" aria-labelledby="arabicDropdown">
+                                        @if(auth()->user()->class_id ==1 || auth()->user()->class_id == 2)
                                         <a class="dropdown-item" href="{{ route('arabicFirst') }}">المستوى الأول</a>
+                                        @endif
+                                        @if(auth()->user()->class_id ==3 || auth()->user()->class_id == 4)
                                         <a class="dropdown-item" href="{{ route('arabicSecondAndThird') }}">المستوى الثاني والثالث</a>
+                                        @endif
                                     </div>
                                 </div>
+                                @endauth
+                                @guest
+                                <button class="btn btn-primary" onclick="window.location.href='{{ route('login') }}'" type="button" >
+                                   سجل الدخول لتقديم الامتحان
+                                </button>
+                                @endguest
                             </div>
                         </div>
                     </div>
@@ -99,15 +123,33 @@
                 
                 <!-- اختبار العلوم -->
                 <div class="col-lg-4 col-md-6 pb-1 mt-4">
-                    <a href="{{ route('science') }}" class="text-decoration-none">
-                        <div class="d-flex bg-light shadow-sm border-top rounded mb-4 hover-card" style="padding: 30px;">
-                            <i class="fa-solid fa-flask" style="color: #17a2b8; font-size: 50px;"></i> 
-                            <div class="pr-4">                   
-                                <h4>اختبار العلوم</h4>
-                                <p class="m-0" style="font-family: 'Tajawal', sans-serif; padding:16px; color:#666666">استكشف عالم العلوم مع اختبارات في الفيزياء والكيمياء والأحياء للمراحل المختلفة</p>
+                    <div class="d-flex bg-light shadow-sm border-top rounded mb-4 hover-card" style="padding: 30px;">
+                        <i class="fa-solid fa-atom" style="color: #17a2b8; font-size: 50px;"></i>
+                        <div class="pr-4 w-100">
+                            <h4>اختبار العلوم </h4>
+                            <p class="m-0" style="font-family: 'Tajawal', sans-serif;">  استكشف عالم العلوم مع اختبارات في الفيزياء والكيمياء والأحياء للمراحل المختلفة</p>
+                            <div class="mt-3">
+                                @auth
+                                <div class="dropdown">
+                                    <button class="btn btn-primary dropdown-toggle" type="button" id="arabicDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        اختر المستوى
+                                    </button>
+                                    <div class="dropdown-menu" aria-labelledby="scienceDropdown">
+                                        @if(auth()->user()->class_id ==0 || auth()->user()->class_id == 1 || auth()->user()->class_id == 2 || auth()->user()->class_id == 3)
+                                        <a class="dropdown-item" href="{{ route('science') }}"> لجميع المستويات</a>
+                                        @endif
+                                        
+                                    </div>
+                                </div>
+                                @endauth
+                                @guest
+                                <button class="btn btn-primary" onclick="window.location.href='{{ route('login') }}'" type="button" >
+                                   سجل الدخول لتقديم الامتحان
+                                </button>
+                                @endguest
                             </div>
                         </div>
-                    </a>
+                    </div>
                 </div>
                 
                 <!-- اختبارات قريبة -->
@@ -186,7 +228,7 @@
 
         <!-- BLOG SECTION START -->
 
-        <section  style="margin-top:100px" id="strategies">
+        <section  style="margin-top:100px " id="strategies">
             <div style="text-align: center;">
         <!-- heading -->
         <div >
@@ -195,7 +237,7 @@
 
         <!-- service cards -->
             <!-- single service -->
-            <div class="et-service__txt" style="text-align: center; margin-top:50px;">
+            <div class="et-service__txt " style="text-align: center; margin-top:50px;">
                 <h4 class="et-service__title text-20px sm:text-18px font-semibold " style="font-size: 30px">
                     تشخيص صعوبات التعلم في القراءة والحساب
                 </h4>
@@ -214,8 +256,8 @@
                 </div>
             </div>
             
-    </div>
-</section>
+                </div>
+        </section>
 <section> 
             
             <div class="et-service__txt" style="margin-top:50px ;text-align: center;">
@@ -337,7 +379,7 @@
         </section>
         <!-- Team End --> 
 
-        <section class="bg-edoffwhite py-[120px] xl:py-[80px] md:py-[60px]" dir="rtl"
+        <section class="bg-edoffwhite py-[120px] xl:py-[80px] md:py-[60px] container" dir="rtl"
             style="margin-bottom: 10vh; margin-top:10vh" id="mission-vision">
 
             <div class="mx-[19.71%] xxxl:mx-[14.71%] xxl:mx-[9.71%] xl:mx-[5.71%] md:mx-[12px]">
@@ -354,7 +396,7 @@
                             <div class="flex flex-col items-center text-center gap-[15px] max-w-[45%]">
                                 <div
                                     class="shrink-0 bg-edpurple h-[100px] aspect-square rounded-[8px] flex items-center justify-center pr-0">
-                                    <img src="{{asset('assets1/img/school-3980940_1280.jpg')}}" alt="هدفنا" class="w-[50%]">
+                                    <img src="{{asset('assets1/img/school-3980940_1280.jpg')}}" alt="هدفنا" class="w-50%" style="width: 100%; height: 100%; object-fit: cover;">
                                 </div>
                                 <div>
                                     <h6 class="font-bold text-30px text-edblue mb-10px leading-1.4 mt-5" style="font-size: 30px">رسالتنا</h6>
@@ -369,7 +411,7 @@
                             <div class="flex flex-col items-center text-center gap-[15px] max-w-[45%]">
                                 <div
                                     class="shrink-0 bg-edpurple h-[100px] aspect-square rounded-[8px] flex items-center justify-center">
-                                    <img src="{{asset('assets1\img\to-learn-3701963_1280.jpg')}}" alt="رؤيتنا" class="w-[50%]">
+                                    <img src="{{asset('assets1\img\to-learn-3701963_1280.jpg')}}" alt="رؤيتنا" class="w-50%" style="width: 100%; height: 100%; object-fit: cover;">
                                 </div>
                                 <div>
                                     <h6 class="font-bold text-30px text-edblue mb-10px leading-1.4 mt-5" style="font-size: 30px">رؤيتنا</h6>
@@ -387,7 +429,7 @@
 
         
         <!-- CTA 2 SECTION START -->
-        <section class="mt-[120px] xl:mt-[80px] md:mt-[60px]" dir="rtl">
+        <section class="mt-[120px] xl:mt-[80px] md:mt-[60px] container" dir="rtl">
             <div
                 class="mx-[19.7%] xxxl:mx-[14.7%] xxl:mx-[9.7%] xl:mx-[3.2%] md:mx-[15px] bg-[url('../assets/img/cta-3-bg.jpg')] bg-no-repeat bg-cover bg-center rounded-[20px] overflow-hidden text-center py-[120px] xl:py-[80px] md:py-[60px] relative z-[1] before:absolute before:inset-0 before:bg-edpurple/80 before:-z-[1]">
                 <div class="max-w-[570px] mx-auto">

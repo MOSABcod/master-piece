@@ -501,7 +501,7 @@ button:disabled {
        const timerElement = document.getElementById('timer');
         const timerInput = document.getElementById('scienceTimer');
 
-        let timeRemaining = parseInt(localStorage.getItem('timeRemainingScience')) || 25 * 60; // 15 minutes in seconds
+        let timeRemaining =  15 * 60; // 15 minutes in seconds
 
         const updateTimer = () => {
             const minutes = Math.floor(timeRemaining / 60).toString().padStart(2, '0');

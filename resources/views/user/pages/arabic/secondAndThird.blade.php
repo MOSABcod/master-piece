@@ -902,7 +902,7 @@ button:disabled {
 const timerInput = document.getElementById('arSecTimer');
 
 
-let timeRemaining = parseInt(localStorage.getItem('timeRemainingArSec')) || 15 * 60;
+let timeRemaining =  15 * 60;
 
 const updateTimer = () => {
     const minutes = Math.floor(timeRemaining / 60).toString().padStart(2, '0');

@@ -4,19 +4,25 @@
 <head>
     <meta charset="utf-8">
     <title>مدرسةالتميز النموذجية</title>
+    <link rel="icon" type="image/png" href="{{ asset('assets1/img/teddy-bear.png') }}">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <meta content="Free HTML Templates" name="keywords">
     <meta content="Free HTML Templates" name="description">
-    <link rel ="icon" herf="{{ asset('assets1/img/dashborad logo.png')}}" type="image/png">
+    {{-- <link rel ="icon" type="image/png" herf="{{ asset('assets1/img/teddy-bear.png')}}" > --}}
     <base href="{{ url('/') }}/" target="_self">
 
     <!-- Favicon -->
     <link href="img/favicon.ico" rel="icon">
+    
 
     <!-- Google Web Fonts -->
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Handlee&family=Nunito&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Cairo&family=Tajawal&family=Reem+Kufi&display=swap" rel="stylesheet">
+
+    <!-- Icon Font Stylesheet -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
 
 
     <!-- Font Awesome -->
@@ -51,27 +57,26 @@
             </button>
             <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
                 <div class="navbar-nav font-weight-bold mr-4">
-                    <a href="/" class="btn btn-primary px-4 mx-3"style="font-family: 'Tajawal'">الرئيسية</a>
-                    <a href="#exams"class="btn btn-primary px-4 mx-3"style="font-family: 'Tajawal'">أختباراتنا</a>
-                    <a href="#about" class="btn btn-primary px-4 mx-3"style="font-family: 'Tajawal'">مدرستنا</a>
-                    <a href="#strategies"  class="btn btn-primary px-4 mx-3"style="font-family: 'Tajawal'">الأسترتيجيات</a>
-                    <a href="#teachers" class="btn btn-primary px-4 mx-3"style="font-family: 'Tajawal'">معلمونا</a>
+                    <a href="/" class="btn btn-primary px-4 mx-3 mt-3 mb-3"style="font-family: 'Tajawal'">الرئيسية</a>
+                    <a href="#exams"class="btn btn-primary px-4 mx-3 mt-3 mb-3"style="font-family: 'Tajawal'">أختباراتنا</a>
+                    <a href="#about" class="btn btn-primary px-4 mx-3 mt-3 mb-3"style="font-family: 'Tajawal'">مدرستنا</a>
+                    <a href="#strategies"  class="btn btn-primary px-4 mx-3 mt-3 mb-3"style="font-family: 'Tajawal'">الأسترتيجيات</a>
+                    <a href="#teachers" class="btn btn-primary px-4 mx-3 mt-3 mb-3"style="font-family: 'Tajawal'">معلمونا</a>
                 </div>
                 
                 @if (Auth::user())
-                
-
-                    <a href="{{ route('studentProfile') }}" class="btn btn-primary px-4 mx-3"style="font-family: 'Tajawal'">صفحتي الشخصية</a>
+                    <a href="{{ route('studentProfile') }}" class="btn btn-primary px-4 mt-3 mb-3 mr-5" style="font-family: 'Tajawal'">صفحتي الشخصية</a>
                     <form action="{{ route('logout') }}" method="POST" class="nav-item nav-link p-0">
                         @csrf
-                        <button type="submit" style="margin-right: 8px;margin-top: 15px !important;font-family: 'Tajawal' " class="btn btn-primary px-4 mx-3">
+                        <button type="submit" class="btn btn-primary px-4 mt-3 mb-3 mr-5" style="font-family: 'Tajawal'">
                             <i class="fa fa-sign-out-alt me-2" style="margin-left: 6px"></i>تسجيل خروج
                         </button>
                     </form>
-
+                
                 @else
                 <a href="/login" class="btn btn-primary px-4 "style="font-family: 'Tajawal'">تسجيل دخول</a>
                 @endif
+            
             </div>
         </nav>
     </div>
