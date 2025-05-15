@@ -59,9 +59,6 @@ class StudentController extends Controller
                         $newUser->role = 'student';
                         $newUser->age = $cells[3] ?? null;
                         $newUser->class_id = $cells[4] ?? null;
-                        // $newUser->save();
-                        // dd($newUser);
-                        // dd($request->file('file'));
                         if (!$newUser->save()) {
                             // Handle the error if save fails
                             throw new \Exception("Failed to save user: " . json_encode($cells));
@@ -71,9 +68,7 @@ class StudentController extends Controller
                     }
                 }
             }
-
             $reader->close();
-
             if (!empty($errors)) {
                 return redirect()->back()->with('error', implode('<br>', $errors));
             }

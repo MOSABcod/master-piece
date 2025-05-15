@@ -14,9 +14,6 @@ use Illuminate\Support\Facades\Auth;
 
 class UserController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
     public function teacher()
     {
         $users = User::where('role', 'teacher')->get(); // Fetch only teachers
@@ -124,8 +121,6 @@ class UserController extends Controller
             // 'fifthScience'
         ));
     }
-
-
     public function showProfile()
     {
         // Check if the user has answers for each of the exams
@@ -138,16 +133,12 @@ class UserController extends Controller
         // Pass the results to the view using compact
         return view('user.pages.profileWithExams', compact('first', 'second', 'third', 'fourth', 'fifth'));
     }
-
     public function showresult(string $id)
     {
         $user = User::with('roadmaps')->where('id', $id)->first(); // Fetch only teachers
         return view('admin.pages.students.studentResult', compact('user')); // Adjust the view path as needed
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
     public function create()
     {
         $classes = Classes::all();
@@ -159,9 +150,6 @@ class UserController extends Controller
         return view('admin.pages.students.createStudents', compact('classes')); // Ensure this matches your form view file
     }
 
-    /**
-     * Store a newly created resource in storage.
-     */
     public function store(Request $request)
     {
         // Validate the form data
@@ -172,7 +160,7 @@ class UserController extends Controller
                 'max:50',
                 'regex:/^[\p{L}]+\s[\p{L}]+$/u' // Ensure the name has two words separated by a space
             ],
-            'national_id' => 'required|numeric|unique:users,national_id', // Ensure national_id is unique in users table
+            'national_id' => 'required|numeric|unique:users,national_id|min:10', // Ensure national_id is unique in users table
             'password' => [
                 'required',
                 'string',
@@ -209,7 +197,7 @@ class UserController extends Controller
                 'max:50',
                 'regex:/^[\p{L}]+\s[\p{L}]+$/u' // Ensure the name has two words separated by a space
             ],
-            'national_id' => 'required|numeric|unique:users,national_id|size:10', // Ensure national_id is unique in users table
+            'national_id' => 'required|numeric|min_digits:10|unique:users,national_id', // Ensure national_id is unique in users table
             'password' => [
                 'required',
                 'string',
@@ -218,7 +206,7 @@ class UserController extends Controller
             ],
             'age' => 'nullable|numeric|min:0',
             'class_id' => 'required_if:role,student|nullable|numeric', // Required if role is 'student'
-        ], $this->arabicValidationMessages());
+        ],$this->arabicValidationMessages());
 
         // Create a new user in the 'users' table
         $student = new \App\Models\User(); // Assuming User is your model for the 'users' table
@@ -256,81 +244,39 @@ class UserController extends Controller
             'class_id.numeric' => 'رقم الصف يجب أن يكون رقماً.',
         ];
     }
-
-
-
-
-
-    /**
-     * Display the specified resource.
-     */
-    public function show(string $id)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(string $id)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     */
     public function update(Request $request, $id)
     {
         try {
-            // Validate the ID
-            if (!is_numeric($id)) {
-                return redirect()->route('teacher.index')->with('error', 'المعرف غير صالح.');
-            }
-
-            // Find the teacher by ID
-            $teacher = User::findOrFail($id);
-
-            // Ensure the user is a teacher
-            // if ($teacher->role !== 'teacher') {
-            //     return redirect()->route('teacher.index')->with('error', 'يمكنك فقط تحديث بيانات المعلمين.');
-            // }
-
-            // Validate the incoming request data
-            $validatedData = $request->validate(
+            $request->validate(
                 [
                     'name' => 'required|string|max:50',
-                    'national_id' => 'required|numeric|unique:users,national_id' . $teacher->id,
+                    'national_id' => 'required|numeric|unique:users,national_id',
 
                     'age' => 'nullable|numeric|min:0',
                     'class_id' => 'nullable|numeric',
                 ],
-                $this->arabicValidationMessages()
             );
 
-            // Update the teacher's information
-            $teacher->update($validatedData);
+            User::find($id)->update([
+                'name' => $request->name,
+                'national_id' => $request->national_id,
+                'age' => $request->age,
+                'class_id' => $request->class_id,
+            ]);
 
             // Redirect back with a success message
             return redirect()->back()->with('success', 'تم تحديث بيانات  بنجاح!');
         } catch (\Illuminate\Database\Eloquent\ModelNotFoundException $e) {
             // Handle case where the teacher ID does not exist
-            return redirect()->route('teacher.index')->with('error', 'لم يتم العثور على .');
+            return redirect()->back()->with('error', 'لم يتم العثور على .');
         } catch (\Illuminate\Validation\ValidationException $e) {
             // Redirect back with validation errors
             return redirect()->back()->withErrors($e->validator)->withInput();
         } catch (\Exception $e) {
-
             // Redirect back with a generic error message
             return redirect()->route('viewTeachers')->with('error', 'حدث خطأ أثناء تحديث البيانات. يرجى المحاولة مرة أخرى!');
         }
     }
-
-
-
-    /**
-     * Remove the specified resource from storage.
-     */
     public function destroy($id)
     {
         try {
@@ -338,18 +284,14 @@ class UserController extends Controller
             if (!is_numeric($id)) {
                 return redirect()->route('viewTeachers')->with('error', 'المعرف غير صالح.');
             }
-
             // Find the teacher by ID
             $teacher = User::findOrFail($id);
-
             // Check if the user role is teacher (to avoid accidental deletion of non-teacher users)
             if ($teacher->role !== 'teacher') {
                 return redirect()->route('viewTeachers')->with('error', 'يمكنك فقط حذف المعلمين.');
             }
-
             // Delete the teacher
             $teacher->delete();
-
             // Redirect back with a success message
             return redirect()->route('viewTeachers')->with('success', 'تم حذف المعلم/ة بنجاح!');
         } catch (\Illuminate\Database\Eloquent\ModelNotFoundException $e) {

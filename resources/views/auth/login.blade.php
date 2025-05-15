@@ -45,7 +45,7 @@
                     <button type="submit" class="btn btn-primary btnn-primary">تسجيل الدخول</button>
                 </form>
                 
-                <div class="separator">
+                {{-- <div class="separator">
                     <span>أو</span>
                 </div>
                 
@@ -53,7 +53,7 @@
                     @if (Route::has('password.request'))
                         <a href="{{ route('password.request') }}">نسيت كلمة المرور؟</a>
                     @endif
-                </div>
+                </div> --}}
                 
                 {{-- <div class="footer-link">
                     <p>ليس لديك حساب؟ <a href="{{ route('register') }}">سجل الآن</a></p>

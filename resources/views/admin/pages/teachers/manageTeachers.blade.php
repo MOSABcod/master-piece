@@ -21,22 +21,12 @@
                                 <th scope="col" style="text-align: right;">الإجراءات</th>
                             </tr>
                         </thead>
-                        <tbody>
+                        <tbody> 
                             @forelse ($users as $user)
                                 <tr>
                                     <td>{{ $loop->iteration }}</td>
                                     <td>{{ $user->name }}</td>
                                     <td>{{ $user->national_id }}</td>
-                                    {{-- <td>
-                                        @if ($user->role === 'manager')
-                                            مدير/ة
-                                        @elseif ($user->role === 'teacher')
-                                            معلم/ة
-                                        @elseif ($user->role === 'student')
-                                            طالب/ة
-                                        @else
-                                            {{ $user->role }}
-                                        @endif --}}
                                     <td>{{ $user->age ?? 'غير متوفر' }}</td>
                                     <td>{{ $user->class->class_name ?? 'غير متوفر' }}</td>
                                     <td>
@@ -56,10 +46,8 @@
                                                 <i class="fas fa-trash-alt"></i> حذف
                                             </button>
                                         </form>
-
                                     </td>
                                 </tr>
-
                                 <!-- Edit Modal -->
                                 <div class="modal fade" id="editModal-{{ $user->id }}" tabindex="-1"
                                     aria-labelledby="editModalLabel-{{ $user->id }}" aria-hidden="true">
@@ -72,9 +60,6 @@
                                                     aria-label="إغلاق" style="margin: 0rem !important;">
                                                 </button>
                                             </div>
-
-
-
                                             <div class="modal-body">
                                                 <form action="{{ route('teacher.update', $user->id) }}" method="POST">
                                                     @csrf
@@ -87,7 +72,6 @@
                                                             id="name-{{ $user->id }}" name="name"
                                                             value="{{ $user->name }}" required>
                                                     </div>
-
                                                     <!-- National ID -->
                                                     <div class="mb-3">
                                                         <label for="national_id-{{ $user->id }}"
@@ -96,8 +80,6 @@
                                                             id="national_id-{{ $user->id }}" name="national_id"
                                                             value="{{ $user->national_id }}" required>
                                                     </div>
-
-
                                                     <!-- Age -->
                                                     <div class="mb-3">
                                                         <label for="age-{{ $user->id }}"
@@ -106,7 +88,6 @@
                                                             id="age-{{ $user->id }}" name="age"
                                                             value="{{ $user->age }}">
                                                     </div>
-
                                                     <div class="mb-3">
                                                         <label for="class_id" class="form-label">اختر الصف</label>
                                                         <select class="form-select @error('class_id') is-invalid @enderror"
@@ -127,7 +108,6 @@
                                                             </div>
                                                         @enderror
                                                     </div>
-
                                                     <!-- Submit Button -->
                                                     <button type="submit"
                                                         class="btn "style="background-color: #17a2b8; color:white;">حفظ
@@ -137,12 +117,6 @@
                                         </div>
                                     </div>
                                 </div>
-
-
-
-
-                                <!-- End Edit Modal -->
-                                <!-- End Edit Modal -->
                             @empty
                                 <tr>
                                     <td colspan="7" class="text-center">لا توجد بيانات لعرضها</td>

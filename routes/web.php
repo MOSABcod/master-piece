@@ -1,14 +1,14 @@
 <?php
 
-use Illuminate\Support\Facades\Route;
-use App\Http\Middleware\RoleMiddleware;
 use App\Http\Controllers\ExamController;
-use App\Http\Controllers\UserController;
-use App\Http\Controllers\OpenAIController;
-use App\Http\Controllers\ResultController;
-use App\Http\Controllers\ProfileController;
-use App\Http\Controllers\StudentController;
 use App\Http\Controllers\MathFirstKgController;
+use App\Http\Controllers\OpenAIController;
+use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\UserController;
+use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\StudentController;
+use App\Http\Middleware\RoleMiddleware;
+use App\Http\Controllers\ResultController;
 
 Route::post('/upload-students', [StudentController::class, 'upload'])->name('students.upload');
 
@@ -99,4 +99,32 @@ Route::post('/saveAnswerARSec', [MathFirstKgController::class, 'saveAnswersSecAr
 Route::post('/saveAnswerScience', [MathFirstKgController::class, 'saveAnswersScience'])->name('save.ar.Science');
 
 
+// Route::withoutMiddleware([RoleMiddleware::class,'student'])->group(function () {
 
+// Route::get('/mathFirst', [ExamController::class, 'checkApplyMathFirst'])->name('mathFirst');
+// Route::get('/mathSecondAndThird', [ExamController::class, 'checkApplyMathSec'])->name('mathSecondAndThird');
+// Route::get('/arabicFirst', [ExamController::class, 'checkApplyArabicFirst'])->name('arabicFirst');
+// Route::get('/arabicSecondAndThird', [ExamController::class, 'checkApplyArabicSec'])->name('arabicSecondAndThird');
+// Route::get('/science', [ExamController::class, 'checkApplyScience'])->name('science');
+
+
+// });
+// Route::withoutMiddleware([RoleMiddleware::class,'maneger'])->group(function () {
+
+// Route::put('/teachers/{id}', [UserController::class, 'update'])->name('teacher.update');
+// Route::delete('/teachers/{id}', [UserController::class, 'destroy'])->name('teacher.destroy');
+// //
+// Route::get('/students', [UserController::class, 'students'])->name('viewStudents');
+// Route::get('/createStudent', [UserController::class, 'createStudent'])->name('student.create');
+// Route::get('/showresult/{id}', [UserController::class, 'showresult'])->name('showresult');
+// Route::post('/createStudent', [UserController::class, 'storeStudent'])->name('student.store');
+// Route::delete('/students/{id}', [UserController::class, 'destroyStudent'])->name('student.destroy');
+
+// });
+// Route::withoutMiddleware([RoleMiddleware::class,'techer'])->group(function () {
+
+// Route::get('/teachers', [UserController::class, 'teacher'])->name('viewTeachers');
+// Route::get('/createTeacher', [UserController::class, 'create'])->name('teacher.create');
+// Route::post('/createTeacher', [UserController::class, 'store'])->name('teacher.store');
+
+// });

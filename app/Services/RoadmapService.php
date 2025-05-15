@@ -16,13 +16,6 @@ class RoadmapService
         $this->openAIService = $openAIService;
     }
 
-    /**
-     * Generate and save the roadmap and HTML table based on student performance.
-     *
-     * @param array $studentPerformance
-     * @param float $percentageScore
-     * @return array|null ['roadmap' => string, 'html_table' => string] or null if score >= 80
-     */
     public function generateRoadmap(array $studentPerformance, float $percentageScore): ?array
     {
         if ($percentageScore >= 80) {
@@ -73,13 +66,6 @@ class RoadmapService
         return $roadmapData;
     }
 
-    /**
-     * Generate the prompt for OpenAI based on student performance.
-     *
-     * @param array $studentPerformance
-     * @param float $percentageScore
-     * @return string
-     */
     private function generateRoadmapPrompt(array $studentPerformance, float $percentageScore): string
     {
         // Define the skills and their question counts
@@ -107,14 +93,6 @@ class RoadmapService
         return $prompt;
     }
 
-
-    /**
-     * Generate an HTML table summarizing student performance.
-     *
-     * @param array $studentPerformance
-     * @param float $percentageScore
-     * @return string
-     */
     public function generateHtmlTable(array $studentPerformance, float $percentageScore): string
     {
         // Define the skills and their question counts
@@ -165,13 +143,7 @@ class RoadmapService
     // ==========================================================================
     // ==========================================================================
     // ==========================================================================
-    /**
-     * Generate and save the roadmap and HTML table based on student performance.
-     *
-     * @param array $studentPerformance
-     * @param float $percentageScore
-     * @return array|null ['roadmap' => string, 'html_table' => string] or null if score >= 80
-     */
+
     public function generateRoadmapMathSec(array $studentPerformance, float $percentageScore): ?array
     {
         if ($percentageScore >= 80) {
@@ -181,10 +153,6 @@ class RoadmapService
         // Create a unique cache key based on student performance and score
         $cacheKey = 'roadmap_' . md5(json_encode($studentPerformance) . $percentageScore);
 
-        // Attempt to retrieve from cache
-        // if (Cache::has($cacheKey)) {
-        //     return Cache::get($cacheKey);
-        // }
 
         // Prepare the prompt for OpenAI to generate a roadmap in Arabic
         $prompt = $this->generateRoadmapPromptMathSec($studentPerformance, $percentageScore);
@@ -222,13 +190,7 @@ class RoadmapService
         return $roadmapData;
     }
 
-    /**
-     * Generate the prompt for OpenAI based on student performance.
-     *
-     * @param array $studentPerformance
-     * @param float $percentageScore
-     * @return string
-     */
+
     private function generateRoadmapPromptMathSec(array $studentPerformance, float $percentageScore): string
     {
         // Define the skills and their question counts
@@ -257,13 +219,6 @@ class RoadmapService
     }
 
 
-    /**
-     * Generate an HTML table summarizing student performance.
-     *
-     * @param array $studentPerformance
-     * @param float $percentageScore
-     * @return string
-     */
     public function generateHtmlTableMathSec(array $studentPerformance, float $percentageScore): string
     {
         // Define the skills and their question counts

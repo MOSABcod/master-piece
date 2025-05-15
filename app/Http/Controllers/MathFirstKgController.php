@@ -68,23 +68,15 @@ class MathFirstKgController extends Controller
         }
 
         try {
-
-
             $countOfQuestions = MathFirstKg::count();
-
-
             foreach ($answers as $questionId => $answer) {
-
                 // Fetch the correct answer for the question
                 $question = MathFirstKg::where('id', $questionId)->first();
-
                 if (!$question) {
                     continue; // Skip if question not found
                 }
-
                 // Check if the user's answer is correct
                 $isCorrect = strtolower(trim($answer)) === strtolower(trim($question->correct_answer)) ? 1 : 0;
-
                 // Save the user's answer to the database
                 AnswersMathFirstKg::create([
                     'question_id' => $questionId,
@@ -114,11 +106,9 @@ class MathFirstKgController extends Controller
             ])->with('result', $result);
         } catch (\Exception $e) {
             // Handle exceptions
-
             return redirect()->back()->with('error' , 'حدث خطأ أثناء حفظ الإجابات. يرجى المحاولة مرة أخرى.');
         }
     }
-
     private function calculateStudentPerformance(int $userId): array
     {
         // Define the mapping of question IDs to skills
@@ -179,9 +169,6 @@ class MathFirstKgController extends Controller
         return $performance;
     }
     //  ==========================================save sec===================================================
-    //  =====================================================================================================
-    //  =====================================================================================================
-    //  =====================================================================================================
     public function saveAnswersSecMath(Request $request)
     {
         $user = Auth::user();
@@ -198,7 +185,6 @@ class MathFirstKgController extends Controller
             return redirect()->route('login')->with(
                     'error' , 'يجب تسجيل الدخول لحفظ الإجابات.');
         }
-
         // Validation
         $answers = $request->input('answers', []);
         $totalQuestions = 25; // Update this number based on the total number of questions
@@ -219,31 +205,17 @@ class MathFirstKgController extends Controller
                     'error' => "لم يتم الإجابة على $missingCount سؤال/أسئلة: $missingList."
             ])->withInput();
         }
-
-
         try {
             // Calculate the result and percentage score
-
             $countOfQuestions = MathSecondThird::count();
-
-
-
-            // saving in database the answers
-
             foreach ($answers as $questionId => $answer) {
-                // dd($request->all());
                 // Fetch the correct answer for the question
                 $question = MathSecondThird::where('id', $questionId)->first();
-                // dd($request->all());
-
                 if (!$question) {
                     continue; // Skip if question not found
                 }
-                // dd($request->all());
-
                 // Check if the user's answer is correct
                 $isCorrect = strtolower(trim($answer)) === strtolower(trim($question->correct_answer)) ? 1 : 0;
-
                 // Save the user's answer to the database
                 MathAnswerSecondThird::create([
                     'question_id' => $questionId,
@@ -256,8 +228,6 @@ class MathFirstKgController extends Controller
             $percentageScore = ($result / $countOfQuestions) * 100;
             // Prepare student performance data
             $studentPerformance = $this->calculateStudentPerformanceMathSec($userId);
-            // Use RoadmapService to generate roadmap and HTML table
-            // dd($percentageScore);
             $roadmap = $this->roadmapService->generateRoadmapMathSec($studentPerformance, $percentageScore);
             $htmlTable = $this->roadmapService->generateHtmlTableMathSec($studentPerformance, $percentageScore);
             // Redirect with all necessary data
@@ -273,26 +243,11 @@ class MathFirstKgController extends Controller
             ])->with('result', $result);
         } catch (\Exception $e) {
             // Handle exceptions
-
             return redirect()->back()->with(
-
                     'error' ,'حدث خطأ أثناء حفظ الإجابات. يرجى المحاولة مرة أخرى.'
             );
         }
     }
-
-    /**
-     * Calculate student performance per skill.
-     *
-     * @param int $userId
-     * @return array
-     */
-    /**
-     * Calculate student performance per skill for the secondary math exam.
-     *
-     * @param int $userId
-     * @return array
-     */
     private function calculateStudentPerformanceMathSec(int $userId): array
     {
         // Define the mapping of question IDs to skills based on the new exam structure
