@@ -1,5 +1,5 @@
-  <!-- Footer Start -->
-  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <!-- Footer Start -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
     <!-- Success Message -->
     @if(session('success'))
@@ -12,7 +12,7 @@
             });
         </script>
     @endif
-       @if(session('error'))
+    @if(session('error'))
         <script>
             Swal.fire({
                 icon: 'error',
@@ -89,7 +89,7 @@
                     <a class="text-white mb-2" href="/"><i class="fa fa-angle-right mr-2 mx-2 mb-2"></i>الرئيسية</a>
                     <a class="text-white mb-2" href="#exams"><i class="fa fa-angle-right mr-2 mx-2 mb-2"></i>أخباراتنا</a>
                     <a class="text-white mb-2" href="#about"><i class="fa fa-angle-right mr-2 mx-2 mb-2"></i>مدرستنا</a>
-                    <a class="text-white mb-2" href="#strategies"><i class="fa fa-angle-right mr-2 mx-2 mb-2">الأسترتيجيات</i></a>
+                    <a class="text-white mb-2" href="#strategies"><i class="fa fa-angle-right mr-2 mx-2 mb-2"></i>الأسترتيجيات</a>
                     <a class="text-white mb-2" href="#teachers"><i class="fa fa-angle-right mr-2 mx-2 mb-2"></i>معلمونا</a>
                     <a class="text-white" href="/login"><i class="fa fa-angle-right mr-2 mx-2 mb2"></i>تسجيل الدخول</a>
                 </div>
@@ -105,7 +105,7 @@
                         <input type="email" name="email" class="form-control border-0 py-4" placeholder="البريد الألكتروني"
                             required="required" />
                     </div>
-                     <div class="form-group">
+                    <div class="form-group">
                         <input type="text" name="message" class="form-control border-0 py-4" placeholder="اكتب رسالتك"
                             required="required" />
                     </div>
